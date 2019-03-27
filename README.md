@@ -1,7 +1,6 @@
 ![Logo da plataforma](https://raw.githubusercontent.com/aplneto/projeto_ES/master/.idv/logotmp200x200.png "Logo do Projeto")
 
 # medmapper
-> Additional information or tagline
 
 O medmapper é uma plataforma online que reúne as informações sobre as
 unidades de saúde da cidade do Recife em um só lugar, facilitando a busca
