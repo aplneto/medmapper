@@ -1,11 +1,11 @@
-![Logo of the project](https://raw.githubusercontent.com/jehna/readme-best-practices/master/sample-logo.png "Logo do Projeto")
+![Logo da plataforma](https://raw.githubusercontent.com/aplneto/projeto_ES/master/.idv/logotmp200x200.png "Logo do Projeto")
 
-# MapMed
+# medmapper
 > Additional information or tagline
 
-MapMed é uma plataforma online que reúne as informações sobre as unidades de
-saúde da cidade do Recife em um só lugar, facilitando a busca por unidades e
-tratamentos específicos.
+O medmapper é uma plataforma online que reúne as informações sobre as
+unidades de saúde da cidade do Recife em um só lugar, facilitando a busca
+busca por unidades e tratamentos específicos.
 
 ## Installing / Getting started
 
