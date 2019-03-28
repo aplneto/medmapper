@@ -8,6 +8,20 @@ O medmapper é uma plataforma online que reúne as informações sobre as
 unidades de saúde da cidade do Recife em um só lugar, facilitando a busca
 busca por unidades e tratamentos específicos.
 
+## Índice
+
+[Motivação](https://github.com/aplneto/medmapper#motivação)
+
+[Instalação](https://github.com/aplneto/medmapper#installing--getting-started)
+
+[Desenvolvimento](https://github.com/aplneto/medmapper#desenvolvimento)
+
+[Ferramentas](https://github.com/aplneto/medmapper#ferramentas-de-terceiros)
+
+[Links](https://github.com/aplneto/medmapper#links)
+
+[Equipe](https://github.com/aplneto/medmapper#dev-team)
+
 ## Motivação
 
 Em 2015 o Brasil, principalmente nos estados do Nordeste, sofreu com um surto
@@ -43,10 +57,6 @@ $ git clone https://github.com/aplneto/projeto_ES
 
 Para iniciar a edição do código da plataforma basta clonar o repositório na
 sua máquina. 
-
-### Table of Contents
-
-Coming soon.
 
 ## Desenvolvimento
 
