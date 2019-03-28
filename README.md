@@ -1,3 +1,5 @@
+[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
+
 ![Logo da plataforma](https://raw.githubusercontent.com/aplneto/projeto_ES/master/.idv/logotmp200x200.png "Logo do Projeto")
 
 # medmapper
