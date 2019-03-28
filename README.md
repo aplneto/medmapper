@@ -113,8 +113,10 @@ https://github.com/aplneto "aplneto")
 
 **Gabriel Cavalcanti de Melo**
 
-![Facebook](https://img.icons8.com/material/32/000000/facebook.png)
-![LinkedIn](https://img.icons8.com/material/32/000000/linkedin.png)
+[![Facebook](https://img.icons8.com/material/32/000000/facebook.png)](
+https://www.facebook.com/gabriel.cavalcanti.7370 "Gabriel Cavalcanti")
+[![LinkedIn](https://img.icons8.com/material/32/000000/linkedin.png)](
+https://www.linkedin.com/in/gabriel-cavalcanti-a384b7170/ "Gabriel Cavalcanti")
 [![E-mail](https://img.icons8.com/windows/32/000000/gmail.png)](
 mailto:gcm2@cin.ufpe.br "gcm2@cin.ufpe.br")
 [![GitHub](https://img.icons8.com/material/32/000000/github-2.png)](
