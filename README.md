@@ -104,7 +104,8 @@ Releases
 
 **Antônio Paulino de Lima Neto**
 
-![Facebook](https://img.icons8.com/material/32/000000/facebook.png)
+[![Facebook](https://img.icons8.com/material/32/000000/facebook.png)](
+https://www.facebook.com/aplneto2 "Antonio Lima")
 ![LinkedIn](https://img.icons8.com/material/32/000000/linkedin.png)
 [![E-mail](https://img.icons8.com/windows/32/000000/gmail.png)](
 mailto:apln2@cin.ufpe.br "apln2@cin.ufpe.br")
@@ -124,8 +125,9 @@ https://github.com/GabrielCavalcanti13 "GabrielCavalcanti13")
 
 **Isac Tomaz da Silva**
 
-![Facebook](https://img.icons8.com/material/32/000000/facebook.png)
-![LinkedIn](https://img.icons8.com/material/32/000000/linkedin.png)
+[![Facebook](https://img.icons8.com/material/32/000000/facebook.png)](
+https://www.facebook.com/isacits "Isac Silva")
+(![LinkedIn](https://img.icons8.com/material/32/000000/linkedin.png)
 [![E-mail](https://img.icons8.com/windows/32/000000/gmail.png)](
 mailto:its@cin.ufpe.ber "its@cin.ufpe.br")
 [![GitHub](https://img.icons8.com/material/32/000000/github-2.png)](
@@ -133,8 +135,10 @@ https://github.com/isacits "isacits")
 
 **Pedro Rodolfo Gomes de Souza**
 
-![Facebook](https://img.icons8.com/material/32/000000/facebook.png)
-![LinkedIn](https://img.icons8.com/material/32/000000/linkedin.png)
+[![Facebook](https://img.icons8.com/material/32/000000/facebook.png)](
+https://www.facebook.com/pedrodesouzape "Pedro Rodolfo")
+[![LinkedIn](https://img.icons8.com/material/32/000000/linkedin.png)](
+https://www.linkedin.com/in/pedro-rodolfo-de-souza-12988835/ "Pedro Rodolfo de Souza")
 [![E-mail](https://img.icons8.com/windows/32/000000/gmail.png)](
 mailto:rodolfo@cin.ufpe.ber "rodolfo@cin.ufpe.br")
 [![GitHub](https://img.icons8.com/material/32/000000/github-2.png)](
