@@ -127,7 +127,7 @@ https://github.com/GabrielCavalcanti13 "GabrielCavalcanti13")
 
 [![Facebook](https://img.icons8.com/material/32/000000/facebook.png)](
 https://www.facebook.com/isacits "Isac Silva")
-(![LinkedIn](https://img.icons8.com/material/32/000000/linkedin.png)
+![LinkedIn](https://img.icons8.com/material/32/000000/linkedin.png)
 [![E-mail](https://img.icons8.com/windows/32/000000/gmail.png)](
 mailto:its@cin.ufpe.ber "its@cin.ufpe.br")
 [![GitHub](https://img.icons8.com/material/32/000000/github-2.png)](
