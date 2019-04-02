@@ -98,7 +98,7 @@ Outras ferramentas
 [![Facebook](https://img.icons8.com/material/32/000000/facebook.png)](
 https://www.facebook.com/aplneto2 "Antonio Lima")
 [![LinkedIn](https://img.icons8.com/material/32/000000/linkedin.png)](
-https://www.linkedin.com/in/ant%C3%B4nio-paulino-5748ab168/)
+https://www.linkedin.com/in/ant%C3%B4nio-paulino-5748ab168/ "Antônio Paulino")
 [![E-mail](https://img.icons8.com/windows/32/000000/gmail.png)](
 mailto:apln2@cin.ufpe.br "apln2@cin.ufpe.br")
 [![GitHub](https://img.icons8.com/material/32/000000/github-2.png)](
@@ -119,7 +119,8 @@ https://github.com/GabrielCavalcanti13 "GabrielCavalcanti13")
 
 [![Facebook](https://img.icons8.com/material/32/000000/facebook.png)](
 https://www.facebook.com/isacits "Isac Silva")
-![LinkedIn](https://img.icons8.com/material/32/000000/linkedin.png)
+[![LinkedIn](https://img.icons8.com/material/32/000000/linkedin.png)](
+https://www.linkedin.com/in/isac-silva-328881182 "Isac Tomaz")
 [![E-mail](https://img.icons8.com/windows/32/000000/gmail.png)](
 mailto:its@cin.ufpe.br "its@cin.ufpe.br")
 [![GitHub](https://img.icons8.com/material/32/000000/github-2.png)](
