@@ -58,10 +58,6 @@ $ git clone https://github.com/aplneto/projeto_ES
 Para iniciar a edição do código da plataforma basta clonar o repositório na
 sua máquina. 
 
-## Desenvolvimento
-
-Coming soon.
-
 ## Ferramentas de Terceiros
 <!--- Nessa sessão os ícones devem ser de tamanho 48px -->
 
@@ -82,22 +78,17 @@ Outras ferramentas
 [Rails](https://rubyonrails.org/ "Ruby on Rails")
 ## Links
 
-Even though this information can be found inside the project on machine-readable
-format like in a .json file, it's good to include a summary of most useful
-links to humans using your project. You can include links like:
-
-- Project homepage: https://your.github.com/awesome-project/
-- Repository: https://github.com/your/awesome-project/
-- Issue tracker: https://github.com/your/awesome-project/issues
-  - In case of sensitive bugs like security vulnerabilities, please contact
-    my@email.com directly instead of using issue tracker. We value your effort
-    to improve the security and privacy of this project!
-- Related projects:
-  - Your other project: https://github.com/your/other-project/
-  - Someone else's project: https://github.com/someones/awesome-project/
+- Wiki do Projeto: https://github.com/aplneto/medmapper/wiki
+- Repositório: https://github.com/aplneto/medmapper/edit/master/README.md
+- Issue tracker: https://github.com/aplneto/medmapper/issues
+  - Em caso de problemas sensíveis, como vulnerabilidade e probelmas de
+  segurança, por favor entre em contato via apln2@cin.ufpe.br usando a tag
+  [MEDMAPPER].
 
 
-Releases
+## Releases
+
+- Coming soon...
 
 ## Dev Team
 <!--- Aqui o tamanho dos ícones é de 32px --->
@@ -106,7 +97,8 @@ Releases
 
 [![Facebook](https://img.icons8.com/material/32/000000/facebook.png)](
 https://www.facebook.com/aplneto2 "Antonio Lima")
-![LinkedIn](https://img.icons8.com/material/32/000000/linkedin.png)
+[![LinkedIn](https://img.icons8.com/material/32/000000/linkedin.png)](
+https://www.linkedin.com/in/ant%C3%B4nio-paulino-5748ab168/)
 [![E-mail](https://img.icons8.com/windows/32/000000/gmail.png)](
 mailto:apln2@cin.ufpe.br "apln2@cin.ufpe.br")
 [![GitHub](https://img.icons8.com/material/32/000000/github-2.png)](
