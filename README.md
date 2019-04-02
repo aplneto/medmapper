@@ -84,6 +84,8 @@ Outras ferramentas
   - Em caso de problemas sensíveis, como vulnerabilidade e probelmas de
   segurança, por favor entre em contato via apln2@cin.ufpe.br usando a tag
   [MEDMAPPER].
+- Repositórios relacionados
+  - Repositório da disciplina: https://github.com/if977/if977
 
 
 ## Releases
