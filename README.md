@@ -6,7 +6,7 @@
 
 O medmapper é uma plataforma online que reúne as informações sobre as
 unidades de saúde da cidade do Recife em um só lugar, facilitando a busca
-busca por unidades e tratamentos específicos.
+por unidades e tratamentos específicos.
 
 ## Índice
 
