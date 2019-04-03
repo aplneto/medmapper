@@ -86,6 +86,9 @@ Outras ferramentas
   [MEDMAPPER].
 - Repositórios relacionados
   - Repositório da disciplina: https://github.com/if977/if977
+- Repositórios dos projetos do quarto período
+  - Repositório de SGE/PGP/GPN: https://github.com/prgs1/importasisu
+  - Repositório de Banco de Dados: https://github.com/GabrielCavalcanti13/gymCad
 
 
 ## Releases
