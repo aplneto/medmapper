@@ -68,19 +68,20 @@ outros sistemas operacionais Linux.
 
 Ferramentas usadas no desenvolvimento da aplicação:
 
+[![Scrum](https://github.com/aplneto/medmapper/blob/master/.idv/scrum.png)](
+https://www.scrumalliance.org/ "Scrum")
 [![Ruby](https://img.icons8.com/color/48/000000/ruby-programming-language.png)](
 https://www.ruby-lang.org/pt/ "Ruby")
+[![Rails](https://github.com/aplneto/medmapper/blob/master/.idv/rails.png)](
+https://rubyonrails.org/ "Ruby on Rails")
 [![JavaScript](https://img.icons8.com/color/48/000000/javascript.png)](
 https://www.javascript.com/ "JavaScript")
-[![Icons8](https://img.icons8.com/color/48/000000/icons8-logo.png)](
-https://icons8.com.br/icons "icons8")
 [![GitHub](https://img.icons8.com/metro/48/000000/github.png)](
 https://github.com/ "GitHub")
+[![Icons8](https://img.icons8.com/color/48/000000/icons8-logo.png)](
+https://icons8.com.br/icons "icons8")
 
 
-Outras ferramentas
-
-[Rails](https://rubyonrails.org/ "Ruby on Rails")
 ## Links
 
 - Wiki do Projeto: https://github.com/aplneto/medmapper/wiki
@@ -103,7 +104,7 @@ Outras ferramentas
 ## Dev Team
 <!--- Aqui o tamanho dos ícones é de 32px --->
 
-**Antônio Paulino de Lima Neto**
+**Antônio Paulino de Lima Neto - Gerente do Projeto e Desenvolvedor**
 
 [![Facebook](https://img.icons8.com/material/32/000000/facebook.png)](
 https://www.facebook.com/aplneto2 "Antonio Lima")
@@ -114,7 +115,7 @@ mailto:apln2@cin.ufpe.br "apln2@cin.ufpe.br")
 [![GitHub](https://img.icons8.com/material/32/000000/github-2.png)](
 https://github.com/aplneto "aplneto")
 
-**Gabriel Cavalcanti de Melo**
+**Gabriel Cavalcanti de Melo - Scrum Master e Desenvolvedor**
 
 [![Facebook](https://img.icons8.com/material/32/000000/facebook.png)](
 https://www.facebook.com/gabriel.cavalcanti.7370 "Gabriel Cavalcanti")
@@ -125,7 +126,7 @@ mailto:gcm2@cin.ufpe.br "gcm2@cin.ufpe.br")
 [![GitHub](https://img.icons8.com/material/32/000000/github-2.png)](
 https://github.com/GabrielCavalcanti13 "GabrielCavalcanti13")
 
-**Isac Tomaz da Silva**
+**Isac Tomaz da Silva - Analista de Testes e Desenvolvedor**
 
 [![Facebook](https://img.icons8.com/material/32/000000/facebook.png)](
 https://www.facebook.com/isacits "Isac Silva")
@@ -136,7 +137,7 @@ mailto:its@cin.ufpe.br "its@cin.ufpe.br")
 [![GitHub](https://img.icons8.com/material/32/000000/github-2.png)](
 https://github.com/isacits "isacits")
 
-**Pedro Rodolfo Gomes de Souza**
+**Pedro Rodolfo Gomes de Souza - Product Owner e Desenvolvedor**
 
 [![Facebook](https://img.icons8.com/material/32/000000/facebook.png)](
 https://www.facebook.com/pedrodesouzape "Pedro Rodolfo")
