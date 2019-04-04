@@ -56,7 +56,12 @@ $ git clone https://github.com/aplneto/projeto_ES
 ```
 
 Para iniciar a edição do código da plataforma basta clonar o repositório na
-sua máquina. 
+sua máquina. É necessário que você possua o Ruby e o Rails instalados.
+
+Em caso de dúvidas siga o passo a passo da instalação do Ruby e do Rails
+na página do [gorails](https://gorails.com/).
+Recomendamos o uso de [Ubuntu](https://gorails.com/setup/ubuntu/16.04) ou
+outros sistemas operacionais Linux.
 
 ## Ferramentas de Terceiros
 <!--- Nessa sessão os ícones devem ser de tamanho 48px -->
