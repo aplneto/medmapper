@@ -1,26 +1,23 @@
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 
-![Logo da plataforma](https://raw.githubusercontent.com/aplneto/projeto_ES/master/.idv/logotmp200x200.png "Logo do Projeto")
+
+
+| [Motivação](https://github.com/aplneto/medmapper#motivação) | [Instalação](
+https://github.com/aplneto/medmapper#installing--getting-started) | [Desenvolvimento](
+https://github.com/aplneto/medmapper#desenvolvimento) | [Ferramentas](
+https://github.com/aplneto/medmapper#ferramentas-de-terceiros) | [Links](
+https://github.com/aplneto/medmapper#links) | [Equipe](
+https://github.com/aplneto/medmapper#dev-team) |
+
+![Logo da plataforma](
+https://raw.githubusercontent.com/aplneto/projeto_ES/master/.idv/logotmp200x200.png
+"Logo do Projeto")
 
 # medmapper
 
 O medmapper é uma plataforma online que reúne as informações sobre as
 unidades de saúde da cidade do Recife em um só lugar, facilitando a busca
 por unidades e tratamentos específicos.
-
-## Índice
-
-[Motivação](https://github.com/aplneto/medmapper#motivação)
-
-[Instalação](https://github.com/aplneto/medmapper#installing--getting-started)
-
-[Desenvolvimento](https://github.com/aplneto/medmapper#desenvolvimento)
-
-[Ferramentas](https://github.com/aplneto/medmapper#ferramentas-de-terceiros)
-
-[Links](https://github.com/aplneto/medmapper#links)
-
-[Equipe](https://github.com/aplneto/medmapper#dev-team)
 
 ## Motivação
 
