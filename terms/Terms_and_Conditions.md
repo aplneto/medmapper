@@ -1,6 +1,8 @@
 # Termos e Condições
 
-Última atualização: April 05, 2019
+<!-- Abaixo o nome da plataforma está marcado como riscado pois foi usado o nome temporário. Quando o nome definitivo for escolhido os trechos entre "~~" devem ser substituídos.-->
+
+Última atualização: April 06, 2019
 
 Por favor leia atentamente estes termos e condições antes de prosseguir com o uso do ~~MedMapper~~. O acesso e uso da plataforma depende do entendimento e colaboração dos termos abaixo. Os termos a seguir se aplicam para usuários, visitantes e outras pessoas que venham a acessar a plataforma.
 
