@@ -13,7 +13,7 @@ https://github.com/aplneto/medmapper#dev-team) |
 https://raw.githubusercontent.com/aplneto/projeto_ES/master/.idv/logotmp200x200.png
 "Logo do Projeto")
 
-# medmapper
+# MedMapper
 
 O medmapper é uma plataforma online que reúne as informações sobre as
 unidades de saúde da cidade do Recife em um só lugar, facilitando a busca
@@ -77,6 +77,9 @@ https://www.javascript.com/ "JavaScript")
 https://github.com/ "GitHub")
 [![Icons8](https://img.icons8.com/color/48/000000/icons8-logo.png)](
 https://icons8.com.br/icons "icons8")
+
+Outras ferramentas:
+- [TermsFeed](https://www.termsfeed.com/)
 
 
 ## Links
