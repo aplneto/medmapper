@@ -2,12 +2,9 @@
 
 
 
-| [Motivação](https://github.com/aplneto/medmapper#motivação) | [Instalação](
-https://github.com/aplneto/medmapper#installing--getting-started) | [Desenvolvimento](
-https://github.com/aplneto/medmapper#desenvolvimento) | [Ferramentas](
-https://github.com/aplneto/medmapper#ferramentas-de-terceiros) | [Links](
-https://github.com/aplneto/medmapper#links) | [Equipe](
-https://github.com/aplneto/medmapper#dev-team) |
+[Portal do Cliente](https://github.com/aplneto/medmapper/wiki) | 
+[Motivação](#motivação) | [Instalação](#installing--getting-started)| 
+[Ferramentas](#ferramentas-de-terceiros) | [Links](#links) |
 
 ![Logo da plataforma](
 https://raw.githubusercontent.com/aplneto/projeto_ES/master/.idv/logotmp200x200.png
@@ -45,6 +42,11 @@ desnecessários e desinformação.
 Inicialmente a plataforma deve conter as informações sobre os postos de atendimento
 da cidade do Recife, sendo futuramente ampliada para incluir os postos de
 atendimento de todo o estado e, eventualmente, outras áreas da medicina.
+
+## Portal do Cliente
+Se você deseja acesso a documentação e informações sobre a plataforma e a equipe
+de desenvolvimento e colaboradores, vá até a [Wiki](
+https://github.com/aplneto/medmapper/wiki) do projeto.
 
 ## Installing / Getting started
 
@@ -100,50 +102,3 @@ Outras ferramentas:
 ## Releases
 
 - Coming soon...
-
-## Dev Team
-<!--- Aqui o tamanho dos ícones é de 32px --->
-
-**Antônio Paulino de Lima Neto - Gerente do Projeto e Desenvolvedor**
-
-[![Facebook](https://img.icons8.com/material/32/000000/facebook.png)](
-https://www.facebook.com/aplneto2 "Antonio Lima")
-[![LinkedIn](https://img.icons8.com/material/32/000000/linkedin.png)](
-https://www.linkedin.com/in/ant%C3%B4nio-paulino-5748ab168/ "Antônio Paulino")
-[![E-mail](https://img.icons8.com/windows/32/000000/gmail.png)](
-mailto:apln2@cin.ufpe.br "apln2@cin.ufpe.br")
-[![GitHub](https://img.icons8.com/material/32/000000/github-2.png)](
-https://github.com/aplneto "aplneto")
-
-**Gabriel Cavalcanti de Melo - Scrum Master e Desenvolvedor**
-
-[![Facebook](https://img.icons8.com/material/32/000000/facebook.png)](
-https://www.facebook.com/gabriel.cavalcanti.7370 "Gabriel Cavalcanti")
-[![LinkedIn](https://img.icons8.com/material/32/000000/linkedin.png)](
-https://www.linkedin.com/in/gabriel-cavalcanti-a384b7170/ "Gabriel Cavalcanti")
-[![E-mail](https://img.icons8.com/windows/32/000000/gmail.png)](
-mailto:gcm2@cin.ufpe.br "gcm2@cin.ufpe.br")
-[![GitHub](https://img.icons8.com/material/32/000000/github-2.png)](
-https://github.com/GabrielCavalcanti13 "GabrielCavalcanti13")
-
-**Isac Tomaz da Silva - Analista de Testes e Desenvolvedor**
-
-[![Facebook](https://img.icons8.com/material/32/000000/facebook.png)](
-https://www.facebook.com/isacits "Isac Silva")
-[![LinkedIn](https://img.icons8.com/material/32/000000/linkedin.png)](
-https://www.linkedin.com/in/isac-silva-328881182 "Isac Tomaz")
-[![E-mail](https://img.icons8.com/windows/32/000000/gmail.png)](
-mailto:its@cin.ufpe.br "its@cin.ufpe.br")
-[![GitHub](https://img.icons8.com/material/32/000000/github-2.png)](
-https://github.com/isacits "isacits")
-
-**Pedro Rodolfo Gomes de Souza - Product Owner e Desenvolvedor**
-
-[![Facebook](https://img.icons8.com/material/32/000000/facebook.png)](
-https://www.facebook.com/pedrodesouzape "Pedro Rodolfo")
-[![LinkedIn](https://img.icons8.com/material/32/000000/linkedin.png)](
-https://www.linkedin.com/in/pedro-rodolfo-de-souza-12988835/ "Pedro Rodolfo de Souza")
-[![E-mail](https://img.icons8.com/windows/32/000000/gmail.png)](
-mailto:rodolfo@cin.ufpe.br "rodolfo@cin.ufpe.br")
-[![GitHub](https://img.icons8.com/material/32/000000/github-2.png)](
-https://github.com/prgs1 "prgs1")
