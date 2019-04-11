@@ -2,8 +2,13 @@ body {
     background-color: #FFFFFF;
     font-family: 'Open Sans', sans-serif;
     font-weight: 300;
+    margin: 0;
    }
    
+.text-center h1 {
+    font-size: 24px;
+}
+
 h1, h2, h3, h4, h5, h6 {
     color: #083B66;
     font-family: 'Archivo', sans-serif;
@@ -15,3 +20,4 @@ button {
     top: 10px;
     bottom: 10px;
 }
+
