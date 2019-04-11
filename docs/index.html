@@ -3,24 +3,45 @@
 	<head>
 		<meta charset="utf-8"/>
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-		<link rel="stylesheet" href="style.css"/>
+		<link rel="stylesheet" href="css/style.css"/>
+		<script src="js/script.js"></script>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
  		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 		<link href="https://fonts.googleapis.com/css?family=Archivo:500|Open+Sans:300,700" rel="stylesheet">		
-		<title>mapeiaSaude</title>
+		<title>medMapper</title>
 	</head>
 	<body>
 			<div class="text-center">
 				<img src="img/medmapper.png" class="rounded"/>
-				<h1>mapeiaSaude</h1>
+				<h1>medMapper</h1>
 			</div>
-            <br/>
 			<nav class="col-sm8 text-center">
-				<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">Home</button>
-				<button type="button" class="btn btn-primary">Contatos</button>
-				<button type="button" class="btn btn-primary">FAQ</button>
+				<div class="btn-group">
+				<button type="button" class="btn btn-primary" onclick="window.location.href = 'index.html'">Início</button>
+				<button id="#quemSomosBotao" class="btn btn-primary" type="button" data-toggle="collapse" data-target="#quemSomos" aria-expanded="false" aria-controls="quemSomos">Quem Somos</button>
+				<button id="#motivacaoBotao" class="btn btn-primary" type="button" data-toggle="collapse" data-target="#motivacao" aria-expanded="false" aria-controls="motivacao">Motivação</button>
+				<button id="#contatoBotao" class="btn btn-primary" type="button" data-toggle="collapse" data-target="#contato" aria-expanded="false" aria-controls="contato">Contato</button>
+				</div>
 			</nav>
-            <div class="collapse" id="collapseExample">Teste</div>
+
+
+			<div class="collapse" id="quemSomos" aria-expanded=“true”><br/>Teste</div>
+			<div class="collapse" id="motivacao" aria-expanded=“true”><br/>Em 2015 o Brasil, principalmente nos estados do Nordeste, sofreu com um surto de microcefalia associado ao vírus Zika. 
+				O surto teve início em Setembro, no estado de Pernambuco, sendo este o estado com maior número de afetados pelo vírus. Hoje, mais de três anos depois, 
+				os portadores de microcefalia sofrem com o desamparo do estado e a pobreza, sofrendo com a falta de estrutura para o atendimento adequado e a falta de informação 
+				sobre esse atendimento. Atualmente, não há atendimentos para todas as condições em todas as unidades de saúde, sendo determinadas unidades especializadas em determinados
+				 problemas. Em muitos dos casos, as mães de crianças portadoras precisam se deslocar grandes distâncias para receber atendimento adequado e, não raramente, acabam sendo
+				  direcionadas a outras unidades de saúde, pois as unidades principais procuradas não são responsáveis pelo atendimento em questão. A proposta de amenização é a criação 
+				  de uma plataforma que reúna as informações sobre postos de atendimento, classificando os postos de atendimento a partir do tipo de atendimento que fazem, permitindo
+				   assim que a criança seja atendida no posto adequado logo a partir do primeiro momento, evitando encaminhamentos desnecessários e desinformação. Inicialmente a plataforma
+					deve conter as informações sobre os postos de atendimento da cidade do Recife, sendo futuramente ampliada para incluir os postos de atendimento de todo o estado e, 
+					eventualmente, outras áreas da medicina.</div>
+			<div class="collapse" id="contato" aria-expanded=“true”><br/>Equipe de desenvolvimento: <br/><br/> <b>Antônio Paulino</b><br/>Gerente de Projetos</br><i>apln2@cin.ufpe.br</i><br/><br/>
+				<b>Gabriel Cavalcanti</b><br/>Desenvolvedor Back-end<br/><i>gcm2@cin.ufpe.br</i><br/><br/>
+				<b>Isac Tomaz</b><br/>Consultor de Modelagem<br/><i>its@cin.ufpe.br</i><br/><br/>
+				<b>Pedro Rodolfo</b><br/>Desenvolvedor Front-end<br/><i>rodolfo@cin.ufpe.br</i>
+			</div>
+
 	</body>
 </html>
