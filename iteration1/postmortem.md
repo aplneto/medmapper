@@ -23,6 +23,7 @@ Inicio da fase de testes e implementação de histórias de usuário.
 | Criação do modelo ER | Todo o grupo |
 ## Não realizadas na Iteração 1-2
 | Ação | Responsável(eis) |
+|------|------------------|
 |BDD|Todo o grupo|
 ## Em andamento 
 | Ação | Responsável(eis) |
