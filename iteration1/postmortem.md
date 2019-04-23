@@ -41,5 +41,5 @@ Inicio da fase de testes e implementação de histórias de usuário.
 | Povoamento do Banco de Dados | Pedro Rodolfo
 ## Lições Aprendidas
 * Erros inesperados ocorrem, mesmo fazendo a coisa da maneira "certa";
-* A documentçaõ das gems deve ser sempre a primeira fonte de consulta;
+* A documentação das gems deve ser sempre a primeira fonte de consulta;
 * Por mais empolgado que um usuário esteja, expectativas devem ser moderadas.
