@@ -2,9 +2,8 @@
 
 
 
-[Portal do Cliente](https://github.com/aplneto/medmapper/wiki) | 
-[Motivação](https://github.com/aplneto/medmapper(#motivação)) | [Instalação](https://github.com/aplneto/medmapper(#installing--getting-started))| 
-[Ferramentas](https://github.com/aplneto/medmapper(#ferramentas-de-terceiros)) | [Links](https://github.com/aplneto/medmapper(#link)) |
+[Portal do Cliente](https://github.com/aplneto/medmapper/wiki) | [Home](https://github.com/aplneto/medmapper) |
+
 
 ![Logo da plataforma](
 https://raw.githubusercontent.com/aplneto/projeto_ES/master/.idv/logotmp200x200.png
