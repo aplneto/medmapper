@@ -3,14 +3,14 @@
 
 
 [Portal do Cliente](https://github.com/aplneto/medmapper/wiki) | 
-[Motivação](https://github.com/aplneto/medmapper) | [Instalação](https://github.com/aplneto/medmapper)| 
-[Ferramentas](https://github.com/aplneto/medmapper) | [Links](https://github.com/aplneto/medmapper) |
+[Motivação](https://github.com/aplneto/medmapper(#motivação)) | [Instalação](https://github.com/aplneto/medmapper(#installing--getting-started))| 
+[Ferramentas](https://github.com/aplneto/medmapper(#ferramentas-de-terceiros)) | [Links](https://github.com/aplneto/medmapper(#link)) |
 
 ![Logo da plataforma](
 https://raw.githubusercontent.com/aplneto/projeto_ES/master/.idv/logotmp200x200.png
 "Logo do Projeto")
 
-## Postmortem das Iterações
+## Iterações
 | Iteração | Data Início | Postmortem | 
 |----------|----------|----------|
 | 1 | (25/03/2019) | [Postmortem-1](/iterations/iteration1/postmortem.md) | 
