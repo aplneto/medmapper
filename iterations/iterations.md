@@ -14,5 +14,5 @@ https://raw.githubusercontent.com/aplneto/projeto_ES/master/.idv/logotmp200x200.
 |----------|----------|----------|
 | 1 | (25/03/2019) | [Postmortem-1](/iterations/iteration1/postmortem.md) | 
 | 2 | (22/04/2019) | [Postmortem-2](/iterations/iteration2/postmortem.md) | 
-| 2 | (08/05/2019) | [Postmortem-3] |
-| 2 | (22/05/2019) | [Postmortem-4] | 
+| 3 | (08/05/2019) | [Postmortem-3](/iterations/iterations.md) |
+| 4 | (22/05/2019) | [Postmortem-4](/iterations/iterations.md) | 
