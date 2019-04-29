@@ -102,3 +102,11 @@ Outras ferramentas:
 ## Releases
 
 - Coming soon...
+
+## Gems
+
+- [Capybara](https://github.com/teamcapybara/capybara)
+- [RSpec](https://github.com/rspec/rspec-rails)
+- [Factory bot](https://github.com/thoughtbot/factory_bot)
+- [Omniauth](https://github.com/omniauth/omniauth)
+- [Devise](https://github.com/plataformatec/devise)
