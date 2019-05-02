@@ -3,7 +3,7 @@
 
 
 [Portal do Cliente](https://github.com/aplneto/medmapper/wiki) | [Home](https://github.com/aplneto/medmapper) | 
-[Entregas](/docs/entregas/iterations.md)
+[Entregas](/docs/iterations.md)
 
 
 ![Logo da plataforma](
@@ -14,5 +14,5 @@ https://raw.githubusercontent.com/aplneto/projeto_ES/master/.idv/logotmp200x200.
 
 |    Documentos | 
 |----------|
-| [Wireframes](/docs/entregas/iteration0/mockups/wireframe) | 
-| [Entrevista com Cinthia 28/03](/docs/entregas/iteration0/EntrevistaCinthiaVasconcelos.pdf)| 
+| [Wireframes](/docs/iteration0/mockups/wireframe) | 
+| [Entrevista com Cinthia 28/03](/docs/iteration0/EntrevistaCinthiaVasconcelos.pdf)| 
