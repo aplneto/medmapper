@@ -4,7 +4,7 @@
 
 
 [Portal do Cliente](https://github.com/aplneto/medmapper/wiki) | [Home](https://github.com/aplneto/medmapper) | 
-[Entregas](/docs/entregas/iterations.md)
+[Entregas](/docs/iterations.md)
 
 
 # Iteração 1
