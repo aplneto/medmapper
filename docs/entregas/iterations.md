@@ -6,7 +6,7 @@
 
 
 ![Logo da plataforma](
-https://raw.githubusercontent.com/aplneto/projeto_ES/master/.idv/logotmp200x200.png
+https://raw.githubusercontent.com/aplneto/projeto_ES/master/docs/.idv/logotmp200x200.png
 "Logo do Projeto")
 
 # Entregas
