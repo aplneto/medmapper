@@ -3,7 +3,7 @@
 
 
 [Portal do Cliente](https://github.com/aplneto/medmapper/wiki) | [Home](https://github.com/aplneto/medmapper) | 
-[Entregas](/docs/entregas/iterations.md)
+[Entregas](/docs/iterations.md)
 
 
 ![Logo da plataforma](
@@ -14,5 +14,5 @@ https://raw.githubusercontent.com/aplneto/projeto_ES/master/.idv/logotmp200x200.
 
 |    Documentos | 
 |----------|
-| [Testes](/docs/entregas/iteration2/) | 
-| [Postmortem](/docs/entregas/iteration2/postmortem.md)| 
+| [Testes](/docs/iteration2/) | 
+| [Postmortem](/docs/iteration2/postmortem.md)| 
