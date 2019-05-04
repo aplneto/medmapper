@@ -2,7 +2,7 @@
 
 
 
-[Portal do Cliente](https://github.com/aplneto/medmapper/wiki) | [Home](https://github.com/aplneto/medmapper) | 
+[Home](https://github.com/aplneto/medmapper) | 
 [Entregas](/docs/entregas/iterations.md)
 
 # Iteração 2
