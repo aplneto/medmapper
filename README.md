@@ -40,10 +40,6 @@ Inicialmente a plataforma deve conter as informações sobre os postos de atendi
 da cidade do Recife, sendo futuramente ampliada para incluir os postos de
 atendimento de todo o estado e, eventualmente, outras áreas da medicina.
 
-## Portal do Cliente
-Se você deseja acesso a documentação e informações sobre a plataforma e a equipe
-de desenvolvimento e colaboradores, vá até a [Wiki](
-https://github.com/aplneto/medmapper/wiki) do projeto.
 
 ## Installing / Getting started
 
