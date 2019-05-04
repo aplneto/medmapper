@@ -1,14 +1,11 @@
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 
 
-
-[Portal do Cliente](https://github.com/aplneto/medmapper/wiki) | 
+ 
 [Motivação](#motivação) | [Instalação](#installing--getting-started)| 
 [Ferramentas](#ferramentas-de-terceiros) | [Links](#links) | [Entregas](/docs/iterations.md) |
 
-![Logo da plataforma](
-https://raw.githubusercontent.com/aplneto/projeto_ES/master/.idv/logotmp200x200.png
-"Logo do Projeto")
+![Logo da plataforma](docs/idv/logotmp200x200.png "Logo do Projeto")
 
 # MedMapper
 
@@ -43,10 +40,6 @@ Inicialmente a plataforma deve conter as informações sobre os postos de atendi
 da cidade do Recife, sendo futuramente ampliada para incluir os postos de
 atendimento de todo o estado e, eventualmente, outras áreas da medicina.
 
-## Portal do Cliente
-Se você deseja acesso a documentação e informações sobre a plataforma e a equipe
-de desenvolvimento e colaboradores, vá até a [Wiki](
-https://github.com/aplneto/medmapper/wiki) do projeto.
 
 ## Installing / Getting started
 
@@ -67,11 +60,11 @@ outros sistemas operacionais Linux.
 
 Ferramentas usadas no desenvolvimento da aplicação:
 
-[![Scrum](https://github.com/aplneto/medmapper/blob/master/.idv/scrum.png)](
+[![Scrum](https://github.com/aplneto/medmapper/blob/master/docs/idv/scrum.png)](
 https://www.scrumalliance.org/ "Scrum")
 [![Ruby](https://img.icons8.com/color/48/000000/ruby-programming-language.png)](
 https://www.ruby-lang.org/pt/ "Ruby")
-[![Rails](https://github.com/aplneto/medmapper/blob/master/.idv/rails.png)](
+[![Rails](https://github.com/aplneto/medmapper/blob/master/docs/idv/rails.png)](
 https://rubyonrails.org/ "Ruby on Rails")
 [![JavaScript](https://img.icons8.com/color/48/000000/javascript.png)](
 https://www.javascript.com/ "JavaScript")
