@@ -3,7 +3,6 @@ class CreateHospitals < ActiveRecord::Migration[5.2]
     create_table :hospitals, id: false do |t|
       t.integer :register,  :limit => 8, null: false
       t.string  :name,   :limit => 30, null: false
-      t.string  :sex,  :limit => 1, null: false
       t.string  :telephone,  :limit => 11, null: false
       t.string  :street,    :limit => 20, null: false
       t.integer :number,    :limit => 5, null: false

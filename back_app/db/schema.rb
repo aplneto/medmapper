@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_02_005259) do
+ActiveRecord::Schema.define(version: 2019_05_04_023933) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -18,7 +18,6 @@ ActiveRecord::Schema.define(version: 2019_05_02_005259) do
   create_table "hospitals", id: false, force: :cascade do |t|
     t.bigint "register", null: false
     t.string "name", limit: 30, null: false
-    t.string "sex", limit: 1, null: false
     t.string "telephone", limit: 11, null: false
     t.string "street", limit: 20, null: false
     t.bigint "number", null: false
@@ -32,6 +31,22 @@ ActiveRecord::Schema.define(version: 2019_05_02_005259) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["register"], name: "index_hospitals_on_register", unique: true
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "login", limit: 10, null: false
+    t.string "encrypted_password", null: false
+    t.string "name", limit: 30, null: false
+    t.string "sex", limit: 1, null: false
+    t.string "telephone", limit: 11
+    t.string "street", limit: 20
+    t.bigint "number"
+    t.string "neighborhood", limit: 10
+    t.integer "day", limit: 2, null: false
+    t.integer "month", limit: 2, null: false
+    t.integer "year", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end
