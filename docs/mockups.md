@@ -2,7 +2,7 @@
 
 
 
-[Home](https://github.com/aplneto/medmapper) | [Entregas](docs/iterations.md)
+[Home](https://github.com/aplneto/medmapper) | [Entregas](/docs/iterations.md)
 
 
 
