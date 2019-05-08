@@ -12,7 +12,12 @@ https://raw.githubusercontent.com/aplneto/projeto_ES/master/docs/idv/logotmp200x
 
 ## Iteração 2
 
-|    Documentos | 
+| Desenvolvimento | 
 |----------|
-| [Testes](/docs/iteration2/) | 
+| [Testes de comportamento](/front_app/features) |
+
+
+
+|    Documentos | 
+|----------| 
 | [Postmortem](/docs/iteration2/postmortem.md)| 
