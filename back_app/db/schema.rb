@@ -10,13 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_07_152713) do
+ActiveRecord::Schema.define(version: 2019_05_07_215258) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "hospitals", id: false, force: :cascade do |t|
-    t.bigint "registry", null: false
     t.string "name", limit: 100, null: false
     t.string "telephone", limit: 10, null: false
     t.string "address", limit: 50, null: false
@@ -29,7 +28,8 @@ ActiveRecord::Schema.define(version: 2019_05_07_152713) do
     t.string "specialties", limit: 80, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["registry"], name: "index_hospitals_on_registry", unique: true
+    t.bigint "id"
+    t.index ["id"], name: "index_hospitals_on_id", unique: true
   end
 
   create_table "users", force: :cascade do |t|
@@ -38,12 +38,10 @@ ActiveRecord::Schema.define(version: 2019_05_07_152713) do
     t.string "name", limit: 50, null: false
     t.string "sex", limit: 1, null: false
     t.string "telephone", limit: 11
-    t.string "address", limit: 50
-    t.string "neighborhood", limit: 30
-    t.datetime "birthday", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "email", limit: 30, null: false
+    t.datetime "birthday"
   end
 
 end
