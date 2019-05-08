@@ -1,10 +1,12 @@
 class HospitalsController < ApplicationController
     def index
         @hospitals = Hospital.all
+        render json: @hospitals, status: 200
     end
 
     def show
         @hospital = Hospital.find(params[:id].to_i)
+        render json: @hospital, status: :success
     end
 
     def new
@@ -12,11 +14,9 @@ class HospitalsController < ApplicationController
     end
 
     def create
-        @hospital = Hospital.new(params[:hospital])
-        if @hospital.save
-            redirect_to hospitals_path, :notice => "Cadastro efetuado com sucesso"
-        else
-            # render 'new'
-        end
+        # creation method
+    end
+
+    def search
     end
 end

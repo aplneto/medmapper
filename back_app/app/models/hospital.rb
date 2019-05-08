@@ -4,7 +4,7 @@ class Hospital < ApplicationRecord
     validates :telephone, presence: true, length: { is: 10 }
     validates :address, presence: true, length: { maximum: 50 }
     validates :neighborhood, presence: true, length: { maximum: 30 }
-    validates :latitude, :longitude, presence: true, length: { is: 20 }
+    validates :latitude, :longitude, presence: true, length: { maximum: 20 }
 
     validates :region, :micro_region, presence: true, length: { is: 1 },
     numericality: { only_integer: true }

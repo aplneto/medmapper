@@ -1,7 +1,6 @@
 class CreateHospitals < ActiveRecord::Migration[5.2]
   def change
-    create_table :hospitals, id: false do |t|
-      t.integer :registry,  :limit => 7, null: false
+    create_table :hospitals do |t|
       t.string  :name,   :limit => 100, null: false
       t.string  :telephone,  :limit => 10, null: false
       t.string  :address,    :limit => 50, null: false
@@ -14,6 +13,5 @@ class CreateHospitals < ActiveRecord::Migration[5.2]
       t.string  :specialties,  :limit => 80, null: false
       t.timestamps
     end
-    add_index :hospitals, :registry, unique: true
   end
 end
