@@ -13,30 +13,25 @@ Given('eu estou na página de login', function () {
 });
 
 
-Given('eu preencho “Usuário” com “its”', function () {
+Given('eu preencho {stringInDoubleQuotes} com {stringInDoubleQuotes}', function () {
   // Write code here that turns the phrase above into concrete actions
   return 'pending';
 });
 
 
-Given('eu preencho “Senha” com {stringInDoubleQuotes}', function (stringInDoubleQuotes) {
+When('eu preencho {stringInDoubleQuotes} com ""', function (stringInDoubleQuotes) {
   // Write code here that turns the phrase above into concrete actions
   return 'pending';
 });
-       
+
+
 Then('vejo na tela:', function (string) {
   // Write code here that turns the phrase above into concrete actions
   return 'pending';
 });
 
 
-Given('eu preencho “Usuário” com “isac”', function () {
-  // Write code here that turns the phrase above into concrete actions
-  return 'pending';
-});
-
-
-Then('o aplicativo devera me redireciona para o meu perfil de usuário', function () {
+Then('o aplicativo deverá me redireciona para o meu perfil de usuário', function () {
   // Write code here that turns the phrase above into concrete actions
   return 'pending';
 });
