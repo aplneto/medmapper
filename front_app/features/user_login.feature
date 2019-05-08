@@ -53,9 +53,9 @@ Funcionalidade: Realizar login
   Cenário: Falha no Login por causa de senha em branco
     Ao  tentar realizar o login, é mostrada a mensagem de falha o tentar realizar login.
 
-    Dado um usuário "its" com a senha "Med@if977"
+    Dado um usuário "vinicius" com a senha "if977"
     E eu estou na página de login
-    Quando eu preencho "Usuário" com "its"
+    Quando eu preencho "Usuário" com "vinicius"
     E eu preencho "Senha" com ""
     Então vejo na tela:
       """
