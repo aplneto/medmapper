@@ -17,8 +17,15 @@ https://raw.githubusercontent.com/aplneto/projeto_ES/master/docs/idv/logotmp200x
 |----------|
 | [Testes de comportamento](/front_app/features) |
 
-
 ### IT 2-2
 |    Documentos | 
 |----------| 
 | [Postmortem](/docs/iteration2/postmortem.md)| 
+
+| Desenvolvimento |
+|-----------------|
+| [Testes de Controlador](/back_app/rspec/controllers)|
+| [Testes de Model](/back_app/rspec/models)|
+| [Edição do Banco de Dados](/back_app/db)|
+| [Edição dos Models](/back_app/app/models)|
+| [Edição dos Controladores](/back_app/app/controllers)|
