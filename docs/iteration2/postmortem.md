@@ -3,7 +3,7 @@
 
 
 [Home](https://github.com/aplneto/medmapper) | 
-[Entregas](/docs/entregas/iterations.md)
+[Entregas](/docs/iterations.md)
 
 # Iteração 2
 * Data: 08/05/19
