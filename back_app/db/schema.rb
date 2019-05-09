@@ -10,43 +10,36 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_04_023933) do
+ActiveRecord::Schema.define(version: 2019_05_07_215251) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "hospitals", id: false, force: :cascade do |t|
-    t.bigint "register", null: false
-    t.string "name", limit: 30, null: false
-    t.string "telephone", limit: 11, null: false
-    t.string "street", limit: 20, null: false
-    t.bigint "number", null: false
-    t.string "neighborhood", limit: 10, null: false
+  create_table "hospitals", force: :cascade do |t|
+    t.string "name", limit: 100, null: false
+    t.string "telephone", limit: 10, null: false
+    t.string "address", limit: 50, null: false
+    t.string "neighborhood", limit: 30, null: false
     t.string "latitude", limit: 20, null: false
     t.string "longitude", limit: 20, null: false
-    t.string "region", limit: 5, null: false
-    t.string "micro_region", limit: 10, null: false
-    t.string "nature", limit: 10, null: false
-    t.string "type", limit: 10, null: false
+    t.integer "region", limit: 2, null: false
+    t.integer "micro_region", limit: 2, null: false
+    t.string "nature", limit: 15, null: false
+    t.string "specialties", limit: 80, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["register"], name: "index_hospitals_on_register", unique: true
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "login", limit: 10, null: false
+    t.string "login", limit: 15, null: false
     t.string "encrypted_password", null: false
-    t.string "name", limit: 30, null: false
+    t.string "name", limit: 50, null: false
     t.string "sex", limit: 1, null: false
     t.string "telephone", limit: 11
-    t.string "street", limit: 20
-    t.bigint "number"
-    t.string "neighborhood", limit: 10
-    t.integer "day", limit: 2, null: false
-    t.integer "month", limit: 2, null: false
-    t.integer "year", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "email", limit: 30, null: false
+    t.datetime "birthday"
   end
 
 end
