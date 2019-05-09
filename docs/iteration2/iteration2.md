@@ -24,8 +24,8 @@ https://raw.githubusercontent.com/aplneto/projeto_ES/master/docs/idv/logotmp200x
 
 | Desenvolvimento |
 |-----------------|
-| [Testes de Controlador](/back_app/rspec/controllers)|
-| [Testes de Model](/back_app/rspec/models)|
+| [Testes de Controlador](/back_app/spec/controllers)|
+| [Testes de Model](/back_app/spec/models)|
 | [Edição do Banco de Dados](/back_app/db)|
 | [Edição dos Models](/back_app/app/models)|
 | [Edição dos Controladores](/back_app/app/controllers)|
