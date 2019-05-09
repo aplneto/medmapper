@@ -103,3 +103,5 @@ Outras ferramentas:
 - [Factory bot](https://github.com/thoughtbot/factory_bot)
 - [Omniauth](https://github.com/omniauth/omniauth)
 - [Devise](https://github.com/plataformatec/devise)
+- [Faker](https://github.com/stympy/faker)
+- [Database Cleaner](https://github.com/DatabaseCleaner/database_cleaner)
