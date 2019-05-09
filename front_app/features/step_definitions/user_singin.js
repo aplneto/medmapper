@@ -26,10 +26,6 @@ Given('que eu estou na página de registro', function () {
           return 'pending';
         });
 
-When('eu preencho os campos {stringInDoubleQuotes},{stringInDoubleQuotes},{stringInDoubleQuotes},{stringInDoubleQuotes},{stringInDoubleQuotes} com dados válidos', function (stringInDoubleQuotes, stringInDoubleQuotes2, stringInDoubleQuotes3, stringInDoubleQuotes4, stringInDoubleQuotes5) {
-          // Write code here that turns the phrase above into concrete actions
-          return 'pending';
-        });
         
 When('eu pressiono o botão {stringInDoubleQuotes}', function (stringInDoubleQuotes) {
           // Write code here that turns the phrase above into concrete actions
