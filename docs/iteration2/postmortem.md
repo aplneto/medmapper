@@ -39,6 +39,7 @@
 
 ## Não realizadas na Iteração 2
 | Ação | Responsável(eis) |
+|------|------------------|
 |Templates das Páginas de Erro #32|Time|
 
 ## Em andamento 
@@ -61,3 +62,10 @@
 
 ## Lições Aprendidas
 
+A leitura da documentação deve ser o tutorial número 1 a ser consultado;
+Análise crítica antes de merge com a branch Master;
+
+## Notas
+
+Existem Gems que não interagem bem com o Heroku, como é o caso do Devise,
+o emprego destas Gems deve ser feito com excessivo cuidado.
