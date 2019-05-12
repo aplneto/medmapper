@@ -18,20 +18,18 @@ ActiveRecord::Schema.define(version: 2019_05_12_040519) do
   create_table "areas", id: false, force: :cascade do |t|
     t.string "area", limit: 30, null: false
     t.bigint "user_id"
-    t.integer "register"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["area", "register"], name: "index_areas_on_area_and_register", unique: true
+    t.index ["area"], name: "index_areas_on_area", unique: true
     t.index ["user_id"], name: "index_areas_on_user_id"
   end
 
   create_table "contacts", id: false, force: :cascade do |t|
     t.string "contact", limit: 100, null: false
     t.bigint "user_id"
-    t.string "register"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["contact", "register"], name: "index_contacts_on_contact_and_register", unique: true
+    t.index ["contact"], name: "index_contacts_on_contact", unique: true
     t.index ["user_id"], name: "index_contacts_on_user_id"
   end
 
@@ -53,10 +51,9 @@ ActiveRecord::Schema.define(version: 2019_05_12_040519) do
   create_table "locals", id: false, force: :cascade do |t|
     t.string "local", limit: 30, null: false
     t.bigint "user_id"
-    t.string "register"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["local", "register"], name: "index_locals_on_local_and_register", unique: true
+    t.index ["local"], name: "index_locals_on_local", unique: true
     t.index ["user_id"], name: "index_locals_on_user_id"
   end
 
@@ -71,7 +68,7 @@ ActiveRecord::Schema.define(version: 2019_05_12_040519) do
     t.string "email", limit: 30, null: false
     t.datetime "birthday"
     t.string "occupation", limit: 25
-    t.string "register", limit: 25
+    t.string "registry", limit: 25
     t.string "description", limit: 140
     t.boolean "homecare"
   end
