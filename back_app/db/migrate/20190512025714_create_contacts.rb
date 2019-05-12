@@ -6,7 +6,6 @@ class CreateContacts < ActiveRecord::Migration[5.2]
       t.string :register
       t.timestamps
     end
-   add_foreign_key :users, :register
    add_index :contacts, [:contact, :register], unique: true
   end
 end

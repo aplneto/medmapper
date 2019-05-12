@@ -10,10 +10,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_11_233528) do
+ActiveRecord::Schema.define(version: 2019_05_12_040519) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "areas", id: false, force: :cascade do |t|
+    t.string "area", limit: 30, null: false
+    t.bigint "user_id"
+    t.integer "register"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["area", "register"], name: "index_areas_on_area_and_register", unique: true
+    t.index ["user_id"], name: "index_areas_on_user_id"
+  end
+
+  create_table "contacts", id: false, force: :cascade do |t|
+    t.string "contact", limit: 100, null: false
+    t.bigint "user_id"
+    t.string "register"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["contact", "register"], name: "index_contacts_on_contact_and_register", unique: true
+    t.index ["user_id"], name: "index_contacts_on_user_id"
+  end
 
   create_table "hospitals", force: :cascade do |t|
     t.string "name", limit: 100, null: false
@@ -28,6 +48,16 @@ ActiveRecord::Schema.define(version: 2019_05_11_233528) do
     t.string "specialties", limit: 80, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "locals", id: false, force: :cascade do |t|
+    t.string "local", limit: 30, null: false
+    t.bigint "user_id"
+    t.string "register"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["local", "register"], name: "index_locals_on_local_and_register", unique: true
+    t.index ["user_id"], name: "index_locals_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -46,4 +76,7 @@ ActiveRecord::Schema.define(version: 2019_05_11_233528) do
     t.boolean "homecare"
   end
 
+  add_foreign_key "areas", "users"
+  add_foreign_key "contacts", "users"
+  add_foreign_key "locals", "users"
 end

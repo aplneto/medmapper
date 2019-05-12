@@ -6,7 +6,6 @@ class CreateLocals < ActiveRecord::Migration[5.2]
       t.string :register
       t.timestamps
     end
-   add_foreign_key :users, :register
    add_index :locals, [:local, :register], unique: true
   end
 end
