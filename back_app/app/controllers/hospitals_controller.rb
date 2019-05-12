@@ -9,14 +9,22 @@ class HospitalsController < ApplicationController
         render json: @hospital, status: :success
     end
 
-    def new
-        @hospital = Hospital.new
-    end
-
     def create
-        # creation method
+        hospital = Hospital.new(hospital_fetch_params)
+        if hospital.save
+            render json: hospital, status: 200
+        else
+            render json: hospital.errors, status: :unprocessable_entity
+        end
     end
 
     def search
+    end
+
+    private
+
+    def hospital_fetch_params
+        params.permit(:id, :name, :telephone, :address, :neighborhood, :latitude,
+            :longitude, :region, :micro_region, :nature, :specialties)
     end
 end

@@ -38,4 +38,17 @@ FactoryBot.define do
     nature { "CONVENIADO" }
     specialties { "CLINICA MEDICA E CLINICA CIRURGICA" }
   end
+
+  factory :random_hospital, class: 'Hospital' do
+    name { Faker::Company.name }
+    telephone { "0012345678"}
+    address { Faker::Address.street_address }
+    neighborhood { Faker::Address.street_name }
+    latitude { Faker::Address.latitude }
+    longitude { Faker::Address.longitude }
+    region { '1' }
+    micro_region { '1' }
+    nature { 'CONVENIADO' }
+    specialties { 'CLINICA MEDICA E CLINICA CIRURGICA' }
+  end
 end
