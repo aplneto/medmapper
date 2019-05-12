@@ -1,6 +1,18 @@
 require 'faker'
 
 FactoryBot.define do
+  factory :local do
+    
+  end
+
+  factory :contact do
+    
+  end
+
+  factory :area do
+    
+  end
+
   factory :professional do
     
   end
