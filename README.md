@@ -3,7 +3,7 @@
 
  
 [Motivação](#motivação) | [Instalação](#installing--getting-started)| 
-[Ferramentas](#ferramentas-de-terceiros) | [Links](#links) | [Entregas](/docs/iterations.md) |
+[Ferramentas](#ferramentas-de-terceiros) | [Links](#links) | [Entregas](/docs/iterations.md) | [Mockups](/docs/mockups.md)
 
 ![Logo da plataforma](docs/idv/logotmp200x200.png "Logo do Projeto")
 
@@ -44,7 +44,7 @@ atendimento de todo o estado e, eventualmente, outras áreas da medicina.
 ## Installing / Getting started
 
 ```shell
-$ git clone https://github.com/aplneto/projeto_ES
+$ git clone https://github.com/aplneto/medmapper
 ```
 
 Para iniciar a edição do código da plataforma basta clonar o repositório na
@@ -68,6 +68,8 @@ https://www.ruby-lang.org/pt/ "Ruby")
 https://rubyonrails.org/ "Ruby on Rails")
 [![JavaScript](https://img.icons8.com/color/48/000000/javascript.png)](
 https://www.javascript.com/ "JavaScript")
+[![Heroku](https://img.icons8.com/color/48/000000/heroku.png)](
+https://medmapper.herokuapp.com/ "GitHub")
 [![GitHub](https://img.icons8.com/metro/48/000000/github.png)](
 https://github.com/ "GitHub")
 [![Icons8](https://img.icons8.com/color/48/000000/icons8-logo.png)](
@@ -103,3 +105,5 @@ Outras ferramentas:
 - [Factory bot](https://github.com/thoughtbot/factory_bot)
 - [Omniauth](https://github.com/omniauth/omniauth)
 - [Devise](https://github.com/plataformatec/devise)
+- [Faker](https://github.com/stympy/faker)
+- [Database Cleaner](https://github.com/DatabaseCleaner/database_cleaner)
