@@ -1,6 +1,10 @@
 require 'faker'
 
 FactoryBot.define do
+  factory :commentary do
+    
+  end
+
   factory :local do
     
   end
