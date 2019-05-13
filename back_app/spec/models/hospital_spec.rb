@@ -53,5 +53,9 @@ RSpec.describe Hospital, type: :model do
       subject.specialties = nil
       expect(subject).to_not be_valid
     end
+    it 'should have one row after the creation of one element' do
+      subject.save
+      expect(Hospital.count).to eq(1)
+    end
   end
 end
