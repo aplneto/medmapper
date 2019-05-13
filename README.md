@@ -69,7 +69,7 @@ https://rubyonrails.org/ "Ruby on Rails")
 [![JavaScript](https://img.icons8.com/color/48/000000/javascript.png)](
 https://www.javascript.com/ "JavaScript")
 [![Heroku](https://img.icons8.com/color/48/000000/heroku.png)](
-https://medmapper.herokuapp.com/ "GitHub")
+https://medmapper.herokuapp.com/ "Heroku")
 [![GitHub](https://img.icons8.com/metro/48/000000/github.png)](
 https://github.com/ "GitHub")
 [![Icons8](https://img.icons8.com/color/48/000000/icons8-logo.png)](
