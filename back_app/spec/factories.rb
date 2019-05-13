@@ -40,7 +40,7 @@ FactoryBot.define do
   end
 
   factory :random_hospital, class: 'Hospital' do
-    name { Faker::Company.name }
+    name { Faker::Name.name }
     telephone { "0012345678"}
     address { Faker::Address.street_address }
     neighborhood { Faker::Address.street_name }
