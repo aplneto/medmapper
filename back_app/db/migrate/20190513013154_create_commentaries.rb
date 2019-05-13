@@ -6,6 +6,5 @@ class CreateCommentaries < ActiveRecord::Migration[5.2]
       t.references :hospital, foreign_key: true
       t.timestamps
     end
-   add_index :commentaries, :commentary, unique: true
   end
 end
