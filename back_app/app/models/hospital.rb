@@ -11,4 +11,7 @@ class Hospital < ApplicationRecord
 
     validates :nature, presence: true, length: { maximum: 15 }
     validates :specialties, presence: true, length: { maximum: 80 }
+
+    has_many :comentaries
+
 end
