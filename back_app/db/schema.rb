@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_12_040519) do
+ActiveRecord::Schema.define(version: 2019_05_13_013154) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,6 +22,15 @@ ActiveRecord::Schema.define(version: 2019_05_12_040519) do
     t.datetime "updated_at", null: false
     t.index ["area"], name: "index_areas_on_area", unique: true
     t.index ["user_id"], name: "index_areas_on_user_id"
+  end
+
+  create_table "commentaries", force: :cascade do |t|
+    t.string "commentary", limit: 140, null: false
+    t.bigint "hospital_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["commentary"], name: "index_commentaries_on_commentary", unique: true
+    t.index ["hospital_id"], name: "index_commentaries_on_hospital_id"
   end
 
   create_table "contacts", id: false, force: :cascade do |t|
@@ -74,6 +83,7 @@ ActiveRecord::Schema.define(version: 2019_05_12_040519) do
   end
 
   add_foreign_key "areas", "users"
+  add_foreign_key "commentaries", "hospitals"
   add_foreign_key "contacts", "users"
   add_foreign_key "locals", "users"
 end
