@@ -1,9 +1,9 @@
 const assert = require('assert');
 const { Given, When, Then } = require('cucumber');
+const singinPage = require('../../src/singin.js');
 
-Given('que eu estou na página de registro', function () {
-  // Write code here that turns the phrase above into concrete actions
-  return 'pending';
+Given('que eu estou na página de registro', function (callback) {
+  singinPage.visit().then(callback);
 });
 
 When('eu preencho os campos {stringInDoubleQuotes},{stringInDoubleQuotes},{stringInDoubleQuotes},{stringInDoubleQuotes},{stringInDoubleQuotes},{stringInDoubleQuotes} com dados válidos', function (stringInDoubleQuotes, stringInDoubleQuotes2, stringInDoubleQuotes3, stringInDoubleQuotes4, stringInDoubleQuotes5, stringInDoubleQuotes6) {

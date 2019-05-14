@@ -6,9 +6,9 @@ Given('que estou na página de Busca', function (callback) {
   SearchPage.visit().then(callback);
 });
        
-When('preencho os campos de filtros', function () {
+When('preencho os campos de filtros', function (nome, callback) {
   const filtro = SearchPage.filtro;
-  SeacrhPage.SearchHospitals(nome).then(callback);
+  SearchPage.SearchHospitals(nome).then(callback);
 });
        
 When('nenhum resultado correspondeaos filtros inseridos', function (callback) {

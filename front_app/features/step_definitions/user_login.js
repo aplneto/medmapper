@@ -4,14 +4,13 @@ const loginPage = require('../../src/login.js');
 
 
 Given('um usuário {stringInDoubleQuotes} com a senha {stringInDoubleQuotes}', function (stringInDoubleQuotes, stringInDoubleQuotes2) {
-  // Write code here that turns the phrase above into concrete actions
-  return 'pending';
+    return 'pending'
 });
 
 
-Given('eu estou na página de login', function () {
-  // Write code here that turns the phrase above into concrete actions
-  return 'pending';
+Given('eu estou na página de login', function (callback) {
+    loginPage.visit().then(callback);
+
 });
 
 
