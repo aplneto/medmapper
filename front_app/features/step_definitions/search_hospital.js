@@ -1,19 +1,18 @@
 const assert = require('assert');
 const { Given, When, Then } = require('cucumber');
+const SearchPage = require('../../src/search.js');
 
-Given('que estou na página de Busca', function () {
-  // Write code here that turns the phrase above into concrete actions
-  return 'pending';
+Given('que estou na página de Busca', function (callback) {
+  SearchPage.visit().then(callback);
 });
        
 When('preencho os campos de filtros', function () {
-  // Write code here that turns the phrase above into concrete actions
-  return 'pending';
+  const filtro = SearchPage.filtro;
+  SeacrhPage.SearchHospitals(nome).then(callback);
 });
        
-When('nenhum resultado correspondeaos filtros inseridos', function () {
-  // Write code here that turns the phrase above into concrete actions
-  return 'pending';
+When('nenhum resultado correspondeaos filtros inseridos', function (callback) {
+  expect(SearchPage.resultados).notify(callback)
 });
        
 Then('uma sugestão de um hospital mais proximo dos filtros deve ser mostrada', function () {

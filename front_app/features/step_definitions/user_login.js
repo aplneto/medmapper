@@ -1,5 +1,7 @@
 const assert = require('assert');
 const { Given, When, Then } = require('cucumber');
+const loginPage = require('../../src/login.js');
+
 
 Given('um usuário {stringInDoubleQuotes} com a senha {stringInDoubleQuotes}', function (stringInDoubleQuotes, stringInDoubleQuotes2) {
   // Write code here that turns the phrase above into concrete actions
