@@ -3,7 +3,7 @@ const { Given, When, Then } = require('cucumber');
 
 Given('que estou na página de Busca', function () {
   // Write code here that turns the phrase above into concrete actions
-   visit('/login')
+  return 'pending';
 });
        
 When('preencho os campos de filtros', function () {
