@@ -11,7 +11,7 @@ Funcionalidade: Realizar login
     Dado que eu estou na página de login
     Quando eu preencho "Usuário" com "its"
     E eu preencho "Senha" com "Med@if977"
-    Então o aplicativo deverá me redireciona para o meu perfil de usuário
+    Entao o aplicativo deverá me redireciona para o meu perfil de usuário
 
   Cenário: Falha no Login por causa da senha errada
     Ao  tentar realizar o login, é mostrada a mensagem de falha o tentar realizar login.
@@ -19,7 +19,7 @@ Funcionalidade: Realizar login
     Dado que eu estou na página de login
     Quando eu preencho "Usuário" com "its"
     E eu preencho "Senha" com "gfsahwqhie"
-    Então vejo na tela:
+    Entao vejo na tela:
       """
       Usuário e/ou senhas estão incorretos, tente novamente
       """
@@ -27,8 +27,7 @@ Funcionalidade: Realizar login
   Cenário: Falha no Login por causa do login esta errado
     Ao  tentar realizar o login, é mostrada a mensagem de falha o tentar realizar login.
 
-    Dado um usuário "its" com a senha "Med@if977"
-    E eu estou na página de login
+    Dado que eu estou na página de login
     Quando eu preencho "Usuário" com "isac"
     E eu preencho "Senha" com "Med@if977"
     Então vejo na tela:
