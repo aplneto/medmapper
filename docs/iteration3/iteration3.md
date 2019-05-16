@@ -15,7 +15,7 @@ https://raw.githubusercontent.com/aplneto/projeto_ES/master/docs/idv/logotmp200x
 ### IT 3-1
 | Desenvolvimento | 
 |----------|
-|  |
+| [Testes de Comportamento](/back_app/features) |
 
 ### IT 3-2
 |    Documentos | 
