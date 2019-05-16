@@ -44,7 +44,7 @@ atendimento de todo o estado e, eventualmente, outras áreas da medicina.
 ## Installing / Getting started
 
 ```shell
-$ git clone https://github.com/aplneto/projeto_ES
+$ git clone https://github.com/aplneto/medmapper
 ```
 
 Para iniciar a edição do código da plataforma basta clonar o repositório na
@@ -68,6 +68,8 @@ https://www.ruby-lang.org/pt/ "Ruby")
 https://rubyonrails.org/ "Ruby on Rails")
 [![JavaScript](https://img.icons8.com/color/48/000000/javascript.png)](
 https://www.javascript.com/ "JavaScript")
+[![Heroku](https://img.icons8.com/color/48/000000/heroku.png)](
+https://medmapper.herokuapp.com/ "Heroku")
 [![GitHub](https://img.icons8.com/metro/48/000000/github.png)](
 https://github.com/ "GitHub")
 [![Icons8](https://img.icons8.com/color/48/000000/icons8-logo.png)](

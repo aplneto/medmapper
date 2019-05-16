@@ -8,7 +8,7 @@ Funcionalidade: Procurar Hospital
   Cenário: Busca sem resultados
     Ao fazer a busca, nenhum hospital corresponde aos filtros informados
     
-    Dado que estou na página de busca
+    Dado que estou na página de Busca
     Quando preencho os campos de filtros
     E nenhum resultado correspondeaos filtros inseridos
     Então uma sugestão de um hospital mais proximo dos filtros deve ser mostrada

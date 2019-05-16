@@ -1,6 +1,26 @@
 require 'faker'
 
 FactoryBot.define do
+  factory :commentary do
+    
+  end
+
+  factory :local do
+    
+  end
+
+  factory :contact do
+    
+  end
+
+  factory :area do
+    
+  end
+
+  factory :professional do
+    
+  end
+
   factory :user do
     login { 'its' }
     #encrypted_password { '' }

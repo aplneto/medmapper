@@ -8,7 +8,7 @@ class CreateUsers < ActiveRecord::Migration[5.2]
       t.string  :telephone,  :limit => 11
       t.string  :address,    :limit => 50
       t.string  :neighborhood,  :limit => 30
-      t.datetime :birthday, null:false
+      t.datetime :birthday, null: false
       t.timestamps
     end
   end
