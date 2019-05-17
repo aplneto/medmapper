@@ -1,5 +1,3 @@
-#encoding: utf-8 
-
 Dado("que eu estou na página de login") do
   visit('/login')
 end

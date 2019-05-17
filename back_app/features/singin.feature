@@ -44,4 +44,4 @@ Funcionalidade: Realizar cadastro
     Dado que eu estou na página de registro
     Quando eu preencho os campos "E-mail","Senha","Confirmação de senha","Nome" com senhas diferentes
     E eu pressiono o botão "Cancelar"
-    Então todos os campos devem ser esvaziados  
+    Então todos os campos devem ser esvaziados
