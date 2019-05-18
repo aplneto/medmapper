@@ -42,12 +42,24 @@ GEM
       i18n (>= 0.7, < 2)
       minitest (~> 5.1)
       tzinfo (~> 1.1)
+    addressable (2.6.0)
+      public_suffix (>= 2.0.2, < 4.0)
     arel (9.0.0)
+    backports (3.15.0)
     bootsnap (1.4.4)
       msgpack (~> 1.0)
     builder (3.2.3)
     byebug (11.0.1)
     ckan (0.0.3)
+    capybara (3.20.0)
+      addressable
+      mini_mime (>= 0.1.3)
+      nokogiri (~> 1.8)
+      rack (>= 1.6.0)
+      rack-test (>= 0.6.3)
+      regexp_parser (~> 1.2)
+      uglifier
+      xpath (~> 3.2)
     coderay (1.1.2)
     coffee-rails (4.2.2)
       coffee-script (>= 2.2.0)
@@ -58,6 +70,28 @@ GEM
     coffee-script-source (1.12.2)
     concurrent-ruby (1.1.5)
     crass (1.0.4)
+    cucumber (3.1.2)
+      builder (>= 2.1.2)
+      cucumber-core (~> 3.2.0)
+      cucumber-expressions (~> 6.0.1)
+      cucumber-wire (~> 0.0.1)
+      diff-lcs (~> 1.3)
+      gherkin (~> 5.1.0)
+      multi_json (>= 1.7.5, < 2.0)
+      multi_test (>= 0.1.2)
+    cucumber-core (3.2.1)
+      backports (>= 3.8.0)
+      cucumber-tag_expressions (~> 1.1.0)
+      gherkin (~> 5.0)
+    cucumber-expressions (6.0.1)
+    cucumber-rails (1.7.0)
+      capybara (>= 2.3.0, < 4)
+      cucumber (>= 3.0.2, < 4)
+      mime-types (>= 1.17, < 4)
+      nokogiri (~> 1.8)
+      railties (>= 4.2, < 7)
+    cucumber-tag_expressions (1.1.1)
+    cucumber-wire (0.0.1)
     database_cleaner (1.7.0)
     diff-lcs (1.3)
     erubi (1.8.0)
@@ -71,6 +105,7 @@ GEM
       i18n (>= 0.7)
     ffi (1.10.0)
     formatador (0.2.5)
+    gherkin (5.1.0)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
     guard (2.15.0)
@@ -113,7 +148,12 @@ GEM
     mini_portile2 (2.4.0)
     minitest (5.11.3)
     msgpack (1.2.10)
+<<<<<<< HEAD
     multi_xml (0.6.0)
+=======
+    multi_json (1.13.1)
+    multi_test (0.1.2)
+>>>>>>> de5d4791a77b368da8ad688024ea6dacba8ea4c2
     nenv (0.3.0)
     nio4r (2.3.1)
     nokogiri (1.10.3)
@@ -125,6 +165,7 @@ GEM
     pry (0.12.2)
       coderay (~> 1.1.0)
       method_source (~> 0.9.0)
+    public_suffix (3.0.3)
     puma (3.12.1)
     rack (2.0.7)
     rack-test (1.1.0)
@@ -157,6 +198,7 @@ GEM
     rb-fsevent (0.10.3)
     rb-inotify (0.10.0)
       ffi (~> 1.0)
+    regexp_parser (1.5.0)
     rspec (3.8.0)
       rspec-core (~> 3.8.0)
       rspec-expectations (~> 3.8.0)
@@ -197,9 +239,13 @@ GEM
     thread_safe (0.3.6)
     tzinfo (1.2.5)
       thread_safe (~> 0.1)
+    uglifier (4.1.20)
+      execjs (>= 0.3.0, < 3)
     websocket-driver (0.7.0)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.3)
+    xpath (3.2.0)
+      nokogiri (~> 1.8)
 
 PLATFORMS
   ruby
@@ -209,6 +255,7 @@ DEPENDENCIES
   byebug
   ckan
   coffee-rails (~> 4.2)
+  cucumber-rails
   database_cleaner
   factory_bot_rails
   faker
