@@ -19,5 +19,3 @@ Funcionalidade: Procurar Hospital
     E não preencho o tipo de atendimento
     Quando aperto no botão de pesquisar
     Então é visto na tela: "É preciso informar o tipo de atendimento"
-    
-  
