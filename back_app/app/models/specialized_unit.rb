@@ -1,0 +1,2 @@
+class SpecializedUnit < ApplicationRecord
+end

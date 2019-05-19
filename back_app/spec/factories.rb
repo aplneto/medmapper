@@ -1,6 +1,23 @@
 require 'faker'
 
 FactoryBot.define do
+  factory :specialty do
+    
+  end
+
+  factory :specialized_unit do
+    
+  end
+
+  factory :basic_health_unit do
+    
+  end
+
+
+  factory :pharmacy do
+    
+  end
+
   factory :commentary do
     
   end
