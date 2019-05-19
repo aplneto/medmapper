@@ -13,8 +13,8 @@ type)`;
  Especialidades Odontológicas, Policlinicas, Serviços de Apoio Diagnóstico
  e Terapêutico e Serviços de Proto Atendimento.
  
- `hospitals(id, cnes, unidade, endereco, bairro, fone, especialidades,
- latitude, longitude, type)`;
+ `hospitals(id, cnes, unidade, endereco, bairro, fone, latitude, longitude,
+ type)`;
  
  ## `basic_health_units`
  
@@ -54,6 +54,10 @@ type)`;
  type: string(model);
  ```
  
+ ## Recursos de hospitais
+ 
+ `specialties(hospital_id, specialty)`
+ 
  # Usuário
  
  Os usuários serão configurados através de multi table inheritance. As
@@ -83,4 +87,4 @@ type)`;
  Cada comentário estará relacionado a uma unidade de saúde. A associação
  será polimórfica.
  
- `comments(id, unit_id, user_id, text)`
+ `comments(id, unit_id, unit_ype, user_id, text)`
