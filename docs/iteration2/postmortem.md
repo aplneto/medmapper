@@ -56,16 +56,16 @@
 |Views de Autenticação #29|Gabriel, Isac|
 |Autenticação #35|Antônio|
 |ProfUserModel #41|Pedro|
-|Seed do Banco de Dados|Antônio, Pedro|
+|Siege do Banco de Dados|Antônio, Pedro|
 |Criação de BDD no React|Gabriel, Isac|
 |Criação de TDD no Rails API|Antônio|
 
+## Atas de Reunião
+
+[08/05](https://github.com/aplneto/medmapper/blob/master/docs/iteration2/%5B08-05%5D%20Reuni%C3%A3o%20com%20equipe%20do%20LACAF%20.pdf)
+
 ## Lições Aprendidas
 
-A leitura da documentação deve ser o tutorial número 1 a ser consultado;
-Análise crítica antes de merge com a branch Master;
-
-## Notas
-
-Existem Gems que não interagem bem com o Heroku, como é o caso do Devise,
-o emprego destas Gems deve ser feito com excessivo cuidado.
+- Abrir pull requests e analisar cuidadosamente as diferenças antes de merge com a branch Master;
+- Desenvolvimento em ambiente remoto não é necessariamente melhor que desenvolvimento local;
+- Nem sempre esperar pela decisão do cliente é a escolha ideal;
