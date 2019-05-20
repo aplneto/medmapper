@@ -1,2 +1,2 @@
-class BasicHealthUnit < ApplicationRecord
+class BasicHealthUnit < Hospital
 end

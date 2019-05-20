@@ -1,2 +1,2 @@
-class SpecializedUnit < ApplicationRecord
+class SpecializedUnit < Hospital
 end

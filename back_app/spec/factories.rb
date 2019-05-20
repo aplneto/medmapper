@@ -48,28 +48,13 @@ FactoryBot.define do
   end
 
   factory :hospital do
+    cnes { 0000656 }
     name { "HOSPITAL SANTO AMARO (IRMANDADE DA SANTA CASA DE MISERICORDIA DO RECIFE)" }
     telephone { "8134123800" }
     address { "AVENIDA CRUZ CABUGA, 1563" }
     neighborhood { "SANTO AMARO" }
-    latitude { "-8.0424693" }
-    longitude { "-34.873336" }
-    region { "1" }
-    micro_region { "1" }
-    nature { "CONVENIADO" }
-    specialties { "CLINICA MEDICA E CLINICA CIRURGICA" }
-  end
-
-  factory :random_hospital, class: 'Hospital' do
-    name { Faker::Name.name }
-    telephone { "0012345678"}
-    address { Faker::Address.street_address }
-    neighborhood { Faker::Address.street_name }
-    latitude { Faker::Address.latitude }
-    longitude { Faker::Address.longitude }
-    region { '1' }
-    micro_region { '1' }
-    nature { 'CONVENIADO' }
-    specialties { 'CLINICA MEDICA E CLINICA CIRURGICA' }
+    latitude { -8.0424693 }
+    longitude { -34.873336 }
+    type { "Hospital" }
   end
 end

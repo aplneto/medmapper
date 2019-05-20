@@ -1,2 +1,3 @@
-class Pharmacy < ApplicationRecord
+class Pharmacy < Hospital
+    
 end
