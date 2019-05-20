@@ -1,22 +1,22 @@
 class HospitalsController < ApplicationController
     def index
         @hospitals = Hospital.all
-        render json: @hospitals, status: 200
     end
 
     def show
         @hospital = Hospital.find(params[:id].to_i)
-        render json: @hospital, status: :success
-    end
-
-    def new
-        @hospital = Hospital.new
     end
 
     def create
-        # creation method
+        hospital = Hospital.new(hospital_fetch_params)
+        if hospital.save
+            render json: hospital, status: 200
+        else
+            render json: hospital.errors, status: :unprocessable_entity
+        end
     end
 
     def search
     end
+
 end

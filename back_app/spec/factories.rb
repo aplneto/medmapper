@@ -1,6 +1,23 @@
 require 'faker'
 
 FactoryBot.define do
+  factory :specialty do
+    
+  end
+
+  factory :specialized_unit do
+    
+  end
+
+  factory :basic_health_unit do
+    
+  end
+
+
+  factory :pharmacy do
+    
+  end
+
   factory :commentary do
     
   end
@@ -31,15 +48,13 @@ FactoryBot.define do
   end
 
   factory :hospital do
+    cnes { 0000656 }
     name { "HOSPITAL SANTO AMARO (IRMANDADE DA SANTA CASA DE MISERICORDIA DO RECIFE)" }
     telephone { "8134123800" }
     address { "AVENIDA CRUZ CABUGA, 1563" }
     neighborhood { "SANTO AMARO" }
-    latitude { "-8.0424693" }
-    longitude { "-34.873336" }
-    region { "1" }
-    micro_region { "1" }
-    nature { "CONVENIADO" }
-    specialties { "CLINICA MEDICA E CLINICA CIRURGICA" }
+    latitude { -8.0424693 }
+    longitude { -34.873336 }
+    type { "Hospital" }
   end
 end

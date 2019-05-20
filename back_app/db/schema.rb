@@ -10,80 +10,75 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_13_013154) do
+ActiveRecord::Schema.define(version: 2019_05_19_025551) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "areas", id: false, force: :cascade do |t|
-    t.string "area", limit: 30, null: false
-    t.bigint "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["area"], name: "index_areas_on_area", unique: true
-    t.index ["user_id"], name: "index_areas_on_user_id"
-  end
-
-  create_table "commentaries", force: :cascade do |t|
-    t.string "commentary", limit: 140, null: false
-    t.bigint "hospital_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["commentary"], name: "index_commentaries_on_commentary", unique: true
-    t.index ["hospital_id"], name: "index_commentaries_on_hospital_id"
-  end
-
-  create_table "contacts", id: false, force: :cascade do |t|
-    t.string "contact", limit: 100, null: false
-    t.bigint "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["contact"], name: "index_contacts_on_contact", unique: true
-    t.index ["user_id"], name: "index_contacts_on_user_id"
-  end
-
-  create_table "hospitals", force: :cascade do |t|
-    t.string "name", limit: 100, null: false
-    t.string "telephone", limit: 10, null: false
+  create_table "basic_health_units", id: :bigint, default: -> { "nextval('pharmacies_id_seq'::regclass)" }, force: :cascade do |t|
+    t.bigint "cnes", null: false
+    t.string "name", limit: 80, null: false
     t.string "address", limit: 50, null: false
     t.string "neighborhood", limit: 30, null: false
-    t.string "latitude", limit: 20, null: false
-    t.string "longitude", limit: 20, null: false
-    t.integer "region", limit: 2, null: false
-    t.integer "micro_region", limit: 2, null: false
-    t.string "nature", limit: 15, null: false
-    t.string "specialties", limit: 80, null: false
+    t.string "phone", limit: 25, null: false
+    t.float "latitude", null: false
+    t.float "longitude", null: false
+    t.string "type", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["cnes"], name: "basic_health_units_cnes_idx", unique: true
+    t.index ["type"], name: "basic_health_units_type_idx"
   end
 
-  create_table "locals", id: false, force: :cascade do |t|
-    t.string "local", limit: 30, null: false
-    t.bigint "user_id"
+  create_table "hospitals", id: :bigint, default: -> { "nextval('pharmacies_id_seq'::regclass)" }, force: :cascade do |t|
+    t.bigint "cnes", null: false
+    t.string "name", limit: 80, null: false
+    t.string "address", limit: 50, null: false
+    t.string "neighborhood", limit: 30, null: false
+    t.string "phone", limit: 25, null: false
+    t.float "latitude", null: false
+    t.float "longitude", null: false
+    t.string "type", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["local"], name: "index_locals_on_local", unique: true
-    t.index ["user_id"], name: "index_locals_on_user_id"
+    t.index ["cnes"], name: "hospitals_cnes_idx", unique: true
+    t.index ["type"], name: "hospitals_type_idx"
   end
 
-  create_table "users", force: :cascade do |t|
-    t.string "login", limit: 15, null: false
-    t.string "encrypted_password", null: false
-    t.string "name", limit: 50, null: false
-    t.string "sex", limit: 1, null: false
-    t.string "telephone", limit: 11
+  create_table "pharmacies", force: :cascade do |t|
+    t.bigint "cnes", null: false
+    t.string "name", limit: 80, null: false
+    t.string "address", limit: 50, null: false
+    t.string "neighborhood", limit: 30, null: false
+    t.string "phone", limit: 25, null: false
+    t.float "latitude", null: false
+    t.float "longitude", null: false
+    t.string "type", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "email", limit: 30, null: false
-    t.datetime "birthday"
-    t.string "occupation", limit: 25
-    t.string "registry", limit: 25
-    t.string "description", limit: 140
-    t.boolean "homecare"
+    t.index ["cnes"], name: "index_pharmacies_on_cnes", unique: true
+    t.index ["type"], name: "index_pharmacies_on_type"
   end
 
-  add_foreign_key "areas", "users"
-  add_foreign_key "commentaries", "hospitals"
-  add_foreign_key "contacts", "users"
-  add_foreign_key "locals", "users"
+  create_table "specialized_units", id: :bigint, default: -> { "nextval('pharmacies_id_seq'::regclass)" }, force: :cascade do |t|
+    t.bigint "cnes", null: false
+    t.string "name", limit: 80, null: false
+    t.string "address", limit: 50, null: false
+    t.string "neighborhood", limit: 30, null: false
+    t.string "phone", limit: 25, null: false
+    t.float "latitude", null: false
+    t.float "longitude", null: false
+    t.string "type", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["cnes"], name: "specialized_units_cnes_idx", unique: true
+    t.index ["type"], name: "specialized_units_type_idx"
+  end
+
+  create_table "specialties", id: false, force: :cascade do |t|
+    t.string "name", null: false
+    t.integer "unit_id", null: false
+    t.string "unit_type", null: false
+  end
+
 end

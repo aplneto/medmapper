@@ -43,7 +43,27 @@ RSpec.describe HospitalsController, type: :controller do
         it 'needs to have the valid hospital in it\'s body\'s response'
     end
 
-    describe '#new'
+    describe '#create' do
+        it 'should receive an error like json if some field is missing' do
+            post :create
+            expect(response).to have_http_status(:unprocessable_entity)
+        end
+        it 'should return an json containing the created hospital in it' do
+
+            hospital = {
+                name: Faker::Name.name, telephone: "0123456789",
+                address: Faker::Address.street_address,
+                neighborhood: Faker::Address.street_name,
+                latitude: Faker::Address.latitude.to_s,
+                longitude: Faker::Address.longitude.to_s,
+                region: 1, micro_region: 1, nature: 'CONVENIADO',
+                specialties: 'GENERIC SPECIALTIES LIST'
+            }
+
+            post :create, params: hospital
+            expect(response.body).to include_json(hospital)
+        end
+    end
 
     describe '#update'
 

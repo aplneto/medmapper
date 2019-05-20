@@ -1,0 +1,3 @@
+class Pharmacy < Hospital
+    
+end

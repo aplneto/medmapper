@@ -1,0 +1,2 @@
+class BasicHealthUnit < Hospital
+end
