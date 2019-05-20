@@ -56,7 +56,7 @@
 |Views de Autenticação #29|Gabriel, Isac|
 |Autenticação #35|Antônio|
 |ProfUserModel #41|Pedro|
-|Siege do Banco de Dados|Antônio, Pedro|
+|Seed do Banco de Dados|Antônio, Pedro|
 |Criação de BDD no React|Gabriel, Isac|
 |Criação de TDD no Rails API|Antônio|
 
