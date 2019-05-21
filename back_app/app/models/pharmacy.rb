@@ -1,3 +1,3 @@
-class Pharmacy < Hospital
+class Pharmacy < AbstractHealthUnit
     
 end

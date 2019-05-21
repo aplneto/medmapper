@@ -5,7 +5,7 @@ RSpec.describe Pharmacy, type: :model do
     cnes: 0000655, name: 'GENERIC HOSPITAL NAME',
     phone: '0123456789', neighborhood: 'GENERIC NEIGHBORHOOD',
     address: 'GENERIC ADDRESS S/N', latitude: 123546789,
-    longitude: 123456789, type: 'Hospital') }
+    longitude: 123456789, type: 'Pharmacy') }
   describe 'Model basic functioning' do
     it 'should be valid' do
       expect(subject).to be_valid
