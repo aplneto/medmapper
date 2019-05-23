@@ -1,0 +1,19 @@
+h1 Listing family_health_units
+
+table
+  thead
+    tr
+      th
+      th
+      th
+
+  tbody
+    - @family_health_units.each do |family_health_unit|
+      tr
+        td = link_to 'Show', family_health_unit
+        td = link_to 'Edit', edit_family_health_unit_path(family_health_unit)
+        td = link_to 'Destroy', family_health_unit, data: { confirm: 'Are you sure?' }, method: :delete
+
+br
+
+= link_to 'New Family health unit', new_family_health_unit_path

@@ -1,0 +1,19 @@
+h1 Listing polyclincs
+
+table
+  thead
+    tr
+      th
+      th
+      th
+
+  tbody
+    - @polyclincs.each do |polyclinc|
+      tr
+        td = link_to 'Show', polyclinc
+        td = link_to 'Edit', edit_polyclinc_path(polyclinc)
+        td = link_to 'Destroy', polyclinc, data: { confirm: 'Are you sure?' }, method: :delete
+
+br
+
+= link_to 'New Polyclinc', new_polyclinc_path

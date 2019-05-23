@@ -1,5 +1,12 @@
 Rails.application.routes.draw do
 
+  resources :maternity_clinics
+  resources :mental_health_units
+  resources :odontology_units
+  resources :emergency_units
+  resources :diagnosis_units
+  resources :polyclincs
+  resources :family_health_units
   resources :specialized_units
   resources :basic_health_units
   resources :hospitals

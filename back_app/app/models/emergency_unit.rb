@@ -1,0 +1,2 @@
+class EmergencyUnit < Hospital
+end

@@ -1,0 +1,2 @@
+class MaternityClinic < SpecializedUnit
+end

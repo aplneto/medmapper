@@ -1,2 +1,2 @@
-class SpecializedUnit < Hospital
+class SpecializedUnit < AbstractHealthUnit
 end

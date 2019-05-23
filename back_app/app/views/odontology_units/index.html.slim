@@ -1,0 +1,19 @@
+h1 Listing odontology_units
+
+table
+  thead
+    tr
+      th
+      th
+      th
+
+  tbody
+    - @odontology_units.each do |odontology_unit|
+      tr
+        td = link_to 'Show', odontology_unit
+        td = link_to 'Edit', edit_odontology_unit_path(odontology_unit)
+        td = link_to 'Destroy', odontology_unit, data: { confirm: 'Are you sure?' }, method: :delete
+
+br
+
+= link_to 'New Odontology unit', new_odontology_unit_path

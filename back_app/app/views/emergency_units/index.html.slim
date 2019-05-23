@@ -1,0 +1,19 @@
+h1 Listing emergency_units
+
+table
+  thead
+    tr
+      th
+      th
+      th
+
+  tbody
+    - @emergency_units.each do |emergency_unit|
+      tr
+        td = link_to 'Show', emergency_unit
+        td = link_to 'Edit', edit_emergency_unit_path(emergency_unit)
+        td = link_to 'Destroy', emergency_unit, data: { confirm: 'Are you sure?' }, method: :delete
+
+br
+
+= link_to 'New Emergency unit', new_emergency_unit_path

@@ -1,2 +1,2 @@
-class BasicHealthUnit < Hospital
+class BasicHealthUnit < AbstractHealthUnit
 end

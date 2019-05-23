@@ -1,0 +1,19 @@
+h1 Listing maternity_clinics
+
+table
+  thead
+    tr
+      th
+      th
+      th
+
+  tbody
+    - @maternity_clinics.each do |maternity_clinic|
+      tr
+        td = link_to 'Show', maternity_clinic
+        td = link_to 'Edit', edit_maternity_clinic_path(maternity_clinic)
+        td = link_to 'Destroy', maternity_clinic, data: { confirm: 'Are you sure?' }, method: :delete
+
+br
+
+= link_to 'New Maternity clinic', new_maternity_clinic_path

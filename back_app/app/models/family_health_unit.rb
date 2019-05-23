@@ -1,0 +1,2 @@
+class FamilyHealthUnit < BasicHealthUnit
+end

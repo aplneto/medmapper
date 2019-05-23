@@ -1,0 +1,2 @@
+class MentalHealthUnit < SpecializedUnit
+end

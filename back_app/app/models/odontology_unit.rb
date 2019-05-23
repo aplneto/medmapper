@@ -1,0 +1,2 @@
+class OdontologyUnit < Hospital
+end

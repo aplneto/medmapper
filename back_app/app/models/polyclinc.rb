@@ -1,0 +1,2 @@
+class Polyclinc < Hospital
+end
