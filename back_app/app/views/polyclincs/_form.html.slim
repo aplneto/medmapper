@@ -1,9 +1,0 @@
-= form_for @polyclinc do |f|
-  - if @polyclinc.errors.any?
-    #error_explanation
-      h2 = "#{pluralize(@polyclinc.errors.count, "error")} prohibited this polyclinc from being saved:"
-      ul
-        - @polyclinc.errors.full_messages.each do |message|
-          li = message
-
-  .actions = f.submit

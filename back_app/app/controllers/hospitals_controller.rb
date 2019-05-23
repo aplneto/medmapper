@@ -1,4 +1,5 @@
 class HospitalsController < ApplicationController
+    include GeneralModelHelper
     def index
         @hospitals = Hospital.all
     end
@@ -7,16 +8,26 @@ class HospitalsController < ApplicationController
         @hospital = Hospital.find(params[:id].to_i)
     end
 
+    def new
+        @hospital = Hospital.new
+    end
+
     def create
-        hospital = Hospital.new(hospital_fetch_params)
-        if hospital.save
-            render json: hospital, status: 200
+        @hospital = Hospital.new(params[:hospital])
+        if @hospital.save
+            redirect_to hospital_path(@hospital.id),
+            :notice => 'Novo hospital cadastrado com sucesso'
         else
-            render json: hospital.errors, status: :unprocessable_entity
+            render 'new', @hospital.errors
         end
     end
 
-    def search
+    def filter
+        @hospital = Hospital.new
+    end
+
+    def filter_results
+        multi_tag_search(params[:hospital], Hospital)
     end
 
 end

@@ -1,6 +1,10 @@
 require 'faker'
 
 FactoryBot.define do
+  factory :polyclinic do
+    
+  end
+
   factory :maternity_clinic do
     
   end
@@ -18,10 +22,6 @@ FactoryBot.define do
   end
 
   factory :diagnosis_unit do
-    
-  end
-
-  factory :polyclinc do
     
   end
 

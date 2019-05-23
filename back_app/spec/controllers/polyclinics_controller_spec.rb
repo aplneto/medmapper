@@ -23,10 +23,10 @@ require 'rails_helper'
 # removed from Rails core in Rails 5, but can be added back in via the
 # `rails-controller-testing` gem.
 
-RSpec.describe PolyclincsController, type: :controller do
+RSpec.describe PolyclinicsController, type: :controller do
 
   # This should return the minimal set of attributes required to create a valid
-  # Polyclinc. As you add validations to Polyclinc, be sure to
+  # Polyclinic. As you add validations to Polyclinic, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) {
     skip("Add a hash of attributes valid for your model")
@@ -38,12 +38,12 @@ RSpec.describe PolyclincsController, type: :controller do
 
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in
-  # PolyclincsController. Be sure to keep this updated too.
+  # PolyclinicsController. Be sure to keep this updated too.
   let(:valid_session) { {} }
 
   describe "GET #index" do
     it "returns a success response" do
-      Polyclinc.create! valid_attributes
+      Polyclinic.create! valid_attributes
       get :index, params: {}, session: valid_session
       expect(response).to be_successful
     end
@@ -51,8 +51,8 @@ RSpec.describe PolyclincsController, type: :controller do
 
   describe "GET #show" do
     it "returns a success response" do
-      polyclinc = Polyclinc.create! valid_attributes
-      get :show, params: {id: polyclinc.to_param}, session: valid_session
+      polyclinic = Polyclinic.create! valid_attributes
+      get :show, params: {id: polyclinic.to_param}, session: valid_session
       expect(response).to be_successful
     end
   end
@@ -66,29 +66,29 @@ RSpec.describe PolyclincsController, type: :controller do
 
   describe "GET #edit" do
     it "returns a success response" do
-      polyclinc = Polyclinc.create! valid_attributes
-      get :edit, params: {id: polyclinc.to_param}, session: valid_session
+      polyclinic = Polyclinic.create! valid_attributes
+      get :edit, params: {id: polyclinic.to_param}, session: valid_session
       expect(response).to be_successful
     end
   end
 
   describe "POST #create" do
     context "with valid params" do
-      it "creates a new Polyclinc" do
+      it "creates a new Polyclinic" do
         expect {
-          post :create, params: {polyclinc: valid_attributes}, session: valid_session
-        }.to change(Polyclinc, :count).by(1)
+          post :create, params: {polyclinic: valid_attributes}, session: valid_session
+        }.to change(Polyclinic, :count).by(1)
       end
 
-      it "redirects to the created polyclinc" do
-        post :create, params: {polyclinc: valid_attributes}, session: valid_session
-        expect(response).to redirect_to(Polyclinc.last)
+      it "redirects to the created polyclinic" do
+        post :create, params: {polyclinic: valid_attributes}, session: valid_session
+        expect(response).to redirect_to(Polyclinic.last)
       end
     end
 
     context "with invalid params" do
       it "returns a success response (i.e. to display the 'new' template)" do
-        post :create, params: {polyclinc: invalid_attributes}, session: valid_session
+        post :create, params: {polyclinic: invalid_attributes}, session: valid_session
         expect(response).to be_successful
       end
     end
@@ -100,41 +100,41 @@ RSpec.describe PolyclincsController, type: :controller do
         skip("Add a hash of attributes valid for your model")
       }
 
-      it "updates the requested polyclinc" do
-        polyclinc = Polyclinc.create! valid_attributes
-        put :update, params: {id: polyclinc.to_param, polyclinc: new_attributes}, session: valid_session
-        polyclinc.reload
+      it "updates the requested polyclinic" do
+        polyclinic = Polyclinic.create! valid_attributes
+        put :update, params: {id: polyclinic.to_param, polyclinic: new_attributes}, session: valid_session
+        polyclinic.reload
         skip("Add assertions for updated state")
       end
 
-      it "redirects to the polyclinc" do
-        polyclinc = Polyclinc.create! valid_attributes
-        put :update, params: {id: polyclinc.to_param, polyclinc: valid_attributes}, session: valid_session
-        expect(response).to redirect_to(polyclinc)
+      it "redirects to the polyclinic" do
+        polyclinic = Polyclinic.create! valid_attributes
+        put :update, params: {id: polyclinic.to_param, polyclinic: valid_attributes}, session: valid_session
+        expect(response).to redirect_to(polyclinic)
       end
     end
 
     context "with invalid params" do
       it "returns a success response (i.e. to display the 'edit' template)" do
-        polyclinc = Polyclinc.create! valid_attributes
-        put :update, params: {id: polyclinc.to_param, polyclinc: invalid_attributes}, session: valid_session
+        polyclinic = Polyclinic.create! valid_attributes
+        put :update, params: {id: polyclinic.to_param, polyclinic: invalid_attributes}, session: valid_session
         expect(response).to be_successful
       end
     end
   end
 
   describe "DELETE #destroy" do
-    it "destroys the requested polyclinc" do
-      polyclinc = Polyclinc.create! valid_attributes
+    it "destroys the requested polyclinic" do
+      polyclinic = Polyclinic.create! valid_attributes
       expect {
-        delete :destroy, params: {id: polyclinc.to_param}, session: valid_session
-      }.to change(Polyclinc, :count).by(-1)
+        delete :destroy, params: {id: polyclinic.to_param}, session: valid_session
+      }.to change(Polyclinic, :count).by(-1)
     end
 
-    it "redirects to the polyclincs list" do
-      polyclinc = Polyclinc.create! valid_attributes
-      delete :destroy, params: {id: polyclinc.to_param}, session: valid_session
-      expect(response).to redirect_to(polyclincs_url)
+    it "redirects to the polyclinics list" do
+      polyclinic = Polyclinic.create! valid_attributes
+      delete :destroy, params: {id: polyclinic.to_param}, session: valid_session
+      expect(response).to redirect_to(polyclinics_url)
     end
   end
 
