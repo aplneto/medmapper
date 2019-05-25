@@ -1,0 +1,24 @@
+p#notice = notice
+
+p
+  strong Name:
+  = @service_provider.name
+p
+  strong Address:
+  = @service_provider.address
+p
+  strong Neighborhood:
+  = @service_provider.neighborhood
+p
+  strong Phone:
+  = @service_provider.phone
+p
+  strong User:
+  = @service_provider.user
+p
+  strong Description:
+  = @service_provider.description
+
+=> link_to 'Edit', edit_service_provider_path(@service_provider)
+'|
+=< link_to 'Back', service_providers_path

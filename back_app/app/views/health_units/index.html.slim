@@ -1,0 +1,35 @@
+h1 Listing health_units
+
+table
+  thead
+    tr
+      th Cnes
+      th Name
+      th Address
+      th Neighborhood
+      th Phone
+      th Latitude
+      th Longitude
+      th Description
+      th
+      th
+      th
+
+  tbody
+    - @health_units.each do |health_unit|
+      tr
+        td = health_unit.cnes
+        td = health_unit.name
+        td = health_unit.address
+        td = health_unit.neighborhood
+        td = health_unit.phone
+        td = health_unit.latitude
+        td = health_unit.longitude
+        td = health_unit.description
+        td = link_to 'Show', health_unit
+        td = link_to 'Edit', edit_health_unit_path(health_unit)
+        td = link_to 'Destroy', health_unit, data: { confirm: 'Are you sure?' }, method: :delete
+
+br
+
+= link_to 'New Health unit', new_health_unit_path

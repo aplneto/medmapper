@@ -19,28 +19,28 @@
 ## Planejamento da Iteração 3
 | Ação | Responsável(eis) |
 |----------|----------|
-|||
-|||
-|||
-|||
-|||
-|||
-|||
+| UserViews [#30]| Gabriel, Pedro e Antônio |
+| Views de Autenticação [#29] | Gabriel, Pedro e Antônio |
+| Autenticação [#35| Todo o grupo |
+|ProfessionalUser #41| Todo o grupo |
+| Seed do Banco de Dados | Antônio |
+| Criação do BDD (REACT) | Gabriel, Isac|
+| Criação do TDD (Rails) | Antônio, Isac |
 |||
 |||
 
 ## Realizadas na Iteração 3
 | Ação | Responsável(eis) |
 |----------|----------|
-|||
-|||
+| Mudança de React para Slim | Gabriel, Pedro |
+| Testes de Comportamento | Gabriel |
 |||
 |||
 
 ## Não realizadas na Iteração 3
 | Ação | Responsável(eis) |
 |------|------------------|
-|||
+| Criação de BDD no React | Gabriel, Isac |
 
 ## Em andamento 
 | Ação | Responsável(eis) |

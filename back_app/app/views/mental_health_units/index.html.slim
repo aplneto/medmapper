@@ -1,0 +1,23 @@
+h1 Listing mental_health_units
+
+table
+  thead
+    tr
+      th Health unit
+      th Type
+      th
+      th
+      th
+
+  tbody
+    - @mental_health_units.each do |mental_health_unit|
+      tr
+        td = mental_health_unit.health_unit
+        td = mental_health_unit.type
+        td = link_to 'Show', mental_health_unit
+        td = link_to 'Edit', edit_mental_health_unit_path(mental_health_unit)
+        td = link_to 'Destroy', mental_health_unit, data: { confirm: 'Are you sure?' }, method: :delete
+
+br
+
+= link_to 'New Mental health unit', new_mental_health_unit_path
