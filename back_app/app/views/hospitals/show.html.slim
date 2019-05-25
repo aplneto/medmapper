@@ -1,0 +1,12 @@
+p#notice = notice
+
+p
+  strong Health unit:
+  = @hospital.health_unit
+p
+  strong Type:
+  = @hospital.type
+
+=> link_to 'Edit', edit_hospital_path(@hospital)
+'|
+=< link_to 'Back', hospitals_path

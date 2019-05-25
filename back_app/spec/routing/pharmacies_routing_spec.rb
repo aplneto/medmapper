@@ -6,8 +6,16 @@ RSpec.describe PharmaciesController, type: :routing do
       expect(:get => "/pharmacies").to route_to("pharmacies#index")
     end
 
+    it "routes to #new" do
+      expect(:get => "/pharmacies/new").to route_to("pharmacies#new")
+    end
+
     it "routes to #show" do
       expect(:get => "/pharmacies/1").to route_to("pharmacies#show", :id => "1")
+    end
+
+    it "routes to #edit" do
+      expect(:get => "/pharmacies/1/edit").to route_to("pharmacies#edit", :id => "1")
     end
 
 

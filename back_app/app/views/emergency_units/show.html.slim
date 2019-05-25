@@ -1,5 +1,11 @@
 p#notice = notice
 
+p
+  strong Health unit:
+  = @emergency_unit.health_unit
+p
+  strong Type:
+  = @emergency_unit.type
 
 => link_to 'Edit', edit_emergency_unit_path(@emergency_unit)
 '|

@@ -3,6 +3,8 @@ h1 Listing maternity_clinics
 table
   thead
     tr
+      th Health unit
+      th Type
       th
       th
       th
@@ -10,6 +12,8 @@ table
   tbody
     - @maternity_clinics.each do |maternity_clinic|
       tr
+        td = maternity_clinic.health_unit
+        td = maternity_clinic.type
         td = link_to 'Show', maternity_clinic
         td = link_to 'Edit', edit_maternity_clinic_path(maternity_clinic)
         td = link_to 'Destroy', maternity_clinic, data: { confirm: 'Are you sure?' }, method: :delete

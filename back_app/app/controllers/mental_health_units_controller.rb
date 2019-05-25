@@ -69,6 +69,6 @@ class MentalHealthUnitsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def mental_health_unit_params
-      params.fetch(:mental_health_unit, {})
+      params.require(:mental_health_unit).permit(:health_unit_id, :type)
     end
 end

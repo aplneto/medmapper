@@ -69,6 +69,6 @@ class OdontologyUnitsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def odontology_unit_params
-      params.fetch(:odontology_unit, {})
+      params.require(:odontology_unit).permit(:health_unit_id, :type)
     end
 end

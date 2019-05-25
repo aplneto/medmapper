@@ -6,8 +6,16 @@ RSpec.describe BasicHealthUnitsController, type: :routing do
       expect(:get => "/basic_health_units").to route_to("basic_health_units#index")
     end
 
+    it "routes to #new" do
+      expect(:get => "/basic_health_units/new").to route_to("basic_health_units#new")
+    end
+
     it "routes to #show" do
       expect(:get => "/basic_health_units/1").to route_to("basic_health_units#show", :id => "1")
+    end
+
+    it "routes to #edit" do
+      expect(:get => "/basic_health_units/1/edit").to route_to("basic_health_units#edit", :id => "1")
     end
 
 

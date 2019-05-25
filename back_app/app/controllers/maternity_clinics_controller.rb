@@ -69,6 +69,6 @@ class MaternityClinicsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def maternity_clinic_params
-      params.fetch(:maternity_clinic, {})
+      params.require(:maternity_clinic).permit(:health_unit_id, :type)
     end
 end

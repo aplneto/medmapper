@@ -1,0 +1,30 @@
+p#notice = notice
+
+p
+  strong Cnes:
+  = @health_unit.cnes
+p
+  strong Name:
+  = @health_unit.name
+p
+  strong Address:
+  = @health_unit.address
+p
+  strong Neighborhood:
+  = @health_unit.neighborhood
+p
+  strong Phone:
+  = @health_unit.phone
+p
+  strong Latitude:
+  = @health_unit.latitude
+p
+  strong Longitude:
+  = @health_unit.longitude
+p
+  strong Description:
+  = @health_unit.description
+
+=> link_to 'Edit', edit_health_unit_path(@health_unit)
+'|
+=< link_to 'Back', health_units_path

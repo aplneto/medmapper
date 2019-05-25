@@ -1,91 +1,82 @@
 require 'faker'
 
 FactoryBot.define do
-  factory :polyclinic do
-    
-  end
-
   factory :maternity_clinic do
-    
+    health_unit { FactoryBot.build(:health_unit) }
+    type { "MaternityClinic" }
   end
 
   factory :mental_health_unit do
-    
+    health_unit { FactoryBot.build(:health_unit) }
+    type { "MentalHealthUnit" }
   end
 
   factory :odontology_unit do
-    
+    health_unit { FactoryBot.build(:health_unit) }
+    type { "OdontologyUnit" }
   end
 
   factory :emergency_unit do
-    
+    health_unit { FactoryBot.build(:health_unit) }
+    type { "EmergencyUnit" }
   end
 
   factory :diagnosis_unit do
-    
+    health_unit { FactoryBot.build(:health_unit) }
+    type { "DiagnosisUnit" }
+  end
+
+  factory :polyclinic do
+    health_unit { FactoryBot.build(:health_unit) }
+    type { "Polyclinic" }
   end
 
   factory :family_health_unit do
-    
+    health_unit { FactoryBot.build(:health_unit) }
+    type { "FamilyHealthUnit" }
   end
 
   factory :specialty do
-    
-  end
-
-  factory :specialized_unit do
-    
+    health_unit { FactoryBot.build(:health_unit) }
+    specialty { "Atendimento Pediátrico" }
   end
 
   factory :basic_health_unit do
-    
+    health_unit { FactoryBot.build(:health_unit) }
+    type { "BasicHealthUnit" }
   end
 
+  factory :specialized_unit do
+    health_unit { FactoryBot.build(:health_unit) }
+    type { "SpecializedUnit" }
+  end
 
   factory :pharmacy do
-    
+    health_unit { FactoryBot.build(:health_unit) }
   end
 
-  factory :commentary do
-    
-  end
-
-  factory :local do
-    
-  end
-
-  factory :contact do
-    
-  end
-
-  factory :area do
-    
-  end
-
-  factory :professional do
-    
-  end
-
-  factory :user do
-    login { 'its' }
-    #encrypted_password { '' }
-    name { 'Isac Tomaz da Silva' }
-    sex { 'm' }
-    telephone { '81123456789'}
-    email { 'its@cin.ufpe.br'}
-  end
 
   factory :hospital do
-    cnes { 0000656 }
-    name { "HOSPITAL SANTO AMARO (IRMANDADE DA SANTA CASA DE MISERICORDIA DO RECIFE)" }
-    telephone { "8134123800" }
-    # phone { "8134123800" }
-    address { "AVENIDA CRUZ CABUGA, 1563" }
-    neighborhood { "SANTO AMARO" }
-    latitude { -8.0424693 }
-    longitude { -34.873336 }
+    health_unit { FactoryBot.build(:health_unit) }
     type { "Hospital" }
   end
+
+  factory :treatment do
+    health_unit { FactoryBot.build(:health_unit) }
+    treatment { "Pediatria" }
+  end
+
+  factory :health_unit do
+    cnes { 1 }
+    name { "FACTORY BOT HOSPITAL" }
+    address { "Factory bot street, 0" }
+    neighborhood { "Unknown neighborhood" }
+    phone { "1112345678" }
+    latitude { 1.5 }
+    longitude { 1.5 }
+    description { Faker::Lorem.paragraphs }
+  end
+
 end
 FactoryBot.factories.map(&:name).each do |factory_name|
   describe "The #{factory_name} factory" do

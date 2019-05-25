@@ -43,7 +43,7 @@ RSpec.describe BasicHealthUnitsController, type: :controller do
 
   describe "GET #index" do
     it "returns a success response" do
-      basic_health_unit = BasicHealthUnit.create! valid_attributes
+      BasicHealthUnit.create! valid_attributes
       get :index, params: {}, session: valid_session
       expect(response).to be_successful
     end
@@ -57,6 +57,21 @@ RSpec.describe BasicHealthUnitsController, type: :controller do
     end
   end
 
+  describe "GET #new" do
+    it "returns a success response" do
+      get :new, params: {}, session: valid_session
+      expect(response).to be_successful
+    end
+  end
+
+  describe "GET #edit" do
+    it "returns a success response" do
+      basic_health_unit = BasicHealthUnit.create! valid_attributes
+      get :edit, params: {id: basic_health_unit.to_param}, session: valid_session
+      expect(response).to be_successful
+    end
+  end
+
   describe "POST #create" do
     context "with valid params" do
       it "creates a new BasicHealthUnit" do
@@ -65,21 +80,16 @@ RSpec.describe BasicHealthUnitsController, type: :controller do
         }.to change(BasicHealthUnit, :count).by(1)
       end
 
-      it "renders a JSON response with the new basic_health_unit" do
-
+      it "redirects to the created basic_health_unit" do
         post :create, params: {basic_health_unit: valid_attributes}, session: valid_session
-        expect(response).to have_http_status(:created)
-        expect(response.content_type).to eq('application/json')
-        expect(response.location).to eq(basic_health_unit_url(BasicHealthUnit.last))
+        expect(response).to redirect_to(BasicHealthUnit.last)
       end
     end
 
     context "with invalid params" do
-      it "renders a JSON response with errors for the new basic_health_unit" do
-
+      it "returns a success response (i.e. to display the 'new' template)" do
         post :create, params: {basic_health_unit: invalid_attributes}, session: valid_session
-        expect(response).to have_http_status(:unprocessable_entity)
-        expect(response.content_type).to eq('application/json')
+        expect(response).to be_successful
       end
     end
   end
@@ -97,22 +107,18 @@ RSpec.describe BasicHealthUnitsController, type: :controller do
         skip("Add assertions for updated state")
       end
 
-      it "renders a JSON response with the basic_health_unit" do
+      it "redirects to the basic_health_unit" do
         basic_health_unit = BasicHealthUnit.create! valid_attributes
-
         put :update, params: {id: basic_health_unit.to_param, basic_health_unit: valid_attributes}, session: valid_session
-        expect(response).to have_http_status(:ok)
-        expect(response.content_type).to eq('application/json')
+        expect(response).to redirect_to(basic_health_unit)
       end
     end
 
     context "with invalid params" do
-      it "renders a JSON response with errors for the basic_health_unit" do
+      it "returns a success response (i.e. to display the 'edit' template)" do
         basic_health_unit = BasicHealthUnit.create! valid_attributes
-
         put :update, params: {id: basic_health_unit.to_param, basic_health_unit: invalid_attributes}, session: valid_session
-        expect(response).to have_http_status(:unprocessable_entity)
-        expect(response.content_type).to eq('application/json')
+        expect(response).to be_successful
       end
     end
   end
@@ -123,6 +129,12 @@ RSpec.describe BasicHealthUnitsController, type: :controller do
       expect {
         delete :destroy, params: {id: basic_health_unit.to_param}, session: valid_session
       }.to change(BasicHealthUnit, :count).by(-1)
+    end
+
+    it "redirects to the basic_health_units list" do
+      basic_health_unit = BasicHealthUnit.create! valid_attributes
+      delete :destroy, params: {id: basic_health_unit.to_param}, session: valid_session
+      expect(response).to redirect_to(basic_health_units_url)
     end
   end
 

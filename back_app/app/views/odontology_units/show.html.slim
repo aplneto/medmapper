@@ -1,5 +1,11 @@
 p#notice = notice
 
+p
+  strong Health unit:
+  = @odontology_unit.health_unit
+p
+  strong Type:
+  = @odontology_unit.type
 
 => link_to 'Edit', edit_odontology_unit_path(@odontology_unit)
 '|

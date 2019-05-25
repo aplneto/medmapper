@@ -69,6 +69,6 @@ class PolyclinicsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def polyclinic_params
-      params.fetch(:polyclinic, {})
+      params.require(:polyclinic).permit(:health_unit_id, :type)
     end
 end

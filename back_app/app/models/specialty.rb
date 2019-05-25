@@ -1,6 +1,4 @@
 class Specialty < ApplicationRecord
-    belongs_to :unit, polymorphic: true
-    
-    validates :name, :unit_type, presence: true
-    validates :unit_id, numericality: { only_integer: true }
+  self.primary_key = :health_unit_id, :specialty
+  belongs_to :health_unit
 end
