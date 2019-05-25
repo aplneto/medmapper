@@ -1,0 +1,12 @@
+p#notice = notice
+
+p
+  strong Health unit:
+  = @diagnosis_unit.health_unit
+p
+  strong Type:
+  = @diagnosis_unit.type
+
+=> link_to 'Edit', edit_diagnosis_unit_path(@diagnosis_unit)
+'|
+=< link_to 'Back', diagnosis_units_path

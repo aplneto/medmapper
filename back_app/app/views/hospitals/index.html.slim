@@ -1,0 +1,23 @@
+h1 Listing hospitals
+
+table
+  thead
+    tr
+      th Health unit
+      th Type
+      th
+      th
+      th
+
+  tbody
+    - @hospitals.each do |hospital|
+      tr
+        td = hospital.health_unit
+        td = hospital.type
+        td = link_to 'Show', hospital
+        td = link_to 'Edit', edit_hospital_path(hospital)
+        td = link_to 'Destroy', hospital, data: { confirm: 'Are you sure?' }, method: :delete
+
+br
+
+= link_to 'New Hospital', new_hospital_path

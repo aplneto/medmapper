@@ -1,0 +1,21 @@
+h1 Listing pharmacies
+
+table
+  thead
+    tr
+      th Health unit
+      th
+      th
+      th
+
+  tbody
+    - @pharmacies.each do |pharmacy|
+      tr
+        td = pharmacy.health_unit
+        td = link_to 'Show', pharmacy
+        td = link_to 'Edit', edit_pharmacy_path(pharmacy)
+        td = link_to 'Destroy', pharmacy, data: { confirm: 'Are you sure?' }, method: :delete
+
+br
+
+= link_to 'New Pharmacy', new_pharmacy_path

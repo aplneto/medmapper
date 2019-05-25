@@ -1,0 +1,27 @@
+= form_for @service_provider do |f|
+  - if @service_provider.errors.any?
+    #error_explanation
+      h2 = "#{pluralize(@service_provider.errors.count, "error")} prohibited this service_provider from being saved:"
+      ul
+        - @service_provider.errors.full_messages.each do |message|
+          li = message
+
+  .field
+    = f.label :name
+    = f.text_field :name
+  .field
+    = f.label :address
+    = f.text_field :address
+  .field
+    = f.label :neighborhood
+    = f.text_field :neighborhood
+  .field
+    = f.label :phone
+    = f.text_field :phone
+  .field
+    = f.label :user
+    = f.text_field :user
+  .field
+    = f.label :description
+    = f.text_area :description
+  .actions = f.submit

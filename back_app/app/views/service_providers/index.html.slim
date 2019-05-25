@@ -1,0 +1,31 @@
+h1 Listing service_providers
+
+table
+  thead
+    tr
+      th Name
+      th Address
+      th Neighborhood
+      th Phone
+      th User
+      th Description
+      th
+      th
+      th
+
+  tbody
+    - @service_providers.each do |service_provider|
+      tr
+        td = service_provider.name
+        td = service_provider.address
+        td = service_provider.neighborhood
+        td = service_provider.phone
+        td = service_provider.user
+        td = service_provider.description
+        td = link_to 'Show', service_provider
+        td = link_to 'Edit', edit_service_provider_path(service_provider)
+        td = link_to 'Destroy', service_provider, data: { confirm: 'Are you sure?' }, method: :delete
+
+br
+
+= link_to 'New Service provider', new_service_provider_path

@@ -43,7 +43,7 @@ RSpec.describe SpecializedUnitsController, type: :controller do
 
   describe "GET #index" do
     it "returns a success response" do
-      specialized_unit = SpecializedUnit.create! valid_attributes
+      SpecializedUnit.create! valid_attributes
       get :index, params: {}, session: valid_session
       expect(response).to be_successful
     end
@@ -57,6 +57,21 @@ RSpec.describe SpecializedUnitsController, type: :controller do
     end
   end
 
+  describe "GET #new" do
+    it "returns a success response" do
+      get :new, params: {}, session: valid_session
+      expect(response).to be_successful
+    end
+  end
+
+  describe "GET #edit" do
+    it "returns a success response" do
+      specialized_unit = SpecializedUnit.create! valid_attributes
+      get :edit, params: {id: specialized_unit.to_param}, session: valid_session
+      expect(response).to be_successful
+    end
+  end
+
   describe "POST #create" do
     context "with valid params" do
       it "creates a new SpecializedUnit" do
@@ -65,21 +80,16 @@ RSpec.describe SpecializedUnitsController, type: :controller do
         }.to change(SpecializedUnit, :count).by(1)
       end
 
-      it "renders a JSON response with the new specialized_unit" do
-
+      it "redirects to the created specialized_unit" do
         post :create, params: {specialized_unit: valid_attributes}, session: valid_session
-        expect(response).to have_http_status(:created)
-        expect(response.content_type).to eq('application/json')
-        expect(response.location).to eq(specialized_unit_url(SpecializedUnit.last))
+        expect(response).to redirect_to(SpecializedUnit.last)
       end
     end
 
     context "with invalid params" do
-      it "renders a JSON response with errors for the new specialized_unit" do
-
+      it "returns a success response (i.e. to display the 'new' template)" do
         post :create, params: {specialized_unit: invalid_attributes}, session: valid_session
-        expect(response).to have_http_status(:unprocessable_entity)
-        expect(response.content_type).to eq('application/json')
+        expect(response).to be_successful
       end
     end
   end
@@ -97,22 +107,18 @@ RSpec.describe SpecializedUnitsController, type: :controller do
         skip("Add assertions for updated state")
       end
 
-      it "renders a JSON response with the specialized_unit" do
+      it "redirects to the specialized_unit" do
         specialized_unit = SpecializedUnit.create! valid_attributes
-
         put :update, params: {id: specialized_unit.to_param, specialized_unit: valid_attributes}, session: valid_session
-        expect(response).to have_http_status(:ok)
-        expect(response.content_type).to eq('application/json')
+        expect(response).to redirect_to(specialized_unit)
       end
     end
 
     context "with invalid params" do
-      it "renders a JSON response with errors for the specialized_unit" do
+      it "returns a success response (i.e. to display the 'edit' template)" do
         specialized_unit = SpecializedUnit.create! valid_attributes
-
         put :update, params: {id: specialized_unit.to_param, specialized_unit: invalid_attributes}, session: valid_session
-        expect(response).to have_http_status(:unprocessable_entity)
-        expect(response.content_type).to eq('application/json')
+        expect(response).to be_successful
       end
     end
   end
@@ -123,6 +129,12 @@ RSpec.describe SpecializedUnitsController, type: :controller do
       expect {
         delete :destroy, params: {id: specialized_unit.to_param}, session: valid_session
       }.to change(SpecializedUnit, :count).by(-1)
+    end
+
+    it "redirects to the specialized_units list" do
+      specialized_unit = SpecializedUnit.create! valid_attributes
+      delete :destroy, params: {id: specialized_unit.to_param}, session: valid_session
+      expect(response).to redirect_to(specialized_units_url)
     end
   end
 

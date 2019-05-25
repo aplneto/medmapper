@@ -1,0 +1,27 @@
+h1 Listing professionals
+
+table
+  thead
+    tr
+      th User
+      th Registry
+      th Ocupation
+      th Validation
+      th
+      th
+      th
+
+  tbody
+    - @professionals.each do |professional|
+      tr
+        td = professional.user
+        td = professional.registry
+        td = professional.ocupation
+        td = professional.validation
+        td = link_to 'Show', professional
+        td = link_to 'Edit', edit_professional_path(professional)
+        td = link_to 'Destroy', professional, data: { confirm: 'Are you sure?' }, method: :delete
+
+br
+
+= link_to 'New Professional', new_professional_path

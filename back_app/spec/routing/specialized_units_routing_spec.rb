@@ -6,8 +6,16 @@ RSpec.describe SpecializedUnitsController, type: :routing do
       expect(:get => "/specialized_units").to route_to("specialized_units#index")
     end
 
+    it "routes to #new" do
+      expect(:get => "/specialized_units/new").to route_to("specialized_units#new")
+    end
+
     it "routes to #show" do
       expect(:get => "/specialized_units/1").to route_to("specialized_units#show", :id => "1")
+    end
+
+    it "routes to #edit" do
+      expect(:get => "/specialized_units/1/edit").to route_to("specialized_units#edit", :id => "1")
     end
 
 

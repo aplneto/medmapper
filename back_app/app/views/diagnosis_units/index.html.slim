@@ -1,0 +1,23 @@
+h1 Listing diagnosis_units
+
+table
+  thead
+    tr
+      th Health unit
+      th Type
+      th
+      th
+      th
+
+  tbody
+    - @diagnosis_units.each do |diagnosis_unit|
+      tr
+        td = diagnosis_unit.health_unit
+        td = diagnosis_unit.type
+        td = link_to 'Show', diagnosis_unit
+        td = link_to 'Edit', edit_diagnosis_unit_path(diagnosis_unit)
+        td = link_to 'Destroy', diagnosis_unit, data: { confirm: 'Are you sure?' }, method: :delete
+
+br
+
+= link_to 'New Diagnosis unit', new_diagnosis_unit_path

@@ -1,0 +1,2 @@
+module MentalHealthUnitsHelper
+end

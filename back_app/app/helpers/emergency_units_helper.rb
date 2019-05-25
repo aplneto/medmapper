@@ -1,0 +1,2 @@
+module EmergencyUnitsHelper
+end
