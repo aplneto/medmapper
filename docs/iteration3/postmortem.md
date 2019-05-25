@@ -21,44 +21,50 @@
 |----------|----------|
 | UserViews [#30]| Gabriel, Pedro e Antônio |
 | Views de Autenticação [#29] | Gabriel, Pedro e Antônio |
-| Autenticação [#35| Todo o grupo |
-|ProfessionalUser #41| Todo o grupo |
+| Views das unidades de Saúde | Gabriel, Pedro e Antônio |
+| Autenticação [#35]| Todo o grupo |
+|ProfessionalUser [#41]| Todo o grupo |
 | Seed do Banco de Dados | Antônio |
 | Criação do BDD (REACT) | Gabriel, Isac|
 | Criação do TDD (Rails) | Antônio, Isac |
-|||
+| Controladores | Todo o Grupo |
+| Template da Aplicação | Pedro |
 |||
 
 ## Realizadas na Iteração 3
 | Ação | Responsável(eis) |
 |----------|----------|
 | Mudança de React para Slim | Gabriel, Pedro |
-| Testes de Comportamento | Gabriel |
-|||
+| Controladores | Todo o Grupo |
+| Template da Aplicação | Pedro |
 |||
 
 ## Não realizadas na Iteração 3
 | Ação | Responsável(eis) |
 |------|------------------|
 | Criação de BDD no React | Gabriel, Isac |
+| Views de Autenticação [#29] | Gabriel, Pedro e Antônio |
+| Autenticação [#35]| Todo o grupo |
+|ProfessionalUser [#41]| Todo o grupo |
 
 ## Em andamento 
 | Ação | Responsável(eis) |
 |----------|----------|
-|||
-|||
-|||
+| UserViews [#30]| Gabriel, Pedro e Antônio |
+| Seed do Banco de Dados | Antônio |
+| Criação do BDD (REACT) | Gabriel, Isac|
+| Criação do TDD (Rails) | Antônio, Isac |
 
 ## Planejamento para Iteração 4
 | Ação | Responsável(eis) |
 |----------|----------|
-|||
-|||
-|||
-|||
-|||
-|||
-|||
+| UserViews [#30]| Gabriel, Pedro e Antônio |
+| Seed do Banco de Dados | Antônio |
+| Finalização do BDD (REACT) | Gabriel, Isac|
+| Finalização do TDD (Rails) | Antônio, Isac |
+| Finalização dos Queries| Todo o Grupo |
+| Documentação do Projeto | Todo o Grupo |
+| Embelezamento das Views | Gabriel, Pedro |
 
 ## Lições Aprendidas
 
