@@ -2,7 +2,7 @@ class CreateTreatments < ActiveRecord::Migration[5.2]
   def change
     create_table :treatments, id: false do |t|
       t.references :health_unit, foreign_key: true
-      t.string :treatment
+      t.string :treatment, null: false, limit: 30
 
       t.timestamps
     end

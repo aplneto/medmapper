@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+  resources :service_providers
+  resources :professionals
+  resources :users
   resources :maternity_clinics
   resources :mental_health_units
   resources :odontology_units

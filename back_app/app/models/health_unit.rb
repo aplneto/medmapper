@@ -14,7 +14,9 @@ class HealthUnit < ApplicationRecord
     has_one :pharmacy
     has_one :specialized_unit
     has_one :basic_health_unit
-    #has_many :comments, as: :specific_unit
+
+    #polymorphic association to comments
+    has_many :comments, as: :page
     def phone_format
         unless /0?\d{2}\s?-?\s?\d{4,5}\s?-?\s?\d{4}/.match? phone
             errors.add(:phone, 'has to match a valid format')

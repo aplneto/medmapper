@@ -1,6 +1,63 @@
 require 'faker'
 
 FactoryBot.define do
+  factory :service_provider do
+    name { "MyString" }
+    address { "MyString" }
+    neighborhood { "MyString" }
+    phone { "MyString" }
+    user { FactoryBot.build(:user) }
+    description { "MyText" }
+  end
+
+  factory :comment do
+    user { FactoryBot.build(:user) }
+    body { Faker::Lorem.paragraphs }
+    page { FactoryBot.build(:health_unit)}
+  end
+
+  factory :service do
+    provider { FactoryBot.build(:professional) }
+    tag { "Web developer" }
+  end
+
+  factory :contact do
+    professional { FactoryBot.build(:professional) }
+    category { "Instagram" }
+    info { "aplneto" }
+  end
+
+  factory :place do
+    professional { FactoryBot.build(:professional) }
+    place { "Recife" }
+  end
+
+  factory :administrator do
+    user { FactoryBot.build(:user) }
+  end
+
+  factory :collaborator do
+    user { FactoryBot.build(:user) }
+  end
+
+  factory :professional do
+    user { FactoryBot.build(:user) }
+    registry { "12345678910" }
+    ocupation { "Developer" }
+    validation { true }
+  end
+
+  factory :user do
+    user_name { "aplneto" }
+    email { "apln2@cin.ufpe.br" }
+    sex { "m" }
+    birthday { "1995-04-03" }
+    encrypted_password { "MyString" }
+    name { "Antônio" }
+    phone { "81123456789" }
+    description { "Desenvolvedor" }
+  end
+
   factory :maternity_clinic do
     health_unit { FactoryBot.build(:health_unit) }
     type { "MaternityClinic" }

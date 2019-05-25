@@ -23,10 +23,10 @@ require 'rails_helper'
 # removed from Rails core in Rails 5, but can be added back in via the
 # `rails-controller-testing` gem.
 
-RSpec.describe UsersController, type: :controller do
+RSpec.describe ProfessionalsController, type: :controller do
 
   # This should return the minimal set of attributes required to create a valid
-  # User. As you add validations to User, be sure to
+  # Professional. As you add validations to Professional, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) {
     skip("Add a hash of attributes valid for your model")
@@ -38,12 +38,12 @@ RSpec.describe UsersController, type: :controller do
 
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in
-  # UsersController. Be sure to keep this updated too.
+  # ProfessionalsController. Be sure to keep this updated too.
   let(:valid_session) { {} }
 
   describe "GET #index" do
     it "returns a success response" do
-      User.create! valid_attributes
+      Professional.create! valid_attributes
       get :index, params: {}, session: valid_session
       expect(response).to be_successful
     end
@@ -51,8 +51,8 @@ RSpec.describe UsersController, type: :controller do
 
   describe "GET #show" do
     it "returns a success response" do
-      user = User.create! valid_attributes
-      get :show, params: {id: user.to_param}, session: valid_session
+      professional = Professional.create! valid_attributes
+      get :show, params: {id: professional.to_param}, session: valid_session
       expect(response).to be_successful
     end
   end
@@ -66,29 +66,29 @@ RSpec.describe UsersController, type: :controller do
 
   describe "GET #edit" do
     it "returns a success response" do
-      user = User.create! valid_attributes
-      get :edit, params: {id: user.to_param}, session: valid_session
+      professional = Professional.create! valid_attributes
+      get :edit, params: {id: professional.to_param}, session: valid_session
       expect(response).to be_successful
     end
   end
 
   describe "POST #create" do
     context "with valid params" do
-      it "creates a new User" do
+      it "creates a new Professional" do
         expect {
-          post :create, params: {user: valid_attributes}, session: valid_session
-        }.to change(User, :count).by(1)
+          post :create, params: {professional: valid_attributes}, session: valid_session
+        }.to change(Professional, :count).by(1)
       end
 
-      it "redirects to the created user" do
-        post :create, params: {user: valid_attributes}, session: valid_session
-        expect(response).to redirect_to(User.last)
+      it "redirects to the created professional" do
+        post :create, params: {professional: valid_attributes}, session: valid_session
+        expect(response).to redirect_to(Professional.last)
       end
     end
 
     context "with invalid params" do
       it "returns a success response (i.e. to display the 'new' template)" do
-        post :create, params: {user: invalid_attributes}, session: valid_session
+        post :create, params: {professional: invalid_attributes}, session: valid_session
         expect(response).to be_successful
       end
     end
@@ -100,41 +100,41 @@ RSpec.describe UsersController, type: :controller do
         skip("Add a hash of attributes valid for your model")
       }
 
-      it "updates the requested user" do
-        user = User.create! valid_attributes
-        put :update, params: {id: user.to_param, user: new_attributes}, session: valid_session
-        user.reload
+      it "updates the requested professional" do
+        professional = Professional.create! valid_attributes
+        put :update, params: {id: professional.to_param, professional: new_attributes}, session: valid_session
+        professional.reload
         skip("Add assertions for updated state")
       end
 
-      it "redirects to the user" do
-        user = User.create! valid_attributes
-        put :update, params: {id: user.to_param, user: valid_attributes}, session: valid_session
-        expect(response).to redirect_to(user)
+      it "redirects to the professional" do
+        professional = Professional.create! valid_attributes
+        put :update, params: {id: professional.to_param, professional: valid_attributes}, session: valid_session
+        expect(response).to redirect_to(professional)
       end
     end
 
     context "with invalid params" do
       it "returns a success response (i.e. to display the 'edit' template)" do
-        user = User.create! valid_attributes
-        put :update, params: {id: user.to_param, user: invalid_attributes}, session: valid_session
+        professional = Professional.create! valid_attributes
+        put :update, params: {id: professional.to_param, professional: invalid_attributes}, session: valid_session
         expect(response).to be_successful
       end
     end
   end
 
   describe "DELETE #destroy" do
-    it "destroys the requested user" do
-      user = User.create! valid_attributes
+    it "destroys the requested professional" do
+      professional = Professional.create! valid_attributes
       expect {
-        delete :destroy, params: {id: user.to_param}, session: valid_session
-      }.to change(User, :count).by(-1)
+        delete :destroy, params: {id: professional.to_param}, session: valid_session
+      }.to change(Professional, :count).by(-1)
     end
 
-    it "redirects to the users list" do
-      user = User.create! valid_attributes
-      delete :destroy, params: {id: user.to_param}, session: valid_session
-      expect(response).to redirect_to(users_url)
+    it "redirects to the professionals list" do
+      professional = Professional.create! valid_attributes
+      delete :destroy, params: {id: professional.to_param}, session: valid_session
+      expect(response).to redirect_to(professionals_url)
     end
   end
 

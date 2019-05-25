@@ -2,7 +2,7 @@ class CreateSpecialties < ActiveRecord::Migration[5.2]
   def change
     create_table :specialties, id: false do |t|
       t.references :health_unit, foreign_key: true
-      t.string :specialty
+      t.string :specialty, limit: 50
 
       t.timestamps
     end
