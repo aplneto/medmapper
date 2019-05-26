@@ -15,7 +15,16 @@ Rails.application.routes.draw do
   resources :specialized_units
   resources :pharmacies
   resources :hospitals
-  resources :health_units
+
+  resources :health_units do
+    collection do
+      post :basic_search, path: 'resultados'
+      post :list_by_specialties, path: 'especialidades'
+      post :list_by_treatments, path: 'atendimentos'
+      post :search_by_neighborhood, path: 'bairro'
+    end
+
+  end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   root to: "users#index"
