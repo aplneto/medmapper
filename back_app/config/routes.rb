@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   resources :health_units do
     collection do
       post :basic_search, path: 'resultados'
+      post :advanced_search, path: 'pesquisar'
       post :list_by_specialties, path: 'especialidades'
       post :list_by_treatments, path: 'atendimentos'
       post :search_by_neighborhood, path: 'bairro'
