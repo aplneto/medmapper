@@ -1,7 +1,4 @@
 class PagesController < ApplicationController
-    def colaboradores
-    end
-  
-    def desenvolvedores
+    def home
     end
   end

@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
 
-  get '/colaboradores', to: 'pages#colaboradores'
-  get '/desenvolvedores', to: 'pages#desenvolvedores'
+  root 'pages#home'
+  
+  get '/about', to: 'pages#about'
 
+  resources :collaborators
   resources :service_providers
   resources :professionals
   resources :users
