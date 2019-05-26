@@ -52,7 +52,7 @@ ActiveRecord::Schema.define(version: 2019_05_26_150607) do
     t.string "name", limit: 80, null: false
     t.string "address", limit: 50, null: false
     t.string "neighborhood", limit: 30, null: false
-    t.string "phone", limit: 25, null: false
+    t.string "phone", limit: 25
     t.float "latitude", null: false
     t.float "longitude", null: false
     t.text "description"
@@ -60,7 +60,6 @@ ActiveRecord::Schema.define(version: 2019_05_26_150607) do
     t.datetime "updated_at", null: false
     t.text "specialties", array: true
     t.text "treatments", array: true
-    t.index ["cnes"], name: "index_health_units_on_cnes", unique: true
   end
 
   create_table "hospitals", force: :cascade do |t|
