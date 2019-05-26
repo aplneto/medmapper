@@ -2,8 +2,10 @@
 
 
  
-[Motivação](#motivação) | [Instalação](#installing--getting-started)| 
-[Ferramentas](#ferramentas-de-terceiros) | [Links](#links) | [Entregas](/docs/iterations.md) | [Mockups](/docs/mockups.md)
+|[Motivação](#motivação) | [Instalação](#installing--getting-started)| 
+[Ferramentas](#ferramentas-de-terceiros) | [Links](#links) | [Entregas](/docs/iterations.md) | [Mockups](/docs/mockups.md) | [GQM](/docs/gqm.md)|
+|----|----|----|----|----|----|----|
+
 
 ![Logo da plataforma](docs/idv/logotmp200x200.png "Logo do Projeto")
 
