@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class EmergencyUnitsController < ApplicationController
-  before_action :set_emergency_unit, only: [:show, :edit, :update, :destroy]
+  before_action :set_emergency_unit, only: %i[show edit update destroy]
 
   # GET /emergency_units
   # GET /emergency_units.json
@@ -9,16 +11,17 @@ class EmergencyUnitsController < ApplicationController
 
   # GET /emergency_units/1
   # GET /emergency_units/1.json
-  def show
-  end
+  def show; end
 
   # GET /emergency_units/new
   def new
     @emergency_unit = EmergencyUnit.new
+    health_unit_options_for_select
   end
 
   # GET /emergency_units/1/edit
   def edit
+    health_unit_options_for_select
   end
 
   # POST /emergency_units
@@ -62,13 +65,18 @@ class EmergencyUnitsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_emergency_unit
-      @emergency_unit = EmergencyUnit.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def emergency_unit_params
-      params.require(:emergency_unit).permit(:health_unit_id, :type)
-    end
+  def health_unit_options_for_select
+    @health_unit_options_for_select = HealthUnit.all
+  end
+
+  # Use callbacks to share common setup or constraints between actions.
+  def set_emergency_unit
+    @emergency_unit = EmergencyUnit.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def emergency_unit_params
+    params.require(:emergency_unit).permit(:health_unit_id, :type)
+  end
 end

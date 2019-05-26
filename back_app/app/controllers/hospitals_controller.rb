@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class HospitalsController < ApplicationController
-  before_action :set_hospital, only: [:show, :edit, :update, :destroy]
+  before_action :set_hospital, only: %i[show edit update destroy]
 
   # GET /hospitals
   # GET /hospitals.json
@@ -9,16 +11,17 @@ class HospitalsController < ApplicationController
 
   # GET /hospitals/1
   # GET /hospitals/1.json
-  def show
-  end
+  def show; end
 
   # GET /hospitals/new
   def new
     @hospital = Hospital.new
+    health_unit_options_for_select
   end
 
   # GET /hospitals/1/edit
   def edit
+    health_unit_options_for_select
   end
 
   # POST /hospitals
@@ -62,13 +65,18 @@ class HospitalsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_hospital
-      @hospital = Hospital.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def hospital_params
-      params.require(:hospital).permit(:health_unit_id, :type)
-    end
+  def health_unit_options_for_select
+    @health_unit_options_for_select = HealthUnit.all
+  end
+
+  # Use callbacks to share common setup or constraints between actions.
+  def set_hospital
+    @hospital = Hospital.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def hospital_params
+    params.require(:hospital).permit(:health_unit_id, :type)
+  end
 end
