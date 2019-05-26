@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
 
+  devise_for :users
+
   resources :service_providers
   resources :professionals
-  resources :users
   resources :maternity_clinics
   resources :mental_health_units
   resources :odontology_units
@@ -17,5 +18,5 @@ Rails.application.routes.draw do
   resources :health_units
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
-  root to: "pages#home"
+  root to: "users#index"
 end

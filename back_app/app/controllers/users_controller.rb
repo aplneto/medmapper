@@ -1,6 +1,5 @@
 class UsersController < ApplicationController
-  devise :database_authenticable, :registerable, :confirmable, :recoverable,
-    streches: 12
+  before_action :authenticate_user!, only: [:edit, :update]
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   # GET /users
