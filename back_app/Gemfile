@@ -6,6 +6,9 @@ ruby '2.6.1'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.3'
 
+gem 'jquery-rails', '4.3.1'
+gem 'bootstrap', '~> 4.0.0'
+
 gem "coffee-rails", "~> 4.2"
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
