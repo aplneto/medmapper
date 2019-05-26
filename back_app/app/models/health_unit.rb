@@ -7,9 +7,6 @@ class HealthUnit < ApplicationRecord
     validates :latitude, :longitude, presence: true, length: { maximum: 20 }
     validate :phone_format
 
-    has_many :treatments
-    has_many :specialties
-
     has_one :hospital
     has_one :pharmacy
     has_one :specialized_unit
