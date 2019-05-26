@@ -8,28 +8,13 @@ FactoryBot.define do
     phone { "MyString" }
     user { FactoryBot.build(:user) }
     description { "MyText" }
+    services { ["Ortopedia", "Pediatria", "Odontologia"] }
   end
 
   factory :comment do
     user { FactoryBot.build(:user) }
     body { Faker::Lorem.paragraphs }
     page { FactoryBot.build(:health_unit)}
-  end
-
-  factory :service do
-    provider { FactoryBot.build(:professional) }
-    tag { "Web developer" }
-  end
-
-  factory :contact do
-    professional { FactoryBot.build(:professional) }
-    category { "Instagram" }
-    info { "aplneto" }
-  end
-
-  factory :place do
-    professional { FactoryBot.build(:professional) }
-    place { "Recife" }
   end
 
   factory :administrator do
@@ -45,6 +30,9 @@ FactoryBot.define do
     registry { "12345678910" }
     ocupation { "Developer" }
     validation { true }
+    places { ["Recife", "Paulista"] }
+    contacts { ["email: apln2@cin.ufpe.br", "instagram: @aplneto"] }
+    services { ['Web Developer', 'Test Engineering'] }
   end
 
   factory :user do
@@ -93,11 +81,6 @@ FactoryBot.define do
     type { "FamilyHealthUnit" }
   end
 
-  factory :specialty do
-    health_unit { FactoryBot.build(:health_unit) }
-    specialty { "Atendimento Pediátrico" }
-  end
-
   factory :basic_health_unit do
     health_unit { FactoryBot.build(:health_unit) }
     type { "BasicHealthUnit" }
@@ -118,11 +101,6 @@ FactoryBot.define do
     type { "Hospital" }
   end
 
-  factory :treatment do
-    health_unit { FactoryBot.build(:health_unit) }
-    treatment { "Pediatria" }
-  end
-
   factory :health_unit do
     cnes { 1 }
     name { "FACTORY BOT HOSPITAL" }
@@ -132,6 +110,8 @@ FactoryBot.define do
     latitude { 1.5 }
     longitude { 1.5 }
     description { Faker::Lorem.paragraphs }
+    specialties { ['pediatria', 'cardiologia'] }
+    treatments { ['pediatra', 'psicólogo'] }
   end
 
 end
