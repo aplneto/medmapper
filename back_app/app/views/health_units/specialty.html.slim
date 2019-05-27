@@ -1,6 +1,7 @@
-h1 Lista de Unidades de Saúde
-
-p Total de unidades cadastradas: #{HealthUnit.count}
+p
+    text Pesquisando por tag #{@specialty}
+    br
+    text Unidades encontradas: #{@health_units.size}
 
 
 - if @health_units.any?
@@ -8,7 +9,7 @@ p Total de unidades cadastradas: #{HealthUnit.count}
     - @health_units.each do |health_unit|
       = render partial: health_unit
 - else
-  p Nenhuma unidade de saúde foi encontrada
+  p Nenhuma unidade de saúde foi encontrada com #{@specialty}
 
 br
 

@@ -61,6 +61,66 @@ class HealthUnitsController < ApplicationController
     end
   end
 
+  def basic_search
+    if params[:keywords].empty?
+      redirect_to health_units_path
+    else
+      @health_units = HealthUnit.where("specialties && :kw or 
+        treatments && :kw", kw: params[:keywords].split(' '))
+      respond_to do |format|
+        format.html { render template: "health_units/index.html.slim" }
+        format.json { render template: "health_units/index.json.jbuilder"}
+      end
+    end
+  end
+
+  def list_by_specialties
+    if params[:specialty].nil?
+      redirect_to health_units_path
+    else
+      @specialty = params[:specialty]
+      @health_units = HealthUnit.where("specialties && ARRAY[?]",
+        @specialty)
+      respond_to do |format|
+        format.html { render template: "health_units/specialty.html.slim" }
+        format.json { render template: "health_units/index.json.jbuilder"}
+      end
+    end
+  end
+
+  def list_by_treatments
+    if params[:treatments].empty?
+      redirect_to health_units_path
+    else
+      @health_unit = HealthUnit.where("treatments && ?",
+        params[:treatments].split(' '))
+      respond_to do |format|
+        format.html { render template: "health_units/index.html.slim" }
+        format.json { render template: "health_units/index.json.jbuilder"}
+      end
+    end
+  end
+
+  def search_by_neighborhood
+    if params[:neighborhood].nil?
+      redirect_to health_units_path
+    else
+      @health_units = HealthUnit.where(neighborhood: params[:neighborhood])
+      respond_to do |format|
+        format.html { render template: "health_units/index.html.slim" }
+        format.json { render template: "health_units/index.json.jbuilder"}
+      end
+    end
+  end
+
+  def advanced_search
+    @health_unit = HealthUnit.new
+  end
+  
+  def advanced_search_results
+  end
+
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_health_unit
@@ -71,4 +131,5 @@ class HealthUnitsController < ApplicationController
     def health_unit_params
       params.require(:health_unit).permit(:cnes, :name, :address, :neighborhood, :phone, :latitude, :longitude, :description)
     end
+  
 end
