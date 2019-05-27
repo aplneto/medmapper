@@ -52,19 +52,19 @@
 |----------|----------|
 | UserViews [#30]| Gabriel, Pedro e Antônio |
 | Seed do Banco de Dados | Antônio |
-| Criação do BDD (REACT) | Gabriel, Isac|
-| Criação do TDD (Rails) | Antônio, Isac |
+| Criação do BDD | Gabriel, Isac|
+| Criação do TDD | Antônio, Isac |
 
 ## Planejamento para Iteração 4
 | Ação | Responsável(eis) |
 |----------|----------|
 | UserViews [#30]| Gabriel, Pedro e Antônio |
 | Seed do Banco de Dados | Antônio |
-| Finalização do BDD (REACT) | Gabriel, Isac|
-| Finalização do TDD (Rails) | Antônio, Isac |
+| Finalização do BDD | Gabriel, Isac|
+| Finalização do TDD | Antônio, Isac |
 | Finalização dos Queries| Todo o Grupo |
 | Documentação do Projeto | Todo o Grupo |
-| Embelezamento das Views | Gabriel, Pedro |
+| Embelezamento das Views | Pedro |
 
 ## Lições Aprendidas
 
