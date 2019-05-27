@@ -1,5 +1,6 @@
 class HealthUnitsController < ApplicationController
   before_action :set_health_unit, only: [:show, :edit, :update, :destroy]
+  @count = HealthUnit.count
 
   # GET /health_units
   # GET /health_units.json
@@ -78,7 +79,7 @@ class HealthUnitsController < ApplicationController
     if params[:specialties].empty?
       redirect_to health_units_path
     else
-      @health_units = HealthUnit.where("specialties && ?",
+      @health_units = HealthUnit.where("specialties && {?}",
         params[:specialties].split(' '))
       respond_to do |format|
         format.html { render template: "health_units/index.html.slim" }

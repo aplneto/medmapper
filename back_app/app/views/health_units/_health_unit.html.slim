@@ -1,0 +1,5 @@
+div id='health_unit.#{health_unit.id}'
+    h3 = link_to health_unit.name, health_unit
+    p
+        - health_unit.specialties.each do |specialty|
+            = link_to specialty, list_by_specialties_health_units_path(specialties: specialty), method: :post
