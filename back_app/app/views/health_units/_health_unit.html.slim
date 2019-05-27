@@ -1,5 +1,25 @@
 div id='health_unit.#{health_unit.id}'
     h3 = link_to health_unit.name, health_unit
+    table
+        thead
+            th logradouro
+            th telefone
+            th cnes
+            th bairro
+        tbody
+            td = health_unit.address
+            td = health_unit.phone
+            td = health_unit.cnes
+            td = link_to health_unit.neighborhood,
+                neighborhood_health_units_path(neighborhood: health_unit.neighborhood)
     p
-        - health_unit.specialties.each do |specialty|
-            = link_to specialty, list_by_specialties_health_units_path(specialties: specialty), method: :post
+        - if health_unit.specialties.any?
+            text tags: 
+            = raw health_unit.specialties.map { |s| link_to s,
+                specialty_health_units_path(specialty: s)}.join(', ')
+    
+    p
+        - if health_unit.treatments.any?
+            text treatments:
+            = raw helth_unit.treatments.map { |t| link_to t,
+                treatments_health_units_path(treatment: t)}.join('. ')

@@ -19,6 +19,8 @@ api_src = "http://dados.recife.pe.gov.br/api/action/"
 lista_de_unidades = HTTParty.post(api_src+"package_show",
     body: { id: "unidades-de-saude" }.to_json)["result"]
 
+$tags_inuteis = %w"A AS E O OS COM DA DAS DE DO DOS NA NO SEM"
+
 $db_status = { } # Hash global contendo as datas da última atualização do BD
 
 $error_loading = { } # Hash global de recursos não encontrados
@@ -46,16 +48,16 @@ lista_de_unidades['resources'].each do |resource|
             unidade['endereco'] : 'desconhecido'
             health_unit.neighborhood = unidade.has_key?('bairro') ? 
             unidade['bairro'] : 'desconhecido'
-            health_unit.phone = unidade.has_key?('fone') ?
-                unidade['fone'] : "desconhecido"
+            health_unit.phone = unidade.has_key?('fone')? 
+            unidade['fone'] : "desconhecido"
             health_unit.latitude = unidade['latitude']
             health_unit.longitude = unidade['longitude']
             health_unit.treatments = []
             health_unit.city = 'Recife'
             health_unit.state = 'PE'
             health_unit.specialties = unidade.has_key?('especialidades') ?
-            unidade['especialidades'].split(', ').map {|s| s.split(' ')}
-            .flatten : []
+            unidade['especialidades'].split(' ').map {|s| s.delete(',').
+                delete('.')}.flatten.uniq - $tags_inuteis : []
             health_unit.save!
 
             # Subclassificação

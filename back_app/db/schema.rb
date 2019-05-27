@@ -52,7 +52,7 @@ ActiveRecord::Schema.define(version: 2019_05_26_213209) do
     t.string "name", limit: 100, null: false
     t.string "address", limit: 100, null: false
     t.string "neighborhood", limit: 30, null: false
-    t.string "phone", limit: 25
+    t.string "phone", limit: 25, default: "000000000"
     t.float "latitude", null: false
     t.float "longitude", null: false
     t.text "description"

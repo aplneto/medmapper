@@ -1,6 +1,5 @@
 class HealthUnitsController < ApplicationController
   before_action :set_health_unit, only: [:show, :edit, :update, :destroy]
-  @count = HealthUnit.count
 
   # GET /health_units
   # GET /health_units.json
@@ -76,13 +75,14 @@ class HealthUnitsController < ApplicationController
   end
 
   def list_by_specialties
-    if params[:specialties].empty?
+    if params[:specialty].nil?
       redirect_to health_units_path
     else
-      @health_units = HealthUnit.where("specialties && {?}",
-        params[:specialties].split(' '))
+      @specialty = params[:specialty]
+      @health_units = HealthUnit.where("specialties && ARRAY[?]",
+        @specialty)
       respond_to do |format|
-        format.html { render template: "health_units/index.html.slim" }
+        format.html { render template: "health_units/specialty.html.slim" }
         format.json { render template: "health_units/index.json.jbuilder"}
       end
     end
@@ -102,10 +102,10 @@ class HealthUnitsController < ApplicationController
   end
 
   def search_by_neighborhood
-    if params[:neighborhood].empty?
+    if params[:neighborhood].nil?
       redirect_to health_units_path
     else
-      @health_unit = HealthUnit.where(neighborhood: params[:neighborhood])
+      @health_units = HealthUnit.where(neighborhood: params[:neighborhood])
       respond_to do |format|
         format.html { render template: "health_units/index.html.slim" }
         format.json { render template: "health_units/index.json.jbuilder"}
