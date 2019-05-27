@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_26_061558) do
+ActiveRecord::Schema.define(version: 2019_05_26_213209) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,18 +49,19 @@ ActiveRecord::Schema.define(version: 2019_05_26_061558) do
 
   create_table "health_units", force: :cascade do |t|
     t.bigint "cnes", null: false
-    t.string "name", limit: 80, null: false
-    t.string "address", limit: 50, null: false
+    t.string "name", limit: 100, null: false
+    t.string "address", limit: 100, null: false
     t.string "neighborhood", limit: 30, null: false
-    t.string "phone", limit: 25, null: false
+    t.string "phone", limit: 25, default: "000000000"
     t.float "latitude", null: false
     t.float "longitude", null: false
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.text "specialties", array: true
-    t.text "treatment", array: true
-    t.index ["cnes"], name: "index_health_units_on_cnes", unique: true
+    t.text "treatments", array: true
+    t.string "state", limit: 50
+    t.string "city", limit: 50
   end
 
   create_table "hospitals", force: :cascade do |t|
@@ -125,7 +126,13 @@ ActiveRecord::Schema.define(version: 2019_05_26_061558) do
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.string "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
     t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
   add_foreign_key "administrators", "users"
