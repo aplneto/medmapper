@@ -10,6 +10,8 @@ class HospitalsController < ApplicationController
   # GET /hospitals/1
   # GET /hospitals/1.json
   def show
+    redirect_to controller: 'health_units', action: 'show',
+    id: @hospital.health_unit_id
   end
 
   # GET /hospitals/new

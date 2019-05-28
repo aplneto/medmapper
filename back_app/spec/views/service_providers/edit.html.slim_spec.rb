@@ -7,7 +7,9 @@ RSpec.describe "service_providers/edit", type: :view do
       :address => "MyString",
       :neighborhood => "MyString",
       :phone => "MyString",
-      :user => nil,
+      :user_profile => nil,
+      :latitude => 1.5,
+      :longitude => 1.5,
       :description => "MyText"
     ))
   end
@@ -25,7 +27,11 @@ RSpec.describe "service_providers/edit", type: :view do
 
       assert_select "input[name=?]", "service_provider[phone]"
 
-      assert_select "input[name=?]", "service_provider[user_id]"
+      assert_select "input[name=?]", "service_provider[user_profile_id]"
+
+      assert_select "input[name=?]", "service_provider[latitude]"
+
+      assert_select "input[name=?]", "service_provider[longitude]"
 
       assert_select "textarea[name=?]", "service_provider[description]"
     end

@@ -1,0 +1,13 @@
+div
+    = form_for @new_comment do |f|
+        - if @new_comment.errors.any?
+            h2 = "#{pluralize(@new_comment.errors.count, "error")} prohibited this comment from being posted:"
+            ul
+            - @new_comment.errors.full_messages.each do |message|
+                li = message
+        
+        .field
+        = f.label 'comentário'
+        br
+        = f.text_field :body
+        .actions = f.submit
