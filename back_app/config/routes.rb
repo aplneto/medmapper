@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
   root 'pages#home'
   
+  get '/terms', to: 'pages#terms'
   get '/about', to: 'pages#about'
 
   resources :user_profiles, path: 'usuarios'
