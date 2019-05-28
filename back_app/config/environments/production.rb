@@ -87,4 +87,15 @@ Rails.application.configure do
   # Uncomment these to configure production enviroment by setting host to the
   # actual application host
   # config.action_mailer.default_url_options = { host: 'localhost', port: 3000}
+
+# Devise production mailer settings
+# source: http://ianthro.com/add-email-confirmations-to-your-rails-app-1
+
+# config.action_mailer.default_url_options = {:host => 'yourdomain.com'}
+# config.action_mailer.delivery_method = :smtp
+# config.action_mailer.smtp_settings = {
+  # :address => "127.0.0.1",
+  # :port    => 25,
+  # :domain  => 'yourdomain.com'
+}
 end
