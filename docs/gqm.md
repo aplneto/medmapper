@@ -4,34 +4,7 @@
 
 ### Objetivo
 
-Evitar o desenvolvimento de teste iguais(que estejam duplicados), deixando os **DRY**.
-
-| Objetivo        | Garantir que os teste sejam DRY                           |
-| --------------- | --------------------------------------------------------- |
-| Analisar        | Os testes desenvolvidos                                   |
-| Com o propósito | De avaliar e garantir que não exista duplicação de código |
-| Com respeito    | A qualidade dos testes                                    |
-| Ponto de vista  | Dos desenvolvedores de testes                             |
-| No contextos    | Do Projeto MedMapper                                      |
-
-### Questões
-
-- Os testes quando executados se comportam da mesma forma?
-  - Possuir testes repetitivos só irá atrapalhar na refatoração, já que terá que refatorar o mesmo teste mais de uma vez, além de poder ter o mesmo testes com uma versão refatorada e a outra sem estar.
-
-- Quantos testes repetidos temos atualmente?
-  - Evitar a repetição de código ajuda na manutenção, uma vez que só precisara corrigir em um único local.
-
-### Métricas
-
-- Quantidade de testes repetidos.
-- Quantidade de testes aceitáveis que testam a mesma funcionalidade.
-
-------
-
-### Objetivo
-
-A plataforma **MedMapper** tem como principal objetivo reunir informações em um só lugar, com o intuito de facilitar a busca por unidades de saúde para o tratamento da Zika, e microcefalia em crianças.
+A plataforma **MedMapper** tem como principal objetivo reunir informações em um só lugar sobre as unidades de saúde da região metropolitana do Recife e os tratamentos que elas oferecem relacionados ao Zika e a microcefalia, com o intuito de facilitar a busca das mães de crianças que tiveram seus filhos afetados por essas doenças.
 
 | Objetivo        | O1 - Garantir qualidade da informação      |
 | --------------- | ------------------------------------------ |
@@ -43,6 +16,8 @@ A plataforma **MedMapper** tem como principal objetivo reunir informações em u
 
 ### Questões
 
+- A plataforma informa a localização correta de uma unidade de saúde?
+  - Informar a localização correta de uma unidade de saúde evitara os transtornos que as mães já sofrem atualmente de dar viagens perdidas.
 - A informação foi avaliada?
   - Checar a veracidade e a qualidade da informação, irá garantir que a plataforma forneça as informações que é esperada dela, e também passará uma maior credibilidade para o público alvo.
 - A informação é útil?
@@ -52,5 +27,6 @@ A plataforma **MedMapper** tem como principal objetivo reunir informações em u
 
 ### Métricas
 
+- A validação local de atendimento é feita através de uma confirmação pela uma ligação para o local e/ou por uma verificação no mapa(GPS).
 - Quantidade de informações que descrevam um local de atendimento, seja ele um Hospital, Farmácia da Família, e etc.
 - Complexidade de uma busca pelo um local de atendimento.
