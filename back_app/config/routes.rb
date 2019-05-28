@@ -1,14 +1,13 @@
 Rails.application.routes.draw do
 
-  devise_for :users
-
+  resources :professional_profiles
+  resources :service_providers
+  resources :user_profiles
+  devise_for :accounts
   root 'pages#home'
   
   get '/about', to: 'pages#about'
 
-  resources :collaborators
-  resources :service_providers
-  resources :professionals
   resources :maternity_clinics
   resources :mental_health_units
   resources :odontology_units

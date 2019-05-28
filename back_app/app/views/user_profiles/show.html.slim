@@ -1,0 +1,24 @@
+p#notice = notice
+
+p
+  strong Name:
+  = @user_profile.name
+p
+  strong Sex:
+  = @user_profile.sex
+p
+  strong Birthday:
+  = @user_profile.birthday
+p
+  strong Phone:
+  = @user_profile.phone
+p
+  strong Description:
+  = @user_profile.description
+p
+  strong Account:
+  = @user_profile.account
+
+=> link_to 'Edit', edit_user_profile_path(@user_profile)
+'|
+=< link_to 'Back', user_profiles_path

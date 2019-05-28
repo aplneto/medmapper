@@ -1,0 +1,30 @@
+p#notice = notice
+
+p
+  strong Registry:
+  = @professional_profile.registry
+p
+  strong Ocupation:
+  = @professional_profile.ocupation
+p
+  strong Validation:
+  = @professional_profile.validation
+p
+  strong Contacts:
+  = @professional_profile.contacts
+p
+  strong Places:
+  = @professional_profile.places
+p
+  strong Services:
+  = @professional_profile.services
+p
+  strong Cpf:
+  = @professional_profile.cpf
+p
+  strong User profile:
+  = @professional_profile.user_profile
+
+=> link_to 'Edit', edit_professional_profile_path(@professional_profile)
+'|
+=< link_to 'Back', professional_profiles_path
