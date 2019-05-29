@@ -16,7 +16,8 @@ https://raw.githubusercontent.com/aplneto/projeto_ES/master/docs/idv/logotmp200x
 | Desenvolvimento | 
 |----------|
 | [Basic_health_units and Specialized_units Controllers](/back_app/app/controllers)  [[#26]](https://github.com/aplneto/medmapper/issues/26) |
-|[Mailer Views](/back_app/app/views) [[#62]](https://github.com/aplneto/medmapper/issues/62) |
+|[Hospitals and Pharmacies Controllers](/back_app/app/controllers) [[#26]](https://github.com/aplneto/medmapper/issues/26)|
+|[Views](/back_app/app/views) [[#62]](https://github.com/aplneto/medmapper/issues/62) |
 |[GQM]() [[#47]](https://github.com/aplneto/medmapper/issues/47) (Iteração 2 - Finalizado na Iteração 4)|
 
 
