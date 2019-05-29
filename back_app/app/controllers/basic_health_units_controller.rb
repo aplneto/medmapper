@@ -10,6 +10,8 @@ class BasicHealthUnitsController < ApplicationController
   # GET /basic_health_units/1
   # GET /basic_health_units/1.json
   def show
+    redirect_to controller: 'health_units', action: 'show',
+    id: @basic_health_unit.health_unit_id
   end
 
   # GET /basic_health_units/new
@@ -92,11 +94,11 @@ class BasicHealthUnitsController < ApplicationController
     if params[:treatments].empty?
       redirect_to basic_health_units_path
     else
-      @basic_health_unit = HealthUnit.where("treatments && ?",
+      @basic_health_unit = BasicHealthUnit.where("treatments && ?",
         params[:treatments].split(' '))
       respond_to do |format|
-        format.html { render template: "health_units/index.html.slim" }
-        format.json { render template: "health_units/index.json.jbuilder"}
+        format.html { render template: "basic_health_units/index.html.slim" }
+        format.json { render template: "basic_health_units/index.json.jbuilder"}
       end
     end
   end
