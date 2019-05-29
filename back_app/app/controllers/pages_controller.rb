@@ -7,4 +7,10 @@ class PagesController < ApplicationController
 
     def terms
     end
+
+    def collaborators
+    end
+
+    def developers
+    end
   end
