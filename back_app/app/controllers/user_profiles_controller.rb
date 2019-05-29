@@ -3,6 +3,7 @@ class UserProfilesController < ApplicationController
   before_action :profile_owner, only: [:edit, :update, :destroy]
   before_action :authenticate_account!, only: [:new, :edit, :update, :destroy]
   before_action :verify_account_confirmation, only: [:new]
+  before_action :account_has_profile, only: [:new]
 
   # GET /user_profiles
   # GET /user_profiles.json
@@ -89,8 +90,25 @@ class UserProfilesController < ApplicationController
     # um perfil pode ser feita apenas por seu proprietário.
     def profile_owner
       unless @user_profile.account_id == current_account.id
-        flash[:notice] = "Você não pode editar perfis de outros usuários"
-        redirect_to user_profiles_path
+        respond_to do |format|
+          format.html {
+            redirect_to user_path,
+            notice: "Você não pode editar perfis de outros usuários"
+          }
+          format.json { head :forbidden }
+        end
+      end
+    end
+
+    def account_has_profile
+      if UserProfile.exists?(account_id:current_account.id)
+        respond_to do |format|
+          format.html {
+            render file: "pubcli/403.html", layout: true, notice: "Você já tem 
+            um perfil de usuário"
+           }
+         format.json { head :forbidden }
+        end
       end
     end
 
