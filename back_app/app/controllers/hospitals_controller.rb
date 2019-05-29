@@ -62,6 +62,58 @@ class HospitalsController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
+  def basic_search
+    if params[:keywords].empty?
+      redirect_to hospitals_path
+    else
+      @hospitals = Hospital.where("specialties && :kw or 
+        treatments && :kw", kw: params[:keywords].split(' '))
+      respond_to do |format|
+        format.html { render template: "hospitals/index.html.slim" }
+        format.json { render template: "hospitals/index.json.jbuilder"}
+      end
+    end
+  end
+
+  def list_by_specialties
+    if params[:specialty].nil?
+      redirect_to hospitals_path
+    else
+      @specialty = params[:specialty]
+      @hospitals = Hospital.where("specialties && ARRAY[?]",
+        @specialty)
+      respond_to do |format|
+        format.html { render template: "hospitals/specialty.html.slim" }
+        format.json { render template: "hospitals/index.json.jbuilder"}
+      end
+    end
+  end
+
+  def list_by_treatments
+    if params[:treatments].empty?
+      redirect_to hospitals_path
+    else
+      @hospital = Hospital.where("treatments && ?",
+        params[:treatments].split(' '))
+      respond_to do |format|
+        format.html { render template: "hospitals/index.html.slim" }
+        format.json { render template: "hospitals/index.json.jbuilder"}
+      end
+    end
+  end
+
+  def search_by_neighborhood
+    if params[:neighborhood].nil?
+      redirect_to Hospital_path
+    else
+      @hospitals = Hospital.where(neighborhood: params[:neighborhood])
+      respond_to do |format|
+        format.html { render template: "hospitals/index.html.slim" }
+        format.json { render template: "hospitals/index.json.jbuilder"}
+      end
+    end
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.
