@@ -65,7 +65,7 @@ class EmergencyUnitsController < ApplicationController
 
   def basic_search
     if params[:keywords].empty?
-      redirect_to emergency_unit_path
+      redirect_to emergency_units_path
     else
       @emergency_units = EmergencyUnit.where("specialties && :kw or 
         treatments && :kw", kw: params[:keywords].split(' '))
@@ -78,7 +78,7 @@ class EmergencyUnitsController < ApplicationController
 
   def list_by_specialties
     if params[:specialty].nil?
-      redirect_to emergency_unit_path
+      redirect_to emergency_units_path
     else
       @specialty = params[:specialty]
       @emergency_units = EmergencyUnit.where("specialties && ARRAY[?]",
@@ -92,7 +92,7 @@ class EmergencyUnitsController < ApplicationController
 
   def list_by_treatments
     if params[:treatments].empty?
-      redirect_to emergency_unit
+      redirect_to emergency_units_path
     else
       @emergency_unit = EmergencyUnit.where("treatments && ?",
         params[:treatments].split(' '))
@@ -105,7 +105,7 @@ class EmergencyUnitsController < ApplicationController
 
   def search_by_neighborhood
     if params[:neighborhood].nil?
-      redirect_to emergency_unit
+      redirect_to emergency_units_path
     else
       @emergency_units = EmergencyUnit.where(neighborhood: params[:neighborhood])
       respond_to do |format|
