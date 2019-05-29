@@ -107,7 +107,7 @@ class HealthUnitsController < ApplicationController
   end
 
   def search_by_neighborhood
-    if params[:neighborhood].nil?
+    if params[:neighborhood].empty?
       redirect_to health_units_path
     else
       @health_units = HealthUnit.where(neighborhood: params[:neighborhood])
@@ -134,7 +134,9 @@ class HealthUnitsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def health_unit_params
-      params.require(:health_unit).permit(:cnes, :name, :address, :neighborhood, :phone, :latitude, :longitude, :description)
+      params.require(:health_unit).permit(:cnes, :name, :address, :neighborhood,
+        :phone, :latitude, :longitude, :description, :specialties, :treatments,
+        :state, :city)
     end
   
 end

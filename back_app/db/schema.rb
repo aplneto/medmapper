@@ -124,7 +124,7 @@ ActiveRecord::Schema.define(version: 2019_05_28_182202) do
   create_table "user_profiles", force: :cascade do |t|
     t.string "name", limit: 100, null: false
     t.string "sex", limit: 1, default: "f", null: false
-    t.datetime "birthday"
+    t.date "birthday"
     t.string "phone", limit: 20
     t.text "description"
     t.bigint "account_id"

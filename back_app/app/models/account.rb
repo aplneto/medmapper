@@ -6,4 +6,7 @@ class Account < ApplicationRecord
          :confirmable, :omniauthable
   
   has_one :user_profile
+
+  validates_acceptance_of :terms, accept: "1",
+    message: "Você deve concordar com os nossos termos para continuar"
 end

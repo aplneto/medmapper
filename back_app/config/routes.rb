@@ -1,14 +1,34 @@
 Rails.application.routes.draw do
 
-  root 'pages#home'
+  root to: 'pages#home'
   
   get '/about', to: 'pages#about'
 
   resources :user_profiles, path: 'usuarios'
 
-  resources :professional_profiles, path: 'profissionais'
+  resources :professional_profiles, path: 'profissionais' do
+    collection do
+      resources :comments, path: 'comentarios'
+    end
+  end
 
-  resources :service_providers, path: 'servicos'
+  resources :service_providers, path: 'servicos' do
+    collection do
+      resources :comments, path: 'comentarios'
+    end
+  end
+
+  devise_for :accounts, controllers: {
+    sessions: 'accounts/sessions',
+    confirmations: 'accounts/confirmations',
+    passwords: 'accounts/passwords',
+    registrations: 'accounts/registrations',
+  }
+  devise_scope :accounts do
+    get 'signup', to: 'accounts/registrations#new'
+    get 'signin', to: 'accounts/sessions#new'
+    delete 'signout', to: 'accounts/sessions#destroy'
+  end
 
   resources :health_units, path: 'unidades' do
     collection do
@@ -21,17 +41,6 @@ Rails.application.routes.draw do
     end
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-
-  Rails.application.routes.draw do
-    devise_for :accounts, controllers: {
-      sessions: 'accounts/sessions',
-      omniauth: 'accouts/omniauth',
-      confirmations: 'account/confirmations',
-      passwords: 'accouts/passwords',
-      registrations: 'accouts/registrations',
-      unlocks: 'accouts/unlocks'
-    }
-  end
 
   resources :maternity_clinics, path: 'maternidades'
   resources :mental_health_units, path: 'saude-mental'
