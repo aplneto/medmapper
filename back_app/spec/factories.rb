@@ -9,7 +9,7 @@ FactoryBot.define do
     places { "MyText" }
     services { "MyText" }
     cpf { "MyString" }
-    user_profile { nil }
+    user_profile { FactoryBot.build(:user_profile) }
   end
 
   factory :service_provider do
@@ -17,30 +17,33 @@ FactoryBot.define do
     address { "MyString" }
     neighborhood { "MyString" }
     phone { "MyString" }
-    user_profile { nil }
+    user_profile { FactoryBot.build(:user_profile) }
     latitude { 1.5 }
     longitude { 1.5 }
     description { "MyText" }
   end
 
   factory :comment do
-    user_profile { nil }
+    user_profile { FactoryBot.build(:user_profile) }
     body { "MyText" }
-    page_id { 1 }
-    page_type { "MyString" }
+    page { FactoryBot.build(:health_unit) }
   end
 
   factory :user_profile do
-    name { "MyString" }
-    sex { "MyString" }
-    birthday { "2019-05-28 15:05:39" }
-    phone { "MyString" }
-    description { "MyText" }
-    account { nil }
+    name { "Antônio" }
+    sex { "m" }
+    birthday { "2019-05-28" }
+    phone { "8100000000" }
+    description { "Developer" }
+    account { FactoryBot.build(:account) }
   end
 
   factory :account do
-    
+    email { "test_user@testdomain.com" }
+    password { "my_password" }
+    password_confirmation { "my_password" }
+    after(:build) { |u| u.skip_confirmation_notification! }
+    after(:create) { |u| u.confirm }
   end
 
   factory :maternity_clinic do

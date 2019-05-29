@@ -25,25 +25,32 @@ require 'rails_helper'
 
 RSpec.describe UserProfilesController, type: :controller do
 
-  # This should return the minimal set of attributes required to create a valid
-  # UserProfile. As you add validations to UserProfile, be sure to
-  # adjust the attributes here as well.
-  let(:valid_attributes) {
-    skip("Add a hash of attributes valid for your model")
-  }
+  login_account
 
-  let(:invalid_attributes) {
-    skip("Add a hash of attributes invalid for your model")
-  }
+  let(:valid_for_creation) do
+    {
+      name: 'testing profile',
+      sex: 'm',
+      birthday: '2019-05-28',
+      phone: '81123456789',
+      description: 'testing account'
+    }
+  end
 
-  # This should return the minimal set of values that should be in the session
-  # in order to pass any filters (e.g. authentication) defined in
-  # UserProfilesController. Be sure to keep this updated too.
-  let(:valid_session) { {} }
+  let(:invalid_attributes) do
+    {
+      name: '',
+      sex: 'f',
+      birthday: '2019-05-28',
+      phone: '81123456789',
+      description: 'testing account'
+    }
+  end
+
+  let(:valid_session) { }
 
   describe "GET #index" do
     it "returns a success response" do
-      UserProfile.create! valid_attributes
       get :index, params: {}, session: valid_session
       expect(response).to be_successful
     end
@@ -51,7 +58,7 @@ RSpec.describe UserProfilesController, type: :controller do
 
   describe "GET #show" do
     it "returns a success response" do
-      user_profile = UserProfile.create! valid_attributes
+      user_profile = FactoryBot.create(:user_profile)
       get :show, params: {id: user_profile.to_param}, session: valid_session
       expect(response).to be_successful
     end
@@ -66,7 +73,8 @@ RSpec.describe UserProfilesController, type: :controller do
 
   describe "GET #edit" do
     it "returns a success response" do
-      user_profile = UserProfile.create! valid_attributes
+      user_profile = FactoryBot.create(:user_profile)
+      allow(controller).to receive(:profile_owner).and_return(@account)
       get :edit, params: {id: user_profile.to_param}, session: valid_session
       expect(response).to be_successful
     end
@@ -75,20 +83,25 @@ RSpec.describe UserProfilesController, type: :controller do
   describe "POST #create" do
     context "with valid params" do
       it "creates a new UserProfile" do
+        allow(controller).to receive(:profile_owner).and_return(@account)
         expect {
-          post :create, params: {user_profile: valid_attributes}, session: valid_session
+          post :create, params: { user_profile: valid_for_creation  },
+          session: valid_session
         }.to change(UserProfile, :count).by(1)
       end
 
       it "redirects to the created user_profile" do
-        post :create, params: {user_profile: valid_attributes}, session: valid_session
+        allow(controller).to receive(:profile_owner).and_return(@account)
+        post :create, params: {user_profile: valid_for_creation},
+        session: valid_session
         expect(response).to redirect_to(UserProfile.last)
       end
     end
 
     context "with invalid params" do
       it "returns a success response (i.e. to display the 'new' template)" do
-        post :create, params: {user_profile: invalid_attributes}, session: valid_session
+        post :create, params: {user_profile: invalid_attributes},
+        session: valid_session
         expect(response).to be_successful
       end
     end
@@ -96,28 +109,40 @@ RSpec.describe UserProfilesController, type: :controller do
 
   describe "PUT #update" do
     context "with valid params" do
-      let(:new_attributes) {
-        skip("Add a hash of attributes valid for your model")
-      }
+      let(:new_attributes) do
+        {
+          name: "new_test_user",
+          sex: 'm',
+          birthday: '01-02-1990',
+          phone: '00987654321',
+          description: 'brand new description'
+        }
+      end
 
       it "updates the requested user_profile" do
-        user_profile = UserProfile.create! valid_attributes
-        put :update, params: {id: user_profile.to_param, user_profile: new_attributes}, session: valid_session
+        allow(controller).to receive(:profile_owner).and_return(@account)
+        user_profile = FactoryBot.create(:user_profile)
+        put :update, params: {id: user_profile.to_param,
+          user_profile: new_attributes}, session: valid_session
         user_profile.reload
-        skip("Add assertions for updated state")
+        expect(user_profile.name).to eq(new_attributes[:name])
       end
 
       it "redirects to the user_profile" do
-        user_profile = UserProfile.create! valid_attributes
-        put :update, params: {id: user_profile.to_param, user_profile: valid_attributes}, session: valid_session
+        allow(controller).to receive(:profile_owner).and_return(@account)
+        user_profile = FactoryBot.create(:user_profile)
+        put :update, params: { id: user_profile.to_param,
+          user_profile: user_profile.attributes }, session: valid_session
         expect(response).to redirect_to(user_profile)
       end
     end
 
     context "with invalid params" do
       it "returns a success response (i.e. to display the 'edit' template)" do
-        user_profile = UserProfile.create! valid_attributes
-        put :update, params: {id: user_profile.to_param, user_profile: invalid_attributes}, session: valid_session
+        allow(controller).to receive(:profile_owner).and_return(@account)
+        user_profile = FactoryBot.create(:user_profile)
+        put :update, params: {id: user_profile.to_param,
+          user_profile: invalid_attributes}, session: valid_session
         expect(response).to be_successful
       end
     end
@@ -125,14 +150,15 @@ RSpec.describe UserProfilesController, type: :controller do
 
   describe "DELETE #destroy" do
     it "destroys the requested user_profile" do
-      user_profile = UserProfile.create! valid_attributes
+      allow(controller).to receive(:profile_owner).and_return(@account)
+      user_profile = FactoryBot.create(:user_profile)
       expect {
         delete :destroy, params: {id: user_profile.to_param}, session: valid_session
       }.to change(UserProfile, :count).by(-1)
     end
 
     it "redirects to the user_profiles list" do
-      user_profile = UserProfile.create! valid_attributes
+      user_profile = FactoryBot.create(:user_profile)
       delete :destroy, params: {id: user_profile.to_param}, session: valid_session
       expect(response).to redirect_to(user_profiles_url)
     end

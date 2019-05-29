@@ -14,14 +14,12 @@
     = f.text_field :sex
   .field
     = f.label :birthday
-    = f.datetime_select :birthday
+    = f.date_select :birthday, start_year: 1950
   .field
     = f.label :phone
     = f.text_field :phone
   .field
     = f.label :description
     = f.text_area :description
-  .field
-    = f.label :account
-    = f.text_field :account
+
   .actions = f.submit

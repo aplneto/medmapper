@@ -1,6 +1,6 @@
 class HealthUnitsController < ApplicationController
   before_action :set_health_unit, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_account!, only: [:show, :update, :destroy]
+  before_action :authenticate_account!, only: [:create, :update, :destroy]
 
   # GET /health_units
   # GET /health_units.json
@@ -11,10 +11,6 @@ class HealthUnitsController < ApplicationController
   # GET /health_units/1
   # GET /health_units/1.json
   def show
-    @comments = Comment.where('page_type = ? AND page_id = ?',
-      'health_unit', @health_unit.id)
-    @new_comment = Comment.new
-    @new_comment.page = @health_unit
   end
 
   # GET /health_units/new
@@ -107,7 +103,7 @@ class HealthUnitsController < ApplicationController
   end
 
   def search_by_neighborhood
-    if params[:neighborhood].nil?
+    if params[:neighborhood].empty?
       redirect_to health_units_path
     else
       @health_units = HealthUnit.where(neighborhood: params[:neighborhood])
@@ -134,7 +130,9 @@ class HealthUnitsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def health_unit_params
-      params.require(:health_unit).permit(:cnes, :name, :address, :neighborhood, :phone, :latitude, :longitude, :description)
+      params.require(:health_unit).permit(:cnes, :name, :address, :neighborhood,
+        :phone, :latitude, :longitude, :description, :specialties, :treatments,
+        :state, :city)
     end
   
 end

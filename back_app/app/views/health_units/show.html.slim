@@ -29,13 +29,14 @@ p
 '|
 =< link_to 'Back', health_units_path
 
+h2 #{@health_unit.comments.count} comentários
 br
-
-= render 'health_units/new_comment'
-
-- if @comments.any?
-  - @comments.each do |comment|
+- if @health_unit.comments.count > 0
+  - @health_unit.comments.each do |comment|
     div
-      = render partial: comment
+      = render partial: "comments/comment", locals: { comment: comment }
 - else
   p Não há comentários nessa página. Seja o primeiro a comentar.
+
+br
+= render partial: "comments/form", locals: { page: @health_unit }

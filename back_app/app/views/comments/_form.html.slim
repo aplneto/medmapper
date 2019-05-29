@@ -1,0 +1,8 @@
+div
+    = form_for [page, Comment.new] do |f|
+        
+        .field
+        = f.label 'comentário'
+        br
+        = f.text_area :body
+        .actions = f.submit

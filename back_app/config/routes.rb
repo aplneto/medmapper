@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  root 'pages#home'
+  root to: 'pages#home'
   
   get '/terms', to: 'pages#terms'
   get '/about', to: 'pages#about'
@@ -9,13 +9,21 @@ Rails.application.routes.draw do
 
   resources :user_profiles, path: 'usuarios'
 
-  resources :professional_profiles, path: 'profissionais'
-
-  resources :service_providers, path: 'servicos'
+  devise_for :accounts, controllers: {
+    sessions: 'accounts/sessions',
+    confirmations: 'accounts/confirmations',
+    passwords: 'accounts/passwords',
+    registrations: 'accounts/registrations',
+  }
+  devise_scope :accounts do
+    get 'signup', to: 'accounts/registrations#new'
+    get 'signin', to: 'accounts/sessions#new'
+    delete 'signout', to: 'accounts/sessions#destroy'
+  end
 
   resources :health_units, path: 'unidades' do
+    resources :comments, path: 'comentarios'
     collection do
-      resources :comments, path: 'comentarios'
       get :basic_search, path: 'resultados'
       get :advanced_search, path: 'pesquisar'
       get :list_by_specialties, path: 'especialidades', as: :specialty
@@ -23,17 +31,13 @@ Rails.application.routes.draw do
       get :search_by_neighborhood, path: 'bairro', as: :neighborhood
     end
   end
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
-  Rails.application.routes.draw do
-    devise_for :accounts, controllers: {
-      sessions: 'accounts/sessions',
-      omniauth: 'accouts/omniauth',
-      confirmations: 'account/confirmations',
-      passwords: 'accouts/passwords',
-      registrations: 'accouts/registrations',
-      unlocks: 'accouts/unlocks'
-    }
+  resources :professional_profiles, path: 'profissionais' do
+    resources :comments, path: 'comentarios'
+  end
+
+  resources :service_providers, path: 'servicos' do
+    resources :comments, path: 'comentarios'
   end
 
   resources :maternity_clinics, path: 'maternidades'
@@ -47,5 +51,6 @@ Rails.application.routes.draw do
   resources :specialized_units, path: 'unidades-especializadas'
   resources :pharmacies, path: 'farmacias'
   resources :hospitals, path: 'hospitais'
-  
+
+  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
