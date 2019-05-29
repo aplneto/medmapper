@@ -105,7 +105,7 @@ class SpecializedUnitsController < ApplicationController
   
   def search_by_neighborhood
     if params[:neighborhood].nil?
-      redirect_to specialized_units_units_path
+      redirect_to specialized_units_path
     else
       @specialized_units = SpecializedUnit.where(neighborhood: params[:neighborhood])
       respond_to do |format|
