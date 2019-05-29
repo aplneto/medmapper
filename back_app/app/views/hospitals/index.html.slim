@@ -1,4 +1,5 @@
 h3 Hospitais
+text Total de hospitais cadastrados: #{Hospital.count}
 
 ul class="nav nav-tabs"
   = link_to 'Hospitais | ', hospitals_path
@@ -10,8 +11,8 @@ ul class="nav nav-tabs"
 table
   thead
     tr
-      th Health unit
-      th Type
+      th Unidade
+      th telefone
       th
       th
       th
@@ -19,8 +20,8 @@ table
   tbody
     - @hospitals.each do |hospital|
       tr
-        td = hospital.health_unit
-        td = hospital.type
+        td = link_to hospital.health_unit.name, hospital.health_unit
+        td = hospital.health_unit.cnes
         td = link_to 'Show', hospital
         td = link_to 'Edit', edit_hospital_path(hospital)
         td = link_to 'Destroy', hospital, data: { confirm: 'Are you sure?' }, method: :delete

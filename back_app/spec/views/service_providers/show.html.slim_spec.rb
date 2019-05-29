@@ -7,7 +7,9 @@ RSpec.describe "service_providers/show", type: :view do
       :address => "Address",
       :neighborhood => "Neighborhood",
       :phone => "Phone",
-      :user => nil,
+      :user_profile => nil,
+      :latitude => 2.5,
+      :longitude => 3.5,
       :description => "MyText"
     ))
   end
@@ -19,6 +21,8 @@ RSpec.describe "service_providers/show", type: :view do
     expect(rendered).to match(/Neighborhood/)
     expect(rendered).to match(/Phone/)
     expect(rendered).to match(//)
+    expect(rendered).to match(/2.5/)
+    expect(rendered).to match(/3.5/)
     expect(rendered).to match(/MyText/)
   end
 end

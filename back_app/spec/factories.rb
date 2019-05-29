@@ -1,49 +1,46 @@
 require 'faker'
 
 FactoryBot.define do
+  factory :professional_profile do
+    registry { "MyString" }
+    ocupation { "MyString" }
+    validation { false }
+    contacts { "MyText" }
+    places { "MyText" }
+    services { "MyText" }
+    cpf { "MyString" }
+    user_profile { nil }
+  end
+
   factory :service_provider do
     name { "MyString" }
     address { "MyString" }
     neighborhood { "MyString" }
     phone { "MyString" }
-    user { FactoryBot.build(:user) }
+    user_profile { nil }
+    latitude { 1.5 }
+    longitude { 1.5 }
     description { "MyText" }
-    services { ["Ortopedia", "Pediatria", "Odontologia"] }
   end
 
   factory :comment do
-    user { FactoryBot.build(:user) }
-    body { Faker::Lorem.paragraphs }
-    page { FactoryBot.build(:health_unit)}
+    user_profile { nil }
+    body { "MyText" }
+    page_id { 1 }
+    page_type { "MyString" }
   end
 
-  factory :administrator do
-    user { FactoryBot.build(:user) }
+  factory :user_profile do
+    name { "MyString" }
+    sex { "MyString" }
+    birthday { "2019-05-28 15:05:39" }
+    phone { "MyString" }
+    description { "MyText" }
+    account { nil }
   end
 
-  factory :collaborator do
-    user { FactoryBot.build(:user) }
-  end
-
-  factory :professional do
-    user { FactoryBot.build(:user) }
-    registry { "12345678910" }
-    ocupation { "Developer" }
-    validation { true }
-    places { ["Recife", "Paulista"] }
-    contacts { ["email: apln2@cin.ufpe.br", "instagram: @aplneto"] }
-    services { ['Web Developer', 'Test Engineering'] }
-  end
-
-  factory :user do
-    user_name { "aplneto" }
-    email { "apln2@cin.ufpe.br" }
-    sex { "m" }
-    birthday { "1995-04-03" }
-    encrypted_password { "MyString" }
-    name { "Antônio" }
-    phone { "81123456789" }
-    description { "Desenvolvedor" }
+  factory :account do
+    
   end
 
   factory :maternity_clinic do
