@@ -11,7 +11,10 @@ class DiagnosisUnitsController < ApplicationController
 
   # GET /diagnosis_units/1
   # GET /diagnosis_units/1.json
-  def show; end
+  def show
+    redirect_to controller: 'health_units', action: 'show',
+                id: @diagnosis_unit.health_unit_id
+  end
 
   # GET /diagnosis_units/new
   def new

@@ -11,7 +11,10 @@ class EmergencyUnitsController < ApplicationController
 
   # GET /emergency_units/1
   # GET /emergency_units/1.json
-  def show; end
+  def show
+    redirect_to controller: 'health_units', action: 'show',
+                id: @emergency_unit.health_unit_id
+  end
 
   # GET /emergency_units/new
   def new
