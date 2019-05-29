@@ -101,10 +101,10 @@ class UserProfilesController < ApplicationController
     end
 
     def account_has_profile
-      if UserProfile.exists?(account_id:current_account.id)
+      if UserProfile.exists?(account_id: current_account.id)
         respond_to do |format|
           format.html {
-            render file: "pubcli/403.html", layout: true, notice: "Você já tem 
+            render file: "public/403.html", layout: true, notice: "Você já tem 
             um perfil de usuário"
            }
          format.json { head :forbidden }

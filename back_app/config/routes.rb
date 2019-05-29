@@ -6,18 +6,6 @@ Rails.application.routes.draw do
 
   resources :user_profiles, path: 'usuarios'
 
-  resources :professional_profiles, path: 'profissionais' do
-    collection do
-      resources :comments, path: 'comentarios'
-    end
-  end
-
-  resources :service_providers, path: 'servicos' do
-    collection do
-      resources :comments, path: 'comentarios'
-    end
-  end
-
   devise_for :accounts, controllers: {
     sessions: 'accounts/sessions',
     confirmations: 'accounts/confirmations',
@@ -31,8 +19,8 @@ Rails.application.routes.draw do
   end
 
   resources :health_units, path: 'unidades' do
+    resources :comments, path: 'comentarios'
     collection do
-      resources :comments, path: 'comentarios'
       get :basic_search, path: 'resultados'
       get :advanced_search, path: 'pesquisar'
       get :list_by_specialties, path: 'especialidades', as: :specialty
@@ -40,7 +28,14 @@ Rails.application.routes.draw do
       get :search_by_neighborhood, path: 'bairro', as: :neighborhood
     end
   end
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
+  resources :professional_profiles, path: 'profissionais' do
+    resources :comments, path: 'comentarios'
+  end
+
+  resources :service_providers, path: 'servicos' do
+    resources :comments, path: 'comentarios'
+  end
 
   resources :maternity_clinics, path: 'maternidades'
   resources :mental_health_units, path: 'saude-mental'
@@ -53,5 +48,6 @@ Rails.application.routes.draw do
   resources :specialized_units, path: 'unidades-especializadas'
   resources :pharmacies, path: 'farmacias'
   resources :hospitals, path: 'hospitais'
-  
+
+  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

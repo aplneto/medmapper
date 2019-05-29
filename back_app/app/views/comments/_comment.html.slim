@@ -1,0 +1,6 @@
+h2 = comment.user_profile.name
+
+p = comment.body
+ul
+    li = link_to 'editar', edit_health_unit_comment_path(comment)
+    li = link_to 'excluir', health_unit_comment_path(comment), data: { confirm: 'Are you sure?' }, method: :delete

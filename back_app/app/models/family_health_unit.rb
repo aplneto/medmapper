@@ -1,3 +1,5 @@
 class FamilyHealthUnit < BasicHealthUnit
-  belongs_to :health_unit
+  
+  validates :type, presence: true, inclusion: { in: ['FamilyHealthUnit'] }
+
 end

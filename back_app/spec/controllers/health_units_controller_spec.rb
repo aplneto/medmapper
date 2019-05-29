@@ -46,10 +46,6 @@ RSpec.describe HealthUnitsController, type: :controller do
 
   let(:valid_session) { }
 
-  before (:all) do
-    @health_unit = FactoryBot.create(:health_unit)
-  end
-
   describe "GET #index" do
     it "returns a success response" do
       get :index
@@ -59,7 +55,8 @@ RSpec.describe HealthUnitsController, type: :controller do
 
   describe "GET #show" do
     it "returns a success response" do
-      get :show, params: { id: @health_unit.id }
+
+      get :show, params: { id: FactoryBot.create(:health_unit).id }
       expect(response).to be_successful
     end
   end

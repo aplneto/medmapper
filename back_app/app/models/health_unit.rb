@@ -1,5 +1,6 @@
 class HealthUnit < ApplicationRecord
-    validates :cnes, presence: true, numericality: true
+
+    validates :cnes, presence: true, numericality: true, uniqueness: true
     validates :name, presence: true, length: { maximum: 100 }
     validates :address, presence: true, length: { maximum: 100 }
     validates :neighborhood, presence: true, length: { maximum: 30 }
