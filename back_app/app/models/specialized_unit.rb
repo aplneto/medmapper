@@ -1,3 +1,3 @@
-class SpecializedUnit < ApplicationRecord
-  belongs_to :health_unit
+class SpecializedUnit < AbstractUnit
+  
 end

@@ -7,7 +7,9 @@ table
       th Address
       th Neighborhood
       th Phone
-      th User
+      th User profile
+      th Latitude
+      th Longitude
       th Description
       th
       th
@@ -20,7 +22,9 @@ table
         td = service_provider.address
         td = service_provider.neighborhood
         td = service_provider.phone
-        td = service_provider.user
+        td = service_provider.user_profile
+        td = service_provider.latitude
+        td = service_provider.longitude
         td = service_provider.description
         td = link_to 'Show', service_provider
         td = link_to 'Edit', edit_service_provider_path(service_provider)

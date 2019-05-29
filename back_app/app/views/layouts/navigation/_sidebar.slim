@@ -1,0 +1,29 @@
+.sidenav#mySidenav
+  .container
+    button type="button" class="btn" id="btn-login" Login
+    button type="button" class="btn" id="btn-signup" Signup
+  a href="javascript:void(0)" class="closebtn" onclick="closeNav()" &times;
+  <br /> <br /> 
+  = link_to 'Hospitais', hospitals_path
+  = link_to 'Postos de Saúde', basic_health_units_path
+  = link_to 'Centros Especializados', specialized_units_path
+  = link_to 'Farmácias', pharmacies_path
+  = link_to 'Profissionais', professional_profiles_path
+  = link_to 'Serviços', service_providers_path
+  = link_to 'Sobre', about_path
+  <br />
+  input type="text" placeholder="Pesquisar" id="keyword"
+  button type="button" class="btn" id="btn-search" &check;
+  
+  javascript:
+    function openNav() {
+      document.getElementById("mySidenav").style.width = "250px";
+      document.getElementById("main").style.marginLeft = "250px";
+    }
+
+    function closeNav() {
+      document.getElementById("mySidenav").style.width = "0";
+      document.getElementById("main").style.marginLeft= "0";
+    }
+
+span style="font-size:30px;cursor:pointer;" onclick="openNav()" &#9776;

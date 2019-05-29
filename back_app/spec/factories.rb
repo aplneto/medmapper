@@ -1,61 +1,49 @@
 require 'faker'
 
 FactoryBot.define do
+  factory :professional_profile do
+    registry { "MyString" }
+    ocupation { "MyString" }
+    validation { false }
+    contacts { "MyText" }
+    places { "MyText" }
+    services { "MyText" }
+    cpf { "MyString" }
+    user_profile { FactoryBot.build(:user_profile) }
+  end
+
   factory :service_provider do
     name { "MyString" }
     address { "MyString" }
     neighborhood { "MyString" }
     phone { "MyString" }
-    user { FactoryBot.build(:user) }
+    user_profile { FactoryBot.build(:user_profile) }
+    latitude { 1.5 }
+    longitude { 1.5 }
     description { "MyText" }
   end
 
   factory :comment do
-    user { FactoryBot.build(:user) }
-    body { Faker::Lorem.paragraphs }
-    page { FactoryBot.build(:health_unit)}
+    user_profile { FactoryBot.build(:user_profile) }
+    body { "MyText" }
+    page { FactoryBot.build(:health_unit) }
   end
 
-  factory :service do
-    provider { FactoryBot.build(:professional) }
-    tag { "Web developer" }
-  end
-
-  factory :contact do
-    professional { FactoryBot.build(:professional) }
-    category { "Instagram" }
-    info { "aplneto" }
-  end
-
-  factory :place do
-    professional { FactoryBot.build(:professional) }
-    place { "Recife" }
-  end
-
-  factory :administrator do
-    user { FactoryBot.build(:user) }
-  end
-
-  factory :collaborator do
-    user { FactoryBot.build(:user) }
-  end
-
-  factory :professional do
-    user { FactoryBot.build(:user) }
-    registry { "12345678910" }
-    ocupation { "Developer" }
-    validation { true }
-  end
-
-  factory :user do
-    user_name { "aplneto" }
-    email { "apln2@cin.ufpe.br" }
-    sex { "m" }
-    birthday { "1995-04-03" }
-    encrypted_password { "MyString" }
+  factory :user_profile do
     name { "Antônio" }
-    phone { "81123456789" }
-    description { "Desenvolvedor" }
+    sex { "m" }
+    birthday { "2019-05-28" }
+    phone { "8100000000" }
+    description { "Developer" }
+    account { FactoryBot.build(:account) }
+  end
+
+  factory :account do
+    email { "test_user@testdomain.com" }
+    password { "my_password" }
+    password_confirmation { "my_password" }
+    after(:build) { |u| u.skip_confirmation_notification! }
+    after(:create) { |u| u.confirm }
   end
 
   factory :maternity_clinic do
@@ -93,11 +81,6 @@ FactoryBot.define do
     type { "FamilyHealthUnit" }
   end
 
-  factory :specialty do
-    health_unit { FactoryBot.build(:health_unit) }
-    specialty { "Atendimento Pediátrico" }
-  end
-
   factory :basic_health_unit do
     health_unit { FactoryBot.build(:health_unit) }
     type { "BasicHealthUnit" }
@@ -118,11 +101,6 @@ FactoryBot.define do
     type { "Hospital" }
   end
 
-  factory :treatment do
-    health_unit { FactoryBot.build(:health_unit) }
-    treatment { "Pediatria" }
-  end
-
   factory :health_unit do
     cnes { 1 }
     name { "FACTORY BOT HOSPITAL" }
@@ -132,6 +110,8 @@ FactoryBot.define do
     latitude { 1.5 }
     longitude { 1.5 }
     description { Faker::Lorem.paragraphs }
+    specialties { ['pediatria', 'cardiologia'] }
+    treatments { ['pediatra', 'psicólogo'] }
   end
 
 end

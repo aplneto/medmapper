@@ -10,16 +10,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_25_084940) do
+ActiveRecord::Schema.define(version: 2019_05_28_182202) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "administrators", force: :cascade do |t|
-    t.bigint "user_id"
+  create_table "accounts", force: :cascade do |t|
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.string "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
+    t.string "unconfirmed_email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_administrators_on_user_id"
+    t.index ["confirmation_token"], name: "index_accounts_on_confirmation_token", unique: true
+    t.index ["email"], name: "index_accounts_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_accounts_on_reset_password_token", unique: true
   end
 
   create_table "basic_health_units", force: :cascade do |t|
@@ -30,44 +40,31 @@ ActiveRecord::Schema.define(version: 2019_05_25_084940) do
     t.index ["health_unit_id"], name: "index_basic_health_units_on_health_unit_id"
   end
 
-  create_table "collaborators", force: :cascade do |t|
-    t.bigint "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_collaborators_on_user_id"
-  end
-
   create_table "comments", force: :cascade do |t|
-    t.bigint "user_id"
+    t.bigint "user_profile_id"
     t.text "body", null: false
-    t.integer "page_id"
-    t.string "page_type"
+    t.integer "page_id", null: false
+    t.string "page_type", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_comments_on_user_id"
-  end
-
-  create_table "contacts", primary_key: ["professional_id", "category", "info"], force: :cascade do |t|
-    t.bigint "professional_id", null: false
-    t.string "category", limit: 50, null: false
-    t.string "info", limit: 80, null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["professional_id"], name: "index_contacts_on_professional_id"
+    t.index ["user_profile_id"], name: "index_comments_on_user_profile_id"
   end
 
   create_table "health_units", force: :cascade do |t|
     t.bigint "cnes", null: false
-    t.string "name", limit: 80, null: false
-    t.string "address", limit: 50, null: false
+    t.string "name", limit: 100, null: false
+    t.string "address", limit: 100, null: false
     t.string "neighborhood", limit: 30, null: false
-    t.string "phone", limit: 25, null: false
+    t.string "phone", limit: 25
     t.float "latitude", null: false
     t.float "longitude", null: false
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["cnes"], name: "index_health_units_on_cnes", unique: true
+    t.text "specialties", array: true
+    t.text "treatments", array: true
+    t.string "state", limit: 50
+    t.string "city", limit: 50
   end
 
   create_table "hospitals", force: :cascade do |t|
@@ -85,45 +82,35 @@ ActiveRecord::Schema.define(version: 2019_05_25_084940) do
     t.index ["health_unit_id"], name: "index_pharmacies_on_health_unit_id"
   end
 
-  create_table "places", primary_key: ["professional_id", "place"], force: :cascade do |t|
-    t.bigint "professional_id", null: false
-    t.string "place", limit: 30, null: false
+  create_table "professional_profiles", force: :cascade do |t|
+    t.string "registry", limit: 25, null: false
+    t.string "ocupation", limit: 50, null: false
+    t.boolean "validation", default: false, null: false
+    t.text "contacts", array: true
+    t.text "places", array: true
+    t.text "services", array: true
+    t.string "cpf", limit: 11
+    t.bigint "user_profile_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["professional_id", "place"], name: "index_places_on_professional_id_and_place", unique: true
-    t.index ["professional_id"], name: "index_places_on_professional_id"
-  end
-
-  create_table "professionals", force: :cascade do |t|
-    t.bigint "user_id"
-    t.string "registry", limit: 30, null: false
-    t.string "ocupation", limit: 30, null: false
-    t.boolean "validation"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["registry"], name: "index_professionals_on_registry", unique: true
-    t.index ["user_id"], name: "index_professionals_on_user_id"
+    t.index ["cpf"], name: "index_professional_profiles_on_cpf", unique: true
+    t.index ["registry"], name: "index_professional_profiles_on_registry", unique: true
+    t.index ["user_profile_id"], name: "index_professional_profiles_on_user_profile_id"
   end
 
   create_table "service_providers", force: :cascade do |t|
-    t.string "name", limit: 80, null: false
-    t.string "address", limit: 50, null: false
+    t.string "name", limit: 100, null: false
+    t.string "address", limit: 100, null: false
     t.string "neighborhood", limit: 30, null: false
-    t.string "phone", limit: 25, null: false
-    t.bigint "user_id"
+    t.string "phone", limit: 25
+    t.bigint "user_profile_id"
+    t.float "latitude"
+    t.float "longitude"
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["name"], name: "index_service_providers_on_name", unique: true
-    t.index ["user_id"], name: "index_service_providers_on_user_id"
-  end
-
-  create_table "services", primary_key: ["provider_id", "provider_type", "tag"], force: :cascade do |t|
-    t.integer "provider_id", null: false
-    t.string "provider_type", null: false
-    t.string "tag", limit: 50, null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.index ["user_profile_id"], name: "index_service_providers_on_user_profile_id"
   end
 
   create_table "specialized_units", force: :cascade do |t|
@@ -134,49 +121,24 @@ ActiveRecord::Schema.define(version: 2019_05_25_084940) do
     t.index ["health_unit_id"], name: "index_specialized_units_on_health_unit_id"
   end
 
-  create_table "specialties", primary_key: ["health_unit_id", "specialty"], force: :cascade do |t|
-    t.bigint "health_unit_id", null: false
-    t.string "specialty", limit: 50, null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["health_unit_id", "specialty"], name: "index_specialties_on_health_unit_id_and_specialty", unique: true
-    t.index ["health_unit_id"], name: "index_specialties_on_health_unit_id"
-  end
-
-  create_table "treatments", primary_key: ["health_unit_id", "treatment"], force: :cascade do |t|
-    t.bigint "health_unit_id", null: false
-    t.string "treatment", limit: 30, null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["health_unit_id", "treatment"], name: "index_treatments_on_health_unit_id_and_treatment", unique: true
-    t.index ["health_unit_id"], name: "index_treatments_on_health_unit_id"
-  end
-
-  create_table "users", force: :cascade do |t|
-    t.string "user_name", limit: 20, null: false
-    t.string "email", null: false
-    t.string "sex", limit: 1
-    t.date "birthday"
-    t.string "encrypted_password", null: false
+  create_table "user_profiles", force: :cascade do |t|
     t.string "name", limit: 100, null: false
-    t.string "phone", limit: 25
+    t.string "sex", limit: 1, default: "f", null: false
+    t.date "birthday"
+    t.string "phone", limit: 20
     t.text "description"
+    t.bigint "account_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["account_id"], name: "index_user_profiles_on_account_id"
   end
 
-  add_foreign_key "administrators", "users"
   add_foreign_key "basic_health_units", "health_units"
-  add_foreign_key "collaborators", "users"
-  add_foreign_key "comments", "users"
-  add_foreign_key "contacts", "professionals"
+  add_foreign_key "comments", "user_profiles"
   add_foreign_key "hospitals", "health_units"
   add_foreign_key "pharmacies", "health_units"
-  add_foreign_key "places", "professionals"
-  add_foreign_key "professionals", "users"
-  add_foreign_key "service_providers", "users"
+  add_foreign_key "professional_profiles", "user_profiles"
+  add_foreign_key "service_providers", "user_profiles"
   add_foreign_key "specialized_units", "health_units"
-  add_foreign_key "specialties", "health_units"
-  add_foreign_key "treatments", "health_units"
+  add_foreign_key "user_profiles", "accounts"
 end

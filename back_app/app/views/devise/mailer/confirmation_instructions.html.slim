@@ -1,0 +1,28 @@
+p Bem-vindo!
+    Obrigado por se cadastrar na plataforma.
+    Caso você não seja #{@email}, ignore esta mensagem.
+p A plataforma "Saúde em suas mãos" tem como objetivo tornar a saúde no estado
+    mais acessível a toda a população. E para isso fazemos uso dos dados
+    fornecidos pelos nossos usuários para melhorar a nossa plataforma que
+    ainda se encontra em estado beta.
+p Ao se cadastrar você ganha acesso imediato a plataforma por um período de três
+    dias, mas precisa confirmar seu endereço de e-mail em até sete dias para
+    continuar acessando e ter acesso a todas as funcionalidades da plataforma.
+
+= link_to 'Confirmar meu e-mail', confirmation_url(@resource, confirmation_token: @token)
+
+p Esse link tem validade de sete dias.
+
+p Ao confirmar seu e-mail você pode cadastrar seu perfil na plataforma, postar
+    seus comentários sobre as unidades, serviços e profissionais cadastrados,
+    além de poder cadastrar seu perfil profissional ou de sua empresa.
+
+p Para mais informações acesse **link_to_website_here**
+    .
+
+p Atenção, esta é uma mensagem gerada automaticamente. Não é necessário
+    respondê-la.
+
+p Equipe Lacaff, UFPE
+
+p 3virgula14 (copyleft)

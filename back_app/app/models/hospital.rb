@@ -1,3 +1,3 @@
-class Hospital < ApplicationRecord
-  belongs_to :health_unit
+class Hospital < AbstractUnit
+
 end

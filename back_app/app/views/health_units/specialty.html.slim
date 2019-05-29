@@ -1,0 +1,16 @@
+p
+    text Pesquisando por tag #{@specialty}
+    br
+    text Unidades encontradas: #{@health_units.size}
+
+
+- if @health_units.any?
+  div
+    - @health_units.each do |health_unit|
+      = render partial: health_unit
+- else
+  p Nenhuma unidade de saúde foi encontrada com #{@specialty}
+
+br
+
+= link_to 'New Health unit', new_health_unit_path

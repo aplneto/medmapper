@@ -25,34 +25,38 @@ require 'rails_helper'
 
 RSpec.describe HealthUnitsController, type: :controller do
 
-  # This should return the minimal set of attributes required to create a valid
-  # HealthUnit. As you add validations to HealthUnit, be sure to
-  # adjust the attributes here as well.
-  let(:valid_attributes) {
-    skip("Add a hash of attributes valid for your model")
-  }
+  login_account
 
-  let(:invalid_attributes) {
-    skip("Add a hash of attributes invalid for your model")
-  }
+  let(:valid_attributes) do
+    FactoryBot.attributes_for(:health_unit)
+  end
 
-  # This should return the minimal set of values that should be in the session
-  # in order to pass any filters (e.g. authentication) defined in
-  # HealthUnitsController. Be sure to keep this updated too.
-  let(:valid_session) { {} }
+  let(:invalid_attributes) do
+    {
+      cnes: nil,
+      name: '',
+      telephone: '',
+      address: '',
+      neighborhood: '',
+      phone: '',
+      latitude: nil,
+      longitude: nil
+   }
+  end
+
+  let(:valid_session) { }
 
   describe "GET #index" do
     it "returns a success response" do
-      HealthUnit.create! valid_attributes
-      get :index, params: {}, session: valid_session
+      get :index
       expect(response).to be_successful
     end
   end
 
   describe "GET #show" do
     it "returns a success response" do
-      health_unit = HealthUnit.create! valid_attributes
-      get :show, params: {id: health_unit.to_param}, session: valid_session
+
+      get :show, params: { id: FactoryBot.create(:health_unit).id }
       expect(response).to be_successful
     end
   end
@@ -76,19 +80,22 @@ RSpec.describe HealthUnitsController, type: :controller do
     context "with valid params" do
       it "creates a new HealthUnit" do
         expect {
-          post :create, params: {health_unit: valid_attributes}, session: valid_session
+          post :create, params: {health_unit: valid_attributes},
+          session: valid_session
         }.to change(HealthUnit, :count).by(1)
       end
 
       it "redirects to the created health_unit" do
-        post :create, params: {health_unit: valid_attributes}, session: valid_session
+        post :create, params: {health_unit: valid_attributes},
+        session: valid_session
         expect(response).to redirect_to(HealthUnit.last)
       end
     end
 
     context "with invalid params" do
       it "returns a success response (i.e. to display the 'new' template)" do
-        post :create, params: {health_unit: invalid_attributes}, session: valid_session
+        post :create, params: {health_unit: invalid_attributes},
+        session: valid_session
         expect(response).to be_successful
       end
     end
@@ -96,20 +103,23 @@ RSpec.describe HealthUnitsController, type: :controller do
 
   describe "PUT #update" do
     context "with valid params" do
-      let(:new_attributes) {
-        skip("Add a hash of attributes valid for your model")
-      }
+      let(:new_attributes) do
+        FactoryBot.build(:health_unit, name: 'A TOTALLY DIFFERENT NAME')
+        .attributes
+      end
 
       it "updates the requested health_unit" do
         health_unit = HealthUnit.create! valid_attributes
-        put :update, params: {id: health_unit.to_param, health_unit: new_attributes}, session: valid_session
+        put :update, params: {id: health_unit.to_param,
+          health_unit: new_attributes}, session: valid_session
         health_unit.reload
-        skip("Add assertions for updated state")
+        expect(health_unit.name).to eq(new_attributes['name'])
       end
 
       it "redirects to the health_unit" do
         health_unit = HealthUnit.create! valid_attributes
-        put :update, params: {id: health_unit.to_param, health_unit: valid_attributes}, session: valid_session
+        put :update, params: {id: health_unit.to_param,
+          health_unit: valid_attributes}, session: valid_session
         expect(response).to redirect_to(health_unit)
       end
     end
@@ -117,7 +127,8 @@ RSpec.describe HealthUnitsController, type: :controller do
     context "with invalid params" do
       it "returns a success response (i.e. to display the 'edit' template)" do
         health_unit = HealthUnit.create! valid_attributes
-        put :update, params: {id: health_unit.to_param, health_unit: invalid_attributes}, session: valid_session
+        put :update, params: {id: health_unit.to_param,
+          health_unit: invalid_attributes}, session: valid_session
         expect(response).to be_successful
       end
     end
@@ -127,14 +138,52 @@ RSpec.describe HealthUnitsController, type: :controller do
     it "destroys the requested health_unit" do
       health_unit = HealthUnit.create! valid_attributes
       expect {
-        delete :destroy, params: {id: health_unit.to_param}, session: valid_session
+        delete :destroy, params: {id: health_unit.to_param},
+          session: valid_session
       }.to change(HealthUnit, :count).by(-1)
     end
 
     it "redirects to the health_units list" do
       health_unit = HealthUnit.create! valid_attributes
-      delete :destroy, params: {id: health_unit.to_param}, session: valid_session
+      delete :destroy, params: {id: health_unit.to_param},
+        session: valid_session
       expect(response).to redirect_to(health_units_url)
+    end
+  end
+
+  describe "Search #search" do
+    it "should redirect to #index if no keyword is typed" do
+      post :basic_search, params: {keywords: ''}, session: valid_session
+      expect(response).to redirect_to(health_units_path)
+    end
+    it "should make a where call to HealthUnit model" do
+      keywords = 'pediatria odontologia'
+      expect(HealthUnit).to receive(:where)
+      post :basic_search, params: {keywords: keywords}, session: valid_session
+    end
+  end
+
+  describe "#list_by_specialties" do
+    it "should make a where call to HealthUnit model" do
+      expect(HealthUnit).to receive(:where)
+      get :list_by_specialties, params: {specialty: 'pediatria'},
+      session: valid_session
+    end
+  end
+
+  describe "#list_by_treatments" do
+    it "should make a where call to HealthUnit model" do
+      expect(HealthUnit).to receive(:where)
+      get :list_by_treatments, params: {treatments: 'microcefalia'},
+      session: valid_session
+    end
+  end
+
+  describe "#search_by_neighborhood" do
+    it "should make a where call to HealthUnit model" do
+      expect(HealthUnit).to receive(:where)
+      get :search_by_neighborhood, params: {neighborhood: 'arruda'},
+      session: valid_session
     end
   end
 

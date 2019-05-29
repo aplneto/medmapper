@@ -29,12 +29,9 @@ https://raw.githubusercontent.com/aplneto/projeto_ES/master/docs/idv/logotmp200x
 |    Documentos | 
 |----------| 
 | [Postmortem](/docs/iteration3/postmortem.md)| 
-| Ajustes nos Models |
-| Ajustes nos Controllers |
-| |
 
 | Desenvolvimento |
 |-----------------|
-| |
-| |
+| Ajustes nos Models |
+| Ajustes nos Controllers |
 

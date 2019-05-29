@@ -1,6 +1,5 @@
 class ServiceProvider < ApplicationRecord
-  belongs_to :user
-
+  belongs_to :user_profile
+  
   has_many :comments, as: :page
-  has_many :services, as: :provider
 end

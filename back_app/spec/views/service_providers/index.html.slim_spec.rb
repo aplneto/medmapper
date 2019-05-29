@@ -8,7 +8,9 @@ RSpec.describe "service_providers/index", type: :view do
         :address => "Address",
         :neighborhood => "Neighborhood",
         :phone => "Phone",
-        :user => nil,
+        :user_profile => nil,
+        :latitude => 2.5,
+        :longitude => 3.5,
         :description => "MyText"
       ),
       ServiceProvider.create!(
@@ -16,7 +18,9 @@ RSpec.describe "service_providers/index", type: :view do
         :address => "Address",
         :neighborhood => "Neighborhood",
         :phone => "Phone",
-        :user => nil,
+        :user_profile => nil,
+        :latitude => 2.5,
+        :longitude => 3.5,
         :description => "MyText"
       )
     ])
@@ -29,6 +33,8 @@ RSpec.describe "service_providers/index", type: :view do
     assert_select "tr>td", :text => "Neighborhood".to_s, :count => 2
     assert_select "tr>td", :text => "Phone".to_s, :count => 2
     assert_select "tr>td", :text => nil.to_s, :count => 2
+    assert_select "tr>td", :text => 2.5.to_s, :count => 2
+    assert_select "tr>td", :text => 3.5.to_s, :count => 2
     assert_select "tr>td", :text => "MyText".to_s, :count => 2
   end
 end
