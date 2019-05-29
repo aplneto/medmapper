@@ -10,6 +10,8 @@ class EmergencyUnitsController < ApplicationController
   # GET /emergency_units/1
   # GET /emergency_units/1.json
   def show
+    redirect_to controller: 'health_units', action: 'show',
+    id: @emergency_unit.health_unit_id
   end
 
   # GET /emergency_units/new
@@ -61,6 +63,58 @@ class EmergencyUnitsController < ApplicationController
     end
   end
 
+  def basic_search
+    if params[:keywords].empty?
+      redirect_to emergency_unit_path
+    else
+      @emergency_units = EmergencyUnit.where("specialties && :kw or 
+        treatments && :kw", kw: params[:keywords].split(' '))
+      respond_to do |format|
+        format.html { render template: "emergency_units/index.html.slim" }
+        format.json { render template: "emergency_units/index.json.jbuilder"}
+      end
+    end
+  end
+
+  def list_by_specialties
+    if params[:specialty].nil?
+      redirect_to emergency_unit_path
+    else
+      @specialty = params[:specialty]
+      @emergency_units = EmergencyUnit.where("specialties && ARRAY[?]",
+        @specialty)
+      respond_to do |format|
+        format.html { render template: "emergency_units/specialty.html.slim" }
+        format.json { render template: "emergency_units/index.json.jbuilder"}
+      end
+    end
+  end
+
+  def list_by_treatments
+    if params[:treatments].empty?
+      redirect_to emergency_unit
+    else
+      @emergency_unit = EmergencyUnit.where("treatments && ?",
+        params[:treatments].split(' '))
+      respond_to do |format|
+        format.html { render template: "emergency_units/index.html.slim" }
+        format.json { render template: "emergency_units/index.json.jbuilder"}
+      end
+    end
+  end
+
+  def search_by_neighborhood
+    if params[:neighborhood].nil?
+      redirect_to emergency_unit
+    else
+      @emergency_units = EmergencyUnit.where(neighborhood: params[:neighborhood])
+      respond_to do |format|
+        format.html { render template: "emergency_units/index.html.slim" }
+        format.json { render template: "emergency_units/index.json.jbuilder"}
+      end
+    end
+  end
+  
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_emergency_unit
