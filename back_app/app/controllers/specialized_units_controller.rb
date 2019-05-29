@@ -10,6 +10,8 @@ class SpecializedUnitsController < ApplicationController
   # GET /specialized_units/1
   # GET /specialized_units/1.json
   def show
+    redirect_to controller: 'health_units', action: 'show',
+    id: @specialized_unit.health_unit_id
   end
 
   # GET /specialized_units/new
@@ -58,6 +60,58 @@ class SpecializedUnitsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to specialized_units_url, notice: 'Specialized unit was successfully destroyed.' }
       format.json { head :no_content }
+    end
+  end
+  
+  def basic_search
+    if params[:keywords].empty?
+      redirect_to specialized_units_path
+    else
+      @specialized_units = SpecializedUnit.where("specialties && :kw or 
+        treatments && :kw", kw: params[:keywords].split(' '))
+      respond_to do |format|
+        format.html { render template: "specialized_units/index.html.slim" }
+        format.json { render template: "specialized_units/index.json.jbuilder"}
+      end
+    end
+  end
+  
+  def list_by_specialties
+    if params[:specialty].nil?
+      redirect_to specialized_units_path
+    else
+      @specialty = params[:specialty]
+      @specialized_units = SpecializedUnit.where("specialties && ARRAY[?]",
+        @specialty)
+      respond_to do |format|
+        format.html { render template: "specialized_units/specialty.html.slim" }
+        format.json { render template: "specialized_units/index.json.jbuilder"}
+      end
+    end
+  end
+  
+  def list_by_treatments
+    if params[:treatments].empty?
+      redirect_to specialized_units_path
+    else
+      @specialized_unit = SpecializedUnit.where("treatments && ?",
+        params[:treatments].split(' '))
+      respond_to do |format|
+        format.html { render template: "specialized_units/index.html.slim" }
+        format.json { render template: "specialized_units/index.json.jbuilder"}
+      end
+    end
+  end
+  
+  def search_by_neighborhood
+    if params[:neighborhood].nil?
+      redirect_to specialized_units_path
+    else
+      @specialized_units = SpecializedUnit.where(neighborhood: params[:neighborhood])
+      respond_to do |format|
+        format.html { render template: "specialized_units/index.html.slim" }
+        format.json { render template: "specialized_units/index.json.jbuilder"}
+      end
     end
   end
 

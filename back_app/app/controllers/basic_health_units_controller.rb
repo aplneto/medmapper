@@ -10,6 +10,8 @@ class BasicHealthUnitsController < ApplicationController
   # GET /basic_health_units/1
   # GET /basic_health_units/1.json
   def show
+    redirect_to controller: 'health_units', action: 'show',
+    id: @basic_health_unit.health_unit_id
   end
 
   # GET /basic_health_units/new
@@ -61,6 +63,58 @@ class BasicHealthUnitsController < ApplicationController
     end
   end
 
+  def basic_search
+    if params[:keywords].empty?
+      redirect_to basic_health_units_path
+    else
+      @basic_health_units = BasicHealthUnit.where("specialties && :kw or 
+        treatments && :kw", kw: params[:keywords].split(' '))
+      respond_to do |format|
+        format.html { render template: "basic_health_units/index.html.slim" }
+        format.json { render template: "basic_health_units/index.json.jbuilder"}
+      end
+    end
+  end
+  
+  def list_by_specialties
+    if params[:specialty].nil?
+      redirect_to basic_health_units_path
+    else
+      @specialty = params[:specialty]
+      @basic_health_units = BasicHealthUnit.where("specialties && ARRAY[?]",
+        @specialty)
+      respond_to do |format|
+        format.html { render template: "basic_health_units/specialty.html.slim" }
+        format.json { render template: "basic_health_units/index.json.jbuilder"}
+      end
+    end
+  end
+  
+  def list_by_treatments
+    if params[:treatments].empty?
+      redirect_to basic_health_units_path
+    else
+      @basic_health_unit = BasicHealthUnit.where("treatments && ?",
+        params[:treatments].split(' '))
+      respond_to do |format|
+        format.html { render template: "basic_health_units/index.html.slim" }
+        format.json { render template: "basic_health_units/index.json.jbuilder"}
+      end
+    end
+  end
+  
+  def search_by_neighborhood
+    if params[:neighborhood].nil?
+      redirect_to basic_health_units_path
+    else
+      @basic_health_units = BasicHealthUnit.where(neighborhood: params[:neighborhood])
+      respond_to do |format|
+        format.html { render template: "basic_health_units/index.html.slim" }
+        format.json { render template: "basic_health_units/index.json.jbuilder"}
+      end
+    end
+  end
+  
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_basic_health_unit
