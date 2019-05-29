@@ -30,6 +30,6 @@ A plataforma **MedMapper** tem como principal objetivo reunir informações em u
 ### Métricas
 
 - A validação do local de atendimento é feita através de uma confirmação por uma ligação para o local e/ou por uma verificação no mapa(GPS).
-- Baseados nos testes de validação de presença utilizando a ferramenta RSpec, é realizada a confirmação de todas as informações relevantes de uma unidade de saúde.
+- Baseado nos testes realizados que verificam se todas as informações relevantes de uma unidade de saúde são válidas, que foram feitos utilizando a ferramenta RSpec.
 - Quantidade de informações que descrevam um local de atendimento, seja ele um Hospital, Farmácia da Família, e etc.
 - Grau de complexidade para um usuário final realizar uma busca por um local de atendimento.
