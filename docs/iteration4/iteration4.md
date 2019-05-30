@@ -22,19 +22,24 @@ https://raw.githubusercontent.com/aplneto/projeto_ES/master/docs/idv/logotmp200x
 |Redeploy no Heroku [#70]|
 |Criação da Autenticação [#35]|
 |Tradução das Rotas [#61]|
+|Levntamento das Unidades [#51]|
 
-<!-- Template da Iteração 4-2
+| Em Andamento |
+| ------------ |
+| Mailer Views [#62]|
+| Validações dos Modelos [#54] |
+| Controllers [#26] |
+| Views Dinâmicas [#32] |
 
-### IT 4-2
+
 | Testes |
 |--------|
-|Routing|
-|Controllers|
-|Models|
-|Requests|
+|Routing [#65]|
+|Controllers [#65] |
+|Models [#64] |
+|Requests |
 |Views|
 
--->
 <!--- Links --->
 [#26]: https://github.com/aplneto/medmapper/issues/26
 [#41]: https://github.com/aplneto/medmapper/issues/41
@@ -44,3 +49,9 @@ https://raw.githubusercontent.com/aplneto/projeto_ES/master/docs/idv/logotmp200x
 [#70]: https://github.com/aplneto/medmapper/issues/70
 [#35]: https://github.com/aplneto/medmapper/issues/35
 [#61]: https://github.com/aplneto/medmapper/issues/61
+[#51]: https://github.com/aplneto/medmapper/issues/51
+[#54]: https://github.com/aplneto/medmapper/issues/54
+[#26]: https://github.com/aplneto/medmapper/issues/26
+[#32]: https://github.com/aplneto/medmapper/issues/32
+[#65]: https://github.com/aplneto/medmapper/issues/65
+[#64]: https://github.com/aplneto/medmapper/issues/64
