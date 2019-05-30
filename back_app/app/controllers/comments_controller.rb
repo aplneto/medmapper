@@ -29,11 +29,11 @@ class CommentsController < ApplicationController
 
       def set_page
         if params[:health_unit_id].present?
-          HealthUnit.find(params[:health_unit_id])
+          @page = HealthUnit.find(params[:health_unit_id])
         elsif params[:service_provider_id].present?
-          ServiceProvider.find(params[:service_provider_id])
+          @page = ServiceProvider.find(params[:service_provider_id])
         elsif params[:professional_profile_id].present?
-          ProfessionalProfile.find(params[:professional_profile_id])
+          @page = ProfessionalProfile.find(params[:professional_profile_id])
         end
       end
   end
