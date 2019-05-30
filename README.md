@@ -1,9 +1,11 @@
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 
 
- 
-[Motivação](#motivação) | [Instalação](#installing--getting-started)| 
-[Ferramentas](#ferramentas-de-terceiros) | [Links](#links) | [Entregas](/docs/iterations.md) | [Mockups](/docs/mockups.md)
+
+|[Motivação](#motivação) | [Instalação](#installing--getting-started)| 
+[Ferramentas](#ferramentas-de-terceiros) | [Links](#links) | [Entregas](/docs/iterations.md) | [Mockups](/docs/mockups.md) | [Goal Question Metric](/docs/gqm.md)|
+|----|----|----|----|----|----|----|
+
 
 ![Logo da plataforma](docs/idv/logotmp200x200.png "Logo do Projeto")
 
