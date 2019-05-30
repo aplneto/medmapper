@@ -2,7 +2,10 @@ Rails.application.routes.draw do
 
   root to: 'pages#home'
   
+  get '/terms', to: 'pages#terms'
   get '/about', to: 'pages#about'
+  get '/collaborators', to: 'pages#collaborators'
+  get '/developers', to: 'pages#developers'
 
   resources :user_profiles, path: 'usuarios'
 

@@ -21,5 +21,5 @@ Cada Iteração contém os documentos de entrega e outros artefatos desenvolvido
 |[Iteração 1](/docs/iteration1/iteration1.md) | 25/03 - 22/04 |
 |[Iteração 2](/docs/iteration2/iteration2.md) | 22/04 - 08/05 |
 |[Iteração 3](/docs/iteration3/iteration3.md) | 08/05 - 22/05 |
-|[Iteração 4](/docs/iterations.md) | 22/05 - 19/06 |
+|[Iteração 4](/docs/iteration4/iteration4.md) | 22/05 - 19/06 |
  
