@@ -1,3 +1,3 @@
-class BasicHealthUnit < AbstractUnit
+class BasicHealthUnit < HealthUnit
 
 end

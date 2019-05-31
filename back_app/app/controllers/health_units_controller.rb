@@ -1,6 +1,7 @@
 class HealthUnitsController < ApplicationController
   before_action :set_health_unit, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_account!, only: [:create, :update, :destroy]
+  before_action :set_unit_type
 
   # GET /health_units
   # GET /health_units.json
@@ -134,5 +135,16 @@ class HealthUnitsController < ApplicationController
         :phone, :latitude, :longitude, :description, :specialties, :treatments,
         :state, :city)
     end
-  
+
+    def set_unit_type
+      @type = unit_type
+    end
+
+    def unit_type
+      params[:type]
+    end
+
+    def type
+      unit_type.constantize
+    end
 end

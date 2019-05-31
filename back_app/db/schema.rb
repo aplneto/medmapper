@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_28_182202) do
+ActiveRecord::Schema.define(version: 2019_05_30_201334) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,14 +30,6 @@ ActiveRecord::Schema.define(version: 2019_05_28_182202) do
     t.index ["confirmation_token"], name: "index_accounts_on_confirmation_token", unique: true
     t.index ["email"], name: "index_accounts_on_email", unique: true
     t.index ["reset_password_token"], name: "index_accounts_on_reset_password_token", unique: true
-  end
-
-  create_table "basic_health_units", force: :cascade do |t|
-    t.bigint "health_unit_id"
-    t.string "type"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["health_unit_id"], name: "index_basic_health_units_on_health_unit_id"
   end
 
   create_table "comments", force: :cascade do |t|
@@ -65,21 +57,10 @@ ActiveRecord::Schema.define(version: 2019_05_28_182202) do
     t.text "treatments", array: true
     t.string "state", limit: 50
     t.string "city", limit: 50
-  end
-
-  create_table "hospitals", force: :cascade do |t|
-    t.bigint "health_unit_id"
     t.string "type"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["health_unit_id"], name: "index_hospitals_on_health_unit_id"
-  end
-
-  create_table "pharmacies", force: :cascade do |t|
-    t.bigint "health_unit_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["health_unit_id"], name: "index_pharmacies_on_health_unit_id"
+    t.string "category"
+    t.index ["category"], name: "index_health_units_on_category"
+    t.index ["type"], name: "index_health_units_on_type"
   end
 
   create_table "professional_profiles", force: :cascade do |t|
@@ -113,14 +94,6 @@ ActiveRecord::Schema.define(version: 2019_05_28_182202) do
     t.index ["user_profile_id"], name: "index_service_providers_on_user_profile_id"
   end
 
-  create_table "specialized_units", force: :cascade do |t|
-    t.bigint "health_unit_id"
-    t.string "type"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["health_unit_id"], name: "index_specialized_units_on_health_unit_id"
-  end
-
   create_table "user_profiles", force: :cascade do |t|
     t.string "name", limit: 100, null: false
     t.string "sex", limit: 1, default: "f", null: false
@@ -133,12 +106,8 @@ ActiveRecord::Schema.define(version: 2019_05_28_182202) do
     t.index ["account_id"], name: "index_user_profiles_on_account_id"
   end
 
-  add_foreign_key "basic_health_units", "health_units"
   add_foreign_key "comments", "user_profiles"
-  add_foreign_key "hospitals", "health_units"
-  add_foreign_key "pharmacies", "health_units"
   add_foreign_key "professional_profiles", "user_profiles"
   add_foreign_key "service_providers", "user_profiles"
-  add_foreign_key "specialized_units", "health_units"
   add_foreign_key "user_profiles", "accounts"
 end

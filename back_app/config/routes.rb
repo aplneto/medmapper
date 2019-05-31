@@ -2,7 +2,6 @@ Rails.application.routes.draw do
 
   root to: 'pages#home'
   
-  get '/terms', to: 'pages#terms'
   get '/about', to: 'pages#about'
   get '/collaborators', to: 'pages#collaborators'
   get '/developers', to: 'pages#developers'
@@ -40,17 +39,18 @@ Rails.application.routes.draw do
     resources :comments, path: 'comentarios'
   end
 
-  resources :maternity_clinics, path: 'maternidades'
-  resources :mental_health_units, path: 'saude-mental'
-  resources :odontology_units, path: 'odontologia'
-  resources :emergency_units, path: 'pronto-atendimento'
-  resources :diagnosis_units, path: 'apoio-diagnostico'
-  resources :polyclinics, path: 'policlinicas'
-  resources :family_health_units, path: 'saude-da-familia'
-  resources :basic_health_units, path: 'saude-basica'
-  resources :specialized_units, path: 'unidades-especializadas'
-  resources :pharmacies, path: 'farmacias'
-  resources :hospitals, path: 'hospitais'
+  resource_names = %w'basic_health_unit diagnosis_unit emergency_unit
+  family_health_unit hospital maternity_clinic mental_health_unit
+  odontology_unit pharmacy polyclinic specialized_unit'
 
+  path_names = %w'unidades-basicas apoio-diagnostico emergencias
+  saude-da-familia hospitais maternidades saude-mental odontologia
+  farmacias policlinicas unidades-especializadas'
+
+  resource_names.zip(path_names).map do |resource_name, path_name|
+    resources resource_name.pluralize.to_sym, path: path_name do
+      resources :comments, path: 'comentarios'
+    end
+  end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

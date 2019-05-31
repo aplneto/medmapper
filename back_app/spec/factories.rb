@@ -1,6 +1,18 @@
 require 'faker'
 
 FactoryBot.define do
+  factory :private_unit do
+    
+  end
+
+  factory :filantropic_unit do
+    
+  end
+
+  factory :public_unit do
+    
+  end
+
   factory :professional_profile do
     registry { "MyString" }
     ocupation { "MyString" }

@@ -1,3 +1,3 @@
-class OdontologyUnit < SpecializedUnit
+class OdontologyUnit < HealthUnit
   
 end

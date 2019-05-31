@@ -1,3 +1,3 @@
-class DiagnosisUnit < Hospital
+class DiagnosisUnit < HealthUnit
 
 end

@@ -1,3 +1,3 @@
-class EmergencyUnit < Hospital
+class EmergencyUnit < HealthUnit
 
 end
