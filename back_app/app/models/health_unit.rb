@@ -42,4 +42,32 @@ class HealthUnit < ApplicationRecord
         category == 'Public'
     end
 
+    # Queries
+
+    def self.basic_search(*keywords)
+        where("specialties && ARRAY[:k]::varchar[] or treatments && ARRAY[:k]::varchar[] or
+            neighborhood = ANY(ARRAY[:k]) or name ~ ANY(ARRAY[:k])",
+            k: keywords)
+    end
+
+    def self.by_specialties(*specialties)
+        if specialties.empty?
+            all
+        else
+            where("specialties @> ARRAY[:s]", s: specialties)
+        end
+    end
+
+    def self.by_treatments(*treatments)
+        if treatments.empty?
+            all
+        else
+            where("treatments @> ARRAY[:t]", t: treatments)
+        end
+    end
+
+    def self.by_neighborhood(neighborhood)
+        where("neighborhood = :n", n: neighborhood)
+    end
+
 end

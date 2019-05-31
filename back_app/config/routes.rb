@@ -20,17 +20,6 @@ Rails.application.routes.draw do
     delete 'signout', to: 'accounts/sessions#destroy'
   end
 
-  resources :health_units, path: 'unidades' do
-    resources :comments, path: 'comentarios'
-    collection do
-      get :basic_search, path: 'resultados'
-      get :advanced_search, path: 'pesquisar'
-      get :list_by_specialties, path: 'especialidades', as: :specialty
-      get :list_by_treatments, path: 'atendimentos', as: :treatments
-      get :search_by_neighborhood, path: 'bairro', as: :neighborhood
-    end
-  end
-
   resources :professional_profiles, path: 'profissionais' do
     resources :comments, path: 'comentarios'
   end
@@ -50,6 +39,24 @@ Rails.application.routes.draw do
   resource_names.zip(path_names).map do |resource_name, path_name|
     resources resource_name.pluralize.to_sym, path: path_name do
       resources :comments, path: 'comentarios'
+      collection do
+      get :basic_search, path: 'resultados'
+      get :advanced_search, path: 'pesquisar'
+      get :list_by_specialties, path: 'especialidades', as: :specialty
+      get :list_by_treatments, path: 'atendimentos', as: :treatments
+      get :search_by_neighborhood, path: 'bairro', as: :neighborhood
+      end
+    end
+  end
+
+  resources :health_units, path: 'unidades' do
+    resources :comments, path: 'comentarios'
+    collection do
+      get :basic_search, path: 'resultados'
+      get :advanced_search, path: 'pesquisar'
+      get :list_by_specialties, path: 'especialidades', as: :specialty
+      get :list_by_treatments, path: 'atendimentos', as: :treatments
+      get :search_by_neighborhood, path: 'bairro', as: :neighborhood
     end
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
