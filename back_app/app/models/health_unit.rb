@@ -45,7 +45,7 @@ class HealthUnit < ApplicationRecord
     # Queries
 
     def self.basic_search(*keywords)
-        where("specialties && ARRAY[:k]::varchar[] or treatments && ARRAY[:k]::varchar[] or
+        where("specialties && ARRAY[:k] or treatments && ARRAY[:k] or
             neighborhood = ANY(ARRAY[:k]) or name ~ ANY(ARRAY[:k])",
             k: keywords)
     end

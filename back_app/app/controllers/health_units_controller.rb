@@ -69,7 +69,7 @@ class HealthUnitsController < ApplicationController
     if params[:keywords].empty?
       redirect_to health_units_path
     else
-      @health_units = HealthUnit.basic_search(params[:keywords].split(' '))
+      @health_units = HealthUnit.basic_search(*params[:keywords].split(' '))
       respond_to do |format|
         format.html { render template: "health_units/index.html.slim" }
         format.json { render template: "health_units/index.json.jbuilder"}
@@ -79,7 +79,7 @@ class HealthUnitsController < ApplicationController
 
   def list_by_specialties
     @specialty = params[:specialty]
-    @health_units = HealthUnit.by_specialties(@specialty)
+    @health_units = HealthUnit.by_specialties(*@specialty.split(' '))
       respond_to do |format|
         format.html { render template: "health_units/specialty.html.slim" }
         format.json { render template: "health_units/index.json.jbuilder"}
