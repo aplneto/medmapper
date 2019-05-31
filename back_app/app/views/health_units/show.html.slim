@@ -25,6 +25,13 @@ p
   strong Description:
   = @health_unit.description
 
+- if @health_unit.is_public?
+  h2 Essa é uma unidade da rede pública
+- elsif @health_unit.is_private?
+  h2 Essa é uma unidade privada
+- elsif @health_unit.is_filantropic?
+  h2 Essa é uma unidade independente
+
 => link_to 'Edit', edit_health_unit_path(@health_unit)
 '|
 =< link_to 'Back', health_units_path

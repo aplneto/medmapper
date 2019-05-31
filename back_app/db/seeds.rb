@@ -40,27 +40,6 @@ lista_de_unidades['resources'].each do |resource|
             unless unidade.has_key? 'unidade'
                 next
             end
-            health_unit = HealthUnit.new
-            health_unit.cnes = unidade.has_key?('cnes') ?
-            unidade['cnes'] : 99999
-            health_unit.name = unidade['unidade']
-            health_unit.address = unidade.has_key?('endereco') ?
-            unidade['endereco'] : 'desconhecido'
-            health_unit.neighborhood = unidade.has_key?('bairro') ? 
-            unidade['bairro'] : 'desconhecido'
-            health_unit.phone = unidade.has_key?('fone')? 
-            unidade['fone'] : "desconhecido"
-            health_unit.latitude = unidade['latitude']
-            health_unit.longitude = unidade['longitude']
-            health_unit.treatments = []
-            health_unit.city = 'Recife'
-            health_unit.state = 'PE'
-            health_unit.specialties = unidade.has_key?('especialidades') ?
-            unidade['especialidades'].split(' ').map {|s| s.delete(',').
-                delete('.')}.flatten.uniq - $tags_inuteis : []
-            health_unit.save!
-
-            # Subclassificação
 
             case resource['name']
             when /\bEspecialidades Odontológicas\b/
@@ -86,8 +65,29 @@ lista_de_unidades['resources'].each do |resource|
             when /\bMaternidades\b/
                 unit = MaternityClinic.new
             end
-            unit.health_unit = health_unit
+
+            unit.cnes = unidade.has_key?('cnes') ?
+            unidade['cnes'] : 99999
+            unit.name = unidade['unidade']
+            unit.address = unidade.has_key?('endereco') ?
+            unidade['endereco'] : 'desconhecido'
+            unit.neighborhood = unidade.has_key?('bairro') ? 
+            unidade['bairro'] : 'desconhecido'
+            unit.phone = unidade.has_key?('fone')? 
+            unidade['fone'] : "desconhecido"
+            unit.latitude = unidade['latitude']
+            unit.longitude = unidade['longitude']
+            unit.treatments = []
+            unit.city = 'Recife'
+            unit.state = 'PE'
+            unit.specialties = unidade.has_key?('especialidades') ?
+            unidade['especialidades'].split(' ').map {|s| s.delete(',').
+                delete('.')}.flatten.uniq - $tags_inuteis : []
+            unit.category = 'Public'
+
+            puts unit.type
             unit.save!
+
         end
     else
         $error_loading[resource['name'].to_sym] = resource['id']

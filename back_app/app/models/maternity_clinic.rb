@@ -1,3 +1,3 @@
-class MaternityClinic < SpecializedUnit
+class MaternityClinic < HealthUnit
   
 end

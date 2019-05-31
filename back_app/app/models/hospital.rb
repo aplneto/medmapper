@@ -1,3 +1,3 @@
-class Hospital < AbstractUnit
+class Hospital < HealthUnit
 
 end

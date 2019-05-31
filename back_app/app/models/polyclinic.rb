@@ -1,3 +1,3 @@
-class Polyclinic < Hospital
+class Polyclinic < HealthUnit
 
 end

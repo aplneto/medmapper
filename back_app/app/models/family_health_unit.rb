@@ -1,5 +1,3 @@
-class FamilyHealthUnit < BasicHealthUnit
-  
-  validates :type, presence: true, inclusion: { in: ['FamilyHealthUnit'] }
+class FamilyHealthUnit < HealthUnit
 
 end
