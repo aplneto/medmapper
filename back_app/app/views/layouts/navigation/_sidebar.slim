@@ -3,7 +3,7 @@
     - if account_signed_in?
         center
           = user_profile_info
-          = link_to "signout", destroy_account_session_path, method: :delete
+          = link_to destroy_account_session_path, method: :delete
             button type="button" class="btn" id="btn-login" Signout
     - else
         center
