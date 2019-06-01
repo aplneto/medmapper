@@ -45,9 +45,13 @@ class HealthUnit < ApplicationRecord
     # Queries
 
     def self.basic_search(*keywords)
-        where("specialties && ARRAY[:k] or treatments && ARRAY[:k] or
-            neighborhood = ANY(ARRAY[:k]) or name ~ ANY(ARRAY[:k])",
-            k: keywords)
+        unless keywords.any?
+            all
+        else
+            where("specialties && ARRAY[:k] or treatments && ARRAY[:k] or
+                neighborhood = ANY(ARRAY[:k]) or name ~ ANY(ARRAY[:k])",
+                k: keywords)
+        end
     end
 
     def self.by_specialties(*specialties)
@@ -68,6 +72,9 @@ class HealthUnit < ApplicationRecord
 
     def self.by_neighborhood(neighborhood)
         where("neighborhood = :n", n: neighborhood)
+    end
+
+    def advanced_search(params_hash)
     end
 
 end
