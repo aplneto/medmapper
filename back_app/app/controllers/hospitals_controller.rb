@@ -13,18 +13,18 @@ class HospitalsController < ApplicationController
   # GET /hospitals/1.json
   def show
     redirect_to controller: 'health_units', action: 'show',
-    id: @hospital.health_unit_id
+                id: @hospital.health_unit_id
   end
 
   # GET /hospitals/new
   def new
     @hospital = Hospital.new
-    health_unit_options_for_select
+    # health_unit_options_for_select
   end
 
   # GET /hospitals/1/edit
   def edit
-    health_unit_options_for_select
+    # health_unit_options_for_select
   end
 
   # POST /hospitals
@@ -64,6 +64,56 @@ class HospitalsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to hospitals_url, notice: 'Hospital was successfully destroyed.' }
       format.json { head :no_content }
+    end
+  end
+
+  def basic_search
+    if params[:keywords].empty?
+      redirect_to hospitals_path
+    else
+      @hospitals = Hospital.where("specialties && :kw or
+        treatments && :kw", kw: params[:keywords].split(' '))
+      respond_to do |format|
+        format.html { render template: 'hospitals/index.html.slim' }
+        format.json { render template: 'hospitals/index.json.jbuilder' }
+      end
+    end
+  end
+
+  def list_by_specialties
+    if params[:specialty].nil?
+      redirect_to hospitals_path
+    else
+      @specialty = params[:specialty]
+      @hospitals = Hospital.where('specialties && ARRAY[?]', @specialty)
+      respond_to do |format|
+        format.html { render template: 'hospitals/specialty.html.slim' }
+        format.json { render template: 'hospitals/index.json.jbuilder' }
+      end
+    end
+  end
+
+  def list_by_treatments
+    if params[:treatments].empty?
+      redirect_to hospitals_path
+    else
+      @hospital = Hospital.where('treatments && ?', params[:treatments].split(' '))
+      respond_to do |format|
+        format.html { render template: 'hospitals/index.html.slim' }
+        format.json { render template: 'hospitals/index.json.jbuilder' }
+      end
+    end
+  end
+
+  def search_by_neighborhood
+    if params[:neighborhood].nil?
+      redirect_to hospitals_path
+    else
+      @hospitals = Hospital.where(neighborhood: params[:neighborhood])
+      respond_to do |format|
+        format.html { render template: 'hospitals/index.html.slim' }
+        format.json { render template: 'hospitals/index.json.jbuilder' }
+      end
     end
   end
 

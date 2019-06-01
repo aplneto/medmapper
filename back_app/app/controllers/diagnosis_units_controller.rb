@@ -19,12 +19,12 @@ class DiagnosisUnitsController < ApplicationController
   # GET /diagnosis_units/new
   def new
     @diagnosis_unit = DiagnosisUnit.new
-    health_unit_options_for_select
+    # health_unit_options_for_select
   end
 
   # GET /diagnosis_units/1/edit
   def edit
-    health_unit_options_for_select
+    # health_unit_options_for_select
   end
 
   # POST /diagnosis_units
@@ -64,6 +64,57 @@ class DiagnosisUnitsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to diagnosis_units_url, notice: 'Diagnosis unit was successfully destroyed.' }
       format.json { head :no_content }
+    end
+  end
+
+  def basic_search
+    if params[:keywords].empty?
+      redirect_to diagnosis_units_path
+    else
+      @diagnosis_units = DiagnosisUnit.where("specialties && :kw or
+        treatments && :kw", kw: params[:keywords].split(' '))
+      respond_to do |format|
+        format.html { render template: 'diagnosis_units/index.html.slim' }
+        format.json { render template: 'diagnosis_units/index.json.jbuilder' }
+      end
+    end
+  end
+
+  def list_by_specialties
+    if params[:specialty].nil?
+      redirect_to diagnosis_units_path
+    else
+      @specialty = params[:specialty]
+      @diagnosis_units = DiagnosisUnit.where('specialties && ARRAY[?]', @specialty)
+      respond_to do |format|
+        format.html { render template: 'diagnosis_units/specialty.html.slim' }
+        format.json { render template: 'diagnosis_units/index.json.jbuilder' }
+      end
+    end
+  end
+
+  def list_by_treatments
+    if params[:treatments].empty?
+      redirect_to diagnosis_units_path
+    else
+      @diagnosis_unit = DiagnosisUnit.where('treatments && ?',
+                                            params[:treatments].split(' '))
+      respond_to do |format|
+        format.html { render template: 'diagnosis_units/index.html.slim' }
+        format.json { render template: 'diagnosis_units/index.json.jbuilder' }
+      end
+    end
+  end
+
+  def search_by_neighborhood
+    if params[:neighborhood].nil?
+      redirect_to diagnosis_units_path
+    else
+      @diagnosis_units = DiagnosisUnit.where(neighborhood: params[:neighborhood])
+      respond_to do |format|
+        format.html { render template: 'diagnosis_units/index.html.slim' }
+        format.json { render template: 'diagnosis_units/index.json.jbuilder' }
+      end
     end
   end
 
