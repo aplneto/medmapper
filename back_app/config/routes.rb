@@ -21,14 +21,6 @@ Rails.application.routes.draw do
     delete 'signout', to: 'accounts/sessions#destroy'
   end
 
-  resources :professional_profiles, path: 'profissionais' do
-    resources :comments, path: 'comentarios'
-  end
-
-  resources :service_providers, path: 'servicos' do
-    resources :comments, path: 'comentarios'
-  end
-
   resource_names = %w'basic_health_unit diagnosis_unit emergency_unit
   family_health_unit hospital maternity_clinic mental_health_unit
   odontology_unit pharmacy polyclinic specialized_unit health_units'
@@ -48,6 +40,14 @@ Rails.application.routes.draw do
       get :search_by_neighborhood, path: 'bairro', as: :neighborhood
       end
     end
+  end
+
+  resources :professional_profiles, path: 'profissionais' do
+    resources :comments, path: 'comentarios'
+  end
+
+  resources :service_providers, path: 'servicos' do
+    resources :comments, path: 'comentarios'
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

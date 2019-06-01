@@ -85,7 +85,6 @@ lista_de_unidades['resources'].each do |resource|
                 delete('.')}.flatten.uniq - $tags_inuteis : []
             unit.category = 'Public'
 
-            puts unit.type
             unit.save!
 
         end

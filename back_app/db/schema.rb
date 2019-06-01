@@ -70,7 +70,7 @@ ActiveRecord::Schema.define(version: 2019_05_30_201334) do
     t.text "contacts", array: true
     t.text "places", array: true
     t.text "services", array: true
-    t.string "cpf", limit: 11
+    t.string "cpf", limit: 11, null: false
     t.bigint "user_profile_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
