@@ -1,4 +1,7 @@
 div
+    = error_messages_for 'comment'
+
+div
     = form_for [page, Comment.new] do |f|
         
         .field

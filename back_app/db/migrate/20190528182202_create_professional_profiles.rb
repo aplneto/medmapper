@@ -7,8 +7,8 @@ class CreateProfessionalProfiles < ActiveRecord::Migration[5.2]
       t.text :contacts, array: true
       t.text :places, array: true
       t.text :services, array: true
-      t.string :cpf, limit: 11
-      t.references :user_profile, foreign_key: true, unique: true
+      t.string :cpf, limit: 11, null: false
+      t.references :user_profile, foreign_key: true
 
       t.timestamps
     end
