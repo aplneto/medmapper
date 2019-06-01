@@ -75,3 +75,7 @@ gem 'slim-rails'
 # Autentication Handling
 gem 'devise'
 gem 'omniauth'
+
+# Tradução
+gem 'rails-i18n'
+gem 'dynamic_form'

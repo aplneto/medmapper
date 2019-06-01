@@ -5,7 +5,7 @@ class CreateUserProfiles < ActiveRecord::Migration[5.2]
       t.string :sex, limit: 1, null: false, default: 'f'
       t.date :birthday
       t.string :phone, limit: 20
-      t.text :description, limit: 280
+      t.text :description, limit: 1000
       t.references :account, foreign_key: true
 
       t.timestamps

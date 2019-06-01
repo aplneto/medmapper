@@ -1,7 +1,8 @@
 class HealthUnit < ApplicationRecord
 
     validates :cnes, presence: true, numericality: true
-    validates :name, presence: true, length: { maximum: 100 }
+
+    validates :name, presence: true, length: { minimum: 10, maximum: 100 }
     validates :address, presence: true, length: { maximum: 100 }
     validates :neighborhood, presence: true, length: { maximum: 30 }
     validates :phone, length: { maximum: 25 }
@@ -13,7 +14,6 @@ class HealthUnit < ApplicationRecord
 
     categories = %w'Public Private Filantropic'
 
-    validates :type, inclusion: { in: types }
     validates :category, inclusion: { in: categories }
 
     # polymorphic association to comments
