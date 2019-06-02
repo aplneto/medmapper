@@ -18,8 +18,8 @@ class HospitalsController < ApplicationController
 
   # GET /hospitals/new
   def new
-    @hospital = Hospital.new
-    health_unit_options_for_select
+    redirect_to controller: 'health_units', action: 'new',
+    health_unit: Hospital.new
   end
 
   # GET /hospitals/1/edit

@@ -16,7 +16,6 @@ class HealthUnitsController < ApplicationController
 
   # GET /health_units/new
   def new
-    @health_unit = HealthUnit.new
   end
 
   # GET /health_units/1/edit
