@@ -1,0 +1,25 @@
+div id='basic_health_unit.#{basic_health_unit.id}'
+    h3 = link_to basic_health_unit.name, basic_health_unit
+    table
+        thead
+            th Endereço
+            th Telefone
+            th CNES
+            th Bairro
+        tbody
+            td = basic_health_unit.address
+            td = basic_health_unit.phone
+            td = basic_health_unit.cnes
+            td = link_to basic_health_unit.neighborhood,
+                neighborhood_basic_health_units_path(neighborhood: basic_health_unit.neighborhood)
+    p
+        - if basic_health_unit.specialties.any?
+            text tags: 
+            = raw basic_health_unit.specialties.map { |s| link_to s,
+                specialty_basic_health_units_path(specialty: s)}.join(', ')
+    
+    p
+        - if basic_health_unit.treatments.any?
+            text treatments:
+            = raw helth_unit.treatments.map { |t| link_to t,
+                treatments_basic_health_units_path(treatment: t)}.join('. ')

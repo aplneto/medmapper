@@ -2,10 +2,10 @@ div id='health_unit.#{health_unit.id}'
     h3 = link_to health_unit.name, health_unit
     table
         thead
-            th logradouro
-            th telefone
-            th cnes
-            th bairro
+            th Endereço
+            th Telefone
+            th CNES
+            th Bairro
         tbody
             td = health_unit.address
             td = health_unit.phone
