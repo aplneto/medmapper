@@ -1,4 +1,9 @@
 h2 = comment.user_profile.name
+    #error_explanation
+      h2 = t
+      ul
+        - @health_unit.errors.full_messages.each do |message|
+          li = message
 
 p = comment.body
 ul

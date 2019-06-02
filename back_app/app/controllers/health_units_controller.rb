@@ -1,7 +1,5 @@
 class HealthUnitsController < ApplicationController
 
-  include Searcher
-
   before_action :set_health_unit, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_account!, only: [:create, :update, :destroy]
 
