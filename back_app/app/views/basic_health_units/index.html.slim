@@ -7,11 +7,13 @@ br
 
 - if @basic_health_units.any?
   div
-    - @basic_health_units.each do |hospital|
-      = render partial: 'basic_health_unit', locals: {basic_health_unit: basic_health_unit}
+    - @basic_health_units.each do |basic_health_unit|
+      = render partial: 'health_units/health_unit',
+      locals: { health_unit: basic_health_unit }
 - else
-  p Nenhuma unidade básica de saúde foi encontrada
+  p Nenhuma unidade de saúde foi encontrada
 
 br
 
-= link_to 'Adicionar novo hospital', new_basic_health_unit_path
+= link_to 'Adicionar nova unidade', new_basic_health_unit_path
+

@@ -1,21 +1,13 @@
 h3 Farmácias
 
-table
-  thead
-    tr
-      th Health unit
-      th
-      th
-      th
-
-  tbody
-    - @pharmacies.each do |pharmacy|
-      tr
-        td = pharmacy.health_unit
-        td = link_to 'Show', pharmacy
-        td = link_to 'Edit', edit_pharmacy_path(pharmacy)
-        td = link_to 'Destroy', pharmacy, data: { confirm: 'Are you sure?' }, method: :delete
+- if @pharmacies.any?
+  div
+    - @pharmacies.each do |pharmacie|
+      = render partial: 'health_units/health_unit',
+      locals: { health_unit: pharmacie }
+- else
+  p Nenhuma farmácia foi encontrada
 
 br
 
-= link_to 'New Pharmacy', new_pharmacy_path
+= link_to 'Adicionar novo hospital', new_pharmacy_path
