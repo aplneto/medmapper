@@ -2,7 +2,7 @@
   .container
     - if account_signed_in?
         center
-          = user_profile_info, class: "style_info"
+          .style_info#user_email = user_profile_info
           = link_to destroy_account_session_path, method: :delete
             button type="button" class="btn" id="btn-login" Sair
     - else
