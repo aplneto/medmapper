@@ -1,4 +1,5 @@
 class HealthUnitsController < ApplicationController
+
   before_action :set_health_unit, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_account!, only: [:create, :update, :destroy]
 
@@ -66,8 +67,7 @@ class HealthUnitsController < ApplicationController
     if params[:keywords].empty?
       redirect_to health_units_path
     else
-      @health_units = HealthUnit.where("specialties && :kw or 
-        treatments && :kw", kw: params[:keywords].split(' '))
+      @health_units = HealthUnit.basic_search(*params[:keywords].split(' '))
       respond_to do |format|
         format.html { render template: "health_units/index.html.slim" }
         format.json { render template: "health_units/index.json.jbuilder"}
@@ -76,25 +76,19 @@ class HealthUnitsController < ApplicationController
   end
 
   def list_by_specialties
-    if params[:specialty].nil?
-      redirect_to health_units_path
-    else
-      @specialty = params[:specialty]
-      @health_units = HealthUnit.where("specialties && ARRAY[?]",
-        @specialty)
+    @specialty = params[:specialty]
+    @health_units = HealthUnit.by_specialties(*@specialty.split(' '))
       respond_to do |format|
         format.html { render template: "health_units/specialty.html.slim" }
         format.json { render template: "health_units/index.json.jbuilder"}
       end
-    end
   end
 
   def list_by_treatments
     if params[:treatments].empty?
       redirect_to health_units_path
     else
-      @health_unit = HealthUnit.where("treatments && ?",
-        params[:treatments].split(' '))
+      @health_unit = HealthUnit.by_treatments(params[:treatments])
       respond_to do |format|
         format.html { render template: "health_units/index.html.slim" }
         format.json { render template: "health_units/index.json.jbuilder"}
@@ -106,7 +100,7 @@ class HealthUnitsController < ApplicationController
     if params[:neighborhood].empty?
       redirect_to health_units_path
     else
-      @health_units = HealthUnit.where(neighborhood: params[:neighborhood])
+      @health_units = HealthUnit.by_neighborhood(params[:neighborhood])
       respond_to do |format|
         format.html { render template: "health_units/index.html.slim" }
         format.json { render template: "health_units/index.json.jbuilder"}
@@ -134,5 +128,4 @@ class HealthUnitsController < ApplicationController
         :phone, :latitude, :longitude, :description, :specialties, :treatments,
         :state, :city)
     end
-  
 end

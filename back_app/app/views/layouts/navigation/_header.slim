@@ -1,7 +1,4 @@
-= image_tag 'logo', style: 'width:10%;float:right;'
+= link_to (image_tag 'logo', style: 'width:10%;float:right;'), root_path
 
-h1 Saúde em Suas Mãos
-
-= link_to 'Unidades de Saúde', health_units_path
-- if account_signed_in?
-    = link_to 'Sair', destroy_account_session_path, method: :delete
+center
+    h1 Saúde em Suas Mãos

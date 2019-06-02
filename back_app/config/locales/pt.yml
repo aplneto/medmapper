@@ -1,0 +1,165 @@
+# Files in the config/locales directory are used for internationalization
+# and are automatically loaded by Rails. If you want to use locales other
+# than English, add the necessary files in this directory.
+#
+# To use the locales, use `I18n.t`:
+#
+#     I18n.t 'hello'
+#
+# In views, this is aliased to just `t`:
+#
+#     <%= t('hello') %>
+#
+# To use a different locale, set it with `I18n.locale`:
+#
+#     I18n.locale = :es
+#
+# This would use the information in config/locales/es.yml.
+#
+# The following keys must be escaped otherwise they will not be retrieved by
+# the default I18n backend:
+#
+# true, false, on, off, yes, no
+#
+# Instead, surround them with single quotes.
+#
+# en:
+#   'true': 'foo'
+#
+# To learn more, please read the Rails Internationalization guide
+# available at http://guides.rubyonrails.org/i18n.html.
+
+pt:
+  date:
+    formats:
+      default: "%d/%m%Y"
+      shot: "%d/%m"
+  activerecord:
+    models:
+      
+      # Perfis
+      user_profile:
+        one: "Perfil de usuário"
+        other: "Perfis de usuário"
+      professional_profile:
+        one: "Perfil Profissional"
+        other: "Perfis Profissionais"
+
+      # Unidades de Saúde
+      health_unit:
+        one: "Unidade de Saúde"
+        other: "Unidades de Saúde"
+      basic_health_unit:
+        one: "Unidade Básica de Saúde"
+        other: "Unidades Básicas de Saúde"
+      diagnosis_unit: "Serviço de Apoio Diagnóstico Terapêutico"
+      emergency_unit: "Serviço de Pronto Atendimento"
+      family_health_unit:
+        one: "Unidade de Saúde da Família"
+        other: "Unidades de Saúde da Família"
+      hospital:
+        one: "Hospital"
+        other: "Hospitais"
+      maternity_clinic:
+        one: "Maternidade"
+        other: "Maternidades"
+      mental_health_unit: "Saúde Mental"
+      odontology_unit:
+        one: "Centro de Especialidades Odontológicas"
+        other: "Centros de Especialidades Odontológicas"
+      pharmacy:
+        one: "Farmácia"
+        other: "Farmácias"
+      polyclinic:
+        one: "Policlínica"
+        other: "Policlínicas"
+      specialized_unit:
+        one: "Unidade Especializada"
+        other: "Unidades Especializadas"
+      
+      # Contas
+      account:
+        one: "Conta"
+        other: "Contas"
+
+      # Comentário
+      comment:
+        one: "Comentário"
+        other: "Comentários"
+
+    attributes:
+      # Contas
+      account:
+        terms: "Termos e Condições"
+      
+      # Perfis
+      user_profile:
+        name: "Nome"
+        phone: "Telefone"
+        birthday: "Data de nascimento"
+        sex: "Sexo"
+        description: "Descrição"
+      
+      # Unidades de Saúde
+      health_unit:
+        name: "Nome da unidade"
+        address: "Logradouro"
+        neighborhood: "Bairro"
+        phone: "Telefone"
+        description: "Descrição"
+        category: "Categoria"
+
+      # Comentários
+      comment:
+        body: "Texto"
+    
+    errors:
+      template:
+        header:
+          one: "Houve um problema com a sua requisição"
+          other: "Houveram alguns problemas com a sua requisição"
+        body: "Os seguintes problemas devem ser corrigidos:"
+      models:
+
+        # Perfil de Usuário
+        user_profile:
+          attributes:
+            name:
+              blank: "não pode ser deixado em branco"
+              too_long: "não pode conter mais que %{count} caracteres"
+            phone:
+              too_short: "muito curto, deve conter ao menos %{count} dígitos"
+              too_long: "muito longo, deve conter no máximo %{count} dígitos"
+            description:
+              too_long: "muito longa, o limite é %{count} caracteres"
+            sex:
+              inclusion: "valor inválido"
+
+        # Unidade de Saúde
+        health_unit:
+          attributes:
+            cnes:
+              not_a_number: "deve ser um número"
+            name:
+              too_short: "deve conter pelo menos %{count} caracteres"
+              too_long: "deve conter no máximo %{count} caracteres"
+            address:
+              too_long: "deve conter pelo menos %{count} caracteres"
+            neighborhood:
+              too_long: "deve conter pelo menos %{count} caracteres"
+            phone:
+              too_long: "deve conter pelo menos %{count} caracteres"
+            latitude:
+              blank: "é necessária"
+              not_a_number: "precisa ser um valor numérico"
+            longitude:
+              blank: "é necessária"
+              not_a_number: "precisa ser um valor numérico"
+            category:
+              inclusion: "deve ser um valor válido"
+        
+        # Comentários
+        comment:
+          attributes:
+            body:
+              too_long: "deve ter no máximo %{count} caracteres"

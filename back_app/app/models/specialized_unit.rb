@@ -1,3 +1,5 @@
-class SpecializedUnit < AbstractUnit
+class SpecializedUnit < HealthUnit
+
+    validates :type, inclusion: { in: ['SpecializedUnit'] }
   
 end

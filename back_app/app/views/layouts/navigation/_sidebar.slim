@@ -1,9 +1,20 @@
 .sidenav#mySidenav
   .container
-    button type="button" class="btn" id="btn-login" Login
-    button type="button" class="btn" id="btn-signup" Signup
+    - if account_signed_in?
+        center
+          .style_info#user_email = user_profile_info
+          = link_to destroy_account_session_path, method: :delete
+            button type="button" class="btn" id="btn-login" Sair
+    - else
+        center
+          = link_to new_account_session_path
+            button type="button" class="btn" id="btn-login" Entrar
+          = link_to new_account_registration_path
+            button type="button" class="btn" id="btn-login" Registrar-se    
   a href="javascript:void(0)" class="closebtn" onclick="closeNav()" &times;
-  <br /> <br /> 
+
+
+  br
   = link_to 'Hospitais', hospitals_path
   = link_to 'Postos de Saúde', basic_health_units_path
   = link_to 'Centros Especializados', specialized_units_path
@@ -11,9 +22,14 @@
   = link_to 'Profissionais', professional_profiles_path
   = link_to 'Serviços', service_providers_path
   = link_to 'Sobre', about_path
-  <br />
-  input type="text" placeholder="Pesquisar" id="keyword"
-  button type="button" class="btn" id="btn-search" &check;
+  br
+
+  = form_tag basic_search_health_units_path, method: :get, role: 'search' do
+    = text_field_tag :keywords, params[:keywords], class: 'form-control'
+    br
+    center
+     = submit_tag "Pesquisar", name: nil, class: 'btn btn-default'
+
   
   javascript:
     function openNav() {

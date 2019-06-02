@@ -1,3 +1,5 @@
-class BasicHealthUnit < AbstractUnit
+class BasicHealthUnit < HealthUnit
+
+    validates :type, inclusion: { in: ['BasicHealthUnit'] }
 
 end

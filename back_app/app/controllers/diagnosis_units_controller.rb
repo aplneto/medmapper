@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class DiagnosisUnitsController < ApplicationController
-  before_action :set_diagnosis_unit, only: [:show, :edit, :update, :destroy]
+  before_action :set_diagnosis_unit, only: %i[show edit update destroy]
 
   # GET /diagnosis_units
   # GET /diagnosis_units.json
@@ -10,15 +12,19 @@ class DiagnosisUnitsController < ApplicationController
   # GET /diagnosis_units/1
   # GET /diagnosis_units/1.json
   def show
+    redirect_to controller: 'health_units', action: 'show',
+    id: @diagnosis_unit.id
   end
 
   # GET /diagnosis_units/new
   def new
     @diagnosis_unit = DiagnosisUnit.new
+    health_unit_options_for_select
   end
 
   # GET /diagnosis_units/1/edit
   def edit
+    health_unit_options_for_select
   end
 
   # POST /diagnosis_units
@@ -62,13 +68,18 @@ class DiagnosisUnitsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_diagnosis_unit
-      @diagnosis_unit = DiagnosisUnit.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def diagnosis_unit_params
-      params.require(:diagnosis_unit).permit(:health_unit_id, :type)
-    end
+  def health_unit_options_for_select
+    @health_unit_options_for_select = HealthUnit.all
+  end
+
+  # Use callbacks to share common setup or constraints between actions.
+  def set_diagnosis_unit
+    @diagnosis_unit = DiagnosisUnit.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def diagnosis_unit_params
+    params.require(:diagnosis_unit).permit(:health_unit_id, :type)
+  end
 end

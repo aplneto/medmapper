@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class PharmaciesController < ApplicationController
-  before_action :set_pharmacy, only: [:show, :edit, :update, :destroy]
+  before_action :set_pharmacy, only: %i[show edit update destroy]
 
   # GET /pharmacies
   # GET /pharmacies.json
@@ -10,15 +12,20 @@ class PharmaciesController < ApplicationController
   # GET /pharmacies/1
   # GET /pharmacies/1.json
   def show
+    redirect_to controller: 'health_units', action: 'show',
+                id: @pharmacy.id
   end
 
   # GET /pharmacies/new
   def new
     @pharmacy = Pharmacy.new
+    health_unit_options_for_select
   end
 
   # GET /pharmacies/1/edit
   def edit
+    @pharmacy = Pharmacy.find(params[:id])
+    health_unit_options_for_select
   end
 
   # POST /pharmacies
@@ -62,13 +69,18 @@ class PharmaciesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_pharmacy
-      @pharmacy = Pharmacy.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def pharmacy_params
-      params.require(:pharmacy).permit(:health_unit_id)
-    end
+  def health_unit_options_for_select
+    @health_unit_options_for_select = HealthUnit.all
+  end
+
+  # Use callbacks to share common setup or constraints between actions.
+  def set_pharmacy
+    @pharmacy = Pharmacy.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def pharmacy_params
+    params.require(:pharmacy).permit(:health_unit_id)
+  end
 end

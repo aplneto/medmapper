@@ -1,10 +1,5 @@
 = form_for @health_unit do |f|
-  - if @health_unit.errors.any?
-    #error_explanation
-      h2 = "#{pluralize(@health_unit.errors.count, "error")} prohibited this health_unit from being saved:"
-      ul
-        - @health_unit.errors.full_messages.each do |message|
-          li = message
+  = error_messages_for 'health_unit'
 
   .field
     = f.label :cnes

@@ -100,6 +100,8 @@ class UserProfilesController < ApplicationController
       end
     end
 
+    # Método verifica se o usuário já possui um perfil, impedindo que usuários
+    # criem mais de um perfil na plataforma
     def account_has_profile
       if UserProfile.exists?(account_id: current_account.id)
         respond_to do |format|

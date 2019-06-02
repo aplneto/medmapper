@@ -6,7 +6,7 @@ p Total de unidades cadastradas: #{HealthUnit.count}
 - if @health_units.any?
   div
     - @health_units.each do |health_unit|
-      = render partial: health_unit
+      = render partial: 'health_unit', locals: {health_unit: health_unit}
 - else
   p Nenhuma unidade de saúde foi encontrada
 

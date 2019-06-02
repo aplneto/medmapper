@@ -1,0 +1,4 @@
+div = form_tag advanced_search_health_units_path, metod: :get, role: 'search' do
+        p = t 'HealthUnit.model_name.human'
+        = text_field_tag :name, params[:name], class: 'form-control'
+        = text_field_tag :cnes, params[:cnes], class: 'form-control'
