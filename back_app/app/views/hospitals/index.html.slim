@@ -11,7 +11,8 @@ br
 - if @hospitals.any?
   div
     - @hospitals.each do |hospital|
-      = render file: 'health_unit/_health_unit", locals: {health_unit: hospital}
+      = render partial: 'health_units/health_unit',
+      locals: { health_unit: hospital }
 - else
   p Nenhuma unidade de saúde foi encontrada
 
