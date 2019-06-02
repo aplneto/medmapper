@@ -11,7 +11,7 @@ class SpecializedUnitsController < ApplicationController
   # GET /specialized_units/1.json
   def show
     redirect_to controller: 'health_units', action: 'show',
-    id: @specialized_unit.health_unit_id
+    id: @specialized_unit.id
   end
 
   # GET /specialized_units/new

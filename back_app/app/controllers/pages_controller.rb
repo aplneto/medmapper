@@ -13,4 +13,7 @@ class PagesController < ApplicationController
     def developers
       render 'desenvolvedores.html'
     end
+
+    def search
+    end
   end

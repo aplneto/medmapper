@@ -11,7 +11,7 @@ class FamilyHealthUnitsController < ApplicationController
   # GET /family_health_units/1.json
   def show
     redirect_to controller: 'health_units', action: 'show',
-    id: @family_health_unit.health_unit_id
+    id: @family_health_unit.id
   end
 
   # GET /family_health_units/new

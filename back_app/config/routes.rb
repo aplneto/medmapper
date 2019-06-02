@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get '/about', to: 'pages#about'
   get '/collaborators', to: 'pages#collaborators'
   get '/developers', to: 'pages#developers'
+  get '/pesquisa', to: 'pages#search'
 
   resources :user_profiles, path: 'usuarios'
 
