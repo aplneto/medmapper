@@ -9,12 +9,13 @@ html lang="pt-br"
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     
   body.fixed.skin-blue-light
-    .wrapper
-      = render 'layouts/navigation/layout'
-      .content-wrapper
+    .content
+      .wrapper
+        = render 'layouts/navigation/layout'
+        .content-wrapper
 
-    .main
-      = yield
-    
-  div
+      .main
+        = yield
+      
+  .div
     = render 'layouts/navigation/footer'

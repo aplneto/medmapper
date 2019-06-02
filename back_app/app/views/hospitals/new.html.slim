@@ -1,5 +1,6 @@
 h1 New hospital
 
-== render 'form'
+== render "form": 'health_units/health_unit',
+    locals: { health_unit: hospital }
 
 = link_to 'Back', hospitals_path

@@ -1,25 +1,27 @@
-div id='health_unit.#{health_unit.id}'
-    h3 = link_to health_unit.name, health_unit
-    table
-        thead
-            th Endereço
-            th Telefone
-            th CNES
-            th Bairro
-        tbody
+.round
+    div id='health_unit.#{health_unit.id}'
+        br 
+        h4 = link_to health_unit.name, health_unit
+        table
+            tr
+            th Endereço: 
             td = health_unit.address
-            td = health_unit.phone
-            td = health_unit.cnes
+            tr
+            th Bairro: 
             td = link_to health_unit.neighborhood,
                 neighborhood_health_units_path(neighborhood: health_unit.neighborhood)
-    p
-        - if health_unit.specialties.any?
-            text tags: 
-            = raw health_unit.specialties.map { |s| link_to s,
-                specialty_health_units_path(specialty: s)}.join(', ')
-    
-    p
-        - if health_unit.treatments.any?
-            text treatments:
-            = raw helth_unit.treatments.map { |t| link_to t,
-                treatments_health_units_path(treatment: t)}.join('. ')
+            tr
+            th Telefone: 
+            td = health_unit.phone
+        p
+            - if health_unit.specialties.any?
+                text Especialidades: 
+                = raw health_unit.specialties.map { |s| link_to s,
+                    specialty_health_units_path(specialty: s)}.join(', ')
+        
+        p
+            - if health_unit.treatments.any?
+                text Tratamentos:
+                = raw helth_unit.treatments.map { |t| link_to t,
+                    treatments_health_units_path(treatment: t)}.join('. ')
+br
