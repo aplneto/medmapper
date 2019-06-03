@@ -5,26 +5,16 @@ ul class="nav nav-tabs"
   = link_to 'Centro de Especialidades Odontológicas | ', odontology_units_path
   = link_to 'Saúde Mental | ', mental_health_units_path
   = link_to 'Maternidades | ', maternity_clinics_path
-<br />
+br
 
-table
-  thead
-    tr
-      th Health unit
-      th Type
-      th
-      th
-      th
-
-  tbody
+- if @maternity_clinics.any?
+  div
     - @maternity_clinics.each do |maternity_clinic|
-      tr
-        td = maternity_clinic.health_unit
-        td = maternity_clinic.type
-        td = link_to 'Show', maternity_clinic
-        td = link_to 'Edit', edit_maternity_clinic_path(maternity_clinic)
-        td = link_to 'Destroy', maternity_clinic, data: { confirm: 'Are you sure?' }, method: :delete
+      = render partial: 'health_units/health_unit',
+      locals: { health_unit: maternity_clinic }
+- else
+  p Nenhuma maternidade encontrada
 
 br
 
-= link_to 'New Maternity clinic', new_maternity_clinic_path
+= link_to 'Adicionar nova maternidade', new_maternity_clinic_path

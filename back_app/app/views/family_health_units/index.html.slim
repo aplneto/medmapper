@@ -3,26 +3,16 @@ h3 Unidade de Saúde da Família
 ul class="nav nav-tabs"
   = link_to 'Unidade Básica de Saúde | ', basic_health_units_path
   = link_to 'Unidade de Saúde da Família | ', family_health_units_path
-<br />
+br
 
-table
-  thead
-    tr
-      th Health unit
-      th Type
-      th
-      th
-      th
-
-  tbody
+- if @family_health_units.any?
+  div
     - @family_health_units.each do |family_health_unit|
-      tr
-        td = family_health_unit.health_unit
-        td = family_health_unit.type
-        td = link_to 'Show', family_health_unit
-        td = link_to 'Edit', edit_family_health_unit_path(family_health_unit)
-        td = link_to 'Destroy', family_health_unit, data: { confirm: 'Are you sure?' }, method: :delete
+      = render partial: 'health_units/health_unit',
+      locals: { health_unit: family_health_unit }
+- else
+  p Nenhuma unidade de saúde da família encontrada
 
 br
 
-= link_to 'New Family health unit', new_family_health_unit_path
+= link_to 'Adicionar nova unidade', new_family_health_unit_path

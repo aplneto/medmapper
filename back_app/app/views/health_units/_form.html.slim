@@ -1,28 +1,29 @@
-= form_for @health_unit do |f|
-  = error_messages_for 'health_unit'
-
-  .field
-    = f.label :cnes
-    = f.number_field :cnes
-  .field
-    = f.label :name
-    = f.text_field :name
-  .field
-    = f.label :address
-    = f.text_field :address
-  .field
-    = f.label :neighborhood
-    = f.text_field :neighborhood
-  .field
-    = f.label :phone
-    = f.text_field :phone
-  .field
-    = f.label :latitude
-    = f.text_field :latitude
-  .field
-    = f.label :longitude
-    = f.text_field :longitude
-  .field
-    = f.label :description
-    = f.text_area :description
-  .actions = f.submit
+center
+  = form_for HealthUnit.new do |f|
+    = error_messages_for 'health_unit'
+    .field
+      = f.label :type
+      = f.number_field :type
+     
+    .field
+      = f.label :name
+      = f.text_field :name
+    .field
+      = f.label :address
+      = f.text_field :address
+    .field
+      = f.label :neighborhood
+      = f.text_field :neighborhood
+    .field
+      = f.label :phone
+      = f.text_field :phone
+    .field
+      = f.label :latitude
+      = f.text_field :latitude
+    .field
+      = f.label :longitude
+      = f.text_field :longitude
+    .field
+      = f.label :description
+      = f.text_area :description
+    .actions = f.submit

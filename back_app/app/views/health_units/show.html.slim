@@ -1,19 +1,22 @@
+- health_unit = set_health_unit
+
 p#notice = notice
 
 p
-  strong Cnes:
+  strong CNES:
   = health_unit.cnes
 p
-  strong Name:
-  = health_unit.name
+  strong Nome:
+  strong
+    = health_unit.name
 p
-  strong Address:
+  strong Endereço:
   = health_unit.address
 p
-  strong Neighborhood:
+  strong Bairro:
   = health_unit.neighborhood
 p
-  strong Phone:
+  strong Telefone:
   = health_unit.phone
 p
   strong Latitude:
@@ -22,22 +25,21 @@ p
   strong Longitude:
   = health_unit.longitude
 p
-  strong Description:
+  strong Descrição:
   = health_unit.description
 
 - if health_unit.is_public?
-  h2 Essa é uma unidade da rede pública
+  h3 Essa é uma unidade da rede pública
 - elsif health_unit.is_private?
-  h2 Essa é uma unidade privada
+  h3 Essa é uma unidade privada
 - elsif health_unit.is_filantropic?
-  h2 Essa é uma unidade independente
+  h3 Essa é uma unidade da rede complementar
 
-=> link_to 'Edit', edit_health_unit_path(health_unit)
-'|
-=< link_to 'Back', health_units_path
-
-h2 #{health_unit.comments.count} comentários
 br
+=> link_to 'Editar', edit_health_unit_path(health_unit)
+br
+br
+h3 #{health_unit.comments.count} comentários
 - if health_unit.comments.count > 0
   - health_unit.comments.each do |comment|
     div

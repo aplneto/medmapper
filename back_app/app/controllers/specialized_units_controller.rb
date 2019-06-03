@@ -16,7 +16,8 @@ class SpecializedUnitsController < ApplicationController
 
   # GET /specialized_units/new
   def new
-    @specialized_unit = SpecializedUnit.new
+    redirect_to controller: 'health_units', action: 'new',
+    health_unit: SpecializedUnit.new  
   end
 
   # GET /specialized_units/1/edit
