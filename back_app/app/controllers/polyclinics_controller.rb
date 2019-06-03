@@ -18,8 +18,8 @@ class PolyclinicsController < ApplicationController
 
   # GET /polyclinics/new
   def new
-    @polyclinic = Polyclinic.new
-    health_unit_options_for_select
+    redirect_to controller: 'health_units', action: 'new',
+    health_unit: Polyclinic.new
   end
 
   # GET /polyclinics/1/edit

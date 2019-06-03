@@ -18,8 +18,8 @@ class DiagnosisUnitsController < ApplicationController
 
   # GET /diagnosis_units/new
   def new
-    @diagnosis_unit = DiagnosisUnit.new
-    health_unit_options_for_select
+    redirect_to controller: 'health_units', action: 'new',
+    health_unit: DiagnosisUnit.new
   end
 
   # GET /diagnosis_units/1/edit

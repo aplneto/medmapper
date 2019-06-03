@@ -5,26 +5,16 @@ ul class="nav nav-tabs"
   = link_to 'Policlínicas | ', polyclinics_path
   = link_to 'Serviço de Apoio Diagnóstico Terapêutico | ', diagnosis_units_path
   = link_to 'Serviço de Pronto Atendimento | ', emergency_units_path
-<br />
+br
 
-table
-  thead
-    tr
-      th Health unit
-      th Type
-      th
-      th
-      th
-
-  tbody
+- if @polyclinics.any?
+  div
     - @polyclinics.each do |polyclinic|
-      tr
-        td = polyclinic.health_unit
-        td = polyclinic.type
-        td = link_to 'Show', polyclinic
-        td = link_to 'Edit', edit_polyclinic_path(polyclinic)
-        td = link_to 'Destroy', polyclinic, data: { confirm: 'Are you sure?' }, method: :delete
+      = render partial: 'health_units/health_unit',
+      locals: { health_unit: polyclinic }
+- else
+  p Nenhuma policlinica foi encontrada
 
 br
 
-= link_to 'New Polyclinic', new_polyclinic_path
+= link_to 'Adicionar nova policlinica', new_polyclinic_path

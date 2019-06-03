@@ -16,7 +16,8 @@ class MentalHealthUnitsController < ApplicationController
 
   # GET /mental_health_units/new
   def new
-    @mental_health_unit = MentalHealthUnit.new
+    redirect_to controller: 'health_units', action: 'new',
+    health_unit: MentalHealthUnit.new
   end
 
   # GET /mental_health_units/1/edit
