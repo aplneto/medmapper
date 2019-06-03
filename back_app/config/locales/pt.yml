@@ -35,6 +35,11 @@ pt:
       account:
         signed_in: "conectado"
         signed_out: "desconectado"
+    failure:
+      account:
+        not_found_in_database: "endereço de e-mail não foi cadastrado"
+        invalid: "nome de usuário ou senha incorretos"
+
   date:
     formats:
       default: "%d/%m%Y"
