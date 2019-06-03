@@ -16,7 +16,8 @@ class MaternityClinicsController < ApplicationController
 
   # GET /maternity_clinics/new
   def new
-    @maternity_clinic = MaternityClinic.new
+    redirect_to controller: 'health_units', action: 'new',
+    health_unit: MaternityClinic.new
   end
 
   # GET /maternity_clinics/1/edit
