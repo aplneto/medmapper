@@ -1,15 +1,15 @@
 require 'faker'
 
 FactoryBot.define do
-  factory :professional_profile do
-    registry { "123456789" }
-    ocupation { "Developer" }
-    validation { 1 }
-    contacts { ['aplneto'] }
-    places { ['recife'] }
-    services { ['webdevelopment'] }
-    cpf { '12345678909' }
-    user_profile { FactoryBot.build(:user_profile) }
+  factory :family_health_support_center do
+    team { "ENASF 1.1" }
+    support_point { "USF SÃO JOSÉ DO COQUE" }
+    name { "USF 278 - PSF NOSSA SENHORA DO PILAR BAIRRO DO RECIFE" }
+    area { "PILAR" }
+    phone { "3355-6226" }
+    latitude { -8.072817109 }
+    longitude { -34.8962775 }
+    district { 1 }
   end
 
   factory :service_provider do

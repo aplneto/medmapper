@@ -1,5 +1,9 @@
 class ProfessionalProfilesController < ApplicationController
-  before_action :set_professional_profile, only: [:show, :edit, :update, :destroy]
+  before_action :set_professional_profile, only: [:show, :edit, :update,
+    :destroy]
+  before_action :authenticate_account!, only: [:new, :create, :edit, :update,
+    :destroy]
+  before_action :assert_account_has_profile, only: [:new, :create]
 
   # GET /professional_profiles
   # GET /professional_profiles.json
@@ -28,11 +32,14 @@ class ProfessionalProfilesController < ApplicationController
 
     respond_to do |format|
       if @professional_profile.save
-        format.html { redirect_to @professional_profile, notice: 'Professional profile was successfully created.' }
-        format.json { render :show, status: :created, location: @professional_profile }
+        format.html { redirect_to @professional_profile,
+          notice: 'Professional profile was successfully created.' }
+        format.json { render :show, status: :created,
+          location: @professional_profile }
       else
         format.html { render :new }
-        format.json { render json: @professional_profile.errors, status: :unprocessable_entity }
+        format.json { render json: @professional_profile.errors,
+          status: :unprocessable_entity }
       end
     end
   end
@@ -42,11 +49,14 @@ class ProfessionalProfilesController < ApplicationController
   def update
     respond_to do |format|
       if @professional_profile.update(professional_profile_params)
-        format.html { redirect_to @professional_profile, notice: 'Professional profile was successfully updated.' }
-        format.json { render :show, status: :ok, location: @professional_profile }
+        format.html { redirect_to @professional_profile,
+          notice: 'Professional profile was successfully updated.' }
+        format.json { render :show, status: :ok,
+          location: @professional_profile }
       else
         format.html { render :edit }
-        format.json { render json: @professional_profile.errors, status: :unprocessable_entity }
+        format.json { render json: @professional_profile.errors,
+          status: :unprocessable_entity }
       end
     end
   end
@@ -56,7 +66,8 @@ class ProfessionalProfilesController < ApplicationController
   def destroy
     @professional_profile.destroy
     respond_to do |format|
-      format.html { redirect_to professional_profiles_url, notice: 'Professional profile was successfully destroyed.' }
+      format.html { redirect_to professional_profiles_url,
+        notice: 'Professional profile was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -67,8 +78,17 @@ class ProfessionalProfilesController < ApplicationController
       @professional_profile = ProfessionalProfile.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
+    # Never trust parameters from the scary internet, only allow the white list
+    # through.
     def professional_profile_params
-      params.require(:professional_profile).permit(:registry, :ocupation, :validation, :contacts, :places, :services, :cpf, :user_profile_id)
+      params.require(:professional_profile).permit(:registry, :ocupation,
+        :validation, :contacts, :places, :services, :cpf)
+    end
+
+    def assert_that_user_owns_profile
+      unless @professional_profile.user_profile_id == UserProfile
+        .find_by(account_id: current_account.id)
+        redirect_to controller: 'pages', action: 'forbidden'
+      end
     end
 end

@@ -30,6 +30,11 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 pt:
+  devise:
+    sessions:
+      account:
+        signed_in: "conectado"
+        signed_out: "desconectado"
   date:
     formats:
       default: "%d/%m%Y"
@@ -79,6 +84,11 @@ pt:
       specialized_unit:
         one: "Unidade Especializada"
         other: "Unidades Especializadas"
+
+      #NASF
+      family_health_support_center:
+        one: "Núcleo de Apoio a Saúde da Família"
+        other: "Núcleos de Apoio a Saúde da Família"
       
       # Contas
       account:
@@ -124,6 +134,16 @@ pt:
         phone: "Telefone"
         description: "Descrição"
         category: "Categoria"
+        type: "Tipo de unidade"
+      
+      #NASF
+      family_health_support_center:
+        team: "Equipe"
+        support_point: "Ponto de Apoio"
+        name: "Unidade"
+        area: "Área"
+        phone: "Telefone"
+        district: "Distrito Sanitário"
 
       # Comentários
       comment:
@@ -215,6 +235,30 @@ pt:
               not_a_number: "precisa ser um valor numérico"
             category:
               inclusion: "deve ser um valor válido"
+
+        #NASF
+        family_health_support_center:
+          attributes:
+            team:
+              blank: "precisa ser definida"
+              too_long: "máximo de %{count} caracteres"
+            support_point:
+              blank: "precisa ser definido"
+              too_long: "máximo de %{count} caracteres"
+            name:
+              blank: "não pode ser deixado em branco"
+              too_long: "deve conter no máximo %{count} caracteres"
+            area:
+              blank: "precisa ser definida"
+              too_long: "deve conter no máximo %{count} caracteres"
+            phone:
+              too_long: "deve conter no máximo %{count} digitos"
+            latitude:
+              not_a_number: "precisa ser um valor numérico"
+            longitude:
+              not_a_number: "precisa ser um valor numérico"
+            district:
+              not_an_integer: "precisa ser um número inteiro"
         
         # Comentários
         comment:
