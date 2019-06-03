@@ -1,38 +1,26 @@
 require 'faker'
 
 FactoryBot.define do
-  factory :private_unit do
-    
-  end
-
-  factory :filantropic_unit do
-    
-  end
-
-  factory :public_unit do
-    
-  end
-
   factory :professional_profile do
-    registry { "MyString" }
-    ocupation { "MyString" }
-    validation { false }
-    contacts { "MyText" }
-    places { "MyText" }
-    services { "MyText" }
-    cpf { "MyString" }
+    registry { "123456789" }
+    ocupation { "Developer" }
+    validation { 1 }
+    contacts { ['aplneto'] }
+    places { ['recife'] }
+    services { ['webdevelopment'] }
+    cpf { '12345678909' }
     user_profile { FactoryBot.build(:user_profile) }
   end
 
   factory :service_provider do
-    name { "MyString" }
-    address { "MyString" }
-    neighborhood { "MyString" }
-    phone { "MyString" }
+    name { "3virgula14.ga" }
+    address { "Av Jornalista Anibal Fernandes, 4" }
+    neighborhood { "Cidade Universitária" }
+    phone { "912345678" }
     user_profile { FactoryBot.build(:user_profile) }
     latitude { 1.5 }
     longitude { 1.5 }
-    description { "MyText" }
+    description { Faker::Lorem.paragraphs }
   end
 
   factory :comment do
@@ -58,61 +46,6 @@ FactoryBot.define do
     after(:create) { |u| u.confirm }
   end
 
-  factory :maternity_clinic do
-    health_unit { FactoryBot.build(:health_unit) }
-    type { "MaternityClinic" }
-  end
-
-  factory :mental_health_unit do
-    health_unit { FactoryBot.build(:health_unit) }
-    type { "MentalHealthUnit" }
-  end
-
-  factory :odontology_unit do
-    health_unit { FactoryBot.build(:health_unit) }
-    type { "OdontologyUnit" }
-  end
-
-  factory :emergency_unit do
-    health_unit { FactoryBot.build(:health_unit) }
-    type { "EmergencyUnit" }
-  end
-
-  factory :diagnosis_unit do
-    health_unit { FactoryBot.build(:health_unit) }
-    type { "DiagnosisUnit" }
-  end
-
-  factory :polyclinic do
-    health_unit { FactoryBot.build(:health_unit) }
-    type { "Polyclinic" }
-  end
-
-  factory :family_health_unit do
-    health_unit { FactoryBot.build(:health_unit) }
-    type { "FamilyHealthUnit" }
-  end
-
-  factory :basic_health_unit do
-    health_unit { FactoryBot.build(:health_unit) }
-    type { "BasicHealthUnit" }
-  end
-
-  factory :specialized_unit do
-    health_unit { FactoryBot.build(:health_unit) }
-    type { "SpecializedUnit" }
-  end
-
-  factory :pharmacy do
-    health_unit { FactoryBot.build(:health_unit) }
-  end
-
-
-  factory :hospital do
-    health_unit { FactoryBot.build(:health_unit) }
-    type { "Hospital" }
-  end
-
   factory :health_unit do
     cnes { 1 }
     name { "FACTORY BOT HOSPITAL" }
@@ -124,6 +57,53 @@ FactoryBot.define do
     description { Faker::Lorem.paragraphs }
     specialties { ['pediatria', 'cardiologia'] }
     treatments { ['pediatra', 'psicólogo'] }
+    state { 'Pernambuco' }
+    city { 'Recife' }
+    category { 'Public' }
+    
+    factory :hospital do
+      type { 'Hospital' }
+    end
+
+    factory :pharmacy do
+      type { 'Pharmacy' }
+    end
+
+    factory :specialized_unit do
+      type { 'SpecializedUnit' }
+    end
+
+    factory :basic_health_unit do
+      type { 'BasicHelathUnit' }
+    end
+
+    factory :maternity_clinic do
+      type { "MaternityClinic" }
+    end
+  
+    factory :mental_health_unit do
+      type { "MentalHealthUnit" }
+    end
+  
+    factory :odontology_unit do
+      type { "OdontologyUnit" }
+    end
+  
+    factory :emergency_unit do
+      type { "EmergencyUnit" }
+    end
+  
+    factory :diagnosis_unit do
+      type { "DiagnosisUnit" }
+    end
+  
+    factory :polyclinic do
+      type { "Polyclinic" }
+    end
+  
+    factory :family_health_unit do
+      type { "FamilyHealthUnit" }
+    end
   end
 
 end

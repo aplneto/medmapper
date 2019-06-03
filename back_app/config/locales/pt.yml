@@ -44,6 +44,9 @@ pt:
       professional_profile:
         one: "Perfil Profissional"
         other: "Perfis Profissionais"
+      service_provider:
+        one: "Prestador de Serviços"
+        other: "Prestadores de Serviços"
 
       # Unidades de Saúde
       health_unit:
@@ -99,6 +102,19 @@ pt:
         birthday: "Data de nascimento"
         sex: "Sexo"
         description: "Descrição"
+      professional_profile:
+        registry: "Registro"
+        ocupation: "Profissão"
+        validation: "Validação"
+        contacts: "Informações de contato"
+        places: "Locais de trabalho"
+        services: "Serviços prestados"
+      service_provider:
+        name: "Nome comercial"
+        addres: "Logradouro"
+        neighborhood: "Bairro"
+        phone: "Telefone"
+        description: "Descrição"
       
       # Unidades de Saúde
       health_unit:
@@ -121,7 +137,7 @@ pt:
         body: "Os seguintes problemas devem ser corrigidos:"
       models:
 
-        # Perfil de Usuário
+        # Perfis
         user_profile:
           attributes:
             name:
@@ -134,6 +150,48 @@ pt:
               too_long: "muito longa, o limite é %{count} caracteres"
             sex:
               inclusion: "valor inválido"
+        professional_profile:
+          attributes:
+            registry:
+              blank: "é uma informação obrigatória"
+              taken: "é inválido. Já existe um profissional com esse
+              %{attribute} cadastrado, se este não for você, entre em contato
+              através da página de suporte"
+              too_long: "muito longo, deve conter no máximo %{count} dígitos"
+            cpf:
+              blank: "é necessário para confirmar sua identidade"
+              taken: "é inválido. Já existe um profissional cadastrado com esse
+              %{attribute}, se este não for você, por favor, entre em contato
+              através da página de suporte"
+              wrong_length: " deve conter %{count} digitos"
+              invalid_cpf: "valor inválido, verifique o campo novamente"
+              ocupation:
+                blank: "não pode ser deixado em branco"
+                too_long: "deve conter no máximo %{count} caracteres"
+                user_profile_id: "você já possui um perfil profissional
+                cadastrado"
+        service_provider:
+          attributes:
+            name:
+              blank: "não pode ser deixado em branco"
+              taken: "já existe uma entidade cadastrada com esse %{attribute},
+              se esta não for sua unidade, por favor, entre em contato através
+              da página de suporte"
+              too_long: "deve conter no máximo %{count} caracteres"
+            address:
+              blank: "é preciso o cadastro de um endereço"
+              too_long: "máximo de %{count} caracteres"
+            neighborhood:
+              blank: "é preciso o cadastro de um endereço"
+              too_long: "máximo de %{count} caracteres"
+            phone:
+              too_long: "máximo de %{count} caracteres"
+            latitude:
+              not_a_number: "%{attribute}  deve ser um número"
+            longitude:
+              not_a_number: "%{attribute}  deve ser um número"
+            description:
+              too_long: "está limitada a %{count} caracteres"
 
         # Unidade de Saúde
         health_unit:
