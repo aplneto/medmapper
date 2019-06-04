@@ -1,4 +1,7 @@
 h3 Serviço de Apoio Diagnóstico Terapêutico
+= link_to 'Adicionar nova unidade', new_diagnosis_unit_path
+br
+br
 
 ul class="nav nav-tabs"
   = link_to 'Hospitais | ', hospitals_path
@@ -14,6 +17,3 @@ br
       locals: { health_unit: diagnosis_unit }
 - else
   p Nenhum Serviço de Apoio Diagnóstico Terapêutico foi encontrado
-
-br
-= link_to 'Adicionar nova unidade', new_diagnosis_unit_path

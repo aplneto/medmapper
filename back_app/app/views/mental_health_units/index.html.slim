@@ -1,4 +1,7 @@
 h3 Saúde Mental
+= link_to 'Adicionar nova unidade', new_mental_health_unit_path
+br
+br
 
 ul class="nav nav-tabs"
   = link_to 'Unidade Especializada | ', specialized_units_path
@@ -14,7 +17,3 @@ br
       locals: { health_unit: mental_health_unit }
 - else
   p Nenhuma unidade de saúde mental foi encontrada
-
-br
-
-= link_to 'Adicionar nova unidade', new_mental_health_unit_path

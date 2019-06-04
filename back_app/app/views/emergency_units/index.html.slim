@@ -1,4 +1,7 @@
 h3 Serviço de Pronto Atendimento
+= link_to 'Adicionar nova unidade', new_emergency_unit_path
+br
+br
 
 ul class="nav nav-tabs"
   = link_to 'Hospitais | ', hospitals_path
@@ -14,7 +17,3 @@ br
       locals: { health_unit: emergency_unit }
 - else
   p Nenhuma unidade de pronto atendimento foi encontrada
-
-br
-
-= link_to 'Adicionar nova unidade', new_emergency_unit_path

@@ -1,4 +1,7 @@
 h3 Unidade de Saúde da Família
+= link_to 'Adicionar nova unidade', new_family_health_unit_path
+br
+br
 
 ul class="nav nav-tabs"
   = link_to 'Unidade Básica de Saúde | ', basic_health_units_path
@@ -12,7 +15,3 @@ br
       locals: { health_unit: family_health_unit }
 - else
   p Nenhuma unidade de saúde da família encontrada
-
-br
-
-= link_to 'Adicionar nova unidade', new_family_health_unit_path

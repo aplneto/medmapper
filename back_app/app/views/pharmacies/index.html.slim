@@ -1,4 +1,7 @@
 h3 Farmácias
+= link_to 'Adicionar novo hospital', new_pharmacy_path
+br
+br
 
 - if @pharmacies.any?
   div
@@ -7,7 +10,3 @@ h3 Farmácias
       locals: { health_unit: pharmacie }
 - else
   p Nenhuma farmácia foi encontrada
-
-br
-
-= link_to 'Adicionar novo hospital', new_pharmacy_path
