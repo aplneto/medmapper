@@ -16,7 +16,7 @@ center
       = f.text_field :neighborhood
     .field
       = f.label :phone
-      = f.text_field :phone
+      = f.phone_field :phone
     .field
       = f.label :latitude
       = f.text_field :latitude
@@ -26,4 +26,14 @@ center
     .field
       = f.label :description
       = f.text_area :description
+    .field
+      = f.label :type
+      = f.select :type,
+      options_for_select(HealthUnit::TYPES.map {|t| t.constantize.model_name.human }),
+      include_blank: true
+    .field
+      = f.label :category
+      = f.select :category,
+      options_for_select(HealthUnit::CATEGORIES.map { |c| t(c)})
+
     .actions = f.submit

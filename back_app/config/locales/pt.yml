@@ -30,6 +30,10 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 pt:
+  Public: "Público"
+  Private: "Privado"
+  Filantropic: "Filantrópico"
+
   devise:
     sessions:
       account:
