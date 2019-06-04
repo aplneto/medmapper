@@ -1,0 +1,30 @@
+p#notice = notice
+
+p
+  strong Team:
+  = @family_health_support_center.team
+p
+  strong Support point:
+  = @family_health_support_center.support_point
+p
+  strong Name:
+  = @family_health_support_center.name
+p
+  strong Area:
+  = @family_health_support_center.area
+p
+  strong Phone:
+  = @family_health_support_center.phone
+p
+  strong Latitude:
+  = @family_health_support_center.latitude
+p
+  strong Longitude:
+  = @family_health_support_center.longitude
+p
+  strong District:
+  = @family_health_support_center.district
+
+=> link_to 'Edit', edit_family_health_support_center_path(@family_health_support_center)
+'|
+=< link_to 'Back', family_health_support_centers_path

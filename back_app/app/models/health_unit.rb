@@ -8,24 +8,24 @@ class HealthUnit < ApplicationRecord
     validates :phone, length: { maximum: 25 }
     validates :latitude, :longitude, presence: true, length: { maximum: 20 }
     
-    types = %w'Hospital Pharmacy SpecializedUnit BasicHealthUnit DiagnosisUnit
+    TYPES = %w'Hospital Pharmacy SpecializedUnit BasicHealthUnit DiagnosisUnit
     EmergencyUnit MaternityClinic Polyclinic MentalHealthUnit FamilyHealthUnit
     OdontologyUnit'
 
-    categories = %w'Public Private Filantropic'
+    CATEGORIES = %w'Public Private Filantropic'
 
-    validates :category, inclusion: { in: categories }
+    validates :category, inclusion: { in: CATEGORIES }
 
     # polymorphic association to comments
     has_many :comments, as: :page
 
     # subclasses's dinamyc scoping
-    types.each do |type|
+    TYPES.each do |type|
         scope type.underscore.to_sym, -> { where(type: type)}
     end
 
     # categories dinamyc scoping
-    categories.each do |category|
+    CATEGORIES.each do |category|
         scope "#{category}Only".underscore.to_sym, -> { where(category: category) }
     end
 

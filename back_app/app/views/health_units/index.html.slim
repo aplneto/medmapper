@@ -1,4 +1,8 @@
-h1 Lista de Unidades de Saúde
+h3 Unidades de Saúde
+= link_to 'Adicionar nova unidade', new_health_unit_path
+br
+br
+
 
 p Total de unidades cadastradas: #{HealthUnit.count}
 
@@ -9,9 +13,3 @@ p Total de unidades cadastradas: #{HealthUnit.count}
       = render partial: 'health_unit', locals: {health_unit: health_unit}
 - else
   p Nenhuma unidade de saúde foi encontrada
-
-br
-
-center
-  = link_to 'Adicionar nova unidade', new_health_unit_path
-br

@@ -1,4 +1,7 @@
 h3 Unidade Especializada
+= link_to 'Adicionar nova unidade especializada', new_specialized_unit_path
+br
+br
 
 ul class="nav nav-tabs"
   = link_to 'Unidade Especializada | ', specialized_units_path
@@ -14,7 +17,3 @@ br
       locals: { health_unit: specialized_unit }
 - else
   p Nenhuma unidade especializada foi encontrada
-
-br
-
-= link_to 'Adicionar nova unidade especializada', new_specialized_unit_path

@@ -1,4 +1,7 @@
 h3 Centro de Especialidades Odontológicas
+= link_to 'Adicionar novo Centro de Especialidade Odontológica', new_odontology_unit_path
+br
+br
 
 ul class="nav nav-tabs"
   = link_to 'Unidade Especializada | ', specialized_units_path
@@ -14,7 +17,3 @@ br
       locals: { health_unit: odontology_unit }
 - else
   p Nenhuma unidade de saúde foi encontrada
-
-br
-
-= link_to 'Adicionar novo Centro de Especialidade Odontológica', new_odontology_unit_path

@@ -1,4 +1,7 @@
 h3 Maternidades
+= link_to 'Adicionar nova maternidade', new_maternity_clinic_path
+br
+br
 
 ul class="nav nav-tabs"
   = link_to 'Unidade Especializada | ', specialized_units_path
@@ -14,7 +17,3 @@ br
       locals: { health_unit: maternity_clinic }
 - else
   p Nenhuma maternidade encontrada
-
-br
-
-= link_to 'Adicionar nova maternidade', new_maternity_clinic_path

@@ -1,0 +1,35 @@
+h1 Listing family_health_support_centers
+
+table
+  thead
+    tr
+      th Team
+      th Support point
+      th Name
+      th Area
+      th Phone
+      th Latitude
+      th Longitude
+      th District
+      th
+      th
+      th
+
+  tbody
+    - @family_health_support_centers.each do |family_health_support_center|
+      tr
+        td = family_health_support_center.team
+        td = family_health_support_center.support_point
+        td = family_health_support_center.name
+        td = family_health_support_center.area
+        td = family_health_support_center.phone
+        td = family_health_support_center.latitude
+        td = family_health_support_center.longitude
+        td = family_health_support_center.district
+        td = link_to 'Show', family_health_support_center
+        td = link_to 'Edit', edit_family_health_support_center_path(family_health_support_center)
+        td = link_to 'Destroy', family_health_support_center, data: { confirm: 'Are you sure?' }, method: :delete
+
+br
+
+= link_to 'New Family health support center', new_family_health_support_center_path

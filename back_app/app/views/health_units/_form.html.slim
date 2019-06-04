@@ -1,29 +1,36 @@
 center
   = form_for HealthUnit.new do |f|
     = error_messages_for 'health_unit'
-    .field
-      = f.label :type
-      = f.number_field :type
-     
-    .field
-      = f.label :name
-      = f.text_field :name
-    .field
-      = f.label :address
-      = f.text_field :address
-    .field
-      = f.label :neighborhood
-      = f.text_field :neighborhood
-    .field
-      = f.label :phone
-      = f.text_field :phone
-    .field
-      = f.label :latitude
-      = f.text_field :latitude
-    .field
-      = f.label :longitude
-      = f.text_field :longitude
-    .field
-      = f.label :description
-      = f.text_area :description
+    table
+      tr
+        th = f.label :name
+        td = f.text_field :name
+      tr
+        th = f.label :address
+        td = f.text_field :address
+      tr
+        th = f.label :neighborhood
+        td = f.text_field :neighborhood
+      tr
+        th = f.label :phone
+        td = f.phone_field :phone
+      tr
+        th = f.label :latitude
+        td = f.text_field :latitude
+      tr
+        th = f.label :longitude
+        td = f.text_field :longitude
+      tr
+        th = f.label :description
+        td = f.text_area :description
+      tr
+        th = f.label :type
+        td = f.select :type,
+      options_for_select(HealthUnit::TYPES.map {|t| t.constantize.model_name.human }),
+      include_blank: true
+      tr
+        th = f.label :category
+        td = f.select :category,
+      options_for_select(HealthUnit::CATEGORIES.map { |c| t(c)})
+
     .actions = f.submit
