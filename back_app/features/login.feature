@@ -9,18 +9,18 @@ Funcionalidade: Realizar login
     Ao realizar o login, é feito o redirecionamento para o perfil do usuário do paciente.
 
     Dado que eu estou na página de login
-    Quando eu preencho "Usuário" com "its@cin.ufpe.br"
-    E eu preencho "Senha" com "Med@if977"
-    E eu clicar no botão "Log in"
+    Quando eu preencho "account_email" com "its@cin.ufpe.br"
+    E eu preencho "account_password" com "Med@if977"
+    E eu clico no botão "Log in"
     Então o aplicativo deverá me redireciona para o meu perfil de usuário
 
   Cenário: Falha no Login por causa da senha errada
     Ao  tentar realizar o login, é mostrada a mensagem de falha o tentar realizar login.
 
     Dado que eu estou na página de login
-    Quando eu preencho "Usuário" com "its@cin.ufpe.br"
-    E eu preencho "Senha" com "gfsahwqhie"
-    E eu clicar no botão "Log in"
+    Quando eu preencho "account_email" com "its@cin.ufpe.br"
+    E eu preencho "account_password" com "gfsahwqhie"
+    E eu clico no botão "Log in"
     Então vejo na tela:
       """
       Usuário e/ou senhas estão incorretos, tente novamente
@@ -30,9 +30,9 @@ Funcionalidade: Realizar login
     Ao  tentar realizar o login, é mostrada a mensagem de falha o tentar realizar login.
 
     Dado que eu estou na página de login
-    Quando eu preencho "Usuário" com "isac@its.br"
-    E eu preencho "Senha" com "Med@if977"
-    E eu clicar no botão "Log in"
+    Quando eu preencho "account_email" com "isac@its.br"
+    E eu preencho "account_password" com "Med@if977"
+    E eu clico no botão "Log in"
     Então vejo na tela:
       """
       Usuário e/ou senhas estão incorretos, tente novamente
@@ -42,9 +42,9 @@ Funcionalidade: Realizar login
     Ao  tentar realizar o login, é mostrada a mensagem de falha ao tentar realizar login.
 
     Dado que eu estou na página de login
-    Quando eu preencho "Usuário" com "isac@its.br"
-    E eu preencho "Senha" com "fjahiekfdfas"
-    E eu clicar no botão "Log in"
+    Quando eu preencho "account_email" com "isac@its.br"
+    E eu preencho "account_password" com "fjahiekfdfas"
+    E eu clico no botão "Log in"
     Então vejo na tela:
       """
       Usuário e/ou senhas estão incorretos, tente novamente
@@ -54,9 +54,9 @@ Funcionalidade: Realizar login
     Ao  tentar realizar o login, é mostrada a mensagem de falha o tentar realizar login.
 
     Dado que eu estou na página de login
-    Quando eu preencho "Usuário" com "vinicius@timbaleiro.br"
-    E eu preencho "Senha" com ""
-    E eu clicar no botão "Log in"
+    Quando eu preencho "account_email" com "vinicius@timbaleiro.br"
+    E eu preencho "account_password" com ""
+    E eu clico no botão "Log in"
     Então vejo na tela:
       """
       Usuário e/ou senhas estão incorretos, tente novamente
@@ -66,9 +66,9 @@ Funcionalidade: Realizar login
     Ao  tentar realizar o login, é mostrada a mensagem de falha o tentar realizar login.
 
     Dado que eu estou na página de login
-    Quando eu preencho "Usuário" com ""
-    E eu preencho "Senha" com "fjahiekfdfas"
-    E eu clicar no botão "Log in"
+    Quando eu preencho "account_email" com ""
+    E eu preencho "account_password" com "fjahiekfdfas"
+    E eu clico no botão "Log in"
     Então vejo na tela:
       """
       Usuário e/ou senhas estão incorretos, tente novamente
@@ -78,9 +78,9 @@ Funcionalidade: Realizar login
     Ao  tentar realizar o login, é mostrada a mensagem de falha o tentar realizar login.
 
     Dado que eu estou na página de login
-    Quando eu preencho "Usuário" com ""
-    E eu preencho "Senha" com ""
-    E eu clicar no botão "Log in"
+    Quando eu preencho "account_email" com ""
+    E eu preencho "account_password" com ""
+    E eu clico no botão "Log in"
     Então vejo na tela:
       """
       Usuário e/ou senhas estão incorretos, tente novamente

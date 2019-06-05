@@ -8,45 +8,42 @@ Funcionalidade: Realizar cadastro
     Ao realizar o cadastro, é feito o redirecionamento para o perfil do usuário do paciente.
 
     Dado que eu estou na página de registro
-    Quando eu preencho os campos "E-mail","Senha","Confirmação de senha","Nome" com dados válidos
-    E eu pressiono a caixa de seleção "Aceitar termos e condições"
-    E eu pressiono o botão "Cadastrar"
+    Quando eu preencho os campos "account_email" com "gcm2@cin.ufpe.br", "account_password" com "gcm2gcm2", "account_password_confirmation" com "gcm2gcm2" sendo todos dados válidos
+    E eu pressiono a caixa de seleção "account_terms"
+    E eu clico no botão "Sign up"
     Então sou redirecionado para o perfil usuário
 
-  Cenário: Cadastro com campos não obrigatórios em branco
-    Ao realizar o cadastro, mesmo que o campos não obrigatórios estejam em 
-    branco, é feito o redirecionamento para o perfil do usuário
+  Cenário: Cadastro com todos os campos obrigatórios em branco
+    Ao tentar realizar o cadastro, com campos obrigatórios estejam em branco, é exibida uma mensagem para preencher os campos obrigatórios
 
     Dado que eu estou na página de registro
-    Quando eu preencho os campos "E-mail","Senha","Confirmação de senha","Nome" com dados válidos
-    E eu pressiono a caixa de seleção "Aceitar termos e condições"
-    E eu pressiono o botão "Cadastrar"
-    Então sou redirecionado para o perfil usuário
-
-  Cenário: Cadastro com campos obrigatórios em branco
-    Ao realizar o cadastro, com campos obrigatórios estejam em branco, o botão "Cadastrar" é bloqueado
-
-    Dado que eu estou na página de registro
-    Quando eu preencho os campos "Telefone","Sexo","Nome" com dados válidos
-    Então o botão "Cadastrar" permanece desabilitado
+    Quando eu preencho os campos "account_email" com "", "account_password" com "", "account_password_confirmation" com "" com dados inválidos
+    Então vejo na tela:
+      """
+      Email não pode estar em branco
+      Password não pode estar em branco
+      Termos e Condições Você deve concordar com os nossos termos para continuar
+      """
 
   Cenário: Cadastro com senhas diferentes
-    Ao realizar o cadastro, com senhas diferentes, a mensagem 
-    "Senhas não coincidem" é mostrada
+    Ao realizar o cadastro, com senhas diferentes, a mensagem "Senhas não coincidem" é mostrada
 
     Dado que eu estou na página de registro
-    Quando eu preencho os campos "E-mail","Senha","Confirmação de senha","Nome" com senhas diferentes
-    E eu pressiono a caixa de seleção "Aceitar termos e condições"
-    E eu pressiono o botão "Cadastrar"
-    Então uma mensagem "Senhas não coincidem" é mostrada
+    Quando eu preencho os campos "account_email" com "mary@odonto.br", "account_password" com "gderafrwb", "account_password_confirmation" com "uyevjecert" com dados inválidos
+    E eu pressiono a caixa de seleção "account_terms"
+    E eu clico no botão "Sign up"
+    Então vejo na tela:
+      """
+      Senhas não coincidem
+      """
 
-  Cenário: Cadastro com sem aceitar termos e condições
+  Cenário: Cadastro sem aceitar termos e condições
     Ao realizar o cadastro, sem aceitar termos e condições, a mensagem "Termos e Condições Você deve concordar com os nossos termos para continuar" é mostrada
 
     Dado que eu estou na página de registro
-    Quando eu preencho os campos "E-mail","Senha","Confirmação de senha","Nome" com dados válidos
-    E eu não pressiono a caixa de seleção "Aceitar termos e condições"
-    E eu pressiono o botão "Cadastrar"
+    Quando eu preencho os campos "account_email" com "gcm2@cin.ufpe.br", "account_password" com "gcm2gcm2", "account_password_confirmation" com "gcm2gcm2" sendo todos dados válidos
+    E eu não pressiono a caixa de seleção "account_terms"
+    E eu clico no botão "Sign up"
     Então vejo na tela:
       """
       Termos e Condições Você deve concordar com os nossos termos para continuar
@@ -56,6 +53,5 @@ Funcionalidade: Realizar cadastro
     Ao cancelar o cadastro, todos os campos são esvaziados
 
     Dado que eu estou na página de registro
-    Quando eu preencho os campos "E-mail","Senha","Confirmação de senha","Nome" com senhas diferentes
-    E eu pressiono o botão "Cancelar"
+    Quando eu clico no botão "Cancelar"
     Então todos os campos devem ser esvaziados
