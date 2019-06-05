@@ -13,13 +13,13 @@ class PolyclinicsController < ApplicationController
   # GET /polyclinics/1.json
   def show
     redirect_to controller: 'health_units', action: 'show',
-                id: @polyclinic.health_unit_id
+                id: @polyclinic.id
   end
 
   # GET /polyclinics/new
   def new
-    @polyclinic = Polyclinic.new
-    # health_unit_options_for_select
+    redirect_to controller: 'health_units', action: 'new',
+    health_unit: Polyclinic.new
   end
 
   # GET /polyclinics/1/edit

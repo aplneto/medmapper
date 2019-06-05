@@ -13,13 +13,13 @@ class EmergencyUnitsController < ApplicationController
   # GET /emergency_units/1.json
   def show
     redirect_to controller: 'health_units', action: 'show',
-                id: @emergency_unit.health_unit_id
+    id: @emergency_unit.id
   end
 
   # GET /emergency_units/new
   def new
-    @emergency_unit = EmergencyUnit.new
-    # health_unit_options_for_select
+    redirect_to controller: 'health_units', action: 'new',
+    health_unit: EmergencyUnit.new
   end
 
   # GET /emergency_units/1/edit

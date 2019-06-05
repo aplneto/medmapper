@@ -7,9 +7,9 @@ class ProfessionalProfile < ApplicationRecord
 
   validates :registry, presence: true, length: { maximum: 25 }
   validates :ocupation, presence: true, length: { maximum: 50 }
-  validates :valiation, presence: true,
-  validates :user_profile_id, uniqueness: true
-  validates :cpf, uniqueness: true, presence: true, length: { maximum: 11 }
+  validates :valiation, presence: true
+  validates :user_profile_id, presence: true, uniqueness: true
+  validates :cpf,  presence: true, uniqueness: true, length: { maximum: 11 }
 
   scope :validated, -> { where(validation: true) }
 

@@ -30,6 +30,10 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 pt:
+  date:
+    formats:
+      default: "%d/%m%Y"
+      shot: "%d/%m"
   activerecord:
     models:
       
@@ -109,7 +113,7 @@ pt:
       comment:
         body: "Texto"
     
-    errors: # https://guides.rubyonrails.org/i18n.html#translations-for-the-active-record-error-messages-for-helper
+    errors:
       template:
         header:
           one: "Houve um problema com a sua requisição"
@@ -124,8 +128,8 @@ pt:
               blank: "não pode ser deixado em branco"
               too_long: "não pode conter mais que %{count} caracteres"
             phone:
-              too_short: "muito curto, deve conter ao menos %{count} digitos"
-              too_long: "muito longo, deve conter no máximo %{count} digitos"
+              too_short: "muito curto, deve conter ao menos %{count} dígitos"
+              too_long: "muito longo, deve conter no máximo %{count} dígitos"
             description:
               too_long: "muito longa, o limite é %{count} caracteres"
             sex:

@@ -13,13 +13,13 @@ class PharmaciesController < ApplicationController
   # GET /pharmacies/1.json
   def show
     redirect_to controller: 'health_units', action: 'show',
-                id: @pharmacy.health_unit_id
+                id: @pharmacy.id
   end
 
   # GET /pharmacies/new
   def new
-    @pharmacy = Pharmacy.new
-    # health_unit_options_for_select
+    redirect_to controller: 'health_units', action: 'new',
+    health_unit: Pharmacy.new
   end
 
   # GET /pharmacies/1/edit

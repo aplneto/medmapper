@@ -5,7 +5,13 @@ Rails.application.routes.draw do
   get '/about', to: 'pages#about'
   get '/collaborators', to: 'pages#collaborators'
   get '/developers', to: 'pages#developers'
+  get '/pesquisa', to: 'pages#search'
 
+  get '/403', to: 'errors#forbidden'
+  get '/404', to: 'errors#not_found'
+  get '/422', to: 'errors#unprocessable_entity'
+  get '/500', to: 'errors#internal_error'
+  
   resources :user_profiles, path: 'usuarios'
 
   devise_for :accounts, controllers: {

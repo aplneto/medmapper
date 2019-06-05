@@ -11,12 +11,13 @@ class MaternityClinicsController < ApplicationController
   # GET /maternity_clinics/1.json
   def show
     redirect_to controller: 'health_units', action: 'show',
-    id: @maternity_clinic.health_unit_id
+    id: @maternity_clinic.id
   end
 
   # GET /maternity_clinics/new
   def new
-    @maternity_clinic = MaternityClinic.new
+    redirect_to controller: 'health_units', action: 'new',
+    health_unit: MaternityClinic.new
   end
 
   # GET /maternity_clinics/1/edit

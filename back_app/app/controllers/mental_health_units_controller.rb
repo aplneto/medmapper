@@ -11,12 +11,13 @@ class MentalHealthUnitsController < ApplicationController
   # GET /mental_health_units/1.json
   def show
     redirect_to controller: 'health_units', action: 'show',
-    id: @mental_health_unit.health_unit_id
+    id: @mental_health_unit.id
   end
 
   # GET /mental_health_units/new
   def new
-    @mental_health_unit = MentalHealthUnit.new
+    redirect_to controller: 'health_units', action: 'new',
+    health_unit: MentalHealthUnit.new
   end
 
   # GET /mental_health_units/1/edit

@@ -16,7 +16,8 @@ class OdontologyUnitsController < ApplicationController
 
   # GET /odontology_units/new
   def new
-    @odontology_unit = OdontologyUnit.new
+    redirect_to controller: 'health_units', action: 'new',
+    health_unit: OdontologyUnit.new
   end
 
   # GET /odontology_units/1/edit

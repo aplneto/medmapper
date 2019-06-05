@@ -5,26 +5,16 @@ ul class="nav nav-tabs"
   = link_to 'Centro de Especialidades Odontológicas | ', odontology_units_path
   = link_to 'Saúde Mental | ', mental_health_units_path
   = link_to 'Maternidade | ', maternity_clinics_path
-<br />
+br
 
-table
-  thead
-    tr
-      th Health unit
-      th Type
-      th
-      th
-      th
-
-  tbody
+- if @specialized_units.any?
+  div
     - @specialized_units.each do |specialized_unit|
-      tr
-        td = specialized_unit.health_unit
-        td = specialized_unit.type
-        td = link_to 'Show', specialized_unit
-        td = link_to 'Edit', edit_specialized_unit_path(specialized_unit)
-        td = link_to 'Destroy', specialized_unit, data: { confirm: 'Are you sure?' }, method: :delete
+      = render partial: 'health_units/health_unit',
+      locals: { health_unit: specialized_unit }
+- else
+  p Nenhuma unidade especializada foi encontrada
 
 br
 
-= link_to 'New Specialized unit', new_specialized_unit_path
+= link_to 'Adicionar nova unidade especializada', new_specialized_unit_path
