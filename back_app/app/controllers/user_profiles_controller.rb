@@ -83,7 +83,7 @@ class UserProfilesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_profile_params
       params.require(:user_profile).permit(:name, :sex, :birthday, :phone,
-        :description)
+        :description, :picture)
     end
 
     # Método de verificação do proprietário do perfil, garante que a edição de
@@ -95,7 +95,8 @@ class UserProfilesController < ApplicationController
         unless @user_profile.account_id == current_account.id
           respond_to do |format|
             format.html {
-              redirect_to user_path,
+              redirect_to user_profile_path(UserProfile.find_by(
+                account_id: current_account.id)),
               notice: "Você não pode editar perfis de outros usuários"
             }
             format.json { head :forbidden }

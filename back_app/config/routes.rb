@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get '/collaborators', to: 'pages#collaborators'
   get '/developers', to: 'pages#developers'
   get '/pesquisa', to: 'pages#search'
+  get '/suporte', to: 'pages#support'
 
   get '/403', to: 'errors#forbidden'
   get '/404', to: 'errors#not_found'

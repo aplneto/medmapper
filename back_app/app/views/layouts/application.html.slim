@@ -17,7 +17,7 @@ html lang="pt-br"
       - flash.each do |chave, valor|
         = content_tag :div, valor, class:"flash_#{chave}"
 
-      .main
+      .div#main
         = yield
       
   .div

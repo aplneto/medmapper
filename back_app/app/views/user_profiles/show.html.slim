@@ -1,5 +1,3 @@
-p#notice = notice
-
 p
   strong Name:
   = @user_profile.name
@@ -18,6 +16,10 @@ p
 p
   strong Account:
   = @user_profile.account_id
+
+div#profile_picture
+  - if @user_profile.picture.attached?
+    = image_tag url_for(@user_profile.picture)
 
 => link_to 'Edit', edit_user_profile_path(@user_profile)
 '|
