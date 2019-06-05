@@ -1,11 +1,5 @@
 = form_for @user_profile do |f|
-  - if @user_profile.errors.any?
-    #error_explanation
-      h2 = "#{pluralize(@user_profile.errors.count, "error")} prohibited this user_profile from being saved:"
-      ul
-        - @user_profile.errors.full_messages.each do |message|
-          li = message
-
+  = error_messages_for 'user'
   .field
     = f.label :name
     = f.text_field :name
@@ -21,5 +15,9 @@
   .field
     = f.label :description
     = f.text_area :description
+  .field
+    = f.label :picture
+    = f.file_field :picture, class: 'profile-input',
+    accept: 'image/png, image/jpg, image/gif'
 
   .actions = f.submit

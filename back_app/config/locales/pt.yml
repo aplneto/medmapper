@@ -34,15 +34,23 @@ pt:
   Private: "Privado"
   Filantropic: "Filantrópico"
 
+  errors:
+    messages:
+      not_saved: ''
+
   devise:
+    registrations:
+      account:
+        signed_up: "Cadastro efetuado com sucesso. Verifique seu e-mail."
     sessions:
       account:
-        signed_in: "conectado"
-        signed_out: "desconectado"
+        signed_in: "Conectado"
+        signed_out: "Desconectado"
     failure:
+      already_authenticated: "Autenticação efetuada"
       account:
-        not_found_in_database: "endereço de e-mail não foi cadastrado"
-        invalid: "nome de usuário ou senha incorretos"
+        not_found_in_database: "Endereço de e-mail não foi cadastrado"
+        invalid: "Nome de usuário ou senha incorretos"
 
   date:
     formats:
@@ -121,6 +129,7 @@ pt:
         birthday: "Data de nascimento"
         sex: "Sexo"
         description: "Descrição"
+        picture: "Foto de perfil"
       professional_profile:
         registry: "Registro"
         ocupation: "Profissão"
@@ -166,6 +175,11 @@ pt:
         body: "Os seguintes problemas devem ser corrigidos:"
       models:
 
+        account:
+          attributes:
+            email:
+              already_confirmed: "já confirmado"
+
         # Perfis
         user_profile:
           attributes:
@@ -179,6 +193,8 @@ pt:
               too_long: "muito longa, o limite é %{count} caracteres"
             sex:
               inclusion: "valor inválido"
+            picture:
+              too_long: "escolha uma arquivo com até 12kb"
         professional_profile:
           attributes:
             registry:

@@ -5,11 +5,16 @@ class UserProfile < ApplicationRecord
 
   has_one :service_provider
 
+  has_one_attached :picture
+
   validates :name, presence: true, length: { maximum: 100 }
   validates :sex, length: { maximum: 1 }, inclusion: { in: %w'f m' }
   validates :phone, length: { minimum: 8, maximum: 20}
   validates :description, length: { maximum: 240 }
   validates :account_id, uniqueness: true
+  validates :picture, length: { maximum: 12000 }
+
+
   validate :birthday_value
 
   validates_associated :account
