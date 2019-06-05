@@ -3,6 +3,9 @@ center
     = error_messages_for 'health_unit'
     table
       tr
+        th = f.label :cnes
+        td = f.telephone_field :cnes
+      tr
         th = f.label :name
         td = f.text_field :name
       tr
