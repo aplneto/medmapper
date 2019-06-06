@@ -1,11 +1,13 @@
 Rails.application.routes.draw do
 
+  resources :family_health_support_centers
   root to: 'pages#home'
   
   get '/about', to: 'pages#about'
   get '/collaborators', to: 'pages#collaborators'
   get '/developers', to: 'pages#developers'
   get '/pesquisa', to: 'pages#search'
+  get '/suporte', to: 'pages#support'
 
   get '/403', to: 'errors#forbidden'
   get '/404', to: 'errors#not_found'
@@ -46,6 +48,10 @@ Rails.application.routes.draw do
       get :search_by_neighborhood, path: 'bairro', as: :neighborhood
       end
     end
+  end
+
+  resources :family_health_support_centers, path: 'nasf' do
+    resources :comments, path: 'comentarios'
   end
 
   resources :professional_profiles, path: 'profissionais' do

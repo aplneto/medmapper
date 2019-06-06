@@ -8,7 +8,7 @@ class CreateServiceProviders < ActiveRecord::Migration[5.2]
       t.references :user_profile, foreign_key: true
       t.float :latitude, limit: 20
       t.float :longitude, limit: 20
-      t.text :description, limit: 300
+      t.text :description, limit: 1000
 
       t.timestamps
     end

@@ -83,19 +83,24 @@ class UserProfilesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_profile_params
       params.require(:user_profile).permit(:name, :sex, :birthday, :phone,
-        :description)
+        :description, :picture)
     end
 
     # Método de verificação do proprietário do perfil, garante que a edição de
     # um perfil pode ser feita apenas por seu proprietário.
     def profile_owner
-      unless @user_profile.account_id == current_account.id
-        respond_to do |format|
-          format.html {
-            redirect_to user_path,
-            notice: "Você não pode editar perfis de outros usuários"
-          }
-          format.json { head :forbidden }
+      unless account_signed_in?
+        redirect_to new_account_session_path
+      else
+        unless @user_profile.account_id == current_account.id
+          respond_to do |format|
+            format.html {
+              redirect_to user_profile_path(UserProfile.find_by(
+                account_id: current_account.id)),
+              notice: "Você não pode editar perfis de outros usuários"
+            }
+            format.json { head :forbidden }
+          end
         end
       end
     end
@@ -103,13 +108,17 @@ class UserProfilesController < ApplicationController
     # Método verifica se o usuário já possui um perfil, impedindo que usuários
     # criem mais de um perfil na plataforma
     def account_has_profile
-      if UserProfile.exists?(account_id: current_account.id)
-        respond_to do |format|
-          format.html {
-            render file: "public/403.html", layout: true, notice: "Você já tem 
-            um perfil de usuário"
-           }
-         format.json { head :forbidden }
+      unless account_signed_in?
+        redirect_to new_account_session_path
+      else
+        if UserProfile.exists?(account_id: current_account.id)
+          respond_to do |format|
+            format.html {
+              render file: "public/403.html", layout: true, notice: "Você já tem 
+              um perfil de usuário"
+            }
+          format.json { head :forbidden }
+          end
         end
       end
     end

@@ -1,4 +1,7 @@
 h3 Policlínicas
+= link_to 'Adicionar nova policlinica', new_polyclinic_path
+br
+br
 
 ul class="nav nav-tabs"
   = link_to 'Hospitais | ', hospitals_path
@@ -14,7 +17,3 @@ br
       locals: { health_unit: polyclinic }
 - else
   p Nenhuma policlinica foi encontrada
-
-br
-
-= link_to 'Adicionar nova policlinica', new_polyclinic_path

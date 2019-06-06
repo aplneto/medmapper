@@ -14,7 +14,12 @@ module UserProfilesHelper
         @profile = UserProfile.find_by account_id: current_account.id
         if account_signed_in?
             unless @profile.nil?
-                link_to @profile.name, user_profile_path(@profile)
+                if @profile.picture.attached?
+                    link_to (image_tag url_for(@profile.picture), size: "60x60"),
+                    user_profile_path(@profile)
+                else
+                    link_to @profile.name, user_profile_path(@profile)
+                end
             else
                 link_to current_account.email, new_user_profile_path
             end

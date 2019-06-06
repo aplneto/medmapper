@@ -30,6 +30,28 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 pt:
+  Public: "Público"
+  Private: "Privado"
+  Filantropic: "Filantrópico"
+
+  errors:
+    messages:
+      not_saved: ''
+
+  devise:
+    registrations:
+      account:
+        signed_up: "Cadastro efetuado com sucesso. Verifique seu e-mail."
+    sessions:
+      account:
+        signed_in: "Conectado"
+        signed_out: "Desconectado"
+    failure:
+      already_authenticated: "Autenticação efetuada"
+      account:
+        not_found_in_database: "Endereço de e-mail não foi cadastrado"
+        invalid: "Nome de usuário ou senha incorretos"
+
   date:
     formats:
       default: "%d/%m%Y"
@@ -44,6 +66,9 @@ pt:
       professional_profile:
         one: "Perfil Profissional"
         other: "Perfis Profissionais"
+      service_provider:
+        one: "Prestador de Serviços"
+        other: "Prestadores de Serviços"
 
       # Unidades de Saúde
       health_unit:
@@ -76,6 +101,11 @@ pt:
       specialized_unit:
         one: "Unidade Especializada"
         other: "Unidades Especializadas"
+
+      #NASF
+      family_health_support_center:
+        one: "Núcleo de Apoio a Saúde da Família"
+        other: "Núcleos de Apoio a Saúde da Família"
       
       # Contas
       account:
@@ -103,6 +133,20 @@ pt:
         birthday: "Data de nascimento"
         sex: "Sexo"
         description: "Descrição"
+        picture: "Foto de perfil"
+      professional_profile:
+        registry: "Registro"
+        ocupation: "Profissão"
+        validation: "Validação"
+        contacts: "Informações de contato"
+        places: "Locais de trabalho"
+        services: "Serviços prestados"
+      service_provider:
+        name: "Nome comercial"
+        addres: "Logradouro"
+        neighborhood: "Bairro"
+        phone: "Telefone"
+        description: "Descrição"
       
       # Unidades de Saúde
       health_unit:
@@ -112,6 +156,16 @@ pt:
         phone: "Telefone"
         description: "Descrição"
         category: "Categoria"
+        type: "Tipo de unidade"
+      
+      #NASF
+      family_health_support_center:
+        team: "Equipe"
+        support_point: "Ponto de Apoio"
+        name: "Unidade"
+        area: "Área"
+        phone: "Telefone"
+        district: "Distrito Sanitário"
 
       # Comentários
       comment:
@@ -125,7 +179,12 @@ pt:
         body: "Os seguintes problemas devem ser corrigidos:"
       models:
 
-        # Perfil de Usuário
+        account:
+          attributes:
+            email:
+              already_confirmed: "já confirmado"
+
+        # Perfis
         user_profile:
           attributes:
             name:
@@ -138,6 +197,50 @@ pt:
               too_long: "muito longa, o limite é %{count} caracteres"
             sex:
               inclusion: "valor inválido"
+            picture:
+              too_long: "escolha uma arquivo com até 12kb"
+        professional_profile:
+          attributes:
+            registry:
+              blank: "é uma informação obrigatória"
+              taken: "é inválido. Já existe um profissional com esse
+              %{attribute} cadastrado, se este não for você, entre em contato
+              através da página de suporte"
+              too_long: "muito longo, deve conter no máximo %{count} dígitos"
+            cpf:
+              blank: "é necessário para confirmar sua identidade"
+              taken: "é inválido. Já existe um profissional cadastrado com esse
+              %{attribute}, se este não for você, por favor, entre em contato
+              através da página de suporte"
+              wrong_length: " deve conter %{count} digitos"
+              invalid_cpf: "valor inválido, verifique o campo novamente"
+              ocupation:
+                blank: "não pode ser deixado em branco"
+                too_long: "deve conter no máximo %{count} caracteres"
+                user_profile_id: "você já possui um perfil profissional
+                cadastrado"
+        service_provider:
+          attributes:
+            name:
+              blank: "não pode ser deixado em branco"
+              taken: "já existe uma entidade cadastrada com esse %{attribute},
+              se esta não for sua unidade, por favor, entre em contato através
+              da página de suporte"
+              too_long: "deve conter no máximo %{count} caracteres"
+            address:
+              blank: "é preciso o cadastro de um endereço"
+              too_long: "máximo de %{count} caracteres"
+            neighborhood:
+              blank: "é preciso o cadastro de um endereço"
+              too_long: "máximo de %{count} caracteres"
+            phone:
+              too_long: "máximo de %{count} caracteres"
+            latitude:
+              not_a_number: "%{attribute}  deve ser um número"
+            longitude:
+              not_a_number: "%{attribute}  deve ser um número"
+            description:
+              too_long: "está limitada a %{count} caracteres"
 
         # Unidade de Saúde
         health_unit:
@@ -161,6 +264,30 @@ pt:
               not_a_number: "precisa ser um valor numérico"
             category:
               inclusion: "deve ser um valor válido"
+
+        #NASF
+        family_health_support_center:
+          attributes:
+            team:
+              blank: "precisa ser definida"
+              too_long: "máximo de %{count} caracteres"
+            support_point:
+              blank: "precisa ser definido"
+              too_long: "máximo de %{count} caracteres"
+            name:
+              blank: "não pode ser deixado em branco"
+              too_long: "deve conter no máximo %{count} caracteres"
+            area:
+              blank: "precisa ser definida"
+              too_long: "deve conter no máximo %{count} caracteres"
+            phone:
+              too_long: "deve conter no máximo %{count} digitos"
+            latitude:
+              not_a_number: "precisa ser um valor numérico"
+            longitude:
+              not_a_number: "precisa ser um valor numérico"
+            district:
+              not_an_integer: "precisa ser um número inteiro"
         
         # Comentários
         comment:

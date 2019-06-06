@@ -16,14 +16,13 @@ body {
 	text-align: center;
 }
 .field {
-	font-weight: bold;;
+	font-weight: bold;
 }
 .content {
 	min-height: calc(100vh - 30px);
 }
 
 th, text {
-	font-style: italic;
 	font-weight: bold;
 }
 
@@ -31,6 +30,19 @@ th, text {
 	border: 1px solid #7c7c7c;
 	border-radius: 1px;
 }
+
+.flash_notice {
+	border-left: 6px solid #D9B51C;
+	font-weight: bold;
+	background-color: lightgrey;
+}
+
+.flash_alert {
+	border-left: 6px solid red;
+	font-weight: bold;
+	background-color: lightgrey;
+}
+
 
 .sidenav {
 	height: 100%;
@@ -89,7 +101,7 @@ f.label {
 	width: 50;
 }
 
-#main {
+.div#main {
 	transition: margin-left .5s;
 	padding: 16px;
 }

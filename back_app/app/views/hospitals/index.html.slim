@@ -1,5 +1,9 @@
 h3 Hospitais
 text Total de hospitais cadastrados: #{Hospital.count}
+br
+= link_to 'Adicionar novo hospital', new_hospital_path
+br
+br
 
 ul class="nav nav-tabs"
   = link_to 'Hospitais | ', hospitals_path
@@ -15,7 +19,3 @@ br
       locals: { health_unit: hospital }
 - else
   p Nenhuma unidade de saúde foi encontrada
-
-br
-
-= link_to 'Adicionar novo hospital', new_hospital_path

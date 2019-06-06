@@ -14,7 +14,10 @@ html lang="pt-br"
         = render 'layouts/navigation/layout'
         .content-wrapper
 
-      .main
+      - flash.each do |chave, valor|
+        = content_tag :div, valor, class:"flash_#{chave}"
+
+      .div#main
         = yield
       
   .div
