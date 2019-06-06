@@ -9,17 +9,17 @@ Funcionalidade: Realizar login
     Ao realizar o login, é feito o redirecionamento para o perfil do usuário do paciente.
 
     Dado que eu estou na página de login
-    Quando eu preencho "account_email" com "its@cin.ufpe.br"
-    E eu preencho "account_password" com "Med@if977"
+    Quando eu preencho "E-mail" com "its@cin.ufpe.br"
+    E eu preencho "Senha" com "Med@if977"
     E eu clico no botão "Log in"
-    Então o aplicativo deverá me redireciona para o meu perfil de usuário
+    Então sou redirecionado para página inicial
 
   Cenário: Falha no Login por causa da senha errada
     Ao  tentar realizar o login, é mostrada a mensagem de falha o tentar realizar login.
 
     Dado que eu estou na página de login
-    Quando eu preencho "account_email" com "its@cin.ufpe.br"
-    E eu preencho "account_password" com "gfsahwqhie"
+    Quando eu preencho "E-mail" com "its@cin.ufpe.br"
+    E eu preencho "Senha" com "gfsahwqhie"
     E eu clico no botão "Log in"
     Então vejo na tela:
       """
@@ -30,8 +30,8 @@ Funcionalidade: Realizar login
     Ao  tentar realizar o login, é mostrada a mensagem de falha o tentar realizar login.
 
     Dado que eu estou na página de login
-    Quando eu preencho "account_email" com "isac@its.br"
-    E eu preencho "account_password" com "Med@if977"
+    Quando eu preencho "E-mail" com "isac@its.br"
+    E eu preencho "Senha" com "Med@if977"
     E eu clico no botão "Log in"
     Então vejo na tela:
       """
@@ -42,8 +42,8 @@ Funcionalidade: Realizar login
     Ao  tentar realizar o login, é mostrada a mensagem de falha ao tentar realizar login.
 
     Dado que eu estou na página de login
-    Quando eu preencho "account_email" com "isac@its.br"
-    E eu preencho "account_password" com "fjahiekfdfas"
+    Quando eu preencho "E-mail" com "isac@its.br"
+    E eu preencho "Senha" com "fjahiekfdfas"
     E eu clico no botão "Log in"
     Então vejo na tela:
       """
@@ -54,8 +54,8 @@ Funcionalidade: Realizar login
     Ao  tentar realizar o login, é mostrada a mensagem de falha o tentar realizar login.
 
     Dado que eu estou na página de login
-    Quando eu preencho "account_email" com "vinicius@timbaleiro.br"
-    E eu preencho "account_password" com ""
+    Quando eu preencho "E-mail" com "vinicius@timbaleiro.br"
+    E eu preencho "Senha" com ""
     E eu clico no botão "Log in"
     Então vejo na tela:
       """
@@ -66,8 +66,8 @@ Funcionalidade: Realizar login
     Ao  tentar realizar o login, é mostrada a mensagem de falha o tentar realizar login.
 
     Dado que eu estou na página de login
-    Quando eu preencho "account_email" com ""
-    E eu preencho "account_password" com "fjahiekfdfas"
+    Quando eu preencho "E-mail" com ""
+    E eu preencho "Senha" com "fjahiekfdfas"
     E eu clico no botão "Log in"
     Então vejo na tela:
       """
@@ -78,8 +78,8 @@ Funcionalidade: Realizar login
     Ao  tentar realizar o login, é mostrada a mensagem de falha o tentar realizar login.
 
     Dado que eu estou na página de login
-    Quando eu preencho "account_email" com ""
-    E eu preencho "account_password" com ""
+    Quando eu preencho "E-mail" com ""
+    E eu preencho "Senha" com ""
     E eu clico no botão "Log in"
     Então vejo na tela:
       """
