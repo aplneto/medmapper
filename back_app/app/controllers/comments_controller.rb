@@ -9,7 +9,8 @@ class CommentsController < ApplicationController
       if @comment.save
         redirect_to @page
       else
-        if ['ServiceProvider', 'ProfessionalProfile'].include? @page.class.name
+        if ['ServiceProvider', 'ProfessionalProfile',
+          'FamilyHealthSupportCenter'].include? @page.class.name
           render "#{@page.class.name.underscore}/show"
         else
           render 'health_units/show', locals: { health_unit: @page }
@@ -39,6 +40,9 @@ class CommentsController < ApplicationController
           @page = ServiceProvider.find(params[:service_provider_id])
         elsif params[:professional_profile_id].present?
           @page = ProfessionalProfile.find(params[:professional_profile_id])
+        elsif params[:family_health_support_center].present?
+          @page = FamilyHealthSupportCenter.find(
+            params[:family_health_support_center])
         else
           id = params.keys.select { |key| /_id\z/.match(key)}[0]
           @page = HealthUnit.find(params[id])
