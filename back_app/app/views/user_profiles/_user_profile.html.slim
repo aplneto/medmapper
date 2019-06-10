@@ -1,0 +1,18 @@
+.round
+    div id='user_profile.#{user_profile.id}'
+        br 
+        h4 = link_to user_profile.name, user_profile
+        table
+            tr
+            th Sexo: 
+            td = user_profile.sex
+            tr
+            th Data de Nascimento: 
+            td = user_profile.birthday
+            tr
+            th Telefone: 
+            td = user_profile.phone
+            tr
+            th Descrição: 
+            td = user_profile.description       
+br

@@ -20,4 +20,4 @@ div#profile_picture
 
 => link_to 'Editar', edit_user_profile_path(@user_profile)
 '|
-=< link_to 'Voltar', user_profiles_path
+=< link_to 'Remover', @user_profile, data: { confirm: 'Você tem certeza?' }, method: :delete
