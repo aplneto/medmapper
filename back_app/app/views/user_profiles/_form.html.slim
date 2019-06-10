@@ -1,23 +1,26 @@
-= form_for @user_profile do |f|
-  = error_messages_for 'user'
-  .field
-    = f.label :name
-    = f.text_field :name
-  .field
-    = f.label :sex
-    = f.text_field :sex
-  .field
-    = f.label :birthday
-    = f.date_select :birthday, start_year: 1950
-  .field
-    = f.label :phone
-    = f.text_field :phone
-  .field
-    = f.label :description
-    = f.text_area :description
-  .field
-    = f.label :picture
-    = f.file_field :picture, class: 'profile-input',
-    accept: 'image/png, image/jpg, image/gif'
+center
+  = form_for @user_profile do |f|
+    = error_messages_for 'user'
+    table
+      tr
+        th = f.label :name
+        td = f.text_field :name
+      tr
+        th = f.label :sex
+        td = f.text_field :sex
+      tr
+        th = f.label :birthday
+        td = f.date_select :birthday, start_year: 1950
+      tr
+        th = f.label :phone
+        td = f.text_field :phone
+      tr
+        th = f.label :description
+        td = f.text_area :description
+      tr
+        th = f.label :picture
+        td = f.file_field :picture, class: 'profile-input',
+        accept: 'image/png, image/jpg, image/gif'
 
-  .actions = f.submit
+    .actions 
+      = f.submit
