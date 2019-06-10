@@ -1,0 +1,21 @@
+.round
+    div id='family_health_support_center.#{family_health_support_center.id}'
+        br 
+        h4 = link_to family_health_support_center.name, family_health_support_center
+        table
+            tr
+            th Equipe: 
+            td = family_health_support_center.team
+            tr
+            th Ponto de Apoio: 
+            td = family_health_support_center.support_point
+            tr
+            th Telefone: 
+            td = family_health_support_center.phone
+            tr
+            th Área: 
+            td = family_health_support_center.area            
+            tr
+            th Distrito: 
+            td = family_health_support_center.district
+br

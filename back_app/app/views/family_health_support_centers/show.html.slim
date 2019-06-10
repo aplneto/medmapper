@@ -1,19 +1,20 @@
 p#notice = notice
 
 p
-  strong Team:
+  strong Equipe:
   = @family_health_support_center.team
 p
-  strong Support point:
+  strong Ponto de Apoio:
   = @family_health_support_center.support_point
 p
-  strong Name:
-  = @family_health_support_center.name
+  strong Nome:
+  strong
+    = @family_health_support_center.name
 p
-  strong Area:
+  strong Área:
   = @family_health_support_center.area
 p
-  strong Phone:
+  strong Telefone:
   = @family_health_support_center.phone
 p
   strong Latitude:
@@ -22,9 +23,22 @@ p
   strong Longitude:
   = @family_health_support_center.longitude
 p
-  strong District:
+  strong Distrito:
   = @family_health_support_center.district
 
-=> link_to 'Edit', edit_family_health_support_center_path(@family_health_support_center)
+=> link_to 'Editar', edit_family_health_support_center_path(@family_health_support_center)
 '|
-=< link_to 'Back', family_health_support_centers_path
+=< link_to 'Remover', family_health_support_center_path, data: { confirm: 'Você tem certeza?' }, method: :delete
+
+br
+br
+h3 #{@family_health_support_center.comments.count} comentários
+- if @family_health_support_center.comments.count > 0
+  - @family_health_support_center.comments.each do |comment|
+    div
+      = render partial: "comments/comment", locals: { comment: comment }
+- else
+  p Não há comentários nessa página. Seja o primeiro a comentar.
+
+br
+= render partial: "comments/form", locals: { page: @family_health_support_center }
