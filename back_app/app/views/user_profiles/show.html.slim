@@ -1,26 +1,23 @@
 p
-  strong Name:
+  strong Nome:
   = @user_profile.name
 p
-  strong Sex:
+  strong Sexo:
   = @user_profile.sex
 p
-  strong Birthday:
+  strong Data de Nascimento:
   = @user_profile.birthday
 p
-  strong Phone:
+  strong Telefone:
   = @user_profile.phone
 p
-  strong Description:
+  strong Descrição:
   = @user_profile.description
-p
-  strong Account:
-  = @user_profile.account_id
 
 div#profile_picture
   - if @user_profile.picture.attached?
     = image_tag url_for(@user_profile.picture)
 
-=> link_to 'Edit', edit_user_profile_path(@user_profile)
+=> link_to 'Editar', edit_user_profile_path(@user_profile)
 '|
-=< link_to 'Back', user_profiles_path
+=< link_to 'Remover', @user_profile, data: { confirm: 'Você tem certeza?' }, method: :delete

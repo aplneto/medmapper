@@ -1,0 +1,17 @@
+p Olá #{@email}
+    Caso você não seja #{@email}, ignore esta mensagem.
+
+p Sua conta foi bloqueada por uma quantidade excessiva de acessos sem sucesso.
+    Clique no link abaixo para desbloquear sua conta:
+
+= link_to 'Unlock my account', unlock_url(@resource, unlock_token: @token)
+
+p Para mais informações acesse **link_to_website_here**
+    .
+
+p Atenção, esta é uma mensagem gerada automaticamente. Não é necessário
+    respondê-la.
+
+p Equipe LACAF, UFPE
+
+p 3virgula14 (copyleft)

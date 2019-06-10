@@ -1,31 +1,10 @@
-h1 Listing user_profiles
+h3 Perfis de Usuários
+= link_to 'Adicionar novo usuário', new_user_profile_path
 
-table
-  thead
-    tr
-      th Name
-      th Sex
-      th Birthday
-      th Phone
-      th Description
-      th Account
-      th
-      th
-      th
 
-  tbody
+- if @user_profiles.any?
+  div
     - @user_profiles.each do |user_profile|
-      tr
-        td = user_profile.name
-        td = user_profile.sex
-        td = user_profile.birthday
-        td = user_profile.phone
-        td = user_profile.description
-        td = user_profile.account
-        td = link_to 'Show', user_profile
-        td = link_to 'Edit', edit_user_profile_path(user_profile)
-        td = link_to 'Destroy', user_profile, data: { confirm: 'Are you sure?' }, method: :delete
-
-br
-
-= link_to 'New User profile', new_user_profile_path
+      = render partial: 'user_profile', locals: {user_profile: user_profile}
+- else
+  p Nenhuma perfil de usuário foi encontrado
