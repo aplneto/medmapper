@@ -1,10 +1,10 @@
 p Olá #{@email}
     Caso você não seja #{@email}, ignore esta mensagem.
 
-<% if @resource.try(:unconfirmed_email?) %>
-  <p>We're contacting you to notify you that your email is being changed to <%= @resource.unconfirmed_email %>.</p>
-<% else %>
-  <p>We're contacting you to notify you that your email has been changed to <%= @resource.email %>.</p>
+- if @resource.try(:unconfirmed_email?)
+  p Estamos contatando você para notificá-lo que seu email será alterado para #{@resource.unconfirmed_email}
+- else
+  p Estamos contatando você para notificá-lo que seu email foi alterado para #{@resource.email}
 <% end %>
 
 p Para mais informações acesse **link_to_website_here**
