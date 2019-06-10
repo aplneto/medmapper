@@ -5,7 +5,7 @@ h2 Alterar sua senha
   = f.hidden_field :reset_password_token 
 
   div class="field"
-    = f.label :password, "New password" <br />
+    = f.label :password, "Nova senha"
     - if !@minimum_password_length
       em "#{@minimum_password_length} caracteres, pelo menos"
       br
@@ -13,10 +13,10 @@ h2 Alterar sua senha
 
 
   div class="field"
-    = f.label :password_confirmation, "Confirm new password" 
+    = f.label :password_confirmation, "Confirme sua nova senha" 
     = f.password_field :password_confirmation, autocomplete: "off" 
 
   div class="actions"
-    = f.submit "Change my password" 
+    = f.submit "Alterar minha senha" 
 
 = render "devise/shared/links" 
