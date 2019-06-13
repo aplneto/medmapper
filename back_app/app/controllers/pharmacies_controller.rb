@@ -25,7 +25,6 @@ class PharmaciesController < ApplicationController
   # GET /pharmacies/1/edit
   def edit
     @pharmacy = Pharmacy.find(params[:id])
-    health_unit_options_for_select
   end
 
   # POST /pharmacies
@@ -69,10 +68,6 @@ class PharmaciesController < ApplicationController
   end
 
   private
-
-  def health_unit_options_for_select
-    @health_unit_options_for_select = HealthUnit.all
-  end
 
   # Use callbacks to share common setup or constraints between actions.
   def set_pharmacy

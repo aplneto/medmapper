@@ -13,19 +13,17 @@ class EmergencyUnitsController < ApplicationController
   # GET /emergency_units/1.json
   def show
     redirect_to controller: 'health_units', action: 'show',
-    id: @emergency_unit.id
+                id: @emergency_unit.id
   end
 
   # GET /emergency_units/new
   def new
     redirect_to controller: 'health_units', action: 'new',
-    health_unit: EmergencyUnit.new
+                health_unit: EmergencyUnit.new
   end
 
   # GET /emergency_units/1/edit
-  def edit
-    health_unit_options_for_select
-  end
+  def edit; end
 
   # POST /emergency_units
   # POST /emergency_units.json
@@ -68,10 +66,6 @@ class EmergencyUnitsController < ApplicationController
   end
 
   private
-
-  def health_unit_options_for_select
-    @health_unit_options_for_select = HealthUnit.all
-  end
 
   # Use callbacks to share common setup or constraints between actions.
   def set_emergency_unit

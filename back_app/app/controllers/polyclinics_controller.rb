@@ -19,13 +19,11 @@ class PolyclinicsController < ApplicationController
   # GET /polyclinics/new
   def new
     redirect_to controller: 'health_units', action: 'new',
-    health_unit: Polyclinic.new
+                health_unit: Polyclinic.new
   end
 
   # GET /polyclinics/1/edit
-  def edit
-    health_unit_options_for_select
-  end
+  def edit; end
 
   # POST /polyclinics
   # POST /polyclinics.json
@@ -68,10 +66,6 @@ class PolyclinicsController < ApplicationController
   end
 
   private
-
-  def health_unit_options_for_select
-    @health_unit_options_for_select = HealthUnit.all
-  end
 
   # Use callbacks to share common setup or constraints between actions.
   def set_polyclinic

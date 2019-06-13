@@ -13,13 +13,13 @@ class HospitalsController < ApplicationController
   # GET /hospitals/1.json
   def show
     redirect_to controller: 'health_units', action: 'show',
-    id: @hospital.id
+                id: @hospital.id
   end
 
   # GET /hospitals/new
   def new
     redirect_to controller: 'health_units', action: 'new',
-    health_unit: Hospital.new
+                health_unit: Hospital.new
   end
 
   # GET /hospitals/1/edit
@@ -68,10 +68,6 @@ class HospitalsController < ApplicationController
   end
 
   private
-
-  def health_unit_options_for_select
-    @health_unit_options_for_select = HealthUnit.all
-  end
 
   # Use callbacks to share common setup or constraints between actions.
   def set_hospital
