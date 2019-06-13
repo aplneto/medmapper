@@ -25,7 +25,7 @@ class PharmaciesController < ApplicationController
   # GET /pharmacies/1/edit
   def edit
     @pharmacy = Pharmacy.find(params[:id])
-    # health_unit_options_for_select
+    health_unit_options_for_select
   end
 
   # POST /pharmacies
@@ -65,57 +65,6 @@ class PharmaciesController < ApplicationController
     respond_to do |format|
       format.html { redirect_to pharmacies_url, notice: 'Pharmacy was successfully destroyed.' }
       format.json { head :no_content }
-    end
-  end
-
-  def basic_search
-    if params[:keywords].empty?
-      redirect_to pharmacies_path
-    else
-      @pharmacies = Pharmacy.where("specialties && :kw or
-        treatments && :kw", kw: params[:keywords].split(' '))
-      respond_to do |format|
-        format.html { render template: 'pharmacies/index.html.slim' }
-        format.json { render template: 'pharmacies/index.json.jbuilder' }
-      end
-    end
-  end
-
-  def list_by_specialties
-    if params[:specialty].nil?
-      redirect_to pharmacies_path
-    else
-      @specialty = params[:specialty]
-      @pharmacies = Pharmacy.where('specialties && ARRAY[?]', @specialty)
-      respond_to do |format|
-        format.html { render template: 'pharmacies/specialty.html.slim' }
-        format.json { render template: 'pharmacies/index.json.jbuilder' }
-      end
-    end
-  end
-
-  def list_by_treatments
-    if params[:treatments].empty?
-      redirect_to pharmacies_path
-    else
-      @pharmacy = Pharmacy.where('treatments && ?',
-                                            params[:treatments].split(' '))
-      respond_to do |format|
-        format.html { render template: 'pharmacies/index.html.slim' }
-        format.json { render template: 'pharmacies/index.json.jbuilder' }
-      end
-    end
-  end
-
-  def search_by_neighborhood
-    if params[:neighborhood].nil?
-      redirect_to pharmacies_path
-    else
-      @pharmacies = Pharmacy.where(neighborhood: params[:neighborhood])
-      respond_to do |format|
-        format.html { render template: 'pharmacies/index.html.slim' }
-        format.json { render template: 'pharmacies/index.json.jbuilder' }
-      end
     end
   end
 
