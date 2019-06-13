@@ -1,33 +1,36 @@
-= form_for @family_health_support_center do |f|
-  - if @family_health_support_center.errors.any?
-    #error_explanation
-      h2 = "#{pluralize(@family_health_support_center.errors.count, "error")} prohibited this family_health_support_center from being saved:"
-      ul
-        - @family_health_support_center.errors.full_messages.each do |message|
-          li = message
+center
+  = form_for @family_health_support_center do |f|
+    - if @family_health_support_center.errors.any?
+      #error_explanation
+        h2 = "#{pluralize(@family_health_support_center.errors.count, "error")} prohibited this family_health_support_center from being saved:"
+        ul
+          - @family_health_support_center.errors.full_messages.each do |message|
+            li = message
 
-  .field
-    = f.label :team
-    = f.text_field :team
-  .field
-    = f.label :support_point
-    = f.text_field :support_point
-  .field
-    = f.label :name
-    = f.text_field :name
-  .field
-    = f.label :area
-    = f.text_field :area
-  .field
-    = f.label :phone
-    = f.text_field :phone
-  .field
-    = f.label :latitude
-    = f.text_field :latitude
-  .field
-    = f.label :longitude
-    = f.text_field :longitude
-  .field
-    = f.label :district
-    = f.number_field :district
-  .actions = f.submit
+    table
+      tr
+        th = f.label :team
+        td = f.text_field :team
+      tr
+        th = f.label :support_point
+        td = f.text_field :support_point
+      tr
+        th = f.label :name
+        td = f.text_field :name
+      tr
+        th = f.label :area
+        td = f.text_field :area
+      tr
+        th = f.label :phone
+        td = f.text_field :phone
+      tr
+        th = f.label :latitude
+        td = f.text_field :latitude
+      tr
+        th = f.label :longitude
+        td = f.text_field :longitude
+      tr
+        th = f.label :district
+        td = f.number_field :district
+
+    .actions = f.submit

@@ -114,7 +114,7 @@ class UserProfilesController < ApplicationController
         if UserProfile.exists?(account_id: current_account.id)
           respond_to do |format|
             format.html {
-              render file: "public/403.html", layout: true, notice: "Você já tem 
+              render file: "errors/forbidden", layout: true, notice: "Você já tem 
               um perfil de usuário"
             }
           format.json { head :forbidden }

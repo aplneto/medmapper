@@ -1,0 +1,18 @@
+p Olá #{@email}
+    Caso você não seja #{@email}, ignore esta mensagem.
+
+- if @resource.try(:unconfirmed_email?)
+  p Estamos contatando você para notificá-lo que seu email será alterado para #{@resource.unconfirmed_email}
+- else
+  p Estamos contatando você para notificá-lo que seu email foi alterado para #{@resource.email}
+<% end %>
+
+p Para mais informações acesse **link_to_website_here**
+    .
+
+p Atenção, esta é uma mensagem gerada automaticamente. Não é necessário
+    respondê-la.
+
+p Equipe LACAF, UFPE
+
+p 3virgula14 (copyleft)
