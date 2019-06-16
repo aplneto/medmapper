@@ -35,6 +35,9 @@ p
 - elsif health_unit.is_filantropic?
   h3 Essa é uma unidade da rede complementar
 
+p
+  = image_tag "https://maps.googleapis.com/maps/api/staticmap?zoom=17&size=800x600&markers=size:small%7Ccolor:red%7C#{@health_unit.latitude},#{@health_unit.longitude}&language=pt-BR&key=#{Rails.application.credentials.google_maps_api_key}", alt: "Map"
+
 br
 => link_to 'Editar', edit_health_unit_path(health_unit)
 br
