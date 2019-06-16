@@ -1,3 +1,6 @@
+script[src="//maps.google.com/maps/api/js?key=#{Rails.application.credentials.google_maps_api_key}"]
+script[src="//cdn.rawgit.com/mahnunchik/markerclustererplus/master/dist/markerclusterer.min.js"]
+script[src="//cdn.rawgit.com/printercu/google-maps-utility-library-v3-read-only/master/infobox/src/infobox_packed.js" type="text/javascript"]
 - health_unit = set_health_unit
 
 p#notice = notice
@@ -34,6 +37,21 @@ p
   h3 Essa é uma unidade privada
 - elsif health_unit.is_filantropic?
   h3 Essa é uma unidade da rede complementar
+
+div[style="width: 800px;"]
+  #map[style="width: 800px; height: 400px;"]
+javascript:
+  handler = Gmaps.build('Google');
+  handler.buildMap({ provider: { maxZoom: 18 }, internal: {id: 'map'}}, function(){
+    markers = handler.addMarkers([
+      {
+        "lat": #{@health_unit.latitude},
+        "lng": #{@health_unit.longitude}
+      }
+    ]);
+    handler.bounds.extendWith(markers);
+    handler.fitMapToBounds();
+  });
 
 br
 => link_to 'Editar', edit_health_unit_path(health_unit)
