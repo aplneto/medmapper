@@ -23,9 +23,7 @@ class DiagnosisUnitsController < ApplicationController
   end
 
   # GET /diagnosis_units/1/edit
-  def edit
-    health_unit_options_for_select
-  end
+  def edit; end
 
   # POST /diagnosis_units
   # POST /diagnosis_units.json
@@ -68,10 +66,6 @@ class DiagnosisUnitsController < ApplicationController
   end
 
   private
-
-  def health_unit_options_for_select
-    @health_unit_options_for_select = HealthUnit.all
-  end
 
   # Use callbacks to share common setup or constraints between actions.
   def set_diagnosis_unit

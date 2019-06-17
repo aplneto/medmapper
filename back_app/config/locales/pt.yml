@@ -121,7 +121,11 @@ pt:
       # Contas
       account:
         terms: "Termos e Condições"
-      
+        email: "E-mail"
+        password: "Senha"
+        password_confirmation: "Confirmar senha"
+        remember_me: "Lembre-se de mim"
+
       # Perfis
       user_profile:
         name: "Nome"
