@@ -16,11 +16,12 @@ class ProfessionalProfile < ApplicationRecord
 
   # Callbacks
   before_save :set_uppercase
+  before_save :remove_useless_tags
 
   # Procura por profissionais a partir de um array de palavras que tenha em pelo
   # menos uma palavra em comum com o Array de lugares do profissional
   def self.by_places(*places)
-    where("places %% ARRAY[:p]", p: places)
+    where("places @> ARRAY[:p]", p: places)
   end
 
   def self.by_services(*services)
@@ -66,6 +67,11 @@ class ProfessionalProfile < ApplicationRecord
       self.services.each do |service|
         service.upcase!
       end
+    end
+
+    def remove_useless_tags
+      useless_tags = %w"A E O AS OS DA DE DO DAS DOS COM SEM EM"
+      self.services -= useless_tags
     end
 
 end

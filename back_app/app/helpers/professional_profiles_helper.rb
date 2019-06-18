@@ -21,4 +21,16 @@ module ProfessionalProfilesHelper
             return link_to "Crie seu perfil", new_user_profile_path
         end
     end
+
+    def help_contacts_field
+        "Separe suas informações de contato por espaço."
+    end
+
+    def help_places_field
+        "Separe seus locais de trabalho por espaço."
+    end
+
+    def help_services_field
+        "Separe os serviços que você presta por espaço."
+    end
 end

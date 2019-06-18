@@ -13,12 +13,15 @@ center
         td = f.text_field :ocupation
       tr
         th = f.label :contacts
-        td = f.text_area :contacts, value: @professional_profile.contacts.join(' ')
+        td = f.text_area :contacts, placeholder: help_contacts_field,
+              value: @professional_profile.contacts.join(' ')
       tr
         th = f.label :places
-        td = f.text_area :places, value: @professional_profile.places.join(' ')
+        td = f.text_area :places, placeholder: help_places_field,
+              value: @professional_profile.places.join(' ')
       tr
         th = f.label :services
-        td = f.text_area :services, value: @professional_profile.services.join(' ')
+        td = f.text_area :services, placeholder: help_services_field,
+              value: @professional_profile.services.join(' ')
 
     .actions = f.submit

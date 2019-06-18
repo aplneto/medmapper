@@ -12,12 +12,12 @@ div id='profile.#{professional_profile.id}'
                 ocupation_professional_profiles_path(ocupation: professional_profile.ocupation)
             td = professional_profile.registry
             td = professional_profile.user_profile.phone
-            td = link_to "Ver", professional_profile
     
     p = professional_profile.user_profile.description
-    br
     p =  raw professional_profile.services.map { |m| link_to m,
         services_professional_profiles_path(services: m)}.join(', ')
+    p =  raw professional_profile.places.map { |p| link_to p,
+        places_professional_profiles_path(places: p)}.join(', ')
     
 
 br

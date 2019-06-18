@@ -60,6 +60,7 @@ Rails.application.routes.draw do
     collection do
       get :search_by_ocupation, path: 'profissao', as: :ocupation
       get :search_services, path: 'servicos', as: :services
+      get :search_by_places, path: 'locais-de-atendimento', as: :places
     end
   end
 

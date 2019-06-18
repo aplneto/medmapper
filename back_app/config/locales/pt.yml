@@ -34,6 +34,12 @@ pt:
   Private: "Privado"
   Filantropic: "Filantrópico"
 
+  helpers:
+    submit:
+      create: "Criar %{model}"
+      update: "Salvar %{model}"
+      delete: "Excluir %{model}"
+
   errors:
     messages:
       not_saved: ''

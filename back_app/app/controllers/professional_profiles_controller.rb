@@ -47,12 +47,13 @@ class ProfessionalProfilesController < ApplicationController
     end
   end
 
-  # /GET 
+  # GET /profissionais/servicos
   def search_services
     if params[:services].empty?
       redirect_to professional_profiles_path
     else
-      @professional_profiles = ProfessionalProfile.by_services(*params[:services].split(' '))
+      @professional_profiles = ProfessionalProfile
+        .by_services(*params[:services].upcase.split(' '))
       aux_count = @professional_profiles.count
       respond_to do |format|
         format.html {
@@ -65,11 +66,31 @@ class ProfessionalProfilesController < ApplicationController
     end
   end
 
+  #GET /profissionais/profissao
   def search_by_ocupation
     if params[:ocupation].empty?
       redirect_to professional_profiles_path
     else
-      @professional_profiles = ProfessionalProfile.by_ocupation(params[:ocupation])
+      @professional_profiles = ProfessionalProfile
+        .by_ocupation(params[:ocupation].upcase)
+      aux_count = @professional_profiles.count
+      respond_to do |format|
+        format.html {
+          flash[:notice] = "#{ProfessionalProfile.model_name
+          .human(count: aux_count)}: #{aux_count}"
+          
+          render template: 'professional_profiles/index'
+        }
+      end
+    end
+  end
+
+  def search_by_places
+    if params[:places].empty?
+      redirect_to professional_profiles_path
+    else
+      @professional_profiles = ProfessionalProfile
+        .by_places(*params[:places].upcase.split(' '))
       aux_count = @professional_profiles.count
       respond_to do |format|
         format.html {
