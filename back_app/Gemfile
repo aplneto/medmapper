@@ -83,6 +83,8 @@ gem 'slim-rails'
 gem 'devise'
 gem 'omniauth'
 
+gem 'cancancan'
+
 # Tradução
 gem 'rails-i18n'
 gem 'dynamic_form'
