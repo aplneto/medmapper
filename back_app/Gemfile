@@ -79,3 +79,4 @@ gem 'omniauth'
 # Tradução
 gem 'rails-i18n'
 gem 'dynamic_form'
+gem 'simple_form'

@@ -57,6 +57,10 @@ Rails.application.routes.draw do
 
   resources :professional_profiles, path: 'profissionais' do
     resources :comments, path: 'comentarios'
+    collection do
+      get :search_by_ocupation, path: 'profissao', as: :ocupation
+      get :search_services, path: 'servicos', as: :services
+    end
   end
 
   resources :service_providers, path: 'servicos' do

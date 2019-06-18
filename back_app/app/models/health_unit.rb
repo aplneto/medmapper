@@ -42,6 +42,9 @@ class HealthUnit < ApplicationRecord
         category == 'Public'
     end
 
+    # Callbacks
+    before_save :set_upcase
+
     # Queries
 
     # Faz uma busca a partir de uma array de palavras, procurando qualquer
@@ -82,5 +85,21 @@ class HealthUnit < ApplicationRecord
     # filtragem
     def advanced_search(params_hash)
     end
+
+    private
+        # Callback to ensure everything is upcased
+        def set_upcase
+            self.name.upcase!
+            self.address.upcase!
+            self.neighborhood.upcase!
+
+            self.specialties.each do |specialty|
+                specialty.upcase!
+            end
+
+            self.treatments.each do |treatment|
+                treatment.upcase!
+            end
+        end
 
 end

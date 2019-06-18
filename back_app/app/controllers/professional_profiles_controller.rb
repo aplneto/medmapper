@@ -19,6 +19,7 @@ class ProfessionalProfilesController < ApplicationController
   # GET /professional_profiles/new
   def new
     @professional_profile = ProfessionalProfile.new
+    @professional_profile.contacts
   end
 
   # GET /professional_profiles/1/edit
@@ -28,7 +29,9 @@ class ProfessionalProfilesController < ApplicationController
   # POST /professional_profiles
   # POST /professional_profiles.json
   def create
-    @professional_profile = ProfessionalProfile.new(professional_profile_params)
+    @professional_profile = ProfessionalProfile.new(usable_params)
+    @professional_profile.user_profile_id = current_logged_user_id
+    @professional_profile.validation = false
 
     respond_to do |format|
       if @professional_profile.save
@@ -44,13 +47,48 @@ class ProfessionalProfilesController < ApplicationController
     end
   end
 
+  # /GET 
+  def search_services
+    if params[:services].empty?
+      redirect_to professional_profiles_path
+    else
+      @professional_profiles = ProfessionalProfile.by_services(*params[:services].split(' '))
+      aux_count = @professional_profiles.count
+      respond_to do |format|
+        format.html {
+          flash[:notice] = "#{ProfessionalProfile.model_name
+          .human(count: aux_count)}: #{aux_count}"
+
+          render template: 'professional_profiles/index'
+        }
+      end
+    end
+  end
+
+  def search_by_ocupation
+    if params[:ocupation].empty?
+      redirect_to professional_profiles_path
+    else
+      @professional_profiles = ProfessionalProfile.by_ocupation(params[:ocupation])
+      aux_count = @professional_profiles.count
+      respond_to do |format|
+        format.html {
+          flash[:notice] = "#{ProfessionalProfile.model_name
+          .human(count: aux_count)}: #{aux_count}"
+          
+          render template: 'professional_profiles/index'
+        }
+      end
+    end
+  end
+
   # PATCH/PUT /professional_profiles/1
   # PATCH/PUT /professional_profiles/1.json
   def update
     respond_to do |format|
-      if @professional_profile.update(professional_profile_params)
+      if @professional_profile.update(usable_params)
         format.html { redirect_to @professional_profile,
-          notice: 'Professional profile was successfully updated.' }
+          notice: 'Atualizado!' }
         format.json { render :show, status: :ok,
           location: @professional_profile }
       else
@@ -81,14 +119,27 @@ class ProfessionalProfilesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list
     # through.
     def professional_profile_params
-      params.require(:professional_profile).permit(:registry, :ocupation,
-        :validation, :contacts, :places, :services, :cpf)
+      params.require(:professional_profile).permit(:registry, :ocupation, :cpf,
+        :contacts, :places, :services)
     end
 
     def assert_that_user_owns_profile
-      unless @professional_profile.user_profile_id == UserProfile
+      unless @professional_profile.user_profile_id == current_logged_user_id
         .find_by(account_id: current_account.id)
         redirect_to controller: 'pages', action: 'forbidden'
       end
+    end
+
+    def current_logged_user_id
+      profile = UserProfile.find_by account_id: current_account.id
+      return profile.id
+    end
+
+    def usable_params
+      usable = professional_profile_params
+      usable[:contacts] = professional_profile_params[:contacts].split(' ')
+      usable[:places] = professional_profile_params[:places].split(' ')
+      usable[:services] = professional_profile_params[:services].split(' ')
+      return usable
     end
 end

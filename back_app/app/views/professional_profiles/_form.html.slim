@@ -1,0 +1,24 @@
+center
+  = simple_form_for @professional_profile do |f|
+    = error_messages_for 'professional_profile'
+    table
+      tr
+        th = f.label :registry
+        td = f.text_field :registry
+      tr
+        th = f.label :cpf
+        td = f.text_field :cpf
+      tr
+        th = f.label :ocupation
+        td = f.text_field :ocupation
+      tr
+        th = f.label :contacts
+        td = f.text_area :contacts, value: @professional_profile.contacts.join(' ')
+      tr
+        th = f.label :places
+        td = f.text_area :places, value: @professional_profile.places.join(' ')
+      tr
+        th = f.label :services
+        td = f.text_area :services, value: @professional_profile.services.join(' ')
+
+    .actions = f.submit

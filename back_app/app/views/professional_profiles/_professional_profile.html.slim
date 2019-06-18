@@ -1,0 +1,23 @@
+div id='profile.#{professional_profile.id}'
+    br
+    h4 = link_to professional_profile.user_profile.name, professional_profile
+    table
+        tr
+            th = ProfessionalProfile.human_attribute_name('ocupation')
+            th = ProfessionalProfile.human_attribute_name('registry')
+            th = UserProfile.human_attribute_name('phone')
+            th
+        tr
+            td = link_to professional_profile.ocupation,
+                ocupation_professional_profiles_path(ocupation: professional_profile.ocupation)
+            td = professional_profile.registry
+            td = professional_profile.user_profile.phone
+            td = link_to "Ver", professional_profile
+    
+    p = professional_profile.user_profile.description
+    br
+    p =  raw professional_profile.services.map { |m| link_to m,
+        services_professional_profiles_path(services: m)}.join(', ')
+    
+
+br

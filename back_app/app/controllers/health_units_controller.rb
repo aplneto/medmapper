@@ -57,7 +57,7 @@ class HealthUnitsController < ApplicationController
   def destroy
     @health_unit.destroy
     respond_to do |format|
-      format.html { redirect_to health_units_url, notice: 'Health unit was successfully destroyed.' }
+      format.html { redirect_to health_units_url, notice: 'Unidade apagada' }
       format.json { head :no_content }
     end
   end
@@ -66,9 +66,14 @@ class HealthUnitsController < ApplicationController
     if params[:keywords].empty?
       redirect_to health_units_path
     else
-      @health_units = HealthUnit.basic_search(*params[:keywords].split(' '))
+      @health_units = HealthUnit.basic_search(*params[:keywords].upcase
+        .split(' '))
       respond_to do |format|
-        format.html { render template: "health_units/index.html.slim" }
+        format.html { 
+          flash[:notice] = "#{@health_units.count}
+          #{HealthUnit.model_name.human(count: @health_units.count)}"
+          render template: "health_units/index.html.slim" 
+        }
         format.json { render template: "health_units/index.json.jbuilder"}
       end
     end
@@ -76,9 +81,13 @@ class HealthUnitsController < ApplicationController
 
   def list_by_specialties
     @specialty = params[:specialty]
-    @health_units = HealthUnit.by_specialties(*@specialty.split(' '))
+    @health_units = HealthUnit.by_specialties(*@specialty.upcase.split(' '))
       respond_to do |format|
-        format.html { render template: "health_units/specialty.html.slim" }
+        format.html {
+          flash[:notice] = "#{@health_units.count}
+          #{HealthUnit.model_name.human(count: @health_units.count)}"
+          render template: "health_units/specialty.html.slim" 
+        }
         format.json { render template: "health_units/index.json.jbuilder"}
       end
   end
@@ -87,9 +96,14 @@ class HealthUnitsController < ApplicationController
     if params[:treatments].empty?
       redirect_to health_units_path
     else
-      @health_unit = HealthUnit.by_treatments(params[:treatments])
+      @health_unit = HealthUnit.by_treatments(*params[:treatments].upcase
+        .split(' '))
       respond_to do |format|
-        format.html { render template: "health_units/index.html.slim" }
+        format.html { 
+          flash[:notice] = "#{@health_units.count}
+          #{HealthUnit.model_name.human(count: @health_units.count)}"
+          render template: "health_units/index.html.slim"
+        }
         format.json { render template: "health_units/index.json.jbuilder"}
       end
     end
@@ -99,9 +113,13 @@ class HealthUnitsController < ApplicationController
     if params[:neighborhood].empty?
       redirect_to health_units_path
     else
-      @health_units = HealthUnit.by_neighborhood(params[:neighborhood])
+      @health_units = HealthUnit.by_neighborhood(params[:neighborhood].upcase)
       respond_to do |format|
-        format.html { render template: "health_units/index.html.slim" }
+        format.html { 
+          flash[:notice] = "#{@health_units.count}
+          #{HealthUnit.model_name.human(count: @health_units.count)}"
+          render template: "health_units/index.html.slim" 
+        }
         format.json { render template: "health_units/index.json.jbuilder"}
       end
     end

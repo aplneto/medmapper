@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_05_044753) do
+ActiveRecord::Schema.define(version: 2019_06_18_053338) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -101,13 +101,13 @@ ActiveRecord::Schema.define(version: 2019_06_05_044753) do
     t.string "registry", limit: 25, null: false
     t.string "ocupation", limit: 50, null: false
     t.boolean "validation", default: false, null: false
-    t.text "contacts", array: true
-    t.text "places", array: true
-    t.text "services", array: true
     t.string "cpf", limit: 11, null: false
     t.bigint "user_profile_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "contacts", array: true
+    t.text "places", array: true
+    t.text "services", array: true
     t.index ["cpf"], name: "index_professional_profiles_on_cpf", unique: true
     t.index ["registry"], name: "index_professional_profiles_on_registry", unique: true
     t.index ["user_profile_id"], name: "index_professional_profiles_on_user_profile_id"
