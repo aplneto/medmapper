@@ -1,7 +1,9 @@
-class HealthUnitsController < ApplicationController
+# frozen_string_literal: true
 
-  before_action :set_health_unit, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_account!, only: [:create, :update, :destroy]
+class HealthUnitsController < ApplicationController
+  before_action :set_health_unit, only: %i[show edit update destroy]
+  before_action :authenticate_account!, only: %i[create update destroy]
+  authorize_resource only: %i[new create edit update destroy]
 
   # GET /health_units
   # GET /health_units.json
@@ -11,16 +13,13 @@ class HealthUnitsController < ApplicationController
 
   # GET /health_units/1
   # GET /health_units/1.json
-  def show
-  end
+  def show; end
 
   # GET /health_units/new
-  def new
-  end
+  def new; end
 
   # GET /health_units/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /health_units
   # POST /health_units.json
@@ -68,8 +67,8 @@ class HealthUnitsController < ApplicationController
     else
       @health_units = HealthUnit.basic_search(*params[:keywords].split(' '))
       respond_to do |format|
-        format.html { render template: "health_units/index.html.slim" }
-        format.json { render template: "health_units/index.json.jbuilder"}
+        format.html { render template: 'health_units/index.html.slim' }
+        format.json { render template: 'health_units/index.json.jbuilder' }
       end
     end
   end
@@ -77,10 +76,10 @@ class HealthUnitsController < ApplicationController
   def list_by_specialties
     @specialty = params[:specialty]
     @health_units = HealthUnit.by_specialties(*@specialty.split(' '))
-      respond_to do |format|
-        format.html { render template: "health_units/specialty.html.slim" }
-        format.json { render template: "health_units/index.json.jbuilder"}
-      end
+    respond_to do |format|
+      format.html { render template: 'health_units/specialty.html.slim' }
+      format.json { render template: 'health_units/index.json.jbuilder' }
+    end
   end
 
   def list_by_treatments
@@ -89,8 +88,8 @@ class HealthUnitsController < ApplicationController
     else
       @health_unit = HealthUnit.by_treatments(params[:treatments])
       respond_to do |format|
-        format.html { render template: "health_units/index.html.slim" }
-        format.json { render template: "health_units/index.json.jbuilder"}
+        format.html { render template: 'health_units/index.html.slim' }
+        format.json { render template: 'health_units/index.json.jbuilder' }
       end
     end
   end
@@ -101,8 +100,8 @@ class HealthUnitsController < ApplicationController
     else
       @health_units = HealthUnit.by_neighborhood(params[:neighborhood])
       respond_to do |format|
-        format.html { render template: "health_units/index.html.slim" }
-        format.json { render template: "health_units/index.json.jbuilder"}
+        format.html { render template: 'health_units/index.html.slim' }
+        format.json { render template: 'health_units/index.json.jbuilder' }
       end
     end
   end
@@ -110,21 +109,20 @@ class HealthUnitsController < ApplicationController
   def advanced_search
     @health_unit = HealthUnit.new
   end
-  
-  def advanced_search_results
-  end
 
+  def advanced_search_results; end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_health_unit
-      @health_unit = HealthUnit.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def health_unit_params
-      params.require(:health_unit).permit(:cnes, :name, :address, :neighborhood,
-        :phone, :latitude, :longitude, :description, :specialties, :treatments,
-        :state, :city)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_health_unit
+    @health_unit = HealthUnit.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def health_unit_params
+    params.require(:health_unit).permit(:cnes, :name, :address, :neighborhood,
+                                        :phone, :latitude, :longitude, :description, :specialties, :treatments,
+                                        :state, :city)
+  end
 end

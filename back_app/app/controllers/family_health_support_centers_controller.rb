@@ -1,5 +1,9 @@
+# frozen_string_literal: true
+
 class FamilyHealthSupportCentersController < ApplicationController
-  before_action :set_family_health_support_center, only: [:show, :edit, :update, :destroy]
+  before_action :set_family_health_support_center, only: %i[show edit update destroy]
+  before_action :authenticate_account!, only: %i[create update destroy]
+  authorize_resource only: %i[new create edit update destroy]
 
   # GET /family_health_support_centers
   # GET /family_health_support_centers.json
@@ -9,8 +13,7 @@ class FamilyHealthSupportCentersController < ApplicationController
 
   # GET /family_health_support_centers/1
   # GET /family_health_support_centers/1.json
-  def show
-  end
+  def show; end
 
   # GET /family_health_support_centers/new
   def new
@@ -18,8 +21,7 @@ class FamilyHealthSupportCentersController < ApplicationController
   end
 
   # GET /family_health_support_centers/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /family_health_support_centers
   # POST /family_health_support_centers.json
@@ -62,13 +64,14 @@ class FamilyHealthSupportCentersController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_family_health_support_center
-      @family_health_support_center = FamilyHealthSupportCenter.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def family_health_support_center_params
-      params.require(:family_health_support_center).permit(:team, :support_point, :name, :area, :phone, :latitude, :longitude, :district)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_family_health_support_center
+    @family_health_support_center = FamilyHealthSupportCenter.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def family_health_support_center_params
+    params.require(:family_health_support_center).permit(:team, :support_point, :name, :area, :phone, :latitude, :longitude, :district)
+  end
 end
