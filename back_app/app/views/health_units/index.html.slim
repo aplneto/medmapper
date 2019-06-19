@@ -4,7 +4,7 @@ br
 br
 
 
-p Total de unidades cadastradas: #{HealthUnit.count}
+p Total de #{@health_units.klass.model_name.human(count: @health_units.count)} cadastradas: #{@health_units.count}
 
 - if @health_units.any?
   div
