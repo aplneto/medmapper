@@ -1,6 +1,6 @@
-# frozen_string_literal: true
-
 class HealthUnit < ApplicationRecord
+  before_save :set_upcase
+
   validates :cnes, presence: true, numericality: true
 
   validates :name, presence: true, length: { minimum: 10, maximum: 100 }
@@ -11,17 +11,21 @@ class HealthUnit < ApplicationRecord
 
   TYPES = %w[Hospital Pharmacy SpecializedUnit BasicHealthUnit DiagnosisUnit
              EmergencyUnit MaternityClinic Polyclinic MentalHealthUnit FamilyHealthUnit
-             OdontologyUnit].freeze
+             OdontologyUnit]
 
-  CATEGORIES = %w[Public Private Filantropic].freeze
+  CATEGORIES = %w[Public Private Filantropic]
 
-  validates :category, inclusion: { in: CATEGORIES }
+  validates :governance, inclusion: { in: CATEGORIES }
+  validates :type, inclusion: { in: TYPES }
 
   # polymorphic association to comments
   has_many :comments, as: :page
+  has_many :family_health_support_centers
 
   geocoded_by :address
   after_validation :geocode
+
+
   # subclasses's dinamyc scoping
   TYPES.each do |type|
     scope type.underscore.to_sym, -> { where(type: type) }
@@ -29,20 +33,20 @@ class HealthUnit < ApplicationRecord
 
   # categories dinamyc scoping
   CATEGORIES.each do |category|
-    scope "#{category}Only".underscore.to_sym, -> { where(category: category) }
+    scope "#{category}_only".underscore.to_sym, -> { where(governance: category) }
   end
 
   # Record Helper Methods
   def is_filantropic?
-    category == 'Private'
+    governance == 'Filantropic'
   end
 
   def is_private?
-    category == 'Private'
+    governance == 'Private'
   end
 
   def is_public?
-    category == 'Public'
+    governance == 'Public'
   end
 
   # Queries
@@ -82,6 +86,20 @@ class HealthUnit < ApplicationRecord
     where('neighborhood = :n', n: neighborhood)
   end
 
-  # filtragem
-  def advanced_search(params_hash); end
+    private
+      # Callback to ensure everything is upcased
+      def set_upcase
+        self.name.upcase!
+        self.address.upcase!
+        self.neighborhood.upcase!
+
+        self.specialties.each do |specialty|
+            specialty.upcase!
+        end
+
+        self.treatments.each do |treatment|
+            treatment.upcase!
+        end
+      end
+
 end

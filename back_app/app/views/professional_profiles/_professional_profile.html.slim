@@ -1,0 +1,20 @@
+div id='profile.#{professional_profile.id}'
+    br
+    h4 = link_to professional_profile.user_profile.name, professional_profile
+    table
+        tr
+            th = ProfessionalProfile.human_attribute_name('ocupation')
+            th = ProfessionalProfile.human_attribute_name('registry')
+            th = UserProfile.human_attribute_name('phone')
+            th
+        tr
+            td = ocupation_tag(professional_profile.ocupation)
+            td = professional_profile.registry
+            td = professional_profile.user_profile.phone
+    
+    p = professional_profile.user_profile.description
+    p =  raw services_tags(*professional_profile.services)
+    p =  raw place_tags(*professional_profile.places)
+    
+
+br

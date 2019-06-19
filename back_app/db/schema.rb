@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_05_044753) do
+ActiveRecord::Schema.define(version: 2019_06_19_103113) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 2019_06_05_044753) do
     t.string "unconfirmed_email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "role"
     t.index ["confirmation_token"], name: "index_accounts_on_confirmation_token", unique: true
     t.index ["email"], name: "index_accounts_on_email", unique: true
     t.index ["reset_password_token"], name: "index_accounts_on_reset_password_token", unique: true
@@ -74,12 +75,14 @@ ActiveRecord::Schema.define(version: 2019_06_05_044753) do
     t.integer "district", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "health_unit_id"
+    t.index ["health_unit_id"], name: "index_family_health_support_centers_on_health_unit_id"
   end
 
   create_table "health_units", force: :cascade do |t|
     t.bigint "cnes", null: false
-    t.string "name", limit: 100, null: false
-    t.string "address", limit: 100, null: false
+    t.string "name", limit: 255, null: false
+    t.string "address", limit: 255, null: false
     t.string "neighborhood", limit: 30, null: false
     t.string "phone", limit: 25
     t.float "latitude", null: false
@@ -92,8 +95,8 @@ ActiveRecord::Schema.define(version: 2019_06_05_044753) do
     t.string "state", limit: 50
     t.string "city", limit: 50
     t.string "type"
-    t.string "category"
-    t.index ["category"], name: "index_health_units_on_category"
+    t.string "governance"
+    t.index ["governance"], name: "index_health_units_on_governance"
     t.index ["type"], name: "index_health_units_on_type"
   end
 
@@ -101,13 +104,13 @@ ActiveRecord::Schema.define(version: 2019_06_05_044753) do
     t.string "registry", limit: 25, null: false
     t.string "ocupation", limit: 50, null: false
     t.boolean "validation", default: false, null: false
-    t.text "contacts", array: true
-    t.text "places", array: true
-    t.text "services", array: true
     t.string "cpf", limit: 11, null: false
     t.bigint "user_profile_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "contacts", array: true
+    t.text "places", array: true
+    t.text "services", array: true
     t.index ["cpf"], name: "index_professional_profiles_on_cpf", unique: true
     t.index ["registry"], name: "index_professional_profiles_on_registry", unique: true
     t.index ["user_profile_id"], name: "index_professional_profiles_on_user_profile_id"
@@ -124,6 +127,9 @@ ActiveRecord::Schema.define(version: 2019_06_05_044753) do
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "services", array: true
+    t.string "image"
+    t.string "webpage"
     t.index ["name"], name: "index_service_providers_on_name", unique: true
     t.index ["user_profile_id"], name: "index_service_providers_on_user_profile_id"
   end
@@ -144,6 +150,7 @@ ActiveRecord::Schema.define(version: 2019_06_05_044753) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "comments", "user_profiles"
+  add_foreign_key "family_health_support_centers", "health_units"
   add_foreign_key "professional_profiles", "user_profiles"
   add_foreign_key "service_providers", "user_profiles"
   add_foreign_key "user_profiles", "accounts"

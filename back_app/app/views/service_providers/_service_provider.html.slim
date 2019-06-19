@@ -1,0 +1,15 @@
+div id='service_provider_#{service_provider.id}'
+    h2 = link_to service_provider.name, service_provider
+    - unless service_provider.image.nil?
+        div.preview
+            = image_tag service_provider.image
+    table
+        tr
+            th = service_provider.phone
+            td = service_provider.address
+            td = neighborhood_tag(service_provider.neighborhood)
+    - unless service_provider.webpage.nil?
+        p = link_to service_provider.webpage, service_provider.webpage
+    p = service_provider.description
+    - if service_provider.services.any?
+        = raw tags_with_links(*service_provider.services).join(' ')

@@ -1,35 +1,21 @@
-h1 Listing professional_profiles
+h1 #{ProfessionalProfile.model_name.human(count: 2)}
 
-table
-  thead
-    tr
-      th Registry
-      th Ocupation
-      th Validation
-      th Contacts
-      th Places
-      th Services
-      th Cpf
-      th User profile
-      th
-      th
-      th
-
-  tbody
-    - @professional_profiles.each do |professional_profile|
+div
+  = form_tag search_professional_profiles_path, method: :get, role: 'search' do
+    table
       tr
-        td = professional_profile.registry
-        td = professional_profile.ocupation
-        td = professional_profile.validation
-        td = professional_profile.contacts
-        td = professional_profile.places
-        td = professional_profile.services
-        td = professional_profile.cpf
-        td = professional_profile.user_profile
-        td = link_to 'Show', professional_profile
-        td = link_to 'Edit', edit_professional_profile_path(professional_profile)
-        td = link_to 'Destroy', professional_profile, data: { confirm: 'Are you sure?' }, method: :delete
+        td = text_field_tag :terms, params[:terms], class: 'form-control'
+        td = submit_tag "Pesquisar", name: nil, class: 'btn btn-default'
+  
+  = link_to 'New Professional profile', new_professional_profile_path,
+    class: 'btn btn-default'
 
-br
-
-= link_to 'New Professional profile', new_professional_profile_path
+- if @professional_profiles.any?
+  = "Profissionais cadastrados: #{@professional_profiles.count}"
+  div.profiles
+    - @professional_profiles.each do |professional_profile|
+      = render partial: 'professional_profile',
+      locals: {professional_profile: professional_profile}
+- else
+  div.profiles
+    p Nenhum profissional cadastrado
