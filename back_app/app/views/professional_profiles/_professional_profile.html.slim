@@ -8,16 +8,13 @@ div id='profile.#{professional_profile.id}'
             th = UserProfile.human_attribute_name('phone')
             th
         tr
-            td = link_to professional_profile.ocupation,
-                ocupation_professional_profiles_path(ocupation: professional_profile.ocupation)
+            td = ocupation_tag(professional_profile.ocupation)
             td = professional_profile.registry
             td = professional_profile.user_profile.phone
     
     p = professional_profile.user_profile.description
-    p =  raw professional_profile.services.map { |m| link_to m,
-        services_professional_profiles_path(services: m)}.join(', ')
-    p =  raw professional_profile.places.map { |p| link_to p,
-        places_professional_profiles_path(places: p)}.join(', ')
+    p =  raw services_tags(*professional_profile.services)
+    p =  raw place_tags(*professional_profile.places)
     
 
 br

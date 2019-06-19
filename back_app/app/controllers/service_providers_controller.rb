@@ -23,6 +23,40 @@ class ServiceProvidersController < ApplicationController
   def edit
   end
 
+  # GET /service_provider/servicos
+  def by_services
+    if params[:services].empty?
+      redirect_to service_providers_path
+    else
+      @service_providers = ServiceProvider
+      .by_services(*params[:services].upcase.split(' '))
+      respond_to do |format|
+        format.html {
+          flash[:notice] = "#{@service_providers.count}
+           #{ServiceProvider.model_name.human(count: @service_providers.count)}"
+          render :index
+          }
+      end
+    end
+  end
+
+  # GET /service_provicer/bairro
+  def by_neighborhood
+    if params[:neighborhood].empty?
+      redirect_to service_providers_path
+    else
+      @service_providers = ServiceProvider
+      .by_neighborhood(params[:neighborhood].upcase)
+      respond_to do |format|
+        format.html {
+          flash[:notice] = "#{@service_providers.count}
+           #{ServiceProvider.model_name.human(count: @service_providers.count)}"
+          render :index
+          }
+      end
+    end
+  end
+
   # POST /service_providers
   # POST /service_providers.json
   def create
@@ -30,7 +64,7 @@ class ServiceProvidersController < ApplicationController
 
     respond_to do |format|
       if @service_provider.save
-        format.html { redirect_to @service_provider, notice: 'Service provider was successfully created.' }
+        format.html { redirect_to @service_provider, notice: 'Criado.' }
         format.json { render :show, status: :created, location: @service_provider }
       else
         format.html { render :new }
@@ -44,7 +78,7 @@ class ServiceProvidersController < ApplicationController
   def update
     respond_to do |format|
       if @service_provider.update(service_provider_params)
-        format.html { redirect_to @service_provider, notice: 'Service provider was successfully updated.' }
+        format.html { redirect_to @service_provider, notice: 'Modificado.' }
         format.json { render :show, status: :ok, location: @service_provider }
       else
         format.html { render :edit }
@@ -58,7 +92,7 @@ class ServiceProvidersController < ApplicationController
   def destroy
     @service_provider.destroy
     respond_to do |format|
-      format.html { redirect_to service_providers_url, notice: 'Service provider was successfully destroyed.' }
+      format.html { redirect_to service_providers_url, notice: 'Apagado.' }
       format.json { head :no_content }
     end
   end

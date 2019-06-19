@@ -33,4 +33,19 @@ module ProfessionalProfilesHelper
     def help_services_field
         "Separe os serviços que você presta por espaço."
     end
+
+    def services_tags(*services)
+        services.map { |m| link_to m,
+            services_professional_profiles_path(services: m)}.join(', ')
+    end
+
+    def place_tags(*places)
+        places.map { |p| link_to p,
+            places_professional_profiles_path(places: p)}.join(', ')
+    end
+
+    def ocupation_tag(ocupation)
+        link_to ocupation,
+                ocupation_professional_profiles_path(ocupation: ocupation)
+    end
 end

@@ -11,4 +11,8 @@ class FamilyHealthSupportCenter < ApplicationRecord
 
     belongs_to :health_unit
 
+    def self.by_district(num)
+        where('district = :n', n: num)
+    end
+
 end

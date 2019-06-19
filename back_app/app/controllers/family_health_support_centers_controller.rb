@@ -22,6 +22,7 @@ class FamilyHealthSupportCentersController < ApplicationController
   def edit
   end
 
+  # GET /family_health_support_centers/support_unit
   def support_unit
     if params[:support_unit].empty?
       redirect_to family_health_support_centers_path
@@ -32,6 +33,23 @@ class FamilyHealthSupportCentersController < ApplicationController
       end
     end
   end
+
+  #GET /family_health_support_centers/district
+  def by_district
+    if params[:district].empty?
+      redirect_to family_health_support_centers_path
+    else
+      @family_health_support_centers = FamilyHealthSupportCenter
+      .by_district(params[:district].to_i)
+      respond_to do |format|
+        format.html { 
+          flash[:notice] = "#{@family_health_support_centers.count} #{FamilyHealthSupportCenter.model_name
+          .human(count: @family_health_support_centers.count)}"
+          render :index
+         }
+        end
+      end
+    end
 
   # POST /family_health_support_centers
   # POST /family_health_support_centers.json

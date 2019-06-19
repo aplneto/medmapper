@@ -56,6 +56,7 @@ Rails.application.routes.draw do
     resources :comments, path: 'comentarios'
     collection do
       get :support_unit, path: 'unidade-de-apoio', as: :support
+      get :by_district, path: 'distrito', as: :district
     end
   end
 
@@ -71,6 +72,10 @@ Rails.application.routes.draw do
 
   resources :service_providers, path: 'servicos' do
     resources :comments, path: 'comentarios'
+    collection do
+      get :by_services, path: 'servicos', as: :services
+      get :by_neighborhood, path: 'bairro', as: :neighborhood
+    end
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

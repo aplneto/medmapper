@@ -18,6 +18,15 @@ class ServiceProvider < ApplicationRecord
   # Callbacks
   before_save :set_upcase
 
+  #Queries
+  def self.by_neighborhood(neighborhood)
+    where('neighborhood = :n', n: neighborhood)
+  end
+
+  def self.by_services(*services)
+    where('services @> ARRAY[:s]', s: services)
+  end
+
   private
   def set_upcase
     self.name.upcase!

@@ -27,7 +27,7 @@ class ApplicationController < ActionController::Base
     end
 
     def account_is_collaborator?
-        account_signed_in? and current_account.role = "Colaborator"
+        account_signed_in? and current_account.role == "Colaborator"
     end
 
     def assure_admin_privillege!

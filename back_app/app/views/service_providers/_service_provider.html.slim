@@ -7,9 +7,9 @@ div id='service_provider_#{service_provider.id}'
         tr
             th = service_provider.phone
             td = service_provider.address
-            td = service_provider.neighborhood
+            td = neighborhood_tag(service_provider.neighborhood)
     - unless service_provider.webpage.nil?
         p = link_to service_provider.webpage, service_provider.webpage
     p = service_provider.description
     - if service_provider.services.any?
-        = service_provider.services.join(', ')
+        = raw tags_with_links(*service_provider.services).join(' ')

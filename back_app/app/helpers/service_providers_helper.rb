@@ -6,4 +6,14 @@ module ServiceProvidersHelper
 title: "Quer ajuda para encontrar suas coordenadas?"
     end
 
+    def tags_with_links(*services)
+        services.map { |s| link_to s,
+            services_service_providers_path(services: s) }
+    end
+
+    def neighborhood_tag(neighborhood)
+        link_to neighborhood,
+        neighborhood_service_providers_path(neighborhood: neighborhood)
+    end
+
 end
