@@ -169,11 +169,6 @@ class ProfessionalProfilesController < ApplicationController
       end
     end
 
-    def current_logged_user_id
-      profile = UserProfile.find_by account_id: current_account.id
-      return profile.id
-    end
-
     def usable_params
       usable = professional_profile_params
       usable[:contacts] = professional_profile_params[:contacts].split(' ')

@@ -32,14 +32,15 @@ Rails.application.routes.draw do
 
   resource_names = %w[basic_health_unit diagnosis_unit emergency_unit
                       family_health_unit hospital maternity_clinic mental_health_unit
-                      odontology_unit pharmacy polyclinic specialized_unit health_units]
+                      odontology_unit pharmacy polyclinic specialized_unit health_unit]
 
   path_names = %w[unidades-basicas apoio-diagnostico emergencias
                   saude-da-familia hospitais maternidades saude-mental odontologia
                   farmacias policlinicas unidades-especializadas unidades]
 
   resource_names.zip(path_names).map do |resource_name, path_name|
-    resources resource_name.pluralize.to_sym, path: path_name do
+    resources resource_name.pluralize.to_sym, path: path_name,
+    controller: 'health_units', type: resource_name.camelize do
       resources :comments, path: 'comentarios'
       collection do
         get :basic_search, path: 'resultados'

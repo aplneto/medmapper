@@ -11,6 +11,10 @@ class ServiceProvider < ApplicationRecord
   validates :latitude, :longitude, numericality: true
   validates :description, length: { maximum: 1000 }
 
+  # Google Maps
+  reverse_geocoded_by :latitude, :longitude
+  after_validation :reverse_geocode
+
   # Callbacks
   before_save :set_upcase
 

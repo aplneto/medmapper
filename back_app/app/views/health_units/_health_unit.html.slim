@@ -22,6 +22,6 @@
         p
             - if health_unit.treatments.any?
                 text Tratamentos:
-                = raw helth_unit.treatments.map { |t| link_to t,
-                    treatments_health_units_path(treatment: t)}.join('. ')
+                = raw health_unit.treatments.map { |t| link_to t,
+                    treatments_health_units_path(treatments: t)}.join('. ')
 br

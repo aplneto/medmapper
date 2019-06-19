@@ -1,5 +1,5 @@
 center
-  = form_for HealthUnit.new do |f|
+  = form_for @health_unit do |f|
     = error_messages_for 'health_unit'
     table
       tr
@@ -26,14 +26,24 @@ center
       tr
         th = f.label :description
         td = f.text_area :description
+
+      - if @health_unit.type.nil?
+        tr
+          th = f.label :type
+          td = f.select :type,
+        options_for_select(HealthUnit::TYPES.map { |t| [t.constantize.model_name.human, t] }.to_h)
+
       tr
-        th = f.label :type
-        td = f.select :type,
-      options_for_select(HealthUnit::TYPES.map {|t| t.constantize.model_name.human }),
-      include_blank: true
+        th = f.label :governance
+        td = f.select :governance,
+      options_for_select(HealthUnit::CATEGORIES.map { |c| [t(c), c] }.to_h)
       tr
-        th = f.label :category
-        td = f.select :category,
-      options_for_select(HealthUnit::CATEGORIES.map { |c| t(c)})
+        th = f.label :specialties
+        td = f.text_area :specialties, placeholder: specialties_field_helper,
+        value: @health_unit.specialties.join(' ')
+      tr
+        th = f.label :treatments
+        td = f.text_area :treatments, placeholder: treatments_field_helper,
+        value: @health_unit.treatments.join(' ')
 
     .actions = f.submit

@@ -1,4 +1,7 @@
-p#notice = notice
+script[src="//maps.google.com/maps/api/js?key=#{Rails.application.credentials.google_maps_api_key}"]
+script[src="//cdn.rawgit.com/mahnunchik/markerclustererplus/master/dist/markerclusterer.min.js"]
+script[src="//cdn.rawgit.com/printercu/google-maps-utility-library-v3-read-only/master/infobox/src/infobox_packed.js" type="text/javascript"]
+- health_unit = set_health_unit
 
 p
   strong Name:
@@ -13,8 +16,8 @@ p
   strong Phone:
   = @service_provider.phone
 p
-  strong User profile:
-  = @service_provider.user_profile
+  strong Responsável:
+  = link_to @service_provider.user_profile.name, @service_provider.user_profile
 p
   strong Latitude:
   = @service_provider.latitude
@@ -24,6 +27,21 @@ p
 p
   strong Description:
   = @service_provider.description
+
+div[style="width: 800px;"]
+  #map[style="width: 800px; height: 400px;"]
+javascript:
+  handler = Gmaps.build('Google');
+  handler.buildMap({ provider: { maxZoom: 18 }, internal: {id: 'map'}}, function(){
+    markers = handler.addMarkers([
+      {
+        "lat": #{@service_provider.latitude},
+        "lng": #{@service_provider.longitude}
+      }
+    ]);
+    handler.bounds.extendWith(markers);
+    handler.fitMapToBounds();
+  });
 
 => link_to 'Edit', edit_service_provider_path(@service_provider)
 '|

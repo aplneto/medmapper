@@ -1,35 +1,12 @@
-h1 Listing service_providers
+h1 = ServiceProvider.model_name.human(count: ServiceProvider.count)
 
-table
-  thead
-    tr
-      th Name
-      th Address
-      th Neighborhood
-      th Phone
-      th User profile
-      th Latitude
-      th Longitude
-      th Description
-      th
-      th
-      th
 
-  tbody
-    - @service_providers.each do |service_provider|
-      tr
-        td = service_provider.name
-        td = service_provider.address
-        td = service_provider.neighborhood
-        td = service_provider.phone
-        td = service_provider.user_profile
-        td = service_provider.latitude
-        td = service_provider.longitude
-        td = service_provider.description
-        td = link_to 'Show', service_provider
-        td = link_to 'Edit', edit_service_provider_path(service_provider)
-        td = link_to 'Destroy', service_provider, data: { confirm: 'Are you sure?' }, method: :delete
-
+= link_to "Novo", new_service_provider_path
 br
 
-= link_to 'New Service provider', new_service_provider_path
+
+div.service_providers
+  - if @service_providers.any?
+    - @service_providers.each do |service_provider|
+      = render partial: 'service_provider',
+      locals: {service_provider: service_provider}

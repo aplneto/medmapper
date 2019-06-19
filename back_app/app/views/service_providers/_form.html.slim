@@ -1,11 +1,6 @@
 = form_for @service_provider do |f|
-  - if @service_provider.errors.any?
-    #error_explanation
-      h2 = "#{pluralize(@service_provider.errors.count, "error")} prohibited this service_provider from being saved:"
-      ul
-        - @service_provider.errors.full_messages.each do |message|
-          li = message
-
+  = error_messages_for 'service_provider'
+  
   .field
     = f.label :name
     = f.text_field :name
@@ -19,15 +14,23 @@
     = f.label :phone
     = f.text_field :phone
   .field
-    = f.label :user_profile
-    = f.text_field :user_profile
-  .field
     = f.label :latitude
     = f.text_field :latitude
   .field
     = f.label :longitude
     = f.text_field :longitude
+  = help_find_coordinates
   .field
     = f.label :description
     = f.text_area :description
+  .field
+    = f.label :services
+    = f.text_area :services, placeholder: help_services_field,
+    value: @service_provider.services.join(' ')
+  .field
+    = f.label :image
+    = f.text_field :image
+  .field
+    = f.label :webpage
+    = f.text_field :webpage
   .actions = f.submit

@@ -1,4 +1,6 @@
 class HealthUnit < ApplicationRecord
+  before_save :set_upcase
+
   validates :cnes, presence: true, numericality: true
 
   validates :name, presence: true, length: { minimum: 10, maximum: 100 }
@@ -9,17 +11,18 @@ class HealthUnit < ApplicationRecord
 
   TYPES = %w[Hospital Pharmacy SpecializedUnit BasicHealthUnit DiagnosisUnit
              EmergencyUnit MaternityClinic Polyclinic MentalHealthUnit FamilyHealthUnit
-             OdontologyUnit].freeze
+             OdontologyUnit]
 
-  CATEGORIES = %w[Public Private Filantropic].freeze
+  CATEGORIES = %w[Public Private Filantropic]
 
-  validates :category, inclusion: { in: CATEGORIES }
+  validates :governance, inclusion: { in: CATEGORIES }
+  validates :type, inclusion: { in: TYPES }
 
   # polymorphic association to comments
   has_many :comments, as: :page
 
-  reverse_geocoded_by :latitude, :longitude
-  after_validation :reverse_geocode
+  geocoded_by :address
+  after_validation :geocode
 
 
   # subclasses's dinamyc scoping
@@ -29,20 +32,20 @@ class HealthUnit < ApplicationRecord
 
   # categories dinamyc scoping
   CATEGORIES.each do |category|
-    scope "#{category}Only".underscore.to_sym, -> { where(category: category) }
+    scope "#{category}_only".underscore.to_sym, -> { where(governance: category) }
   end
 
   # Record Helper Methods
   def is_filantropic?
-    category == 'Private'
+    governance == 'Filantropic'
   end
 
   def is_private?
-    category == 'Private'
+    governance == 'Private'
   end
 
   def is_public?
-    category == 'Public'
+    governance == 'Public'
   end
 
   # Queries

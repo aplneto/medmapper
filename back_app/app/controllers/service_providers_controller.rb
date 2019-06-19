@@ -1,5 +1,6 @@
 class ServiceProvidersController < ApplicationController
   before_action :set_service_provider, only: [:show, :edit, :update, :destroy]
+  before_action :assert_account_has_profile, only: [:edit, :new, :create, :destroy]
 
   # GET /service_providers
   # GET /service_providers.json
@@ -15,6 +16,7 @@ class ServiceProvidersController < ApplicationController
   # GET /service_providers/new
   def new
     @service_provider = ServiceProvider.new
+    @service_provider.services = []
   end
 
   # GET /service_providers/1/edit
@@ -69,6 +71,12 @@ class ServiceProvidersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def service_provider_params
-      params.require(:service_provider).permit(:name, :address, :neighborhood, :phone, :user_profile_id, :latitude, :longitude, :description)
+      usable = params.require(:service_provider).permit(:name, :address,
+        :neighborhood, :phone, :latitude, :longitude,
+        :description, :services, :image, :webpage)
+      usable[:services] = usable[:services].split(' ')
+      usable[:user_profile_id] = current_logged_user_id
+      return usable
     end
+
 end

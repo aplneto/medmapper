@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_19_042706) do
+ActiveRecord::Schema.define(version: 2019_06_19_083846) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -78,8 +78,8 @@ ActiveRecord::Schema.define(version: 2019_06_19_042706) do
 
   create_table "health_units", force: :cascade do |t|
     t.bigint "cnes", null: false
-    t.string "name", limit: 100, null: false
-    t.string "address", limit: 100, null: false
+    t.string "name", limit: 255, null: false
+    t.string "address", limit: 255, null: false
     t.string "neighborhood", limit: 30, null: false
     t.string "phone", limit: 25
     t.float "latitude", null: false
@@ -92,8 +92,8 @@ ActiveRecord::Schema.define(version: 2019_06_19_042706) do
     t.string "state", limit: 50
     t.string "city", limit: 50
     t.string "type"
-    t.string "category"
-    t.index ["category"], name: "index_health_units_on_category"
+    t.string "governance"
+    t.index ["governance"], name: "index_health_units_on_governance"
     t.index ["type"], name: "index_health_units_on_type"
   end
 
