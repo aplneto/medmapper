@@ -1,5 +1,6 @@
 class FamilyHealthSupportCentersController < ApplicationController
   before_action :set_family_health_support_center, only: [:show, :edit, :update, :destroy]
+  before_action :assure_admin_privillege!, only: [:create, :update, :destroy]
 
   # GET /family_health_support_centers
   # GET /family_health_support_centers.json
@@ -19,6 +20,17 @@ class FamilyHealthSupportCentersController < ApplicationController
 
   # GET /family_health_support_centers/1/edit
   def edit
+  end
+
+  def support_unit
+    if params[:support_unit].empty?
+      redirect_to family_health_support_centers_path
+    else
+      @family_health_support_center = BasicHealthUnit.by_unit(params[:support_unit])
+      respond_to do |format|
+        format.html { render template: 'health_units/index' }
+      end
+    end
   end
 
   # POST /family_health_support_centers
@@ -69,6 +81,8 @@ class FamilyHealthSupportCentersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def family_health_support_center_params
-      params.require(:family_health_support_center).permit(:team, :support_point, :name, :area, :phone, :latitude, :longitude, :district)
+      params.require(:family_health_support_center).permit(:team,
+        :support_point, :name, :area, :phone, :latitude, :longitude, :district,
+        :health_unit_id)
     end
 end

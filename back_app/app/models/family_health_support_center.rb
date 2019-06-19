@@ -9,4 +9,6 @@ class FamilyHealthSupportCenter < ApplicationRecord
     validates :latitude, :longitude, numericality: true
     validates :district, numericality: { only_integer: true }
 
+    belongs_to :health_unit
+
 end

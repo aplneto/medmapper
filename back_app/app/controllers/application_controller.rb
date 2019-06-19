@@ -21,5 +21,19 @@ class ApplicationController < ActionController::Base
         profile = UserProfile.find_by account_id: current_account.id
         return profile.id
     end
+
+    def account_is_administrator?
+        account_signed_in? and current_account.role == "Admin"
+    end
+
+    def account_is_collaborator?
+        account_signed_in? and current_account.role = "Colaborator"
+    end
+
+    def assure_admin_privillege!
+        unless account_is_administrator?
+            redirect_to controller: 'errors', action: 'forbidden'
+        end
+    end
     
 end

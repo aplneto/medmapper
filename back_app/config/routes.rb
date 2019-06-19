@@ -54,6 +54,9 @@ Rails.application.routes.draw do
 
   resources :family_health_support_centers, path: 'nasf' do
     resources :comments, path: 'comentarios'
+    collection do
+      get :support_unit, path: 'unidade-de-apoio', as: :support
+    end
   end
 
   resources :professional_profiles, path: 'profissionais' do

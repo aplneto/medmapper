@@ -5,7 +5,10 @@ p
   = @family_health_support_center.team
 p
   strong Ponto de Apoio:
-  = @family_health_support_center.support_point
+  - if @family_health_support_center.health_unit_id.nil?
+    = @family_health_support_center.support_point
+  - else
+    = link_to @family_health_support_center.support_point, @family_health_support_center.health_unit
 p
   strong Nome:
   strong
