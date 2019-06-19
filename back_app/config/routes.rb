@@ -75,6 +75,7 @@ Rails.application.routes.draw do
     collection do
       get :by_services, path: 'servicos', as: :services
       get :by_neighborhood, path: 'bairro', as: :neighborhood
+      get :keyword_search, path: 'resultado', as: :results
     end
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

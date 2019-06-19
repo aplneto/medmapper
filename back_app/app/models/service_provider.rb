@@ -27,6 +27,11 @@ class ServiceProvider < ApplicationRecord
     where('services @> ARRAY[:s]', s: services)
   end
 
+  def self.keyword_search(*keywords)
+    where('services @> ARRAY[:k] or neighborhood = ANY(ARRAY[:k]) or
+     description LIKE ANY(ARRAY[:k])', k: keywords)
+  end
+
   private
   def set_upcase
     self.name.upcase!
@@ -37,6 +42,8 @@ class ServiceProvider < ApplicationRecord
     self.services.each do |service|
       service.upcase!
     end
+    
+    self.desciption.upcase!
   end
 
 end

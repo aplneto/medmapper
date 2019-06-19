@@ -23,6 +23,23 @@ class ServiceProvidersController < ApplicationController
   def edit
   end
 
+  # GET /service_provider/resultados
+  def keyword_search
+    if params[:keys].empty?
+      redirect_to service_providers_path
+    else
+      @service_providers = ServiceProvider
+      .keyword_search(*params[:keys].upcase.split(' '))
+      respond_to do |format|
+        format.html {
+          flash[:notice] = "#{@service_providers.count}
+           #{ServiceProvider.model_name.human(count: @service_providers.count)}"
+          render :index
+          }
+      end
+    end
+  end
+
   # GET /service_provider/servicos
   def by_services
     if params[:services].empty?

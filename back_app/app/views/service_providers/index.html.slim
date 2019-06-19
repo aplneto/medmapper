@@ -4,6 +4,12 @@ h1 = ServiceProvider.model_name.human(count: ServiceProvider.count)
 = link_to "Novo", new_service_provider_path
 br
 
+  = form_tag results_service_providers_path, method: :get, role: 'search' do
+    = text_field_tag :keys, params[:keys], class: 'form-control'
+    br
+    center
+     = submit_tag "Pesquisar", name: nil, class: 'btn btn-default'
+
 
 div.service_providers
   - if @service_providers.any?
