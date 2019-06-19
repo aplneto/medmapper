@@ -3,7 +3,7 @@
 class FamilyHealthSupportCentersController < ApplicationController
   before_action :set_family_health_support_center, only: %i[show edit update destroy]
   before_action :authenticate_account!, only: %i[create update destroy]
-  authorize_resource only: %i[new create edit update destroy]
+  load_and_authorize_resource only: %i[new create edit update destroy]
 
   # GET /family_health_support_centers
   # GET /family_health_support_centers.json

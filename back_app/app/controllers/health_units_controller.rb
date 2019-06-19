@@ -3,7 +3,7 @@
 class HealthUnitsController < ApplicationController
   before_action :set_health_unit, only: %i[show edit update destroy]
   before_action :authenticate_account!, only: %i[create update destroy]
-  authorize_resource only: %i[new create edit update destroy]
+  load_and_authorize_resource only: %i[new create edit update destroy]
 
   # GET /health_units
   # GET /health_units.json
