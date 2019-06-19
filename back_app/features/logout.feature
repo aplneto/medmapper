@@ -3,7 +3,7 @@
 Funcionalidade: Realizar log out
   Para encerrar sessão
   Como paciente
-  Quero apertar o botão de Sair, para ter minha sessão encerrada
+  Quero apertar o botão de Sair
 
   Cenário: Cadastro realizado com sucesso
     Ao realizar logoff, é feito o redirecionamento para página inicial.
