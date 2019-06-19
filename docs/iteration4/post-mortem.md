@@ -59,6 +59,6 @@
 
 
 ## Lições Aprendidas
-* Por mais que você ache que saiba algo, não deixe para depois;
+* Por mais que você ache que já saiba algo, não deixe para começar depois;
 * A documentação das gems deve ser sempre a primeira fonte de consulta;
 * Por mais empolgado que um usuário esteja, expectativas devem ser moderadas.
