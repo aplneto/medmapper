@@ -48,4 +48,4 @@ class CommentsController < ApplicationController
           @page = HealthUnit.find(params[id])
         end
       end
-  end
+end
