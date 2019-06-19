@@ -11,4 +11,41 @@ class ServiceProvider < ApplicationRecord
   validates :latitude, :longitude, numericality: true
   validates :description, length: { maximum: 1000 }
 
+  scope :valid, -> { where(validation: true) }
+
+  # Google Maps
+  reverse_geocoded_by :latitude, :longitude
+  after_validation :reverse_geocode
+
+  # Callbacks
+  before_save :set_upcase
+
+  #Queries
+  def self.by_neighborhood(neighborhood)
+    where('neighborhood = :n', n: neighborhood)
+  end
+
+  def self.by_services(*services)
+    where('services @> ARRAY[:s]', s: services)
+  end
+
+  def self.keyword_search(*keywords)
+    where('services @> ARRAY[:k] or neighborhood = ANY(ARRAY[:k]) or
+     description LIKE ANY(ARRAY[:k])', k: keywords)
+  end
+
+  private
+  def set_upcase
+    self.name.upcase!
+
+    self.address.upcase!
+    self.neighborhood.upcase!
+
+    self.services.each do |service|
+      service.upcase!
+    end
+    
+    self.desciption.upcase!
+  end
+
 end

@@ -1,5 +1,6 @@
 class FamilyHealthSupportCentersController < ApplicationController
   before_action :set_family_health_support_center, only: [:show, :edit, :update, :destroy]
+  before_action :assure_admin_privillege!, only: [:create, :update, :destroy]
 
   # GET /family_health_support_centers
   # GET /family_health_support_centers.json
@@ -20,6 +21,35 @@ class FamilyHealthSupportCentersController < ApplicationController
   # GET /family_health_support_centers/1/edit
   def edit
   end
+
+  # GET /family_health_support_centers/support_unit
+  def support_unit
+    if params[:support_unit].empty?
+      redirect_to family_health_support_centers_path
+    else
+      @family_health_support_center = BasicHealthUnit.by_unit(params[:support_unit])
+      respond_to do |format|
+        format.html { render template: 'health_units/index' }
+      end
+    end
+  end
+
+  #GET /family_health_support_centers/district
+  def by_district
+    if params[:district].empty?
+      redirect_to family_health_support_centers_path
+    else
+      @family_health_support_centers = FamilyHealthSupportCenter
+      .by_district(params[:district].to_i)
+      respond_to do |format|
+        format.html { 
+          flash[:notice] = "#{@family_health_support_centers.count} #{FamilyHealthSupportCenter.model_name
+          .human(count: @family_health_support_centers.count)}"
+          render :index
+         }
+        end
+      end
+    end
 
   # POST /family_health_support_centers
   # POST /family_health_support_centers.json
@@ -69,6 +99,8 @@ class FamilyHealthSupportCentersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def family_health_support_center_params
-      params.require(:family_health_support_center).permit(:team, :support_point, :name, :area, :phone, :latitude, :longitude, :district)
+      params.require(:family_health_support_center).permit(:team,
+        :support_point, :name, :area, :phone, :latitude, :longitude, :district,
+        :health_unit_id)
     end
 end

@@ -51,7 +51,7 @@ def save_health_unit (unidade, unit)
     unit.specialties = unidade.has_key?('especialidades') ?
     unidade['especialidades'].split(' ').map {|s| s.delete(',').
         delete('.')}.flatten.uniq - $tags_inuteis : []
-    unit.category = 'Public'
+    unit.governance = 'Public'
 
     unit.save!
 

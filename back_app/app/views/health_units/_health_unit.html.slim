@@ -8,20 +8,17 @@
             td = health_unit.address
             tr
             th Bairro: 
-            td = link_to health_unit.neighborhood,
-                neighborhood_health_units_path(neighborhood: health_unit.neighborhood)
+            td = health_unit_neighborhood_tag(health_unit.neighborhood)
             tr
             th Telefone: 
             td = health_unit.phone
         p
             - if health_unit.specialties.any?
                 text Especialidades: 
-                = raw health_unit.specialties.map { |s| link_to s,
-                    specialty_health_units_path(specialty: s)}.join(', ')
+                = raw specialties_tags(*health_unit.specialties)
         
         p
             - if health_unit.treatments.any?
                 text Tratamentos:
-                = raw helth_unit.treatments.map { |t| link_to t,
-                    treatments_health_units_path(treatment: t)}.join('. ')
+                = raw treatments_tags(*health_unit.treatments)
 br

@@ -33,6 +33,13 @@ pt:
   Public: "Público"
   Private: "Privado"
   Filantropic: "Filantrópico"
+  help: "Ajuda"
+
+  helpers:
+    submit:
+      create: "Criar %{model}"
+      update: "Salvar %{model}"
+      delete: "Excluir %{model}"
 
   errors:
     messages:
@@ -51,6 +58,11 @@ pt:
       account:
         not_found_in_database: "Endereço de e-mail não foi cadastrado"
         invalid: "Nome de usuário ou senha incorretos"
+        unauthenticated: "Você precisa fazer login ou cadastrar-se 
+        para continuar"
+    confirmations:
+      account:
+        confirmed: "Endereço de e-mail confirmado com sucesso"
 
   date:
     formats:
@@ -147,6 +159,9 @@ pt:
         neighborhood: "Bairro"
         phone: "Telefone"
         description: "Descrição"
+        services: "tags"
+        webpage: "site"
+        image: "link da imagem"
       
       # Unidades de Saúde
       health_unit:
@@ -155,8 +170,10 @@ pt:
         neighborhood: "Bairro"
         phone: "Telefone"
         description: "Descrição"
-        category: "Categoria"
+        governance: "Categoria"
         type: "Tipo de unidade"
+        specialties: "Especialidades"
+        treatments: "Atendimentos"
       
       #NASF
       family_health_support_center:
@@ -236,9 +253,9 @@ pt:
             phone:
               too_long: "máximo de %{count} caracteres"
             latitude:
-              not_a_number: "%{attribute}  deve ser um número"
+              not_a_number: "deve ser um número"
             longitude:
-              not_a_number: "%{attribute}  deve ser um número"
+              not_a_number: "deve ser um número"
             description:
               too_long: "está limitada a %{count} caracteres"
 
@@ -262,8 +279,8 @@ pt:
             longitude:
               blank: "é necessária"
               not_a_number: "precisa ser um valor numérico"
-            category:
-              inclusion: "deve ser um valor válido"
+            governance:
+              inclusion: "%{value} deve ser um valor válido"
 
         #NASF
         family_health_support_center:

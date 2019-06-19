@@ -2,7 +2,6 @@ class UserProfilesController < ApplicationController
   before_action :set_user_profile, only: [:show, :edit, :update, :destroy]
   before_action :profile_owner, only: [:edit, :update, :destroy]
   before_action :authenticate_account!, only: [:new, :edit, :update, :destroy]
-  before_action :verify_account_confirmation, only: [:new]
   before_action :account_has_profile, only: [:new]
 
   # GET /user_profiles

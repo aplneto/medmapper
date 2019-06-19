@@ -1,0 +1,45 @@
+center
+  = simple_form_for @professional_profile do |f|
+    = error_messages_for 'professional_profile'
+    table
+      tr
+        th = f.label :registry
+        td = f.text_field :registry
+      tr
+        th = f.label :cpf
+        td = f.text_field :cpf
+      tr
+        th = f.label :ocupation
+        td = f.text_field :ocupation
+      tr
+        th = f.label :contacts
+        td = f.text_area :contacts, placeholder: help_contacts_field,
+              value: @professional_profile.contacts.join(' ')
+      tr
+        th = f.label :places
+        td = f.text_area :places, placeholder: help_places_field,
+              value: @professional_profile.places.join(' ')
+      tr
+        th = f.label :facebook
+        td = f.text_field :facebook
+      tr
+        th = f.label :lattes
+        td = f.text_field :lattes
+      tr
+        th = f.label :instagram
+        td = f.text_field :instagram
+      tr
+        th = f.label :linkedin
+        td = f.text_field :linkedin
+      tr
+        th = f.label :whatsapp
+        td = f.text_field :whatsapp
+      tr
+        th = f.label :services
+        td = f.text_area :services, placeholder: help_services_field,
+              value: @professional_profile.services.join(' ')
+      - if account_is_administrator?
+        th = f.label :validation
+        td = f.check_box :validation
+
+    .actions = f.submit

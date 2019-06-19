@@ -1,5 +1,7 @@
 class BasicHealthUnit < HealthUnit
 
-    validates :type, inclusion: { in: ['BasicHealthUnit'] }
+    def self.by_name(name)
+        where('name LIKE :n', n: name)
+    end
 
 end

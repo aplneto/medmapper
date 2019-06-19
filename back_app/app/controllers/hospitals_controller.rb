@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class HospitalsController < ApplicationController
+class HospitalsController < HealthUnitsController
   before_action :set_hospital, only: %i[show edit update destroy]
 
   # GET /hospitals
@@ -76,6 +76,6 @@ class HospitalsController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def hospital_params
-    params.require(:hospital).permit(:health_unit_id, :type)
+    health_unit_params :hospital
   end
 end

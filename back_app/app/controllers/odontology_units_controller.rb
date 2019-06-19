@@ -1,4 +1,4 @@
-class OdontologyUnitsController < ApplicationController
+class OdontologyUnitsController < HealthUnitsController
   before_action :set_odontology_unit, only: [:show, :edit, :update, :destroy]
 
   # GET /odontology_units
