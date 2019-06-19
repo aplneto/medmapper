@@ -19,6 +19,17 @@ div id='profile.#{professional_profile.id}'
     p = professional_profile.user_profile.description
     p =  raw services_tags(*professional_profile.services)
     p =  raw place_tags(*professional_profile.places)
+
+    - unless professional_profile.facebook.nil? or professional_profile.facebook.empty?
+        = social_media_icon(professional_profile.facebook, 40, :facebook)
+    - unless professional_profile.instagram.nil? or professional_profile.instagram.empty?
+        = social_media_icon(professional_profile.instagram, 40, :instagram)
+    - unless professional_profile.linkedin.nil? or professional_profile.linkedin.empty?
+        = social_media_icon(professional_profile.linkedin, 40, :linkedin)
+    - unless professional_profile.whatsapp.nil? or professional_profile.whatsapp.empty?
+        = whatsapp_icon(professional_profile.whatsapp, 40)
+    - unless professional_profile.lattes.nil? or professional_profile.lattes.empty?
+        p = link_to "Lattes", professional_profile.lattes
     
 
 br

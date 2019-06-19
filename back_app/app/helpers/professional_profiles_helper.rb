@@ -48,4 +48,17 @@ module ProfessionalProfilesHelper
         link_to ocupation,
                 ocupation_professional_profiles_path(ocupation: ocupation)
     end
+
+    def social_media_icon(link, iconsize=40, media = :facebook)
+        icons = {
+            facebook: "https://img.icons8.com/ultraviolet/#{iconsize}/000000/facebook-new.png",
+            instagram: "https://img.icons8.com/cotton/#{iconsize}/000000/instagram-new.png",
+            linkedin: "https://img.icons8.com/office/#{iconsize}/000000/linkedin.png"
+        }
+        link_to image_tag(icons[media]), link
+    end
+
+    def whatsapp_icon(number, iconsize = 40)
+        link_to image_tag("https://img.icons8.com/color/#{iconsize}/000000/whatsapp.png"), "https://api.whatsapp.com/send?phone=#{number}&text=sua%20mensagem"
+    end
 end
