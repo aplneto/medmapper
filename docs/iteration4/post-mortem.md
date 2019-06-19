@@ -19,19 +19,26 @@
 ## Planejamento da Iteração 4
 | Ação | Responsável(eis) |
 |----------|----------|
-| |  |
-|  |  |
-|  |  |
-| | |
-|| |
-| | |
-|||
+| UserViews [[#30]](https://github.com/aplneto/medmapper/issues/30)| Gabriel, Pedro e Antônio |
+| Seed do Banco de Dados | Antônio |
+| Finalização do BDD | Gabriel, Isac|
+| Finalização do TDD | Antônio, Isac |
+| Finalização dos Queries| Todo o Grupo |
+| Documentação do Projeto | Todo o Grupo |
+| integrar api do Maps ao projeto [[84#]](https://github.com/aplneto/medmapper/issues/84)| Isac |
 
 
 ## Realizadas na Iteração 4
 | Ação | Responsável(eis) |
 |----------|----------|
-|||
+| integrar api do Maps ao projeto [[84#]](https://github.com/aplneto/medmapper/issues/84)| Isac |
+| Finalização do BDD | Gabriel, Isac|
+| Finalização do TDD | Antônio, Isac |
+| Finalização dos Queries| Todo o Grupo |
+| Documentação do Projeto | Todo o Grupo |
+| Seed do Banco de Dados | Antônio |
+| editar a página inicial e de suporte [[#83]](https://github.com/aplneto/medmapper/issues/83) | Pedro, Antônio|
+| Sanitarização do banco de dados - SUS/DATASUS [[#74]](https://github.com/aplneto/medmapper/issues/74) | Antônio |
 
 ## Não realizadas na Iteração 4
 | Ação | Responsável(eis) |
@@ -52,9 +59,6 @@
 
 
 ## Lições Aprendidas
-
-
-
-## Notas
-
-
+* Por mais que você ache que saiba algo, não deixe para depois;
+* A documentação das gems deve ser sempre a primeira fonte de consulta;
+* Por mais empolgado que um usuário esteja, expectativas devem ser moderadas.
