@@ -3,6 +3,7 @@ class HealthUnitsController < ApplicationController
   before_action :set_unit_type
   before_action :set_health_unit, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_account!, only: [:create, :update, :destroy]
+  before_action :assure_admin_privillege!, only: [:create, :update, :destroy]
 
   # GET /health_units
   # GET /health_units.json
