@@ -61,6 +61,7 @@ Rails.application.routes.draw do
       get :search_by_ocupation, path: 'profissao', as: :ocupation
       get :search_services, path: 'servicos', as: :services
       get :search_by_places, path: 'locais-de-atendimento', as: :places
+      get :basic_search, path: 'resultados', as: :search
     end
   end
 

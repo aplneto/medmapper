@@ -32,6 +32,13 @@ class ProfessionalProfile < ApplicationRecord
     where("ocupation = :o", o: profession)
   end
 
+  def self.basic_search(*terms)
+    joins('LEFT JOIN user_profiles
+      ON professional_profiles.user_profile_id = user_profiles.id')
+    .where("services && ARRAY[:t] or places && ARRAY[:t] or
+      ocupation = ANY(ARRAY[:t]) or user_profiles.name ~ ANY(ARRAY[:t])", t: terms)
+  end
+
   def cpf_digits
     unless cpf_is_valid?
       errors.add(:cpf, :invalid_cpf)

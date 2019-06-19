@@ -11,4 +11,12 @@ class ServiceProvider < ApplicationRecord
   validates :latitude, :longitude, numericality: true
   validates :description, length: { maximum: 1000 }
 
+  private
+  def set_upcase
+    self.name.upcase!
+
+    self.address.upcase!
+    self.neighborhood.upcase!
+  end
+
 end

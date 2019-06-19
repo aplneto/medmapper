@@ -1,14 +1,21 @@
 h1 #{ProfessionalProfile.model_name.human(count: 2)}
 
+div
+  = form_tag search_professional_profiles_path, method: :get, role: 'search' do
+    table
+      tr
+        td = text_field_tag :terms, params[:terms], class: 'form-control'
+        td = submit_tag "Pesquisar", name: nil, class: 'btn btn-default'
+  
+  = link_to 'New Professional profile', new_professional_profile_path,
+    class: 'btn btn-default'
+
 - if @professional_profiles.any?
   = "Profissionais cadastrados: #{@professional_profiles.count}"
-  div
+  div.profiles
     - @professional_profiles.each do |professional_profile|
-      = render partial: 'professional_profile', locals: {professional_profile: professional_profile}
+      = render partial: 'professional_profile',
+      locals: {professional_profile: professional_profile}
 - else
-  div
+  div.profiles
     p Nenhum profissional cadastrado
-
-br
-
-= link_to 'New Professional profile', new_professional_profile_path

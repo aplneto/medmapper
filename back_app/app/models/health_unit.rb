@@ -18,8 +18,10 @@ class HealthUnit < ApplicationRecord
   # polymorphic association to comments
   has_many :comments, as: :page
 
-  geocoded_by :address
-  after_validation :geocode
+  reverse_geocoded_by :latitude, :longitude
+  after_validation :reverse_geocode
+
+
   # subclasses's dinamyc scoping
   TYPES.each do |type|
     scope type.underscore.to_sym, -> { where(type: type) }
@@ -81,19 +83,19 @@ class HealthUnit < ApplicationRecord
   end
 
     private
-        # Callback to ensure everything is upcased
-        def set_upcase
-            self.name.upcase!
-            self.address.upcase!
-            self.neighborhood.upcase!
+      # Callback to ensure everything is upcased
+      def set_upcase
+        self.name.upcase!
+        self.address.upcase!
+        self.neighborhood.upcase!
 
-            self.specialties.each do |specialty|
-                specialty.upcase!
-            end
-
-            self.treatments.each do |treatment|
-                treatment.upcase!
-            end
+        self.specialties.each do |specialty|
+            specialty.upcase!
         end
+
+        self.treatments.each do |treatment|
+            treatment.upcase!
+        end
+      end
 
 end

@@ -47,6 +47,24 @@ class ProfessionalProfilesController < ApplicationController
     end
   end
 
+  def basic_search
+    if params[:terms].empty?
+      redirect_to professional_profiles_path
+    else
+      @professional_profiles = ProfessionalProfile
+      .basic_search(*params[:terms].upcase!.split(' '))
+      aux_count = @professional_profiles.count
+      respond_to do |format|
+        format.html { 
+          flash[:notice] = "#{ProfessionalProfile.model_name
+          .human(count: aux_count)}: #{aux_count}"
+
+          render template: 'professional_profiles/index'
+         }
+      end
+    end
+  end
+
   # GET /profissionais/servicos
   def search_services
     if params[:services].empty?
