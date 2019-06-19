@@ -15,14 +15,14 @@
 
 
   br
-  = link_to 'Todas as Unidades de Saúde', health_units_path
-  = link_to 'Hospitais', hospitals_path
-  = link_to 'Postos de Saúde', basic_health_units_path
-  = link_to 'Centros Especializados', specialized_units_path
-  = link_to 'Farmácias', pharmacies_path
-  = link_to 'NASF', family_health_support_centers_path
-  = link_to 'Profissionais', professional_profiles_path
-  = link_to 'Serviços', service_providers_path
+  = link_to HealthUnit.model_name.human(count: 2), health_units_path
+  = link_to Hospital.model_name.human(count: 2), hospitals_path
+  = link_to BasicHealthUnit.model_name.human(count: 2), basic_health_units_path
+  = link_to SpecializedUnit.model_name.human(count: 2), specialized_units_path
+  = link_to Pharmacy.model_name.human(count: 2), pharmacies_path
+  = link_to FamilyHealthSupportCenter.model_name.human(count: 2), family_health_support_centers_path
+  = link_to ProfessionalProfile.model_name.human(count: 2), professional_profiles_path
+  = link_to ServiceProvider.model_name.human(count: 2), service_providers_path
   = link_to 'Sobre', about_path
   br
 

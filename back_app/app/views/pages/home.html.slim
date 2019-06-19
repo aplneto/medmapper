@@ -1,3 +1,32 @@
-.p O <b>Saúde em Suas Mãos</b> é uma plataforma online que reúne as informações sobre
-    as unidades de saúde da cidade do Recife em um só lugar, facilitando 
-    a busca por unidades e tratamentos específicos.
+div style="padding: 35px;"
+    .p O <b>Saúde em Suas Mãos</b> é uma plataforma online que reúne as informações sobre
+        as unidades de saúde da cidade do Recife em um só lugar, facilitando 
+        a busca por unidades de saúde e tratamentos específicos.
+    br
+    br
+
+    .p Ao clicar no símbolo ao lado (&#9776;), você tem acesso ao menu da plataforma, onde poderá navegar
+        pelas seguintes áreas:
+    b
+        ul
+            li
+                = link_to Hospital.model_name.human(count: 2), hospitals_path
+            li 
+                = link_to BasicHealthUnit.model_name.human(count: 2), basic_health_units_path
+            li 
+                = link_to SpecializedUnit.model_name.human(count: 2), specialized_units_path
+            li 
+                = link_to Pharmacy.model_name.human(count: 2), pharmacies_path
+            li 
+                = link_to FamilyHealthSupportCenter.model_name.human(count: 2), family_health_support_centers_path
+    .p Nossa plataforma também está aberta para:
+    b        
+        ul
+            li
+                = link_to ProfessionalProfile.model_name.human(count: 2), professional_profiles_path
+            li
+                = link_to ServiceProvider.model_name.human(count: 2), service_providers_path
+    br
+    .p Essa plataforma está sendo desenvolvida por estudantes do curso de <b>Sistemas de Informação</b>
+        em parceria com o Laboratório de Cinesioterapia e Avaliação Funcional (LACAF), ambos funcionando
+        na Universidade Federal de Pernambuco.
