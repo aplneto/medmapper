@@ -12,7 +12,7 @@ class ProfessionalProfile < ApplicationRecord
 
   validate :cpf_digits
 
-  scope :validated, -> { where(validation: true) }
+  scope :valid, -> { where(validation: true) }
 
   # Callbacks
   before_save :set_uppercase

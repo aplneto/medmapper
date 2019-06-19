@@ -20,8 +20,26 @@ center
         td = f.text_area :places, placeholder: help_places_field,
               value: @professional_profile.places.join(' ')
       tr
+        th = f.label :facebook
+        td = f.text_field :facebook
+      tr
+        th = f.label :lattes
+        td = f.text_field :lattes
+      tr
+        th = f.label :instagram
+        td = f.text_field :instagram
+      tr
+        th = f.label :linkedin
+        td = f.text_field :linkedin
+      tr
+        th = f.label :whatsapp
+        td = f.text_field :whatsapp
+      tr
         th = f.label :services
         td = f.text_area :services, placeholder: help_services_field,
               value: @professional_profile.services.join(' ')
+      - if account_is_administrator?
+        th = f.label :validation
+        td = f.check_box :validation
 
     .actions = f.submit

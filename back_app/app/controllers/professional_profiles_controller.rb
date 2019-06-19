@@ -38,7 +38,7 @@ class ProfessionalProfilesController < ApplicationController
     respond_to do |format|
       if @professional_profile.save
         format.html { redirect_to @professional_profile,
-          notice: 'Professional profile was successfully created.' }
+          notice: 'Criado' }
         format.json { render :show, status: :created,
           location: @professional_profile }
       else
@@ -161,7 +161,8 @@ class ProfessionalProfilesController < ApplicationController
     # through.
     def professional_profile_params
       params.require(:professional_profile).permit(:registry, :ocupation, :cpf,
-        :contacts, :places, :services)
+        :contacts, :places, :services, :validation, :facebook, :lattes,
+        :instagram, :linkedin, :whatsapp)
     end
 
     def assert_that_user_owns_profile

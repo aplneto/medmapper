@@ -8,11 +8,11 @@
             td = family_health_support_center.team
             tr
             th Ponto de Apoio: 
-            - if family_health_support_center.health_unit.nil?
+            - if family_health_support_center.health_unit_id.nil?
                 td = family_health_support_center.support_point
             - else
                 td = link_to family_health_support_center.support_point,
-                family_health_support_center.health_unit
+                HealthUnit.find(family_health_support_center.health_unit_id)
             tr
             th Telefone: 
             td = family_health_support_center.phone

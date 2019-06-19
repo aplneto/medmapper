@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_19_103113) do
+ActiveRecord::Schema.define(version: 2019_06_19_163919) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -111,6 +111,11 @@ ActiveRecord::Schema.define(version: 2019_06_19_103113) do
     t.text "contacts", array: true
     t.text "places", array: true
     t.text "services", array: true
+    t.string "facebook"
+    t.string "lattes"
+    t.string "instagram"
+    t.string "linkedin"
+    t.string "whatsapp"
     t.index ["cpf"], name: "index_professional_profiles_on_cpf", unique: true
     t.index ["registry"], name: "index_professional_profiles_on_registry", unique: true
     t.index ["user_profile_id"], name: "index_professional_profiles_on_user_profile_id"
@@ -130,6 +135,7 @@ ActiveRecord::Schema.define(version: 2019_06_19_103113) do
     t.text "services", array: true
     t.string "image"
     t.string "webpage"
+    t.boolean "validation", default: false
     t.index ["name"], name: "index_service_providers_on_name", unique: true
     t.index ["user_profile_id"], name: "index_service_providers_on_user_profile_id"
   end

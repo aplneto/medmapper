@@ -9,7 +9,6 @@ class FamilyHealthSupportCenter < ApplicationRecord
     validates :latitude, :longitude, numericality: true
     validates :district, numericality: { only_integer: true }
 
-    belongs_to :health_unit
 
     def self.by_district(num)
         where('district = :n', n: num)

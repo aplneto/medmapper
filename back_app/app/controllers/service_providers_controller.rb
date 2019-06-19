@@ -124,7 +124,7 @@ class ServiceProvidersController < ApplicationController
     def service_provider_params
       usable = params.require(:service_provider).permit(:name, :address,
         :neighborhood, :phone, :latitude, :longitude,
-        :description, :services, :image, :webpage)
+        :description, :services, :image, :webpage, :validation)
       usable[:services] = usable[:services].split(' ')
       usable[:user_profile_id] = current_logged_user_id
       return usable

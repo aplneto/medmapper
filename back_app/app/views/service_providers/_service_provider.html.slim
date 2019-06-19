@@ -1,5 +1,8 @@
 div id='service_provider_#{service_provider.id}'
-    h2 = link_to service_provider.name, service_provider
+    - if service_provider.validation
+        h2.valid = link_to service_provider.name, service_provider
+    - else
+        h2.invalid = link_to service_provider.name, service_provider
     - unless service_provider.image.nil?
         div.preview
             = image_tag service_provider.image

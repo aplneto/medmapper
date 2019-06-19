@@ -20,7 +20,6 @@ class HealthUnit < ApplicationRecord
 
   # polymorphic association to comments
   has_many :comments, as: :page
-  has_many :family_health_support_centers
 
   geocoded_by :address
   after_validation :geocode

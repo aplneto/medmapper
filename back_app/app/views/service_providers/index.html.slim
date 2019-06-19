@@ -14,5 +14,6 @@ br
 div.service_providers
   - if @service_providers.any?
     - @service_providers.each do |service_provider|
-      = render partial: 'service_provider',
-      locals: {service_provider: service_provider}
+      - if service_provider.validation or account_is_administrator?
+        = render partial: 'service_provider',
+        locals: {service_provider: service_provider}
