@@ -19,7 +19,9 @@ class ProfessionalProfilesController < ApplicationController
   # GET /professional_profiles/new
   def new
     @professional_profile = ProfessionalProfile.new
-    @professional_profile.contacts
+    @professional_profile.contacts = []
+    @professional_profile.places = []
+    @professional_profile.services = []
   end
 
   # GET /professional_profiles/1/edit

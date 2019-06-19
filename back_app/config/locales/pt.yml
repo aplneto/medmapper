@@ -60,6 +60,9 @@ pt:
         invalid: "Nome de usuário ou senha incorretos"
         unauthenticated: "Você precisa fazer login ou cadastrar-se 
         para continuar"
+    confirmations:
+      account:
+        confirmed: "Endereço de e-mail confirmado com sucesso"
 
   date:
     formats:
