@@ -38,7 +38,6 @@
 | Documentação do Projeto | Todo o Grupo |
 | Seed do Banco de Dados | Antônio |
 | editar a página inicial e de suporte [[#83]](https://github.com/aplneto/medmapper/issues/83) | Pedro, Antônio|
-| Sanitarização do banco de dados - SUS/DATASUS [[#74]](https://github.com/aplneto/medmapper/issues/74) | Antônio |
 
 ## Não realizadas na Iteração 4
 | Ação | Responsável(eis) |
