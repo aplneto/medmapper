@@ -52,6 +52,11 @@ gem 'gmaps4rails'
 # gmaps4rails dependencies
 gem 'underscore-rails'
 
+# Tradução
+gem 'rails-i18n'
+gem 'dynamic_form'
+gem 'simple_form'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
@@ -60,6 +65,7 @@ group :development, :test do
   gem 'rspec-json_expectations'
   gem 'cucumber-rails', require: false
   gem 'database_cleaner'
+  gem 'i18n-tasks'
 end
 
 group :development do
@@ -83,8 +89,3 @@ gem 'slim-rails'
 # Autentication Handling
 gem 'devise'
 gem 'omniauth'
-
-# Tradução
-gem 'rails-i18n'
-gem 'dynamic_form'
-gem 'simple_form'

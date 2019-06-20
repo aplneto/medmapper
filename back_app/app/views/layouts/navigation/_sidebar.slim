@@ -13,24 +13,25 @@
             button type="button" class="btn" id="btn-login" Registrar-se    
   a href="javascript:void(0)" class="closebtn" onclick="closeNav()" &times;
 
-
-  br
-  = link_to HealthUnit.model_name.human(count: 2), health_units_path
-  = link_to Hospital.model_name.human(count: 2), hospitals_path
-  = link_to BasicHealthUnit.model_name.human(count: 2), basic_health_units_path
-  = link_to SpecializedUnit.model_name.human(count: 2), specialized_units_path
-  = link_to Pharmacy.model_name.human(count: 2), pharmacies_path
-  = link_to FamilyHealthSupportCenter.model_name.human(count: 2), family_health_support_centers_path
-  = link_to ProfessionalProfile.model_name.human(count: 2), professional_profiles_path
-  = link_to ServiceProvider.model_name.human(count: 2), service_providers_path
-  = link_to 'Sobre', about_path
-  br
-
-  = form_tag basic_search_health_units_path, method: :get, role: 'search' do
-    = text_field_tag :keywords, params[:keywords], class: 'form-control'
-    br
-    center
-     = submit_tag "Pesquisar", name: nil, class: 'btn btn-default'
+  div#buttons
+  table
+    tr = link_to HealthUnit.model_name.human(count: 2), health_units_path,
+      class: 'btn btn-primary'
+    tr = link_to Hospital.model_name.human(count: 2), hospitals_path, 
+      class: 'btn btn-primary'
+    tr = link_to BasicHealthUnit.model_name.human(count: 2),
+      basic_health_units_path, class: 'btn btn-primary'
+    tr = link_to SpecializedUnit.model_name.human(count: 2),
+      specialized_units_path, class: 'btn btn-primary'
+    tr = link_to Pharmacy.model_name.human(count: 2), pharmacies_path,
+      class: 'btn btn-primary'
+    tr = link_to FamilyHealthSupportCenter.model_name.human(count: 2),
+      family_health_support_centers_path, class: 'btn btn-primary'
+    tr = link_to ProfessionalProfile.model_name.human(count: 2),
+      professional_profiles_path, class: 'btn btn-primary'
+    tr = link_to ServiceProvider.model_name.human(count: 2),
+      service_providers_path, class: 'btn btn-primary'
+    tr = link_to 'Sobre', about_path, class: 'btn btn-primary'
 
   
   javascript:

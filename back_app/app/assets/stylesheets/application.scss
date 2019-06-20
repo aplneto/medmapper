@@ -1,11 +1,42 @@
 @import "bootstrap";
 
 body {
-	margin: 0;
 	font-family: "Lato", sans-serif;
 	background-color: #EEEEEE;
 	justify-content: center;
+	font-size: 110%;
 }
+
+container.nav {
+	text-align: center;
+}
+
+a.btn.btn-primary {
+	background-color: blue !important;
+	color: white !important;
+	text-align: center;
+	border: none;
+	outline: none;
+	margin: 5% 0;
+}
+
+.sidenav#mySidenav {
+	display: inline-block;
+}
+
+div#header div#logo {
+	margin: 0 0 5% 0;
+}
+
+div#header div#search_bar {
+	border-bottom: 1px solid grey;
+}
+
+div#header div#search_bar table#search_bar {
+	white-space: nowrap;
+	border-spacing: 1000px;
+}
+
 .footer {
 	height: 25px;
 	left: 0;
