@@ -46,14 +46,16 @@ javascript:
   });
 
 br
-=> link_to 'Editar', edit_health_unit_path(health_unit)
+= link_to 'Editar', edit_health_unit_path(health_unit)
+= link_to t('delete'), health_unit, method: :delete
 br
 br
 h3 #{health_unit.comments.count} comentários
 - if health_unit.comments.count > 0
   - health_unit.comments.each do |comment|
     div
-      = render partial: "comments/comment", locals: { comment: comment }
+      = render partial: "comments/comment", locals: { comment: comment,
+      page: health_unit }
 - else
   p Não há comentários nessa página. Seja o primeiro a comentar.
 

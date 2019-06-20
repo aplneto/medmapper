@@ -1,11 +1,11 @@
 h2 = comment.user_profile.name
-    #error_explanation
-      h2 = t
-      ul
-        - @health_unit.errors.full_messages.each do |message|
-          li = message
-
+  = error_messages_for 'comments'
 p = comment.body
+
 ul
-    li = link_to 'editar', edit_health_unit_comment_path(comment)
-    li = link_to 'excluir', health_unit_comment_path(comment), data: { confirm: 'Are you sure?' }, method: :delete
+    li = link_to 'editar', action: 'edit', controller: 'comments',
+    id: comment.id, type: page.type,
+    "#{page.type.underscore}_id".to_sym => page.id
+    li = link_to 'excluir', action: 'destroy', controller: 'comments',
+    id: comment.id, type: page.type,
+    "#{page.type.underscore}_id".to_sym => page.id

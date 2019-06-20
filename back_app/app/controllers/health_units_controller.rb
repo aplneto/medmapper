@@ -34,7 +34,7 @@ class HealthUnitsController < ApplicationController
 
     respond_to do |format|
       if @health_unit.save!
-        format.html { redirect_to @health_unit, notice: 'Health unit was successfully created.' }
+        format.html { redirect_to @health_unit, notice: 'Unidade criada com sucesso.' }
         format.json { render :show, status: :created, location: @health_unit }
       else
         format.html { render :new }

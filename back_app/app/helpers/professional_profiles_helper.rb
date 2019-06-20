@@ -12,7 +12,7 @@ module ProfessionalProfilesHelper
                 return link_to user_profile.name,
                 edit_professional_profile_path(professional_profile)
             else
-                return link_to user_profile.name, new_professional_profile
+                return link_to user_profile.name, new_professional_profile_path
             end
         end
         unless account_signed_in?

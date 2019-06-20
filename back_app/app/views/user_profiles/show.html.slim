@@ -14,6 +14,10 @@ p
   strong Descrição:
   = @user_profile.description
 
+p
+  strong Email:
+  = @user_profile.account.email
+
 div#profile_picture
   - if @user_profile.picture.attached?
     = image_tag url_for(@user_profile.picture)
