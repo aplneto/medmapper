@@ -25,7 +25,9 @@
 | Finalização do TDD | Antônio, Isac |
 | Finalização dos Queries| Todo o Grupo |
 | Documentação do Projeto | Todo o Grupo |
-| integrar api do Maps ao projeto [[84#]](https://github.com/aplneto/medmapper/issues/84)| Isac |
+| Integrar api do Maps ao projeto [[84#]](https://github.com/aplneto/medmapper/issues/84)| Isac |
+|[Screencast](https://youtu.be/3z_ivZUGbvM)|Pedro|
+
 
 
 ## Realizadas na Iteração 4
@@ -38,6 +40,7 @@
 | Documentação do Projeto | Todo o Grupo |
 | Seed do Banco de Dados | Antônio |
 | editar a página inicial e de suporte [[#83]](https://github.com/aplneto/medmapper/issues/83) | Pedro, Antônio|
+|[Screencast](https://youtu.be/3z_ivZUGbvM)|Pedro|
 
 ## Não realizadas na Iteração 4
 | Ação | Responsável(eis) |
