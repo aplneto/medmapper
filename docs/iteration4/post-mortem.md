@@ -43,22 +43,20 @@
 ## Não realizadas na Iteração 4
 | Ação | Responsável(eis) |
 |------|------------------|
-| | |
+| Sanitarização do Banco de Dados [#73]| Antônio |
 
 
 ## Em andamento 
 | Ação | Responsável(eis) |
 |----------|----------|
-| | |
-| | |
-
-## Planejamento para Iteração ...
-| Ação | Responsável(eis) |
-|----------|----------|
-| | |
+| Autorizações [#59] | Antônio |
 
 
 ## Lições Aprendidas
 * Por mais que você ache que já saiba algo, não deixe para começar depois;
 * A documentação das gems deve ser sempre a primeira fonte de consulta;
-* Por mais empolgado que um usuário esteja, expectativas devem ser moderadas.
+* Por mais empolgado que um usuário esteja, expectativas devem ser moderadas;
+* Habilidade e conhecimento não conpensam má gestão de tempo;
+
+[#73]: https://github.com/aplneto/medmapper/issues/73
+[#59]: https://github.com/aplneto/medmapper/issues/59
