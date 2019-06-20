@@ -56,10 +56,3 @@ Funcionalidade: Realizar cadastro
       """
       Termos e Condições Você deve concordar com os nossos termos para continuar
       """
-
-  Cenário: Registro Cancelado
-    Ao cancelar o cadastro, todos os campos são esvaziados
-
-    Dado que eu estou na página de registro
-    Quando eu clico no botão "Cancelar"
-    Então todos os campos devem ser esvaziados
