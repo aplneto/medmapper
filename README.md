@@ -2,8 +2,8 @@
 
 
 
-| [Motivação](#motivação) | [Goal Question Metric](#goal-question-metric)| [Instalação](#installing--getting-started)| [Ferramentas](#ferramentas-de-terceiros) | [Links](#links) | [Entregas](/docs/iterations.md) | [Mockups](/docs/mockups.md) |
-|----|----|----|----|----|----|----|
+| [Motivação](#motivação) | [Goal Question Metric](#goal-question-metric)| [Screencast](#screencast) | [Instalação](#installing--getting-started)| [Ferramentas](#ferramentas-de-terceiros) | [Links](#links) | [Entregas](/docs/iterations.md) | [Mockups](/docs/mockups.md) |
+|----|----|----|----|----|----|----|----|
 
 
 ![Logo da plataforma](docs/idv/logotmp200x200.png "Logo do Projeto")
@@ -92,6 +92,10 @@ A plataforma **MedMapper** tem como principal objetivo reunir informações em u
 4. Grau de complexidade para um usuário final realizar uma busca por um local de atendimento.
 
    > Q5
+
+## Screencast
+
+- [MedMapper](https://youtu.be/3z_ivZUGbvM)
 
 ## Installing / Getting started
 
