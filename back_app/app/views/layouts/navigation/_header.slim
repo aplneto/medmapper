@@ -1,11 +1,2 @@
 center
     div#logo = link_to (image_tag 'logo'), root_path
-
-div#search_bar = form_tag basic_search_health_units_path, method: :get, role: 'search' do
-    center
-        table#search_bar
-            td = link_to t("Home"), root_path
-            td = text_field_tag :keywords, params[:keywords],
-                class: 'form-control',placeholder: "#{t("Search")} \
-                #{Hospital.model_name.human(count: 2)}"
-            td = submit_tag t("Search"), name: nil, class: 'btn btn-default'

@@ -1,7 +1,8 @@
 .round
-    div id='health_unit.#{health_unit.id}'
+    div id='health_unit.#{health_unit.id}' class='health_unit'
         br 
-        h4 = link_to health_unit.name, health_unit
+        h4 = link_to health_unit.name, health_unit,
+            title: health_unit.description
         table
             tr
             th Endereço: 
