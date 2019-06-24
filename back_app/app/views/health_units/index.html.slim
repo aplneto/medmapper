@@ -5,7 +5,7 @@ br
 
 nav class='navbar navbar-light bg-light'
   = link_to t("Home"), root_path, class: 'nav-item nav-link'
-  = link_to "#{Hospital.model_name.human(count: 2)}", hospitals_path,
+  = link_to "#{HealthUnit.model_name.human(count: 2)}", health_units_path,
     class: 'nav-item nav-link'
   = link_to "#{BasicHealthUnit.model_name.human(count: 2)}",
     basic_health_units_path, class: 'nav-item nav-link'
@@ -17,7 +17,7 @@ nav class='navbar navbar-light bg-light'
 
   div class='dropdown-menu' aria-labelledby='outras-unidades'
     - HealthUnit::TYPES.each do |type|
-      - unless ['Hospital', 'BasicHealthUnit'].include? type
+      - unless 'BasicHealthUnit'== type
         = link_to "#{type.constantize.model_name.human(count: 2)}",
           url_for(type.constantize),
           class: 'dropdown-item'
@@ -33,7 +33,7 @@ nav class='navbar navbar-light bg-light'
 
 div#content
 center
-  p = "Sua busca retornou #{@health_units.count} \
+  p = "#{@health_units.count} \
   #{@health_units.klass.model_name.human(count: @health_units.count)}"
 - if @health_units.any?
   div.health_unit

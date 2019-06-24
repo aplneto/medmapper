@@ -1,5 +1,5 @@
-div style="padding: 35px;"
-    .p O <b>Saúde em Suas Mãos</b> é uma plataforma online que reúne as informações sobre
+div
+    p O Saúde em Suas Mãos é uma plataforma online que reúne as informações sobre
         as unidades de saúde da cidade do Recife em um só lugar, facilitando 
         a busca por unidades de saúde e tratamentos específicos.
     br
@@ -19,7 +19,7 @@ div style="padding: 35px;"
                 = link_to Pharmacy.model_name.human(count: 2), pharmacies_path
             li 
                 = link_to FamilyHealthSupportCenter.model_name.human(count: 2), family_health_support_centers_path
-    .p Nossa plataforma também está aberta para:
+    p Nossa plataforma também está aberta para:
     b        
         ul
             li
@@ -27,6 +27,10 @@ div style="padding: 35px;"
             li
                 = link_to ServiceProvider.model_name.human(count: 2), service_providers_path
     br
-    .p Essa plataforma está sendo desenvolvida por estudantes do curso de <b>Sistemas de Informação</b>
+    p Essa plataforma está sendo desenvolvida por estudantes do curso de Sistemas de Informação
         em parceria com o Laboratório de Cinesioterapia e Avaliação Funcional (LACAF), ambos funcionando
         na Universidade Federal de Pernambuco.
+    
+    =link_to (image_tag 'ad-horizontal-banner', size: '728x90'),
+    'http://3virgula14.ga/', class: 'ad-banner', id: 'ad-home', target:'_blank',
+    title: 'Propaganda de testes: 728x90'

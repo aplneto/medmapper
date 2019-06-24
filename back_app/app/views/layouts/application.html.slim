@@ -14,8 +14,7 @@ html lang="pt-br"
     - flash.each do |chave, valor|
       = content_tag :div, valor, class:"flash_#{chave}"
 
-    div.main#content
-      == yield
+    div#main == yield
       
   .div
     = render 'layouts/navigation/footer'

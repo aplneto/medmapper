@@ -77,8 +77,6 @@ class HealthUnitsController < ApplicationController
         .split(' '))
       respond_to do |format|
         format.html { 
-          flash[:notice] = "#{@health_units.count}
-          #{unit_class.model_name.human(count: @health_units.count)}"
           render template: "health_units/index.html.slim" 
         }
         format.json { render template: "health_units/index.json.jbuilder"}
@@ -91,9 +89,7 @@ class HealthUnitsController < ApplicationController
     @health_units = unit_class.by_specialties(*@specialty.upcase.split(' '))
       respond_to do |format|
         format.html {
-          flash[:notice] = "#{@health_units.count}
-          #{unit_class.model_name.human(count: @health_units.count)}"
-          render template: "health_units/specialty.html.slim" 
+          render template: "health_units/index.html.slim" 
         }
         format.json { render template: "health_units/index.json.jbuilder"}
       end
@@ -107,8 +103,6 @@ class HealthUnitsController < ApplicationController
         .split(' '))
       respond_to do |format|
         format.html { 
-          flash[:notice] = "#{@health_units.count}
-          #{unit_class.model_name.human(count: @health_units.count)}"
           render template: "health_units/index.html.slim"
         }
         format.json { render template: "health_units/index.json.jbuilder"}
@@ -123,8 +117,6 @@ class HealthUnitsController < ApplicationController
       @health_units = unit_class.by_neighborhood(params[:neighborhood].upcase)
       respond_to do |format|
         format.html { 
-          flash[:notice] = "#{@health_units.count}
-          #{unit_class.model_name.human(count: @health_units.count)}"
           render template: "health_units/index.html.slim" 
         }
         format.json { render template: "health_units/index.json.jbuilder"}

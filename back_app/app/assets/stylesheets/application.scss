@@ -28,7 +28,7 @@ div#header div#logo {
 	margin: 0 0 5% 0;
 }
 
-div#header div#search_bar {
+div#header {
 	border-bottom: 1px solid grey;
 }
 
@@ -110,6 +110,11 @@ th, text {
 	}
 }
 
+span.side-button {
+	position: fixed !important;
+	padding: 2.5% 2.5%;
+}
+
 f.label {
 	color: #818181
 }
@@ -136,9 +141,20 @@ f.label {
 	width: 50;
 }
 
-.div#main {
+div#main {
 	transition: margin-left .5s;
-	padding: 16px;
+	padding: 0 5%;
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
+}
+
+.ad-banner {
+	text-align: center;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	margin: 5% 0;
 }
 @media screen and (max-height: 450px) {
 	.sidenav {

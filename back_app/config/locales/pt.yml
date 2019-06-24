@@ -42,6 +42,8 @@ pt:
   forgot: "Esqueceu a sua senha?"
   instructions: "Não recebeu seu e-mail de confirmação?"
   unlock: 'Conta bloqueada?'
+  remember: 'Continuar conectado'
+  password: 'Senha'
 
   helpers:
     submit:
