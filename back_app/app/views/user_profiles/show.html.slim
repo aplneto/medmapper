@@ -1,3 +1,10 @@
+= stylesheet_link_tag 'user_profiles', media: 'all', 'data-turbolinks-track' => true
+
+div#profile-header
+  div#profile-picture-space
+    = image_tag url_for(@user_profile.picture.attached? ? \
+      @user_profile.picture : 'user.png'), class: 'profile-picture', size: '360x360'
+
 p
   strong Nome:
   = @user_profile.name

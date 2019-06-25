@@ -1,3 +1,5 @@
+= stylesheet_link_tag 'professional_profiles', media: 'all', 'data-turbolinks-track' => true
+
 h1 #{ProfessionalProfile.model_name.human(count: 2)}
 
 div
@@ -12,10 +14,11 @@ div
 
 - if @professional_profiles.any?
   = "Profissionais cadastrados: #{@professional_profiles.count}"
-  div.profiles
-    - @professional_profiles.each do |professional_profile|
-      = render partial: 'professional_profile',
-      locals: {professional_profile: professional_profile}
+  div.container
+    div.row
+      - @professional_profiles.each do |professional_profile|
+        = render partial: 'professional_profile',
+        locals: {professional_profile: professional_profile}
 - else
-  div.profiles
+  div.container
     p Nenhum profissional cadastrado

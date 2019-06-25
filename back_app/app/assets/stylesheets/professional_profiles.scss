@@ -1,3 +1,79 @@
 // Place all the styles related to the ProfessionalProfiles controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.row {
+    background: silver;
+    height: 100%;
+    width: 100%;
+}
+
+div.professional-profile {
+    background: white;
+    margin-bottom: 10px;
+    width: 100%;
+    height: 100%;
+    display: table
+}
+
+.wrapper {
+    display: table-row;
+    height: 0px;
+}
+
+.cell-wrapper {
+    display: table-cell;
+    height: 100%;
+    width: 100%;
+}
+
+.profile-left {
+    position: relative;
+    background: yellow;
+    margin: 0;
+    height: 100%;
+    width: 0px;
+    display: table-cell;
+
+    div.avatar {
+        width: 240px;
+        height: 240px;
+        background: transparent;
+        margin: 0;
+    }
+    .profile-avatar {
+        width: 240px;
+        height: 240px;
+        margin: 0;
+        border: 7px solid white;
+    };
+}
+
+.profile-right {
+    background: red;
+    display: table-cell;
+    width: 100%;
+    height: 0px;
+    margin: 0;
+    .title {
+        width: 100%;
+        margin: 0;
+    }
+}
+
+.profile-bottom {
+    height: 100%;
+    width: 100%;
+    display: table-cell;
+    background: green;
+    position: relative;
+    margin: 0;
+    padding: 0;
+    .ocupation {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+    }
+}

@@ -1,35 +1,17 @@
-div id='profile.#{professional_profile.id}'
-    br
-    - if professional_profile.validation
-        h4.invalid = link_to professional_profile.user_profile.name, professional_profile
-    - else
-        h4.valid = link_to professional_profile.user_profile.name, professional_profile
-    table
-        tr
-            th = ProfessionalProfile.human_attribute_name('ocupation')
-            th = ProfessionalProfile.human_attribute_name('registry')
-            th = UserProfile.human_attribute_name('phone')
-            th
-        tr
-            td = ocupation_tag(professional_profile.ocupation)
-            td = professional_profile.registry
-            td = professional_profile.user_profile.phone
-            td
-    
-    p = professional_profile.user_profile.description
-    p =  raw services_tags(*professional_profile.services)
-    p =  raw place_tags(*professional_profile.places)
-
-    - unless professional_profile.facebook.nil? or professional_profile.facebook.empty?
-        = social_media_icon(professional_profile.facebook, 40, :facebook)
-    - unless professional_profile.instagram.nil? or professional_profile.instagram.empty?
-        = social_media_icon(professional_profile.instagram, 40, :instagram)
-    - unless professional_profile.linkedin.nil? or professional_profile.linkedin.empty?
-        = social_media_icon(professional_profile.linkedin, 40, :linkedin)
-    - unless professional_profile.whatsapp.nil? or professional_profile.whatsapp.empty?
-        = whatsapp_icon(professional_profile.whatsapp, 40)
-    - unless professional_profile.lattes.nil? or professional_profile.lattes.empty?
-        p = link_to "Lattes", professional_profile.lattes
-    
-
-br
+div class='professional-profile'
+  div class='wrapper'
+    div class='profile-left'
+      div class='avatar'
+        = link_to (image_tag(professional_profile.user_profile.picture.attached? ? \
+            url_for(professional_profile.user_profile.picture) : 'user.png',
+            class: 'profile-avatar')),
+            user_profile_path(professional_profile.user_profile)
+    div class='cell-wrapper'
+      div class='wrapper'
+        div class='profile-right'
+          h1 class='title'
+            = link_to professional_profile.user_profile.name,
+              user_profile_path(professional_profile.user_profile)
+      div class='wrapper'
+        div class='profile-bottom'
+          div class='ocupation' = ocupation_tag(professional_profile.ocupation)
