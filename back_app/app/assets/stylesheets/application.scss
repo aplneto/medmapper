@@ -1,11 +1,47 @@
 @import "bootstrap";
 
 body {
-	margin: 0;
 	font-family: "Lato", sans-serif;
 	background-color: #EEEEEE;
 	justify-content: center;
+	font-size: 110%;
 }
+
+div.justify {
+	text-align: justify;
+	text-justify: inter-word;
+}
+
+container.nav {
+	text-align: center;
+}
+
+a.btn.btn-primary {
+	background-color: blue !important;
+	color: white !important;
+	text-align: center;
+	border: none;
+	outline: none;
+	margin: 5% 0;
+}
+
+.sidenav#mySidenav {
+	display: inline-block;
+}
+
+div#header div#logo {
+	margin: 0 0 5% 0;
+}
+
+div#header {
+	border-bottom: 1px solid grey;
+}
+
+div#header div#search_bar table#search_bar {
+	white-space: nowrap;
+	border-spacing: 1000px;
+}
+
 .footer {
 	height: 25px;
 	left: 0;
@@ -51,7 +87,7 @@ th, text {
 	z-index: 1;
 	top: 0;
 	left: 0;
-	background-color: #111;
+	background-color: #EEEEEE !important;
 	overflow-x: hidden;
 	transition: 0.5s;
 	padding-top: 60px;
@@ -73,6 +109,15 @@ th, text {
 		font-size: 36px;
 		margin-left: 50px;
 	}
+	#user-info {
+		position: relative;
+		margin-top: 10%;
+	}
+}
+
+span.side-button {
+	position: fixed !important;
+	padding: 2.5% 2.5%;
 }
 
 f.label {
@@ -101,9 +146,21 @@ f.label {
 	width: 50;
 }
 
-.div#main {
+div#main {
 	transition: margin-left .5s;
-	padding: 16px;
+	padding: 0 5%;
+	margin-left: auto;
+	margin-right: auto;
+	padding-top: 3%;
+	display: block;
+}
+
+.ad-banner {
+	text-align: center;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	margin: 5% 0;
 }
 @media screen and (max-height: 450px) {
 	.sidenav {

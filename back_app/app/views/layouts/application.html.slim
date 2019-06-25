@@ -7,18 +7,15 @@ html lang="pt-br"
     = csrf_meta_tags
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
-    
-  body.fixed.skin-blue-light
-    .content
-      .wrapper
-        = render 'layouts/navigation/layout'
-        .content-wrapper
+    = favicon_link_tag asset_path('favicon.ico')
+  body
+    container.nav = render 'layouts/navigation/sidebar'
+    div#header = render 'layouts/navigation/header'
 
-      - flash.each do |chave, valor|
-        = content_tag :div, valor, class:"flash_#{chave}"
+    - flash.each do |chave, valor|
+      = content_tag :div, valor, class:"flash_#{chave}"
 
-      .div#main
-        = yield
+    div#main == yield
       
   .div
     = render 'layouts/navigation/footer'

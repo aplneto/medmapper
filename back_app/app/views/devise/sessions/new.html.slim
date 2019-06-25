@@ -1,28 +1,32 @@
-h2 Entrar
-
-= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| 
-  div class="field"
-    = f.label :email
-    br
-    = f.email_field :email, autofocus: true, autocomplete: "email" 
+= stylesheet_link_tag 'devise', media: 'all', 'data-turbolinks-track' => true
 
 
-  div class="field"
-    = f.label :password_field
-    br
-    = f.password_field :password, autocomplete: "current-password" 
-
-
-  - if devise_mapping.rememberable? 
-    div class="field"
-      = f.check_box :remember_me 
-      = f.label :remember_me 
-
-
-
-  div class="actions"
-    = f.submit "Log in" 
-
-
-= render "devise/shared/links" 
-
+div.container
+  div.row
+    div class='col-sm-9 col-md-7 col-lg-5 mx-auto'
+      div class='ard card-signin my-5'
+        div class='card-body'
+          h5 class='card-title text-center' Realizar login
+          = form_for(resource, as: resource_name, url: session_path(resource_name),
+            class:"form-signin") do |f|
+            div class='form-label-group'
+              = f.email_field :email, autofocus: true, autocomplete: "email",
+                placeholder: 'seuemail@email.com', id:'input-email',
+                class:'form-control'
+              label for='input-email' E-mail
+            div class='form-label-group'
+              = f.password_field :password, autocomplete: "current-password",
+                class:'form-control', placeholder: "#{t('password')}",
+                id: 'password-field'
+              label for='password-field' #{t('password')}
+            - if devise_mapping.rememberable? 
+              center
+                div class='custom-control custom-checkbox mb-3'
+                  = f.check_box :remember_me, class: 'custom-control-input',
+                    id:'remember-check'
+                  label class='custom-control-label' for='remember-check' #{t('remember')}
+            
+            center
+              = f.submit t('login'),
+                class:'btn btn-lg btn-primary btn-block text-uppercase'
+              = render "devise/shared/links"

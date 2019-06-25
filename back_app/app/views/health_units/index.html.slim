@@ -1,14 +1,43 @@
-h3 Unidades de Saúde
-= link_to 'Adicionar nova unidade', new_health_unit_path
+= stylesheet_link_tag 'health_units', media: 'all', 'data-turbolinks-track' => true
+
+h3.title = @health_units.klass.model_name.human(count:2)
 br
-br
 
+nav class='navbar navbar-light bg-light'
+  = link_to t("Home"), root_path, class: 'nav-item nav-link'
+  = link_to "#{HealthUnit.model_name.human(count: 2)}", health_units_path,
+    class: 'nav-item nav-link'
+  = link_to "#{BasicHealthUnit.model_name.human(count: 2)}",
+    basic_health_units_path, class: 'nav-item nav-link'
 
-p Total de #{@health_units.klass.model_name.human(count: @health_units.count)} cadastradas: #{@health_units.count}
+  <!-- Dropdown Menu -->
+  = link_to "Mais Unidades", '#', class:'nav-link dropdown toggle',
+    id:'outras-unidades', 'data-toggle'=> "dropdown", 'aria-haspopup'=>"true",
+    'aria-expanded'=>'true'
 
+  div class='dropdown-menu' aria-labelledby='outras-unidades'
+    - HealthUnit::TYPES.each do |type|
+      - unless 'BasicHealthUnit'== type
+        = link_to "#{type.constantize.model_name.human(count: 2)}",
+          url_for(type.constantize),
+          class: 'dropdown-item'
+
+  <!-- Form de Pesquisa -->
+  = form_tag basic_search_health_units_path, method: :get, role: 'search',
+    class: 'form-inline' do
+    = text_field_tag :keywords, params[:keywords], type: 'search', 'aria-label'=>"Search",
+    class: 'form-control mr-sm-2', placeholder: "#{t("Search")} \
+    #{Hospital.model_name.human(count: 2)}"
+    = submit_tag t("Search"), name: nil, type: 'submit',
+      class: 'btn btn-outline-primary my-2 my-sm-0'
+
+div#content
+center
+  p = "#{@health_units.count} \
+  #{@health_units.klass.model_name.human(count: @health_units.count)}"
 - if @health_units.any?
-  div
+  div.health_unit
     - @health_units.each do |health_unit|
       = render partial: 'health_unit', locals: {health_unit: health_unit}
 - else
-  p Nenhuma unidade de saúde foi encontrada
+  p Nenhuma unidade foi encontrada

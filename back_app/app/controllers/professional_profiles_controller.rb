@@ -4,11 +4,17 @@ class ProfessionalProfilesController < ApplicationController
   before_action :authenticate_account!, only: [:new, :create, :edit, :update,
     :destroy]
   before_action :assert_account_has_profile, only: [:new, :create]
+  before_action :assert_that_user_owns_profile, only: [:edit, :update]
+  before_action :assert_user_can_see_profile, only: [:show]
 
   # GET /professional_profiles
   # GET /professional_profiles.json
   def index
-    @professional_profiles = ProfessionalProfile.all
+    if account_is_administrator?
+      @professional_profiles = ProfessionalProfile.all
+    else
+      @professional_profiles = ProfessionalProfile.valid
+    end
   end
 
   # GET /professional_profiles/1
@@ -56,6 +62,9 @@ class ProfessionalProfilesController < ApplicationController
       @professional_profiles = ProfessionalProfile
       .basic_search(*params[:terms].upcase!.split(' '))
       aux_count = @professional_profiles.count
+      unless account_is_administrator?
+        @professional_profiles = @professional_profiles.valid
+      end
       respond_to do |format|
         format.html { 
           flash[:notice] = "#{ProfessionalProfile.model_name
@@ -160,15 +169,25 @@ class ProfessionalProfilesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list
     # through.
     def professional_profile_params
-      params.require(:professional_profile).permit(:registry, :ocupation, :cpf,
-        :contacts, :places, :services, :validation, :facebook, :lattes,
-        :instagram, :linkedin, :whatsapp)
+      allowed = [:registry, :ocupation, :cpf, :contacts, :places, :services,
+        :facebook, :lattes, :instagram, :linkedin, :whatsapp]
+      if account_is_administrator?
+        allowed << :validation
+      end
+      params.require(:professional_profile).permit(*allowed)
     end
 
     def assert_that_user_owns_profile
-      unless @professional_profile.user_profile_id == current_logged_user_id
-        .find_by(account_id: current_account.id)
+      unless (@professional_profile.user_profile_id == current_logged_user_id or
+        account_is_administrator?)
         redirect_to controller: 'pages', action: 'forbidden'
+      end
+    end
+
+    def assert_user_can_see_profile
+      unless (@professional_profile.validation or account_is_administrator? or
+        @professional_profile.user_profile_id == current_logged_user_id)
+        redirect_to '/403'
       end
     end
 

@@ -2,11 +2,7 @@ module UserProfilesHelper
 
     # Método que verifica se a conta logada possui um perfil associado
     def account_has_user_profile?
-        if account_signed_in?
-            UserProfile.exists?(account_id: current_account.id)
-        else
-            false
-        end
+        account_signed_in? and UserProfile.exists?(account_id: current_account.id)
     end
 
     # Método que retorna as informações do usuário como links
@@ -25,6 +21,22 @@ module UserProfilesHelper
             end
         else
             'Faça login ou cadastra-se para acessar seu perfil'
+        end
+    end
+
+    def user_profile_picture(size)
+        if account_has_user_profile?
+            profile = UserProfile.find_by account_id: current_account.id
+            if profile.picture.attached?
+                picture = profile.picture
+            else
+                picture = 'user.png'
+            end
+            link_to (image_tag url_for(picture), size: size),
+                user_profile_path(profile)
+        elsif account_signed_in?
+            link_to (image_tag url_for('user.png'), size: size),
+                new_user_profile_path
         end
     end
 end

@@ -12,7 +12,7 @@ module ProfessionalProfilesHelper
                 return link_to user_profile.name,
                 edit_professional_profile_path(professional_profile)
             else
-                return link_to user_profile.name, new_professional_profile
+                return link_to user_profile.name, new_professional_profile_path
             end
         end
         unless account_signed_in?
@@ -51,14 +51,19 @@ module ProfessionalProfilesHelper
 
     def social_media_icon(link, iconsize=40, media = :facebook)
         icons = {
-            facebook: "https://img.icons8.com/ultraviolet/#{iconsize}/000000/facebook-new.png",
-            instagram: "https://img.icons8.com/cotton/#{iconsize}/000000/instagram-new.png",
-            linkedin: "https://img.icons8.com/office/#{iconsize}/000000/linkedin.png"
+            facebook: "https://img.icons8.com/ultraviolet\
+/#{iconsize}/000000/facebook-new.png",
+            instagram: "https://img.icons8.com/cotton\
+/#{iconsize}/000000/instagram-new.png",
+            linkedin: "https://img.icons8.com/office\
+/#{iconsize}/000000/linkedin.png"
         }
-        link_to image_tag(icons[media]), link
+        link_to image_tag(icons[media]), link, title: media.to_s
     end
 
     def whatsapp_icon(number, iconsize = 40)
-        link_to image_tag("https://img.icons8.com/color/#{iconsize}/000000/whatsapp.png"), "https://api.whatsapp.com/send?phone=#{number}&text=sua%20mensagem"
+        link_to image_tag("https://img.icons8.com/color\
+/#{iconsize}/000000/whatsapp.png"),
+        "https://api.whatsapp.com/send?phone=#{number}&text=sua%20mensagem"
     end
 end

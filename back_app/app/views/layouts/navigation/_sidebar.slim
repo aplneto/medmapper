@@ -1,36 +1,30 @@
 .sidenav#mySidenav
-  .container
-    - if account_signed_in?
-        center
-          .style_info#user_email = user_profile_info
-          = link_to destroy_account_session_path, method: :delete
-            button type="button" class="btn" id="btn-login" Sair
-    - else
-        center
-          = link_to new_account_session_path
-            button type="button" class="btn" id="btn-login" Entrar
-          = link_to new_account_registration_path
-            button type="button" class="btn" id="btn-login" Registrar-se    
   a href="javascript:void(0)" class="closebtn" onclick="closeNav()" &times;
 
+  = user_profile_picture('200x200')
 
-  br
-  = link_to HealthUnit.model_name.human(count: 2), health_units_path
-  = link_to Hospital.model_name.human(count: 2), hospitals_path
-  = link_to BasicHealthUnit.model_name.human(count: 2), basic_health_units_path
-  = link_to SpecializedUnit.model_name.human(count: 2), specialized_units_path
-  = link_to Pharmacy.model_name.human(count: 2), pharmacies_path
-  = link_to FamilyHealthSupportCenter.model_name.human(count: 2), family_health_support_centers_path
-  = link_to ProfessionalProfile.model_name.human(count: 2), professional_profiles_path
-  = link_to ServiceProvider.model_name.human(count: 2), service_providers_path
-  = link_to 'Sobre', about_path
-  br
-
-  = form_tag basic_search_health_units_path, method: :get, role: 'search' do
-    = text_field_tag :keywords, params[:keywords], class: 'form-control'
-    br
-    center
-     = submit_tag "Pesquisar", name: nil, class: 'btn btn-default'
+  ul class="list-unstyled components"
+    li = link_to root_path
+      button type="button" class='btn btn-primary btn-block my-2 my-sm-0' #{t('Home')}
+    li = link_to health_units_path
+      button type="button" class='btn btn-primary btn-block my-2 my-sm-0' #{HealthUnit.model_name.human(count: 2)}
+    li = link_to professional_profiles_path
+      button type="button" class='btn btn-primary btn-block my-2 my-sm-0' #{ProfessionalProfile.model_name.human(count: 2)}
+    li = link_to service_providers_path
+      button type="button" class='btn btn-primary btn-block my-2 my-sm-0' #{ServiceProvider.model_name.human(count: 2)}
+    li = link_to about_path
+      button type="button" class='btn btn-primary btn-block my-2 my-sm-0' Sobre
+  
+  ul class='list-unstyled components' id='user-info'
+    - if account_signed_in?
+      li = link_to destroy_account_session_path, method: :delete
+          button type="button" class="btn btn-outline-danger btn-block" Sair
+    - else
+      li = link_to new_account_session_path
+        button type='button' class='btn btn-outline-primary btn-block my-2 my-sm-o' Entrar
+      li = link_to new_account_registration_path
+        button type='button' class='btn btn-outline-primary btn-block my-2 my-sm-o' Registrar-se
+      
 
   
   javascript:
@@ -44,4 +38,4 @@
       document.getElementById("main").style.marginLeft= "0";
     }
 
-span style="font-size:30px;cursor:pointer;" onclick="openNav()" &#9776;
+span style="font-size:30px;cursor:pointer;" onclick="openNav()" class='side-button' &#9776;

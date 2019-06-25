@@ -30,10 +30,25 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 pt:
+  Hello: "Olá, mundo"
   Public: "Público"
   Private: "Privado"
   Filantropic: "Filantrópico"
-  help: "Ajuda"
+  Help: "Ajuda"
+  Search: "Pesquisar"
+  Home: "Início"
+  login: "Entrar"
+  signin: "Criar uma conta"
+  forgot: "Esqueceu a sua senha?"
+  instructions: "Não recebeu seu e-mail de confirmação?"
+  unlock: 'Conta bloqueada?'
+  remember: 'Continuar conectado'
+  password: 'Senha'
+  password_conf: 'Confirmar senha'
+  accept_terms: 'Aceitar termos e condições'
+  resend: 'Reenviar e-mail'
+  send: 'Enviar'
+  change: 'Alterar'
 
   helpers:
     submit:
@@ -79,8 +94,8 @@ pt:
         one: "Perfil Profissional"
         other: "Perfis Profissionais"
       service_provider:
-        one: "Prestador de Serviços"
-        other: "Prestadores de Serviços"
+        one: "Serviço"
+        other: "Serviços"
 
       # Unidades de Saúde
       health_unit:
@@ -89,8 +104,12 @@ pt:
       basic_health_unit:
         one: "Unidade Básica de Saúde"
         other: "Unidades Básicas de Saúde"
-      diagnosis_unit: "Serviço de Apoio Diagnóstico Terapêutico"
-      emergency_unit: "Serviço de Pronto Atendimento"
+      diagnosis_unit:
+        one: "Serviço de Apoio Diagnóstico Terapêutico"
+        other: "Serviços de Apoio Diagnóstico Terapêutico"
+      emergency_unit:
+        one: "Serviço de Pronto Atendimento"
+        other: "Serviços de Pronto Atendimento"
       family_health_unit:
         one: "Unidade de Saúde da Família"
         other: "Unidades de Saúde da Família"

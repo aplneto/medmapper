@@ -14,9 +14,8 @@ div
   = "Profissionais cadastrados: #{@professional_profiles.count}"
   div.profiles
     - @professional_profiles.each do |professional_profile|
-      - if professional_profile.validation or account_is_administrator?
-        = render partial: 'professional_profile',
-        locals: {professional_profile: professional_profile}
+      = render partial: 'professional_profile',
+      locals: {professional_profile: professional_profile}
 - else
   div.profiles
     p Nenhum profissional cadastrado

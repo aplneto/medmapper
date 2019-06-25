@@ -8,7 +8,8 @@ p
   - if @family_health_support_center.health_unit_id.nil?
     = @family_health_support_center.support_point
   - else
-    = link_to @family_health_support_center.support_point, @family_health_support_center.health_unit
+    = link_to @family_health_support_center.support_point,
+    HealthUnit.find(@family_health_support_center.health_unit_id)
 p
   strong Nome:
   strong
