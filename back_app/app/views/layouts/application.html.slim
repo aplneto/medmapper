@@ -7,6 +7,7 @@ html lang="pt-br"
     = csrf_meta_tags
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = favicon_link_tag asset_path('favicon.ico')
   body
     container.nav = render 'layouts/navigation/sidebar'
     div#header = render 'layouts/navigation/header'
