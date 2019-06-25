@@ -20,11 +20,13 @@ div.container
                 id: 'password-field'
               label for='password-field' #{t('password')}
             - if devise_mapping.rememberable? 
-              div class='custom-control custom-checkbox mb-3'
-                = f.check_box :remember_me, class: 'custom-control-input',
-                  id:'remember-check'
-                label class='custom-control-label' for='remember-check' #{t('remember')}
+              center
+                div class='custom-control custom-checkbox mb-3'
+                  = f.check_box :remember_me, class: 'custom-control-input',
+                    id:'remember-check'
+                  label class='custom-control-label' for='remember-check' #{t('remember')}
             
-            = f.submit t('login'),
-              class:'btn btn-lg btn-primary btn-block text-uppercase'
-            = render "devise/shared/links"
+            center
+              = f.submit t('login'),
+                class:'btn btn-lg btn-primary btn-block text-uppercase'
+              = render "devise/shared/links"

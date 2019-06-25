@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   get '/developers', to: 'pages#developers'
   get '/pesquisa', to: 'pages#search'
   get '/suporte', to: 'pages#support'
+  get '/terms', to: 'pages#terms'
 
   get '/403', to: 'errors#forbidden'
   get '/404', to: 'errors#not_found'

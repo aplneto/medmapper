@@ -44,6 +44,11 @@ pt:
   unlock: 'Conta bloqueada?'
   remember: 'Continuar conectado'
   password: 'Senha'
+  password_conf: 'Confirmar senha'
+  accept_terms: 'Aceitar termos e condições'
+  resend: 'Reenviar e-mail'
+  send: 'Enviar'
+  change: 'Alterar'
 
   helpers:
     submit:
