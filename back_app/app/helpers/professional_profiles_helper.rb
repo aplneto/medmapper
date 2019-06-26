@@ -65,7 +65,7 @@ module ProfessionalProfilesHelper
     def whatsapp_icon(number, iconsize = 40)
         link_to image_tag("https://img.icons8.com/color\
 /#{iconsize}/000000/whatsapp.png"),
-        "https://api.whatsapp.com/send?phone=#{number}&text=sua%20mensagem",
+        "http://api.whatsapp.com/send?1=pt_BR&phone=55#{number}",
         target: '_blank'
     end
 
