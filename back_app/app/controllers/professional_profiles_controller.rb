@@ -20,6 +20,7 @@ class ProfessionalProfilesController < ApplicationController
   # GET /professional_profiles/1
   # GET /professional_profiles/1.json
   def show
+    redirect_to user_profile_path(@professional_profile.user_profile)
   end
 
   # GET /professional_profiles/new
@@ -60,11 +61,11 @@ class ProfessionalProfilesController < ApplicationController
       redirect_to professional_profiles_path
     else
       @professional_profiles = ProfessionalProfile
-      .basic_search(*params[:terms].upcase!.split(' '))
-      aux_count = @professional_profiles.count
+      .basic_search(*params[:terms].upcase.split(' '))
       unless account_is_administrator?
         @professional_profiles = @professional_profiles.valid
       end
+      aux_count = @professional_profiles.count
       respond_to do |format|
         format.html { 
           flash[:notice] = "#{ProfessionalProfile.model_name
@@ -83,6 +84,9 @@ class ProfessionalProfilesController < ApplicationController
     else
       @professional_profiles = ProfessionalProfile
         .by_services(*params[:services].upcase.split(' '))
+      unless account_is_administrator?
+        @professional_profiles = @professional_profiles.valid
+      end
       aux_count = @professional_profiles.count
       respond_to do |format|
         format.html {
@@ -102,6 +106,9 @@ class ProfessionalProfilesController < ApplicationController
     else
       @professional_profiles = ProfessionalProfile
         .by_ocupation(params[:ocupation].upcase)
+      unless account_is_administrator?
+        @professional_profiles = @professional_profiles.valid
+      end
       aux_count = @professional_profiles.count
       respond_to do |format|
         format.html {
@@ -120,6 +127,9 @@ class ProfessionalProfilesController < ApplicationController
     else
       @professional_profiles = ProfessionalProfile
         .by_places(*params[:places].upcase.split(' '))
+      unless account_is_administrator?
+        @professional_profiles = @professional_profiles.valid
+      end
       aux_count = @professional_profiles.count
       respond_to do |format|
         format.html {

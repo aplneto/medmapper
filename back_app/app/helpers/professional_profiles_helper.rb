@@ -58,12 +58,33 @@ module ProfessionalProfilesHelper
             linkedin: "https://img.icons8.com/office\
 /#{iconsize}/000000/linkedin.png"
         }
-        link_to image_tag(icons[media]), link, title: media.to_s
+        link_to image_tag(icons[media]), link, title: media.to_s,
+            target: '_blank'
     end
 
     def whatsapp_icon(number, iconsize = 40)
         link_to image_tag("https://img.icons8.com/color\
 /#{iconsize}/000000/whatsapp.png"),
-        "https://api.whatsapp.com/send?phone=#{number}&text=sua%20mensagem"
+        "http://api.whatsapp.com/send?1=pt_BR&phone=55#{number}",
+        target: '_blank'
+    end
+
+    def social_media(professional, iconsize = 24)
+        media = %w'facebook instagram linkedin whatsapp'
+        links = {}
+        media.each do |word|
+            unless professional[word].empty?
+                links[word] = professional[word]
+            end
+        end
+        icons = []
+        links.each do |service, address|
+            if service == 'whatsapp'
+                icons << whatsapp_icon(address, iconsize)
+            else
+                icons << social_media_icon(address, iconsize, media = service.to_sym)
+            end
+        end
+        return icons
     end
 end

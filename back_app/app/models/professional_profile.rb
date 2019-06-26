@@ -33,11 +33,11 @@ class ProfessionalProfile < ApplicationRecord
   end
 
   def self.basic_search(*terms)
-    joins('LEFT JOIN user_profiles
+    joins('INNER JOIN user_profiles
       ON professional_profiles.user_profile_id = user_profiles.id')
-    .where("services && ARRAY[:t] or places && ARRAY[:t] or
-      ocupation = ANY(ARRAY[:t]) or user_profiles.name ~ ANY(ARRAY[:c])",
-      t: terms, c: terms.map {|t| t.capitalize! })
+    .where("ocupation ~ ANY(ARRAY[:t]) or places && ARRAY[:t]
+    or services && ARRAY[:t] or name ~ ANY(ARRAY[:c])",
+    t: terms, c: terms.map { |t| t.capitalize })
   end
 
   def cpf_digits

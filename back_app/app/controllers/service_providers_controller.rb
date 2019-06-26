@@ -5,7 +5,11 @@ class ServiceProvidersController < ApplicationController
   # GET /service_providers
   # GET /service_providers.json
   def index
-    @service_providers = ServiceProvider.all
+    if account_is_administrator?
+      @service_providers = ServiceProvider.all
+    else
+      @service_provicer = ServiceProvider.valid
+    end
   end
 
   # GET /service_providers/1
@@ -122,9 +126,10 @@ class ServiceProvidersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def service_provider_params
-      usable = params.require(:service_provider).permit(:name, :address,
-        :neighborhood, :phone, :latitude, :longitude,
-        :description, :services, :image, :webpage, :validation)
+      allowed = [:name, :address, :neighborhood, :phone, :latitude, :longitude,
+        :description, :services, :image, :webpage]
+      if account_is_administrator? then allowed << :validation end
+      usable = params.require(:service_provider).permit()
       usable[:services] = usable[:services].split(' ')
       usable[:user_profile_id] = current_logged_user_id
       return usable
