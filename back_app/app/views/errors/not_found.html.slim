@@ -1,7 +1,8 @@
 center
     h1 Ooops, a página solicitada não foi encontrada. Mil perdões.
-    = link_to (image_tag 'not_found', style: 'width:10%;')
+    = image_tag 'not_found', style: 'width:10%;'
 
     h3 Você pode tentar navegar por outras páginas na nossa barra ao lado, ou pode tentar começar novamente pela 
-    = link_to (image_tag 'logo', style: 'width:10%;'), root_path
+    
+    = link_to t('back'), :back
     <br />

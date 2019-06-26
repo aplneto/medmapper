@@ -44,6 +44,8 @@ pt:
   unlock: 'Conta bloqueada?'
   remember: 'Continuar conectado'
   password: 'Senha'
+  back: 'Voltar'
+  personal information: "Informações Pessoais"
 
   helpers:
     submit:
@@ -160,6 +162,8 @@ pt:
         sex: "Sexo"
         description: "Descrição"
         picture: "Foto de perfil"
+        created_at: "Data de cadastro"
+        updated_at: "Última alteração"
       professional_profile:
         registry: "Registro"
         ocupation: "Profissão"

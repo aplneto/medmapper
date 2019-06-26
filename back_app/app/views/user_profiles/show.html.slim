@@ -5,30 +5,51 @@ div#profile-header
     = image_tag url_for(@user_profile.picture.attached? ? \
       @user_profile.picture : 'user.png'), class: 'profile-picture', size: '360x360'
 
-p
-  strong Nome:
-  = @user_profile.name
-p
-  strong Sexo:
-  = @user_profile.sex
-p
-  strong Data de Nascimento:
-  = @user_profile.birthday
-p
-  strong Telefone:
-  = @user_profile.phone
-p
-  strong Descrição:
-  = @user_profile.description
+div#personal-info.info
+  div#title
+    h1 = t('personal information')
+  div#info
+    table
+      - @user_profile.attributes.each do |key, value|
+        - unless %w'picture id account_id'.include? key
+          tr
+            th
+              h2 = "#{UserProfile.human_attribute_name(key)}:"
+            td
+              h2 = "#{value}"
+    div#buttons
+      => link_to 'Editar', edit_user_profile_path(@user_profile),
+      class: 'btn btn-outline-primary', type: 'button'
+      =< link_to 'Remover', @user_profile,
+      data: { confirm: 'Você tem certeza?' }, method: :delete,
+      class: 'btn btn-outline-primary', type: 'button'
 
-p
-  strong Email:
-  = @user_profile.account.email
+- if user_has_professional_profile? @user_profile
+  - @professional_profile = ProfessionalProfile.find_by(user_profile_id: @user_profile.id)
+  div#professional-info.info
+    div#title
+      h1 = ProfessionalProfile.model_name.human
+    div#info
+      table
+        tr
+          th
+            h2 = ProfessionalProfile.human_attribute_name('registry')
+          td
+            h2 = @professional_profile.registry
+        tr
+          th
+            h2 = ProfessionalProfile.human_attribute_name('ocupation')
+          td
+            h2 = ocupation_tag(@professional_profile.ocupation)
+    div#buttons
+      => link_to 'Editar', edit_professional_profile_path(@professional_profile),
+      class: 'btn btn-outline-primary', type: 'button'
+      =< link_to 'Remover', @professional_profile,
+      data: { confirm: 'Você tem certeza?' }, method: :delete,
+      class: 'btn btn-outline-primary', type: 'button'
 
-div#profile_picture
-  - if @user_profile.picture.attached?
-    = image_tag url_for(@user_profile.picture)
+    div#social-media
+      - social_media(@professional_profile).each do |icon|
+        = icon
 
-=> link_to 'Editar', edit_user_profile_path(@user_profile)
-'|
-=< link_to 'Remover', @user_profile, data: { confirm: 'Você tem certeza?' }, method: :delete
+

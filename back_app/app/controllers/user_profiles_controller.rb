@@ -94,9 +94,7 @@ class UserProfilesController < ApplicationController
         unless @user_profile.account_id == current_account.id
           respond_to do |format|
             format.html {
-              redirect_to user_profile_path(UserProfile.find_by(
-                account_id: current_account.id)),
-              notice: "Você não pode editar perfis de outros usuários"
+              redirect_to controller: 'errors', action: 'forbidden'
             }
             format.json { head :forbidden }
           end
@@ -113,8 +111,7 @@ class UserProfilesController < ApplicationController
         if UserProfile.exists?(account_id: current_account.id)
           respond_to do |format|
             format.html {
-              render file: "errors/forbidden", layout: true, notice: "Você já tem 
-              um perfil de usuário"
+              redirect_to controller: 'errors', action: 'forbidden'
             }
           format.json { head :forbidden }
           end

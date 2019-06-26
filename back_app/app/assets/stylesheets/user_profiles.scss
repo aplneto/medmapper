@@ -17,3 +17,37 @@ div#profile-header {
         }
     }
 }
+div.info {
+    text-align: center;
+    width: 100%;
+    div#title {
+        width: 100%;
+        text-align: right;
+    }
+    div#info {
+        background: white;
+        table{
+            width: 100%;
+        }
+        tr:nth-child(even) {
+            background-color: snow;
+        }
+        th {
+            width: 50%;
+            text-align: left;
+            padding-left: 10px;
+        }
+        td {
+            width: 100%;
+            text-align: justify;
+        }
+    }
+    div#buttons{
+        text-align: center;
+        background: #EEEEEE;
+        padding: 1% 0;
+        .btn {
+            display: inline-block;
+        }
+    }
+}
