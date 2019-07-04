@@ -152,7 +152,8 @@ Outras ferramentas:
 
 ## Releases
 
-- Coming soon...
+- [0.1](https://github.com/aplneto/medmapper/tree/acda8a231549e0d90086142c2eb81eb29e3637f5)
+- [0.2](https://github.com/aplneto/medmapper/releases/tag/0.2)
 
 ## Gems
 
