@@ -3,11 +3,9 @@ h2 = comment.user_profile.name
 p = comment.body
 
 ul
+  - if current_account && current_account.id == comment.user_profile.account_id
     li = link_to 'editar', action: 'edit', controller: 'comments',
     id: comment.id, type: page.type,
     "#{page.type.underscore}_id".to_sym => page.id
-    li = link_to 'excluir', action: 'destroy', controller: 'comments',
-    id: comment.id, type: page.type,
-    "#{page.type.underscore}_id".to_sym => page.id
-
-    
+  - if current_account && current_account.id == comment.user_profile.account_id || account_is_administrator?
+    li = link_to 'excluir', health_unit_comment_path(@health_unit, comment), method: :delete, remote: true, data: { confirm: "Tem certeza que deseja apagar esse comentário?" }

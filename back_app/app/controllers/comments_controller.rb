@@ -19,15 +19,24 @@ class CommentsController < ApplicationController
     end
 
     def edit
+      @comment = @page.comments.find(params[:id])
     end
 
     def update
-      comment = @comment.to_h
-      comment['body'] = comment_params
-      @comment.update(comment)
+      @comment = @page.comments.find(params[:id])
+
+      if @comment.update(comment_params)
+        redirect_to @page
+      else
+        render 'edit'
+      end
     end
 
     def destroy
+      @comment = @page.comments.find(params[:id])
+      @comment_id = @comment.id
+      @comment.destroy
+      # redirect_to page_path(@health_unit)
     end
 
     private
