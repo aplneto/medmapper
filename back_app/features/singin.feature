@@ -11,8 +11,8 @@ Funcionalidade: Realizar cadastro
     Quando eu preencho "E-mail" com "gcm2@cin.ufpe.br"
     E eu preencho "Senha" com "gcm2tmrp"
     E eu preencho "Confirmar senha" com "gcm2tmrp"
-    E eu pressiono a caixa de seleção "account_terms"
-    E eu clico no botão "Sign up"
+    E eu pressiono a caixa de seleção "Aceitar termos e condições"
+    E eu clico no botão "Criar uma conta"
     Então sou redirecionado para página inicial
 
   Cenário: Cadastro com todos os campos obrigatórios em branco
@@ -36,8 +36,8 @@ Funcionalidade: Realizar cadastro
     Quando eu preencho "E-mail" com "mary@odonto.br"
     E eu preencho "Senha" com "gderafrwb"
     E eu preencho "Confirmar senha" com "uyevjecert"
-    E eu pressiono a caixa de seleção "account_terms"
-    E eu clico no botão "Sign up"
+    E eu pressiono a caixa de seleção "Aceitar termos e condições"
+    E eu clico no botão "Criar uma conta"
     Então vejo na tela:
       """
       Senhas não coincidem
@@ -50,8 +50,8 @@ Funcionalidade: Realizar cadastro
     Quando eu preencho "E-mail" com "gcm2@cin.ufpe.br"
     E eu preencho "Senha" com "gcm2gcm2"
     E eu preencho "Confirmar senha" com "gcm2gcm2"
-    E eu não pressiono a caixa de seleção "account_terms"
-    E eu clico no botão "Sign up"
+    E eu não pressiono a caixa de seleção "Aceitar termos e condições"
+    E eu clico no botão "Criar uma conta"
     Então vejo na tela:
       """
       Termos e Condições Você deve concordar com os nossos termos para continuar

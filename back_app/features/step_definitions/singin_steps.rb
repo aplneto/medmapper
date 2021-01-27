@@ -5,11 +5,11 @@ Dado('que eu estou na página de registro') do
 end
 
 Quando('eu pressiono a caixa de seleção {string}') do |caixa_de_selecao|
-  find(:css, "##{caixa_de_selecao}[value='1']").set(false)
+  check(caixa_de_selecao)
 end
 
 Quando('eu não pressiono a caixa de seleção {string}') do |caixa_de_selecao|
-  find(:css, "##{caixa_de_selecao}[value='1']").set(false)
+  uncheck(caixa_de_selecao)
 end
 
 Então('todos os campos devem ser esvaziados') do
